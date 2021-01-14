@@ -192,8 +192,9 @@ function Console:SendMessage()
 	end
 end
 
+-- TODO: Refactor method to use an options table
 -- if date is not passed, current time is assumed
-function Console:AddMessage(message, userName, dateOverride, color, thirdPerson, nameColor, nameTooltip, supressNameClick)
+function Console:AddMessage(message, userName, dateOverride, color, thirdPerson, nameColor, nameTooltip, supressNameClick, suppressLogging)
 	nameColor = nameColor or "\255\50\160\255"
 	nameTooltip = nameTooltip or (userName and ("user_chat_s_" .. userName))
 	local txt = ""
@@ -287,7 +288,7 @@ function Console:AddMessage(message, userName, dateOverride, color, thirdPerson,
 		self.tbHistory:AddLine(txt, textTooltip, onTextClick)
 	end
 
-	if self.channelName then
+	if self.channelName and not suppressLogging then
 		Spring.CreateDir("chatLogs")
 		local logFile, errorMessage = io.open('chatLogs/' .. self.channelName .. ".txt", 'a')
 		if logFile then
