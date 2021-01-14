@@ -302,7 +302,10 @@ function Console:AddMessage(message, userName, dateOverride, color, thirdPerson,
 end
 
 function Console:SetTopic(newTopic)
-	self:AddMessage(newTopic, nil, nil, Configuration.meColor)
+	if self.currentTopic == nil or newTopic ~= self.currentTopic then
+		self.currentTopic = newTopic
+		self:AddMessage(newTopic, nil, nil, Configuration.meColor, nil, nil, nil, nil, true)
+	end
 end
 
 local function lineIterator(s)
