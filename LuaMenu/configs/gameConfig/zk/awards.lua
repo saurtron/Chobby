@@ -31,6 +31,10 @@ local awards = {
 		text = "Traffic Cop",
 		image = "LuaMenu/configs/gameConfig/zk/awards/trophy_slow.png",
 	},
+	disarm = {
+		text = "Peacemaker",
+		image = "LuaMenu/configs/gameConfig/zk/awards/trophy_disarm.png",
+	},
 	t3 = {
 		text = "Experimental Engineer",
 		image = "LuaMenu/configs/gameConfig/zk/awards/trophy_t3.png",
