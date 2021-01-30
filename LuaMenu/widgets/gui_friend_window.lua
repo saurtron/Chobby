@@ -199,7 +199,6 @@ local function GetProfileHandler()
 		}
 		local function GetAwardInfo(entry)
 			local data = (awardDecs[entry.AwardKey] or {})
-			Spring.Echo("entry.AwardKey", entry.AwardKey, data.image, data.text)
 			return data.image, data.text, entry.Collected
 		end
 		awardsHandler = GetAwardsHandler(awardsListHolder, 30, 40, 5, 12, GetAwardInfo, false)
