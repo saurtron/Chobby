@@ -162,9 +162,9 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			parent = mapButton,
 		}
 
-		sortData = {mapName, (mapData.Width or 0)*100 + (mapData.Height or 0), mapType, terrainType, (haveMap and 1) or 0}
+		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), mapType, terrainType, (haveMap and 1) or 0}
 	else
-		sortData = {mapName, 0, "", "", (haveMap and 1) or 0}
+		sortData = {string.lower(mapName), 0, "", "", (haveMap and 1) or 0}
 	end
 
 	local externalFunctions = {}
@@ -197,7 +197,7 @@ local function InitializeControls()
 		width = 700,
 		resizable = false,
 		draggable = false,
-		padding = {0, 0, 0, 0},
+		padding = {2, 2, 2, 2},
 	}
 
 	Label:New {
@@ -214,6 +214,13 @@ local function InitializeControls()
 		mapListWindow:Hide()
 	end
 
+	local filterString = ""
+	local function ItemInFilter(sortData)
+		if filterString == "" then
+			return true
+		end
+		return (string.find(sortData[1], filterString) and true) or false
+	end
 	--local loadingPanel = Panel:New {
 	--	classname = "overlay_window",
 	--	x = "20%",
@@ -261,13 +268,14 @@ local function InitializeControls()
 	local featuredMapList = WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}
 	local mapFuncs = {}
 
-	local mapList = WG.Chobby.SortableList(listHolder, headings, 60)
+	local mapList = WG.Chobby.SortableList(listHolder, headings, 60, 1, true, false, ItemInFilter)
 
+	local mapItems = {}
 	local control, sortData
 	for i = 1, #featuredMapList do
 		local mapName = featuredMapList[i].Name
 		control, sortData, mapFuncs[mapName] = CreateMapEntry(mapName, featuredMapList[i], CloseFunc)
-		mapList:AddItem(mapName, control, sortData)
+		mapItems[i] = {mapName, control, sortData}
 	end
 
 	if not Configuration.onlyShowFeaturedMaps then
@@ -275,10 +283,12 @@ local function InitializeControls()
 			local info = VFS.GetArchiveInfo(archive)
 			if info and info.modtype == 3 and not mapFuncs[info.name] then
 				control, sortData, mapFuncs[info.name] = CreateMapEntry(info.name, nil, CloseFunc)
-				mapList:AddItem(info.name, control, sortData)
+				mapItems[i] = {info.name, control, sortData}
 			end
 		end
 	end
+
+	mapList:AddItems(mapItems)
 
 	-------------------------
 	-- Buttons
@@ -302,7 +312,7 @@ local function InitializeControls()
 
 	if Configuration.gameConfig.link_maps ~= nil then
 		local btnOnlineMaps = Button:New {
-			right = 95,
+			right = 98,
 			y = 7,
 			width = 180,
 			height = 45,
@@ -319,9 +329,37 @@ local function InitializeControls()
 	end
 	WG.Chobby.PriorityPopup(mapListWindow, CloseFunc)
 
+	-------------------------
+	-- Filtering
+	-------------------------
+
+	local ebFilter = EditBox:New {
+		right = 288,
+		y = 13,
+		width = 180,
+		height = 33,
+		text = '',
+		hint = i18n("filter"),
+		fontsize = Configuration:GetFont(2).size,
+		parent = mapListWindow,
+		OnTextModified = {
+			function (self)
+				filterString = string.lower(self.text)
+				mapList:RecalculateDisplay()
+			end
+		}
+	}
+
+	-------------------------
+	-- External Funcs
+	-------------------------
+
 	local externalFunctions = {}
 
 	function externalFunctions.Show(zoomToMap)
+		ebFilter.text = ""
+		mapList:RecalculateDisplay()
+
 		if not mapListWindow.visible then
 			mapListWindow:Show()
 		end

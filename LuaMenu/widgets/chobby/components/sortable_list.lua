@@ -1,6 +1,6 @@
 SortableList = Component:extends{}
 
-function SortableList:init(holder, headings, itemHeight, defaultSort, sortDirection, scrollPanelOverride)
+function SortableList:init(holder, headings, itemHeight, defaultSort, sortDirection, scrollPanelOverride, ItemInFilter)
 	self:DoInit() -- Lack of inheritance strikes again.
 
 	self.sortBy = false
@@ -10,6 +10,7 @@ function SortableList:init(holder, headings, itemHeight, defaultSort, sortDirect
 	end
 
 	self.holder = holder
+	self.ItemInFilter = ItemInFilter
 
 	self.controlById = {}
 	self.sortDataById = {}
@@ -88,9 +89,7 @@ function SortableList:init(holder, headings, itemHeight, defaultSort, sortDirect
 end
 
 function SortableList:OnResize()
-	for i = 1, self.items do
-		self:RecalculatePosition(i)
-	end
+	self:RecalculateDisplay(true)
 end
 
 function SortableList:Clear()
@@ -180,7 +179,7 @@ end
 
 function SortableList:RecalculatePosition(index)
 	local id = self.identifierList[index]
-	local y = (index - 1)*(self.itemHeight + self.itemPadding) + self.itemPadding
+	local y = (index - (self.filterGapOffset[index] or 0) - 1)*(self.itemHeight + self.itemPadding) + self.itemPadding
 
 	local child = self.controlById[id]
 	child._relativeBounds.left = self.itemPadding
@@ -190,8 +189,34 @@ function SortableList:RecalculatePosition(index)
 	child:UpdateClientArea()
 end
 
-function SortableList:UpdateOrder()
+function SortableList:RecalculateDisplay(resizeOnly)
+	if resizeOnly or not self.ItemInFilter then
+		for i = 1, self.items do
+			self:RecalculatePosition(i)
+		end
+		return
+	end
+	
+	self.filterGapOffset = {}
+	for i = 1, self.items do
+		local id = self.identifierList[i]
+		local control = self.controlById[id]
+		local sortData = self.sortDataById[id]
+		
+		local isVisible = self.ItemInFilter(sortData)
+		control:SetVisibility(isVisible)
+		
+		self.filterGapOffset[i] = (self.filterGapOffset[i - 1] or 0)
+		if not isVisible then
+			self.filterGapOffset[i] = self.filterGapOffset[i] + 1
+		end
+		
+		-- Better recalculate for invisible items, just in case
+		self:RecalculatePosition(i)
+	end
+end
 
+function SortableList:UpdateOrder()
 	local function SortFunction(a, b)
 		local noNil = self.sortDataById[a] and self.sortDataById[b] and self.sortDataById[a][self.sortBy] and self.sortDataById[b][self.sortBy]
 		if self.smallToLarge then
@@ -205,7 +230,5 @@ function SortableList:UpdateOrder()
 		table.sort(self.identifierList, SortFunction)
 	end
 
-	for i = 1, self.items do
-		self:RecalculatePosition(i)
-	end
+	self:RecalculateDisplay()
 end
