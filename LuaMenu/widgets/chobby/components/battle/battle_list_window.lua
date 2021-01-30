@@ -939,6 +939,10 @@ function BattleListWindow:OpenHostWindow()
 		local modeSelection = typeCombo.items[typeCombo.selected]
 		if customModeMap and customModeMap[modeSelection] then
 			local modeData = customModeMap[modeSelection]
+			if modeData.shortName then
+				-- This asks infra to redownload and apply the custom mode, hopefully solving version issues.
+				WG.ModoptionsPanel.UpdateCustomMode(modeData.shortName, true)
+			end
 			lobby:HostBattle(gameNameEdit.text, (string.len(passwordEdit.text) > 0) and passwordEdit.text, 
 				modeData.roomType or "Custom",
 				modeData.map,

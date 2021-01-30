@@ -1763,6 +1763,8 @@ function SettingsWindow.WriteGameSpringsettings(fileName)
 		WriteToFile("WindowBorderless", 0)
 		WriteToFile("Fullscreen", 1)
 	end
+	
+	settingsFile:close()
 end
 
 function SettingsWindow.GetSettingsString()

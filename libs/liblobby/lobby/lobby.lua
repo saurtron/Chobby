@@ -123,6 +123,10 @@ function Lobby:SetBattleType(typeName)
 	self:SayBattle("!type " .. typeName)
 end
 
+function Lobby:GetCustomGameMode(modeName)
+	return self
+end
+
 -------------------------------------------------
 -- BEGIN Client commands
 -------------------------------------------------

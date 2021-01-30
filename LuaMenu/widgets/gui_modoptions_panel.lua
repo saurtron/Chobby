@@ -21,6 +21,8 @@ local battleLobby
 local localModoptions = {}
 local modoptionControlNames = {}
 
+local hostedModeName
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Utility Function
@@ -305,6 +307,78 @@ end
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
+-- Game Mode Handler
+
+local function OnCustomGameMode(_, shortName, displayName, gameModeJson)
+	if not (shortName and displayName and gameModeJson) then
+		Spring.Echo("Missing shortName", shortName)
+		Spring.Echo("Missing displayName", displayName)
+		Spring.Echo("Missing gameModeJson", gameModeJson)
+		return
+	end
+	
+	local fileName = "CustomModes/" .. shortName .. ".json"
+	local modeDataOld = Spring.Utilities.json.loadFile(fileName)
+	local modeData = Spring.Utilities.json.decode(gameModeJson)
+	Spring.Utilities.TableEcho(modeData, "modeData")
+	
+	if hostedModeName and modeDataOld
+			and modeDataOld.shortName == modeData.shortName
+			and modeDataOld.name == modeData.name
+			and modeDataOld.game == modeData.game
+			and modeDataOld.map == modeData.map then
+		-- The mode is already being hosted and the version matches (name should be updated),
+		-- so don't rehost.
+		hostedModeName = false
+		return
+	end
+	hostedModeName = false
+	
+	-- Write (or overwrite) the mode json locally.
+	local modeFile, errorMessage = io.open(fileName, 'w')
+	if not modeFile then
+		Spring.Echo("Error writing file", fileName)
+		return
+	end
+	modeFile:write(gameModeJson)
+	modeFile:close()
+	
+	-- Host or change the room to match the mode.
+	local lobby = WG.LibLobby.lobby
+	if lobby:GetMyBattleID() then
+		if modeData.game then
+			lobby:SelectGame(modeData.game, true)
+		end
+		if modeData.roomType then
+			lobby:SetBattleType(modeData.roomType)
+		end
+		if modeData.map then
+			lobby:SelectMap(modeData.map)
+		end
+		if modeData.options then
+			lobby:SetModOptions(modeData.options)
+		end
+	else
+		lobby:HostBattle(
+			(lobby:GetMyUserName() or "Player") .. "'s Battle", nil,
+			modeData.roomType or "Custom",
+			modeData.map,
+			modeData.game,
+			modeData.options
+		)
+	end
+end
+
+local function DelayedCustomModeUpdate(modeName)
+	local lobby = WG.LibLobby.lobby
+	local function ModeUpdate()
+		lobby:GetCustomGameMode(modeName)
+	end
+	WG.Delay(ModeUpdate, 3)
+end
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Modoptions Window Handler
 
 local function CreateModoptionWindow()
@@ -399,6 +473,9 @@ local function CreateModoptionWindow()
 		local function SetCustomModeSuccess(modeData)
 			if not modeData then
 				return
+			end
+			if modeData.shortName then
+				DelayedCustomModeUpdate(modeData.shortName)
 			end
 			buttonCustom.caption = modeData.name
 			if modeData.map then
@@ -700,13 +777,29 @@ function ModoptionsPanel.GetCustomModes(modeList, excludeHostMenuHide)
 	return modeList, modeMap
 end
 
+function ModoptionsPanel.UpdateCustomMode(modeName, isHostingAlready)
+	local lobby = WG.LibLobby.lobby
+	if isHostingAlready then
+		DelayedCustomModeUpdate(modeName)
+		return
+	end
+	
+	lobby:GetCustomGameMode(modeName)
+end
+
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 -- Initialization
+
+function DelayedInitialize()
+	local lobby = WG.LibLobby.lobby
+	lobby:AddListener("OnCustomGameMode", OnCustomGameMode)
+end
 
 function widget:Initialize()
 	CHOBBY_DIR = LUA_DIRNAME .. "widgets/chobby/"
 	VFS.Include(LUA_DIRNAME .. "widgets/chobby/headers/exports.lua", nil, VFS.RAW_FIRST)
 
 	WG.ModoptionsPanel = ModoptionsPanel
+	WG.Delay(DelayedInitialize, 0.1)
 end

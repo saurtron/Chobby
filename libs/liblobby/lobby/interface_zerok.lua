@@ -447,6 +447,14 @@ function Interface:SelectGame(gameName, force)
 	return self
 end
 
+function Interface:GetCustomGameMode(modeName)
+	local sendData = {
+		ShortName = modeName
+	}
+	self:_SendCommand("GetCustomGameMode " .. json.encode(sendData))
+	return self
+end
+
 ------------------------
 -- Channel & private chat commands
 ------------------------
@@ -1730,6 +1738,11 @@ function Interface:_SetModOptions(data)
 end
 Interface.jsonCommands["SetModOptions"] = Interface._SetModOptions
 
+function Interface:_CustomGameMode(data)
+	self:_CallListeners("OnCustomGameMode", data.ShortName, data.DisplayName, data.GameModeJson)
+end
+Interface.jsonCommands["CustomGameModeResponse"] = Interface._CustomGameMode
+
 function Interface:_BattleDebriefing(data)
 	--{
 	--	"Url":"http://zero-k.info/Battles/Detail/445337",
@@ -1781,6 +1794,15 @@ function Interface:_OnSiteToLobbyCommand(msg)
 			self:SelectMap(mapName)
 		else
 			self:HostBattle((self:GetMyUserName() or "Player") .. "'s Battle", nil, nameToMode["Custom"], mapName)
+		end
+		return
+	end
+
+	s,e = springLink:find('chat/battle@select_customGameMode:')
+	if s then
+		local modeName = springLink:sub(e + 1)
+		if modeName then
+			self:GetCustomGameMode(modeName)
 		end
 		return
 	end
