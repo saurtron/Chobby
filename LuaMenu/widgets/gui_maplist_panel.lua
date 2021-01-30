@@ -275,7 +275,7 @@ local function InitializeControls()
 	for i = 1, #featuredMapList do
 		local mapName = featuredMapList[i].Name
 		control, sortData, mapFuncs[mapName] = CreateMapEntry(mapName, featuredMapList[i], CloseFunc)
-		mapItems[i] = {mapName, control, sortData}
+		mapItems[#mapItems + 1] = {mapName, control, sortData}
 	end
 
 	if not Configuration.onlyShowFeaturedMaps then
@@ -283,7 +283,7 @@ local function InitializeControls()
 			local info = VFS.GetArchiveInfo(archive)
 			if info and info.modtype == 3 and not mapFuncs[info.name] then
 				control, sortData, mapFuncs[info.name] = CreateMapEntry(info.name, nil, CloseFunc)
-				mapItems[i] = {info.name, control, sortData}
+				mapItems[#mapItems + 1] = {info.name, control, sortData}
 			end
 		end
 	end
