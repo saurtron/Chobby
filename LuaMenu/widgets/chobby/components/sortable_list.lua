@@ -179,7 +179,7 @@ end
 
 function SortableList:RecalculatePosition(index)
 	local id = self.identifierList[index]
-	local y = (index - (self.filterGapOffset[index] or 0) - 1)*(self.itemHeight + self.itemPadding) + self.itemPadding
+	local y = (index - ((self.filterGapOffset and self.filterGapOffset[index]) or 0) - 1)*(self.itemHeight + self.itemPadding) + self.itemPadding
 
 	local child = self.controlById[id]
 	child._relativeBounds.left = self.itemPadding
