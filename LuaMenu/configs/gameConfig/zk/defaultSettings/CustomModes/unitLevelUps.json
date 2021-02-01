@@ -1,4 +1,6 @@
 {
+	// shortName must match file name.
+	"shortName" : "unitLevelUps",
 	// name is required, try not to clash with other names.
 	"name" : "Unit Level Ups",
 	// description is displayed as a tooltip in the Custom Mode menu.

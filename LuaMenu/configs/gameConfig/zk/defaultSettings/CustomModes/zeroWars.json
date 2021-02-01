@@ -1,4 +1,5 @@
 {
+    "shortName" : "zeroWars",
     "name" : "Zero Wars",
     "description" : "Send waves of units across the map to destroy the enemy nexus",
     "roomType" : "Team",

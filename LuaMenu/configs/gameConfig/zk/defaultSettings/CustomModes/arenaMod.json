@@ -1,4 +1,5 @@
 {
+    "shortName" : "arenaMod",
     "name" : "Arena Mod",
     "description" : "Use an HQ building to spawn units and defeat your enemy",
     "roomType" : "Team",
