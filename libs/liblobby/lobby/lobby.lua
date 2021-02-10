@@ -266,12 +266,12 @@ end
 
 function Lobby:ConnectToBattle(useSpringRestart, battleIp, battlePort, clientPort, scriptPassword, myName, gameName, mapName, engineName, battleType, isSpectator)
 	if gameName and not VFS.HasArchive(gameName) then
-		WG.Chobby.InformationPopup("Cannont start game: missing game file '" .. gameName .. "'.")
+		WG.Chobby.InformationPopup("Cannot start game: missing game file '" .. gameName .. "'.")
 		return
 	end
 
 	if mapName and not VFS.HasArchive(mapName) then
-		WG.Chobby.InformationPopup("Cannont start game: missing map file '" .. mapName .. "'.")
+		WG.Chobby.InformationPopup("Cannot start game: missing map file '" .. mapName .. "'.")
 		return
 	end
 	local Config = WG.Chobby.Configuration
@@ -285,7 +285,7 @@ function Lobby:ConnectToBattle(useSpringRestart, battleIp, battlePort, clientPor
 			}
 			WG.WrapperLoopback.StartNewSpring(params)
 		else
-			WG.Chobby.InformationPopup("Cannont start game: wrong Spring engine version. The required version is '" .. engineName .. "', your version is '" .. Spring.Utilities.GetEngineVersion() .. "'.", {width = 420, height = 260})
+			WG.Chobby.InformationPopup("Cannot start game: wrong Spring engine version. The required version is '" .. engineName .. "', your version is '" .. Spring.Utilities.GetEngineVersion() .. "'.", {width = 420, height = 260})
 		end
 		return
 	end
