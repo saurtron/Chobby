@@ -123,7 +123,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			parent = mapButton,
 		}
 
-		local mapType = WG.FeaturedMaps.ToMapType(mapData)
+		local mapType = (WG.FeaturedMaps and WG.FeaturedMaps.ToMapType(mapData)) or "Unknown"
 		TextBox:New {
 			x = 356,
 			y = 12,

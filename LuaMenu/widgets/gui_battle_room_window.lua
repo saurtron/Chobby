@@ -153,8 +153,8 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		mapName = battle.mapName:gsub("_", " ")
 		mapName = StringUtilities.GetTruncatedStringWithDotDot(mapName, tbMapName.font, width - 22)
 		tbMapName:SetText(mapName)
-		local mapItem = WG.FeaturedMaps.Get(battle.mapName)
-		if mapItem ~= nil then
+		local mapItem = WG.FeaturedMaps and WG.FeaturedMaps.Get(battle.mapName)
+		if mapItem then
 			tbMapInfo:SetText(mapItem.Width .. "x" .. mapItem.Height .. " " .. WG.FeaturedMaps.ToMapType(mapItem))
 		else
 			tbMapInfo:SetText("<No details>")

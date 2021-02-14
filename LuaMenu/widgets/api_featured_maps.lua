@@ -36,7 +36,7 @@ local function Get(name)
 			return mapItems[i]
 		end
 	end
-	return nil
+	return false
 end
 
 local function ToMapType(mapItem)
