@@ -149,7 +149,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		}
 
 		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapData.MapType), string.lower(terrainType), (haveMap and 1) or 0}
-		sortData[6] = sortData[1] .. mapSizeText .. sortData[3] .. " " .. sortData[4] -- Used for text filter by name, type, terrain or size.
+		sortData[6] = sortData[1] .. " " .. mapSizeText .. " " .. sortData[3] .. " " .. sortData[4] -- Used for text filter by name, type, terrain or size.
 	else
 		sortData = {string.lower(mapName), 0, "", "", (haveMap and 1) or 0}
 		sortData[6] = sortData[1]
@@ -337,6 +337,18 @@ local function InitializeControls()
 		hint = i18n("type_to_filter"),
 		fontsize = Configuration:GetFont(2).size,
 		parent = mapListWindow,
+		OnKeyPress = {
+			function(obj, key, ...)
+				if key ~= Spring.GetKeyCode("enter") and key ~= Spring.GetKeyCode("numpad_enter") then
+					return
+				end
+				local visibleItemIds = mapList:GetVisibleItemIds()
+				if #visibleItemIds[1] then
+					lobby:SelectMap(visibleItemIds[1])
+					CloseFunc()
+				end
+			end
+		},
 		OnTextModified = {
 			function (self)
 				filterTerms = string.lower(self.text):split(" ")
@@ -362,6 +374,7 @@ local function InitializeControls()
 		if zoomToMap then
 			mapList:ScrollToItem(zoomToMap)
 		end
+		screen0:FocusControl(ebFilter)
 	end
 
 	function externalFunctions.UpdateHaveMap(thingName)
