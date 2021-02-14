@@ -23,21 +23,6 @@ local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 --------------------------------------------------------------------------------
 -- Utilities
 
-local function GetMapType(is1v1, isTeam, isFFA, isChicken, isSpecial)
-	if isSpecial then
-		return "Special"
-	elseif isChicken then
-		return "Chicken"
-	elseif isFFA then
-		return "FFA"
-	elseif is1v1 then
-		return "1v1"
-	elseif isTeam then
-		return "Team"
-	end
-	return "Special"
-end
-
 local function GetTerrainType(hillLevel, waterLevel)
 	if waterLevel == 3 then
 		return "Sea"
@@ -138,7 +123,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			parent = mapButton,
 		}
 
-		local mapType = GetMapType(mapData.Is1v1, mapData.IsTeams, mapData.IsFFA, mapData.IsChickens, mapData.IsSpecial)
+		local mapType = WG.FeaturedMaps.ToMapType(mapData)
 		TextBox:New {
 			x = 356,
 			y = 12,
@@ -265,7 +250,7 @@ local function InitializeControls()
 		{name = "", tooltip = "Downloaded", x = 610, width = 40, image = "LuaMenu/images/download.png"},
 	}
 
-	local featuredMapList = WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}
+	local featuredMapList = WG.FeaturedMaps.All()
 	local mapFuncs = {}
 
 	local mapList = WG.Chobby.SortableList(listHolder, headings, 60, 1, true, false, ItemInFilter)

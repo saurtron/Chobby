@@ -100,7 +100,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		x = 3,
 		y = 0,
 		right = 3,
-		height = 20,
+		height = 36,
 		classname = "button_square",
 		caption = "",
 		padding = {0, 0, 0, 0},
@@ -123,6 +123,15 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		parent = btnMapLink,
 		fontsize = config:GetFont(2).size,
 	}
+	local tbMapInfo = TextBox:New {
+		name = "tbMapInfo",
+		x = 2,
+		y = 22,
+		right = 20,
+		align = "left",
+		parent = btnMapLink,
+		fontsize = config:GetFont(1).size,
+	}
 	local imMapLink = Image:New {
 		x = 0,
 		y = 1,
@@ -144,6 +153,12 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		mapName = battle.mapName:gsub("_", " ")
 		mapName = StringUtilities.GetTruncatedStringWithDotDot(mapName, tbMapName.font, width - 22)
 		tbMapName:SetText(mapName)
+		local mapItem = WG.FeaturedMaps.Get(battle.mapName)
+		if mapItem ~= nil then
+			tbMapInfo:SetText(mapItem.Width .. "x" .. mapItem.Height .. " " .. WG.FeaturedMaps.ToMapType(mapItem))
+		else
+			tbMapInfo:SetText("<No details>")
+		end
 		local length = tbMapName.font:GetTextWidth(mapName)
 		imMapLink:SetPos(length + 5)
 	end
