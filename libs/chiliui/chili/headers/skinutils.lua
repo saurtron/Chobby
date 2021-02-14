@@ -613,7 +613,7 @@ function DrawEditBox(obj)
 	local font = _GetControlFont(obj)
 	local displayHint = false
 
-	if text == "" and not obj.state.focused then
+	if text == "" then
 		text = obj.hint
 		displayHint = true
 		font = obj.hintFont
