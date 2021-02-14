@@ -16,11 +16,29 @@ end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-local mapItems = nil
+local mapItems
+
+local function ToMapType(mapItem)
+	if mapItem.IsSpecial then
+		return "Special"
+	elseif mapItem.IsChickens then
+		return "Chicken"
+	elseif mapItem.IsFFA then
+		return "FFA"
+	elseif mapItem.Is1v1 then
+		return "1v1"
+	elseif mapItem.IsTeams then
+		return "Team"
+	end
+	return "Special"
+end
 
 local function InitMapItems()
-	if mapItems == nil then
-		mapItems = WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}
+	if not mapItems then
+		mapItems = WG.CommunityWindow and WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}
+		for i = 1, #mapItems do
+			mapItems[i].MapType = ToMapType(mapItems[i])
+		end
 	end
 end
 
@@ -39,21 +57,6 @@ local function Get(name)
 	return false
 end
 
-local function ToMapType(mapItem)
-	if mapItem.IsSpecial then
-		return "Special"
-	elseif mapItem.IsChickens then
-		return "Chicken"
-	elseif mapItem.IsFFA then
-		return "FFA"
-	elseif mapItem.Is1v1 then
-		return "1v1"
-	elseif mapItem.IsTeams then
-		return "Team"
-	end
-	return "Special"
-end
-
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- External Interface
@@ -61,7 +64,6 @@ end
 local FeaturedMaps = {}
 FeaturedMaps.All = All
 FeaturedMaps.Get = Get
-FeaturedMaps.ToMapType = ToMapType
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

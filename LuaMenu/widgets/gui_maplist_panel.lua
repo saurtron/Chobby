@@ -123,7 +123,6 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			parent = mapButton,
 		}
 
-		local mapType = (WG.FeaturedMaps and WG.FeaturedMaps.ToMapType(mapData)) or "Unknown"
 		TextBox:New {
 			x = 356,
 			y = 12,
@@ -131,7 +130,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			height = 20,
 			valign = 'center',
 			fontsize = Configuration:GetFont(2).size,
-			text = mapType,
+			text = mapData.MapType,
 			parent = mapButton,
 		}
 
@@ -250,7 +249,7 @@ local function InitializeControls()
 		{name = "", tooltip = "Downloaded", x = 610, width = 40, image = "LuaMenu/images/download.png"},
 	}
 
-	local featuredMapList = WG.FeaturedMaps.All()
+	local featuredMapList = WG.FeaturedMaps and WG.FeaturedMaps.All() or {}
 	local mapFuncs = {}
 
 	local mapList = WG.Chobby.SortableList(listHolder, headings, 60, 1, true, false, ItemInFilter)

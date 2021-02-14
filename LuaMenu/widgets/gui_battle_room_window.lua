@@ -155,7 +155,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		tbMapName:SetText(mapName)
 		local mapItem = WG.FeaturedMaps and WG.FeaturedMaps.Get(battle.mapName)
 		if mapItem then
-			tbMapInfo:SetText(mapItem.Width .. "x" .. mapItem.Height .. " " .. WG.FeaturedMaps.ToMapType(mapItem))
+			tbMapInfo:SetText(mapItem.Width .. "x" .. mapItem.Height .. " " .. mapItem.MapType)
 		else
 			tbMapInfo:SetText("<No details>")
 		end
