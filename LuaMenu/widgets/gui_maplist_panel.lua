@@ -341,7 +341,7 @@ local function InitializeControls()
 	local externalFunctions = {}
 
 	function externalFunctions.Show(zoomToMap)
-		ebFilter.text = ""
+		ebFilter:Clear()
 		mapList:RecalculateDisplay()
 
 		if not mapListWindow.visible then

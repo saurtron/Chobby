@@ -151,6 +151,11 @@ function EditBox:SetText(newtext)
 	self:Invalidate()
 end
 
+function EditBox:Clear()
+	self:SetText("")
+	inherited.TextModified(self)
+end
+
 function EditBox:_LineLog2Phys(logicalLine, pos)
 	local px, py = pos, 0
 	if self.multiline then
