@@ -23,30 +23,9 @@ local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 --------------------------------------------------------------------------------
 -- Utilities
 
-local function GetTerrainType(hillLevel, waterLevel)
-	if waterLevel == 3 then
-		return "Sea"
-	end
-	local first
-	if hillLevel == 1 then
-		first = "Flat "
-	elseif hillLevel == 2 then
-		first = "Hilly "
-	else
-		first = "Mountainous "
-	end
-	local second
-	if waterLevel == 1 then
-		second = "land"
-	else
-		second = "mixed"
-	end
-
-	return first .. second
-end
-
 local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"Name":"2_Mountains_Battlefield","SupportLevel":2,"Width":16,"Height":16,"IsAssymetrical":false,"Hills":2,"WaterLevel":1,"Is1v1":false,"IsTeams":true,"IsFFA":false,"IsChickens":false,"FFAMaxTeams":null,"RatingCount":3,"RatingSum":10,"IsSpecial":false},
 	local Configuration = WG.Chobby.Configuration
+	local fontSize = Configuration:GetFont(2).size
 
 	local mapButton = Button:New {
 		classname = "button_rounded",
@@ -71,12 +50,12 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		y = 3,
 		width = 52,
 		height = 52,
-		padding = {1,1,1,1},
+		padding = {1, 1, 1, 1},
 		parent = mapButton,
 	}
 
 	local mapImageFile, needDownload = Configuration:GetMinimapSmallImage(mapName)
-	local minimapImage = Image:New {
+	Image:New {
 		name = "minimapImage",
 		x = 0,
 		y = 0,
@@ -84,7 +63,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		bottom = 0,
 		keepAspect = true,
 		file = mapImageFile,
-		fallbackFile = Configuration:GetLoadingImage(2),
+		fallbackFile = (needDownload and Configuration:GetLoadingImage(2)) or nil,
 		checkFileExists = needDownload,
 		parent = minimap,
 	}
@@ -95,7 +74,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		width = 200,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		fontsize = fontSize,
 		text = mapName:gsub("_", " "),
 		parent = mapButton,
 	}
@@ -113,6 +92,8 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 	local sortData
 	if mapData then
 		local mapSizeText = (mapData.Width or " ?") .. "x" .. (mapData.Height or " ?")
+		local mapType = mapData.MapType
+		local terrainType = mapData.TerrainType
 
 		TextBox:New {
 			x = 274,
@@ -120,7 +101,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			fontsize = fontSize,
 			text = mapSizeText,
 			parent = mapButton,
 		}
@@ -131,24 +112,23 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
-			text = mapData.MapType,
+			fontsize = fontSize,
+			text = mapType,
 			parent = mapButton,
 		}
 
-		local terrainType = GetTerrainType(mapData.Hills, mapData.WaterLevel)
 		TextBox:New {
 			x = 438,
 			y = 12,
 			width = 160,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			fontsize = fontSize,
 			text = terrainType,
 			parent = mapButton,
 		}
 
-		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapData.MapType), string.lower(terrainType), (haveMap and 1) or 0}
+		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapType), string.lower(terrainType), (haveMap and 1) or 0}
 		sortData[6] = sortData[1] .. " " .. mapSizeText .. " " .. sortData[3] .. " " .. sortData[4] -- Used for text filter by name, type, terrain or size.
 	else
 		sortData = {string.lower(mapName), 0, "", "", (haveMap and 1) or 0}

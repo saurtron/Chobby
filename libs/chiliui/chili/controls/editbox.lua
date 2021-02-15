@@ -88,8 +88,6 @@ function EditBox:New(obj)
 	local text = obj.text
 	obj.text = nil
 	obj:SetText(text)
-	obj:RequestUpdate()
-	self._inRequestUpdate = true
 	return obj
 end
 
@@ -111,17 +109,21 @@ local function explode(div, str)
 	local N = str:len()
 
 	while j <= N do
-		local c = str:sub(j, j)
+		local c = str[j]
 		if c == '\255' then
-			j = j + 3
+			j = j + 4
 		elseif c == div then
 			arr[#arr + 1] = str:sub(i, j - 1)
 			i = j + 1
+      j = i
+		else
+			j = j + 1
 		end
-		j = j + 1
 	end
 
-	if i <= N then
+	if i == 1 then
+	  arr[1] = str -- POO
+	elseif i <= N then
 		arr[#arr + 1] = str:sub(i, N)
 	end
 
