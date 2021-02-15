@@ -2,6 +2,8 @@
 
 --- EditBox module
 
+local spGetTimer = Spring.GetTimer
+
 --- EditBox fields.
 -- Inherits from Control.
 -- @see control.Control
@@ -81,10 +83,14 @@ local inherited = this.inherited
 
 function EditBox:New(obj)
 	obj = inherited.New(self, obj)
-	obj._interactedTime = Spring.GetTimer()
+	obj._interactedTime = spGetTimer()
 		--// create font
-	obj.hintFont = Font:New(obj.hintFont)
-	obj.hintFont:SetParent(obj)
+	if obj.hint then
+		obj.hintFont = Font:New(obj.hintFont)
+		obj.hintFont:SetParent(obj)
+	else
+	  obj.hintFont = false
+	end
 	local text = obj.text
 	obj.text = nil
 	obj:SetText(text)
@@ -92,8 +98,10 @@ function EditBox:New(obj)
 end
 
 function EditBox:Dispose(...)
+	if self.hintFont then
+		self.hintFont:SetParent()
+	end
 	Control.Dispose(self)
-	self.hintFont:SetParent()
 end
 
 function EditBox:HitTest(x, y)
