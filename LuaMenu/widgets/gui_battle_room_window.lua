@@ -91,7 +91,7 @@ local OpenNewTeam
 
 local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUserName)
 	local config = WG.Chobby.Configuration
-	local minimapBottomClearance = 135
+	local minimapBottomClearance = 141
 
 	local currentMapName
 	local mapLinkWidth = 150
