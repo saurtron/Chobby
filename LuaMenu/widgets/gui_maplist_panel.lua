@@ -156,7 +156,13 @@ local function InitializeControls()
 	--Spring.Echo("LuaMenu KB", lmkb, "allocs", lmalloc, "Lua global KB", lgkb, "allocs", lgalloc)
 
 	wgChobbyConfig = WG.Chobby.Configuration
-	listFont = Font:New(wgChobbyConfig:GetFont(2))
+
+	-- Sharing font saves about 20%, but getting the config for the TextBox font isn't straightforward.
+	local fontSpec = wgChobbyConfig:GetFont(2)
+	local sacrificialTextBox = TextBox:New({})
+	fontSpec.font = sacrificialTextBox.font.font
+	sacrificialTextBox:Dispose()
+	listFont = Font:New(fontSpec)
 
 	local mapListWindow = Window:New {
 		classname = "main_window",
