@@ -319,6 +319,19 @@ function table:shallowcopy()
 	return newTable
 end
 
+function table:deepcopy()
+	local newTable = {}
+	for k, v in pairs(self) do
+		local t = type(v)
+		if t == 'table' then
+			newTable[k] = table.deepcopy(v)
+		else
+			newTable[k] = v
+		end
+	end
+	return newTable
+end
+
 function table:arrayshallowcopy()
 	local newArray = {}
 	for i = 1, #self do
@@ -382,14 +395,14 @@ end
 
 function table:merge(table2)
 	for i, v in pairs(table2) do
-		if (type(v) == 'table') then
-			local sv = type(self[i])
-			if (sv == 'table') or (sv == 'nil') then
-				if (sv == 'nil') then self[i] = {} end
-				table.merge(self[i], v)
-			end
-		elseif (self[i] == nil) then
-			self[i] = v
+		local vIsTable = type(v) == 'table'
+		local sv = self[i]
+    if sv == nil and vIsTable then
+			self[i] = table.deepcopy(v)
+		elseif vIsTable and type(sv) == 'table' then
+			table.merge(sv, v)
+		else
+		  self[i] = sv or v
 		end
 	end
 	return self
