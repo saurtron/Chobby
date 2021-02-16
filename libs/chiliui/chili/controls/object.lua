@@ -110,21 +110,22 @@ function Object:New(obj)
 	for i, v in pairs(self) do --// `self` means the class here and not the instance!
 		if (i ~= "inherited") then
 			local t = type(v)
-			local ov = obj[i]
-			if (t == "table") or (t == "metatable") then
+		  local vIsTable, vIsMetatable = t == 'table', t == 'metatable'
+			if vIsTable or vIsMetatable then
+				local ov = obj[i]
 				if (ov == nil) then
 					obj[i] = table.deepcopy(v)
 				else
 					local ot = type(ov)
-					if (ot ~= "table") and (ot ~= "metatable") then
+					if (ot == 'table') or (ot == 'metatable') then
+						obj[i] = table.merge(ov, v)
+					else
 						Spring.Echo("Chili: " .. obj.name .. ": Wrong param type given to " .. i .. ": got " .. ot .. " expected table.")
 						obj[i] = table.deepcopy(v)
-					else
-						obj[i] = table.merge(ov, v)
 					end
 				end
 
-				if (t == "metatable") then
+				if (vIsMetatable) then
 					setmetatable(obj[i], getmetatable(v))
 				end
 			-- We don't need to copy other types (allegedly)

@@ -322,8 +322,7 @@ end
 function table:deepcopy()
 	local newTable = {}
 	for k, v in pairs(self) do
-		local t = type(v)
-		if t == 'table' then
+		if type(v) == 'table' then
 			newTable[k] = table.deepcopy(v)
 		else
 			newTable[k] = v
