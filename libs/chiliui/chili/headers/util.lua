@@ -394,14 +394,15 @@ end
 
 function table:merge(table2)
 	for i, v in pairs(table2) do
-		local vIsTable = type(v) == 'table'
 		local sv = self[i]
-    if sv == nil and vIsTable then
-			self[i] = table.deepcopy(v)
-		elseif vIsTable and type(sv) == 'table' then
-			table.merge(sv, v)
-		else
-		  self[i] = sv or v
+		if type(v) == 'table' then
+			if sv == nil then
+				self[i] = table.deepcopy(v)
+			elseif type(sv) == 'table' then
+				self[i] = table.merge(sv, v)
+			end
+		elseif sv == nil then
+			self[i] = v
 		end
 	end
 	return self
