@@ -64,26 +64,10 @@ end
 
 function IsRelativeCoord(code)
 	local num = tonumber(code)
-
-	if (type(code) == "string") then
-		return true
-	elseif (num) and ((1/num) < 0) then
-		return true
-	else
+	if num and ((1/num) < 0) then
 		return false
 	end
-end
-
-function IsRelativeCoordType(code)
-	local num = tonumber(code)
-
-	if (type(code) == "string") then
-		return "relative"
-	elseif (num) and ((1/num) < 0) then
-		return "negative"
-	else
-		return "default"
-	end
+	return type(code) == "string"
 end
 
 --// =============================================================================
@@ -91,7 +75,6 @@ end
 function IsObject(v)
 	return ((type(v) == "metatable") or (type(v) == "userdata")) and (v.classname)
 end
-
 
 function IsNumber(v)
 	return (type(v) == "number")
