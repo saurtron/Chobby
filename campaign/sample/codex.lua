@@ -192,7 +192,7 @@ Chicken biology is suspiciously close to Earth-native biology, but with signific
  
 In light of their distribution thoughout the galaxy, it is generally accepted that chicken have means to either transport or seed colonies over interstellar distances. Whether by slower-than-light dormant forms, sophisticated counter-detection systems, or even planetary warp travel working by unknown physical principles, no concrete element has been found.
  
-Chicken have existed for at least as long as the early days of the human galactic age and are capabible of survival in almost any planetary environment. Despite this, and their demonstrated interstellar capabilities, they have never settled on more than a handful of worlds, even including those ignored by humans as unsuitable for colonization or exploitation. Why they have not overrun the galaxy has been said to be the key to understanding what they really are.]]
+Chicken have existed for at least as long as the early days of the human galactic age and are capable of survival in almost any planetary environment. Despite this, and their demonstrated interstellar capabilities, they have never settled on more than a handful of worlds, even including those ignored by humans as unsuitable for colonization or exploitation. Why they have not overrun the galaxy has been said to be the key to understanding what they really are.]]
 	},
 	threat_chickens_intelligence = { -- planet63
 		name = "Chicken Intelligence",
