@@ -112,6 +112,8 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 
 	local sortData
 	if mapData then
+		local mapSizeText = (mapData.Width or " ?") .. "x" .. (mapData.Height or " ?")
+
 		TextBox:New {
 			x = 274,
 			y = 12,
@@ -119,7 +121,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			height = 20,
 			valign = 'center',
 			fontsize = Configuration:GetFont(2).size,
-			text = (mapData.Width or " ?") .. "x" .. (mapData.Height or " ?"),
+			text = mapSizeText,
 			parent = mapButton,
 		}
 
@@ -146,9 +148,11 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			parent = mapButton,
 		}
 
-		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), mapType, terrainType, (haveMap and 1) or 0}
+		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapData.MapType), string.lower(terrainType), (haveMap and 1) or 0}
+		sortData[6] = sortData[1] .. " " .. mapSizeText .. " " .. sortData[3] .. " " .. sortData[4] -- Used for text filter by name, type, terrain or size.
 	else
 		sortData = {string.lower(mapName), 0, "", "", (haveMap and 1) or 0}
+		sortData[6] = sortData[1]
 	end
 
 	local externalFunctions = {}
@@ -198,12 +202,19 @@ local function InitializeControls()
 		mapListWindow:Hide()
 	end
 
-	local filterString = ""
+	local filterTerms
 	local function ItemInFilter(sortData)
-		if filterString == "" then
+		if not filterTerms then
 			return true
 		end
-		return (string.find(sortData[1], filterString) and true) or false
+
+		local textToSearch = sortData[6]
+		for i = 1, #filterTerms do
+			if not string.find(textToSearch, filterTerms[i]) then
+				return false
+			end
+		end
+		return true
 	end
 	--local loadingPanel = Panel:New {
 	--	classname = "overlay_window",
@@ -323,12 +334,24 @@ local function InitializeControls()
 		width = 180,
 		height = 33,
 		text = '',
-		hint = i18n("filter"),
+		hint = i18n("type_to_filter"),
 		fontsize = Configuration:GetFont(2).size,
 		parent = mapListWindow,
+		OnKeyPress = {
+			function(obj, key, ...)
+				if key ~= Spring.GetKeyCode("enter") and key ~= Spring.GetKeyCode("numpad_enter") then
+					return
+				end
+				local visibleItemIds = mapList:GetVisibleItemIds()
+				if #visibleItemIds[1] then
+					lobby:SelectMap(visibleItemIds[1])
+					CloseFunc()
+				end
+			end
+		},
 		OnTextModified = {
 			function (self)
-				filterString = string.lower(self.text)
+				filterTerms = string.lower(self.text):split(" ")
 				mapList:RecalculateDisplay()
 			end
 		}
@@ -341,7 +364,7 @@ local function InitializeControls()
 	local externalFunctions = {}
 
 	function externalFunctions.Show(zoomToMap)
-		ebFilter.text = ""
+		ebFilter:Clear()
 		mapList:RecalculateDisplay()
 
 		if not mapListWindow.visible then
@@ -351,6 +374,7 @@ local function InitializeControls()
 		if zoomToMap then
 			mapList:ScrollToItem(zoomToMap)
 		end
+		screen0:FocusControl(ebFilter)
 	end
 
 	function externalFunctions.UpdateHaveMap(thingName)

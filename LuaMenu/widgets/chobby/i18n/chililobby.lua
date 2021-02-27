@@ -165,7 +165,7 @@ return {
 			other = "%{count} items left to download.",
 		},
 		downloads_completed = "All downloads completed.",
-		filter = "Filter",
+		type_to_filter = "Type to filter",
 
 		-- Settings
 		planetwars_notifications = "Planetwars notifications",

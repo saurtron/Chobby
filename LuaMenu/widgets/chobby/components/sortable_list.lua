@@ -102,7 +102,7 @@ end
 
 function SortableList:AddItem(id, control, sorting)
 	if self.controlById[id] then
-		Spring.Echo("ListWindow dupicate item", id)
+		Spring.Echo("SortableList duplicate item", id)
 		return
 	end
 
@@ -118,7 +118,7 @@ end
 
 function SortableList:UpdateItemSorting(id, sorting, supressResort)
 	if not self.controlById[id] then
-		Spring.Echo("ListWindow missing item", id)
+		Spring.Echo("SortableList missing item", id)
 		return
 	end
 
@@ -231,4 +231,16 @@ function SortableList:UpdateOrder()
 	end
 
 	self:RecalculateDisplay()
+end
+
+function SortableList:GetVisibleItemIds()
+	local visibleItemIds = {}
+	for i = 1, self.items do
+	  local id = self.identifierList[i]
+		local control = self.controlById[id]
+		if control:IsVisibleOnScreen() then
+			visibleItemIds[#visibleItemIds+1] = id
+		end
+	end
+	return visibleItemIds
 end
