@@ -110,7 +110,7 @@ function Object:New(obj)
 	for i, v in pairs(self) do --// `self` means the class here and not the instance!
 		if (i ~= "inherited") then
 			local t = type(v)
-		  local vIsTable, vIsMetatable = t == 'table', t == 'metatable'
+			local vIsTable, vIsMetatable = t == 'table', t == 'metatable'
 			if vIsTable or vIsMetatable then
 				local ov = obj[i]
 				if (ov == nil) then

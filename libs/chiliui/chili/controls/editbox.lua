@@ -131,7 +131,7 @@ local function explode(div, str)
 		elseif c == div then
 			arr[#arr + 1] = str:sub(i, j - 1)
 			i = j + 1
-      j = i
+			j = i
 		else
 			j = j + 1
 		end
