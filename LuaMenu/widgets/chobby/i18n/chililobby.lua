@@ -150,7 +150,7 @@ return {
 		time_in_queue = "Time in queue",
 		leave = "Leave",
 		invite_friends = "Invite Friends",
-		select_maps = "Map Selection",
+		select_maps = "Set Map Bans",
 		users = "Users",
 		battles = "Battles",
 		time_to_respond = "Time to respond",
