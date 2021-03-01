@@ -158,7 +158,7 @@ local function InitializeStatsWindow(parent)
 
 	local function UpdateStats()
 		local gamedata = WG.CampaignData.GetGamedataInATroublingWay()
-		leastDifficulty:SetText(DIFFICULTY_NAME_MAP[gamedata.leastDifficulty or 5])
+		leastDifficulty:SetText(DIFFICULTY_NAME_MAP[(gamedata.leastDifficulty or 4) + 1])
 		totalTime:SetText(Spring.Utilities.FormatTime((gamedata.totalPlayFrames or 0)/30, true))
 		totalVictoryTime:SetText(Spring.Utilities.FormatTime((gamedata.totalVictoryPlayFrames or 0)/30, true))
 		planets:SetText(tostring(#(gamedata.planetsCaptured.list or {})))
