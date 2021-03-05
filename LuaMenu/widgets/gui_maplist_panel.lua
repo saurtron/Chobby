@@ -16,6 +16,8 @@ end
 
 local mapListWindow
 local lobby
+local wgChobbyConfig
+local listFont
 local IMG_READY    = LUA_DIRNAME .. "images/ready.png"
 local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 
@@ -23,31 +25,7 @@ local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 --------------------------------------------------------------------------------
 -- Utilities
 
-local function GetTerrainType(hillLevel, waterLevel)
-	if waterLevel == 3 then
-		return "Sea"
-	end
-	local first
-	if hillLevel == 1 then
-		first = "Flat "
-	elseif hillLevel == 2 then
-		first = "Hilly "
-	else
-		first = "Mountainous "
-	end
-	local second
-	if waterLevel == 1 then
-		second = "land"
-	else
-		second = "mixed"
-	end
-
-	return first .. second
-end
-
 local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"Name":"2_Mountains_Battlefield","SupportLevel":2,"Width":16,"Height":16,"IsAssymetrical":false,"Hills":2,"WaterLevel":1,"Is1v1":false,"IsTeams":true,"IsFFA":false,"IsChickens":false,"FFAMaxTeams":null,"RatingCount":3,"RatingSum":10,"IsSpecial":false},
-	local Configuration = WG.Chobby.Configuration
-
 	local mapButton = Button:New {
 		classname = "button_rounded",
 		x = 0,
@@ -71,12 +49,12 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		y = 3,
 		width = 52,
 		height = 52,
-		padding = {1,1,1,1},
+		padding = {1, 1, 1, 1},
 		parent = mapButton,
 	}
 
-	local mapImageFile, needDownload = Configuration:GetMinimapSmallImage(mapName)
-	local minimapImage = Image:New {
+	local mapImageFile, needDownload = wgChobbyConfig:GetMinimapSmallImage(mapName)
+	Image:New {
 		name = "minimapImage",
 		x = 0,
 		y = 0,
@@ -84,7 +62,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		bottom = 0,
 		keepAspect = true,
 		file = mapImageFile,
-		fallbackFile = Configuration:GetLoadingImage(2),
+		fallbackFile = (needDownload and wgChobbyConfig:GetLoadingImage(2)) or nil,
 		checkFileExists = needDownload,
 		parent = minimap,
 	}
@@ -95,7 +73,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		width = 200,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = listFont,
 		text = mapName:gsub("_", " "),
 		parent = mapButton,
 	}
@@ -113,6 +91,8 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 	local sortData
 	if mapData then
 		local mapSizeText = (mapData.Width or " ?") .. "x" .. (mapData.Height or " ?")
+		local mapType = mapData.MapType
+		local terrainType = mapData.TerrainType
 
 		TextBox:New {
 			x = 274,
@@ -120,7 +100,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = listFont,
 			text = mapSizeText,
 			parent = mapButton,
 		}
@@ -131,24 +111,23 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
-			text = mapData.MapType,
+			objectOverrideFont = listFont,
+			text = mapType,
 			parent = mapButton,
 		}
 
-		local terrainType = GetTerrainType(mapData.Hills, mapData.WaterLevel)
 		TextBox:New {
 			x = 438,
 			y = 12,
 			width = 160,
 			height = 20,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = listFont,
 			text = terrainType,
 			parent = mapButton,
 		}
 
-		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapData.MapType), string.lower(terrainType), (haveMap and 1) or 0}
+		sortData = {string.lower(mapName), (mapData.Width or 0)*100 + (mapData.Height or 0), string.lower(mapType), string.lower(terrainType), (haveMap and 1) or 0}
 		sortData[6] = sortData[1] .. " " .. mapSizeText .. " " .. sortData[3] .. " " .. sortData[4] -- Used for text filter by name, type, terrain or size.
 	else
 		sortData = {string.lower(mapName), 0, "", "", (haveMap and 1) or 0}
@@ -176,7 +155,14 @@ local function InitializeControls()
 	--local lmkb, lmalloc, lgkb, lgalloc = Spring.GetLuaMemUsage()
 	--Spring.Echo("LuaMenu KB", lmkb, "allocs", lmalloc, "Lua global KB", lgkb, "allocs", lgalloc)
 
-	local Configuration = WG.Chobby.Configuration
+	wgChobbyConfig = WG.Chobby.Configuration
+
+	-- Sharing font saves about 20%, but getting the config for the TextBox font isn't straightforward.
+	local fontSpec = wgChobbyConfig:GetFont(2)
+	local sacrificialTextBox = TextBox:New({})
+	fontSpec.font = sacrificialTextBox.font.font
+	sacrificialTextBox:Dispose()
+	listFont = Font:New(fontSpec)
 
 	local mapListWindow = Window:New {
 		classname = "main_window",
@@ -194,7 +180,7 @@ local function InitializeControls()
 		y = 17,
 		height = 20,
 		parent = mapListWindow,
-		font = Configuration:GetFont(3),
+		font = wgChobbyConfig:GetFont(3),
 		caption = "Select a Map",
 	}
 
@@ -273,7 +259,7 @@ local function InitializeControls()
 		mapItems[#mapItems + 1] = {mapName, control, sortData}
 	end
 
-	if not Configuration.onlyShowFeaturedMaps then
+	if not wgChobbyConfig.onlyShowFeaturedMaps then
 		for i, archive in pairs(VFS.GetAllArchives()) do
 			local info = VFS.GetArchiveInfo(archive)
 			if info and info.modtype == 3 and not mapFuncs[info.name] then
@@ -295,7 +281,7 @@ local function InitializeControls()
 		width = 80,
 		height = 45,
 		caption = i18n("close"),
-		font = Configuration:GetFont(3),
+		font = wgChobbyConfig:GetFont(3),
 		classname = "negative_button",
 		parent = mapListWindow,
 		OnClick = {
@@ -305,19 +291,19 @@ local function InitializeControls()
 		},
 	}
 
-	if Configuration.gameConfig.link_maps ~= nil then
+	if wgChobbyConfig.gameConfig.link_maps ~= nil then
 		local btnOnlineMaps = Button:New {
 			right = 98,
 			y = 7,
 			width = 180,
 			height = 45,
 			caption = i18n("download_maps"),
-			font = Configuration:GetFont(3),
+			font = wgChobbyConfig:GetFont(3),
 			classname = "option_button",
 			parent = mapListWindow,
 			OnClick = {
 				function ()
-					WG.BrowserHandler.OpenUrl(Configuration.gameConfig.link_maps())
+					WG.BrowserHandler.OpenUrl(wgChobbyConfig.gameConfig.link_maps())
 				end
 			},
 		}
@@ -335,7 +321,7 @@ local function InitializeControls()
 		height = 33,
 		text = '',
 		hint = i18n("type_to_filter"),
-		fontsize = Configuration:GetFont(2).size,
+		fontsize = wgChobbyConfig:GetFont(2).size,
 		parent = mapListWindow,
 		OnKeyPress = {
 			function(obj, key, ...)
@@ -380,7 +366,7 @@ local function InitializeControls()
 	function externalFunctions.UpdateHaveMap(thingName)
 		if mapFuncs[thingName] then
 			mapFuncs[thingName].UpdateHaveMap()
-		elseif not Configuration.onlyShowFeaturedMaps and VFS.HasArchive(thingName) then
+		elseif not wgChobbyConfig.onlyShowFeaturedMaps and VFS.HasArchive(thingName) then
 			local info = VFS.GetArchiveInfo(thingName)
 			if info and info.modtype == 3 and not mapFuncs[info.name] then
 				local control, sortData

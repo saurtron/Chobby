@@ -64,26 +64,10 @@ end
 
 function IsRelativeCoord(code)
 	local num = tonumber(code)
-
-	if (type(code) == "string") then
-		return true
-	elseif (num) and ((1/num) < 0) then
-		return true
-	else
+	if num and ((1/num) < 0) then
 		return false
 	end
-end
-
-function IsRelativeCoordType(code)
-	local num = tonumber(code)
-
-	if (type(code) == "string") then
-		return "relative"
-	elseif (num) and ((1/num) < 0) then
-		return "negative"
-	else
-		return "default"
-	end
+	return type(code) == "string"
 end
 
 --// =============================================================================
@@ -91,7 +75,6 @@ end
 function IsObject(v)
 	return ((type(v) == "metatable") or (type(v) == "userdata")) and (v.classname)
 end
-
 
 function IsNumber(v)
 	return (type(v) == "number")
@@ -336,6 +319,18 @@ function table:shallowcopy()
 	return newTable
 end
 
+function table:deepcopy()
+	local newTable = {}
+	for k, v in pairs(self) do
+		if type(v) == 'table' then
+			newTable[k] = table.deepcopy(v)
+		else
+			newTable[k] = v
+		end
+	end
+	return newTable
+end
+
 function table:arrayshallowcopy()
 	local newArray = {}
 	for i = 1, #self do
@@ -399,13 +394,14 @@ end
 
 function table:merge(table2)
 	for i, v in pairs(table2) do
-		if (type(v) == 'table') then
-			local sv = type(self[i])
-			if (sv == 'table') or (sv == 'nil') then
-				if (sv == 'nil') then self[i] = {} end
-				table.merge(self[i], v)
+		local sv = self[i]
+		if type(v) == 'table' then
+			if sv == nil then
+				self[i] = table.deepcopy(v)
+			elseif type(sv) == 'table' then
+				self[i] = table.merge(sv, v)
 			end
-		elseif (self[i] == nil) then
+		elseif sv == nil then
 			self[i] = v
 		end
 	end
