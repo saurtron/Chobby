@@ -120,13 +120,13 @@ function Control:New(obj)
 
 	if obj._hasCustomDrawControl then
 		if not obj.drawcontrolv2 then
-			local w = obj._widget or {whInfo = { name = "unknown" } }
-			local fmtStr = [[You are using a custom %s::DrawControl in widget "%s".
-			Please note that with Chili 2.1 the (self.x, self.y) translation is moved a level up and does not need to be done in DrawControl anymore.
-			When you adjusted your code set `drawcontrolv2 = true` in the respective control to disable this message.]]
-			Spring.Log("Chili", "warning", fmtStr:format(obj.name, w.whInfo.name))
+	local w = obj._widget or {whInfo = { name = "unknown" } }
+	local fmtStr = [[You are using a custom %s::DrawControl in widget "%s".
+	Please note that with Chili 2.1 the (self.x, self.y) translation is moved a level up and does not need to be done in DrawControl anymore.
+	When you adjusted your code set `drawcontrolv2 = true` in the respective control to disable this message.]]
+	Spring.Log("Chili", "warning", fmtStr:format(obj.name, w.whInfo.name))
 		else
-			obj._hasCustomDrawControl = false
+	obj._hasCustomDrawControl = false
 		end
 	end
 
@@ -268,42 +268,79 @@ end
 
 
 function Control:DetectRelativeBounds()
-	--// we need min 2 x/y specifiers to define a rect!
-	local x, right, width, y, bottom, height = self.x, self.right, self.width, self.y, self.bottom, self.height
-	if not width and (not x and not right) then
-		width = self.defaultWidth or 0
-		x = x or (not right and 0 or nil)
+	--// we need min 2 x-dim coords to define a rect!
+	local numconstraints = 0
+	if (self.x) then
+		numconstraints = numconstraints + 1
 	end
-	if not height and (not self.y and not bottom) then
-		height = self.defaultHeight or 0
-		y = y or (not bottom and 0 or nil)
+	if (self.right) then
+		numconstraints = numconstraints + 1
+	end
+	if (self.width) then
+		numconstraints = numconstraints + 1
+	end
+	if (numconstraints < 2) then
+		if (numconstraints == 0) then
+			self.x = 0
+			self.width = self.defaultWidth or 0
+		else
+			if (self.width) then
+				self.x = 0
+			else
+				self.width = self.defaultWidth or 0
+			end
+		end
+	end
+
+	--// we need min 2 y-dim coords to define a rect!
+	numconstraints = 0
+	if (self.y) then
+		numconstraints = numconstraints + 1
+	end
+	if (self.bottom) then
+		numconstraints = numconstraints + 1
+	end
+	if (self.height) then
+		numconstraints = numconstraints + 1
+	end
+	if (numconstraints < 2) then
+		if (numconstraints == 0) then
+			self.y = 0
+			self.height = self.defaultHeight or 0
+		else
+			if (self.height) then
+				self.y = 0
+			else
+				self.height = self.defaultHeight or 0
+			end
+		end
 	end
 
 	--// check which constraints are relative
 	self._givenBounds  = {
-		left   = x,
-		top    = y,
-		width  = width,
-		height = height,
-		right  = right,
-		bottom = bottom,
+		left   = self.x,
+		top    = self.y,
+		width  = self.width,
+		height = self.height,
+		right  = self.right,
+		bottom = self.bottom,
 	}
 	local rb = {
-		left   = IsRelativeCoord(x) and x,
-		top    = IsRelativeCoord(y) and y,
-		width  = IsRelativeCoord(width) and width,
-		height = IsRelativeCoord(height) and height,
-		right  = right,
-		bottom = bottom,
+		left   = IsRelativeCoord(self.x) and self.x,
+		top    = IsRelativeCoord(self.y) and self.y,
+		width  = IsRelativeCoord(self.width) and self.width,
+		height = IsRelativeCoord(self.height) and self.height,
+		right  = self.right,
+		bottom = self.bottom,
 	}
 	self._relativeBounds = rb
 	self._isRelative = (rb.left or rb.top or rb.width or rb.height or rb.right or rb.bottom) and (true)
 
 	--// initialize relative constraints with 0
-	self.x = ((not rb.left) and x) or 0
-	self.y = ((not rb.top)  and y) or 0
-	self.width  = ((not rb.width) and width) or 0
-	self.height = ((not rb.height) and height) or 0
+	self.x = ((not rb.left) and self.x) or 0
+	self.y = ((not rb.top)  and self.y) or 0
+	self.width  = ((not rb.width) and self.width) or 0
+	self.height = ((not rb.height) and self.height) or 0
 	--self.right  = (type(self.right) == 'number') and (self.right > 0) and (self.right) or 0
 	--self.bottom = (type(self.bottom) == 'number') and (self.bottom > 0) and (self.bottom) or 0
 end

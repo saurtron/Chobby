@@ -3,7 +3,6 @@ Configuration = LCS.class{}
 VFS.Include("libs/liblobby/lobby/json.lua")
 
 LIB_LOBBY_DIRNAME = "libs/liblobby/lobby/"
-MINIMAP_THUMB_DOWNLOAD_DIR = "LuaMenu/Images/MinimapThumbnails"
 
 
 -- all configuration attribute changes should use the :Set*Attribute*() and :Get*Attribute*() methods in order to assure proper functionality
@@ -282,7 +281,7 @@ function Configuration:init()
 
 	self.animate_lobby = (gl.CreateShader ~= nil)
 	self.minimapDownloads = {}
-	self.minimapDownloadStarted = {}
+	self.minimapThumbDownloads = {}
 	self.downloadRetryCount = 3
 
 	local saneCharacterList = {
@@ -729,25 +728,23 @@ function Configuration:AllowNotification(playerName, playerList)
 end
 
 function Configuration:GetMinimapSmallImage(mapName)
+	if not self.gameConfig.minimapThumbnailPath then
+		return LUA_DIRNAME .. "images/minimapNotFound1.png"
+	end
 	mapName = string.gsub(mapName, " ", "_")
-
 	local filePath = self.gameConfig.minimapThumbnailPath .. mapName .. ".png"
-	if VFS.FileExists(filePath) then
-		return filePath, false
+	if not VFS.FileExists(filePath) then
+		filePath = "LuaMenu/Images/MinimapThumbnails" .. mapName .. ".jpg"
 	end
-
-	filePath = MINIMAP_THUMB_DOWNLOAD_DIR .. mapName .. ".jpg"
-	if VFS.FileExists(filePath) then
-		return filePath, false
+	if WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage and (not VFS.FileExists(filePath)) then
+		if not self.minimapThumbDownloads[mapName] then
+			Spring.CreateDir("LuaMenu/Images/MinimapThumbnails")
+			WG.WrapperLoopback.DownloadImage({ImageUrl = "http://zero-k.info/Resources/" .. mapName .. ".thumbnail.jpg", TargetPath = filePath})
+			self.minimapThumbDownloads[mapName] = true
+		end
+		return filePath, true
 	end
-
-	if not self.minimapDownloadStarted[mapName] and WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage then
-		Spring.CreateDir(MINIMAP_THUMB_DOWNLOAD_DIR)
-		WG.WrapperLoopback.DownloadImage({ImageUrl = "http://zero-k.info/Resources/" .. mapName .. ".thumbnail.jpg", TargetPath = filePath})
-		self.minimapDownloadStarted[mapName] = true
-	end
-
-	return filePath, true
+	return filePath
 end
 
 function Configuration:GetMinimapImage(mapName)

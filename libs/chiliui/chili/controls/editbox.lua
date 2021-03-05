@@ -2,16 +2,6 @@
 
 --- EditBox module
 
-local spGetClipboard = Spring.GetClipboard
-local spGetKeyCode = Spring.GetKeyCode
-local spGetModKeyState = Spring.GetModKeyState
-local spGetTimer = Spring.GetTimer
-local spLog = Spring.Log
-local spSdlSetTextInputRect = Spring.SDLSetTextInputRect
-local spSdlStartTextInput = Spring.SDLStartTextInput
-local spSdlStopTextInput = Spring.SDLStopTextInput
-local spSetClipboard = Spring.SetClipboard
-
 --- EditBox fields.
 -- Inherits from Control.
 -- @see control.Control
@@ -64,21 +54,21 @@ EditBox = Control:Inherit{
 	cursorY = 1,
 
 	inedibleInput = {
-		[spGetKeyCode("enter")] = true,
-		[spGetKeyCode("numpad_enter")] = true,
-		[spGetKeyCode("esc")] = true,
-		[spGetKeyCode("f1")] = true,
-		[spGetKeyCode("f2")] = true,
-		[spGetKeyCode("f3")] = true,
-		[spGetKeyCode("f4")] = true,
-		[spGetKeyCode("f5")] = true,
-		[spGetKeyCode("f6")] = true,
-		[spGetKeyCode("f7")] = true,
-		[spGetKeyCode("f8")] = true,
-		[spGetKeyCode("f9")] = true,
-		[spGetKeyCode("f10")] = true,
-		[spGetKeyCode("f11")] = true,
-		[spGetKeyCode("f12")] = true,
+		[Spring.GetKeyCode("enter")] = true,
+		[Spring.GetKeyCode("numpad_enter")] = true,
+		[Spring.GetKeyCode("esc")] = true,
+		[Spring.GetKeyCode("f1")] = true,
+		[Spring.GetKeyCode("f2")] = true,
+		[Spring.GetKeyCode("f3")] = true,
+		[Spring.GetKeyCode("f4")] = true,
+		[Spring.GetKeyCode("f5")] = true,
+		[Spring.GetKeyCode("f6")] = true,
+		[Spring.GetKeyCode("f7")] = true,
+		[Spring.GetKeyCode("f8")] = true,
+		[Spring.GetKeyCode("f9")] = true,
+		[Spring.GetKeyCode("f10")] = true,
+		[Spring.GetKeyCode("f11")] = true,
+		[Spring.GetKeyCode("f12")] = true,
 	},
 
 	noFont = false,
@@ -91,25 +81,21 @@ local inherited = this.inherited
 
 function EditBox:New(obj)
 	obj = inherited.New(self, obj)
-	obj._interactedTime = spGetTimer()
+	obj._interactedTime = Spring.GetTimer()
 		--// create font
-	if obj.hint then
-		obj.hintFont = Font:New(obj.hintFont)
-		obj.hintFont:SetParent(obj)
-	else
-	  obj.hintFont = false
-	end
+	obj.hintFont = Font:New(obj.hintFont)
+	obj.hintFont:SetParent(obj)
 	local text = obj.text
 	obj.text = nil
 	obj:SetText(text)
+	obj:RequestUpdate()
+	self._inRequestUpdate = true
 	return obj
 end
 
 function EditBox:Dispose(...)
-	if self.hintFont then
-		self.hintFont:SetParent()
-	end
 	Control.Dispose(self)
+	self.hintFont:SetParent()
 end
 
 function EditBox:HitTest(x, y)
@@ -125,21 +111,17 @@ local function explode(div, str)
 	local N = str:len()
 
 	while j <= N do
-		local c = str[j]
+		local c = str:sub(j, j)
 		if c == '\255' then
-			j = j + 4
+			j = j + 3
 		elseif c == div then
 			arr[#arr + 1] = str:sub(i, j - 1)
 			i = j + 1
-			j = i
-		else
-			j = j + 1
 		end
+		j = j + 1
 	end
 
-	if i == 1 then
-	  arr[1] = str -- POO
-	elseif i <= N then
+	if i <= N then
 		arr[#arr + 1] = str:sub(i, N)
 	end
 
@@ -203,8 +185,8 @@ function EditBox:_SetSelection(selStart, selStartY, selEnd, selEndY)
 	self.selEndY   = selEndY         or self.selEndY
 	if selStart or selStartY then
 		if not self.lines[self.selStartY] then
-				spLog("chiliui", LOG.ERROR, "self.lines[self.selStartY] is nil for self.selStartY: " .. tostring(self.selStartY) .. " and #self.lines: " .. tostring(#self.lines))
-				spLog("chiliui", LOG.ERROR, debug.traceback())
+				Spring.Log("chiliui", LOG.ERROR, "self.lines[self.selStartY] is nil for self.selStartY: " .. tostring(self.selStartY) .. " and #self.lines: " .. tostring(#self.lines))
+				Spring.Log("chiliui", LOG.ERROR, debug.traceback())
 		else
 			local logicalLine = self.lines[self.selStartY]
 			self.selStartPhysical, self.selStartPhysicalY = self:_LineLog2Phys(logicalLine, self.selStart)
@@ -213,8 +195,8 @@ function EditBox:_SetSelection(selStart, selStartY, selEnd, selEndY)
 
 	if selEnd or selEndY then
 		if not self.lines[self.selEndY] then
-				spLog("chiliui", LOG.ERROR, "self.lines[self.selEndY] is nil for self.selEndY: " .. tostring(self.selEndY) .. " and #self.lines: " .. tostring(#self.lines))
-				spLog("chiliui", LOG.ERROR, debug.traceback())
+				Spring.Log("chiliui", LOG.ERROR, "self.lines[self.selEndY] is nil for self.selEndY: " .. tostring(self.selEndY) .. " and #self.lines: " .. tostring(#self.lines))
+				Spring.Log("chiliui", LOG.ERROR, debug.traceback())
 		else
 			local logicalLine = self.lines[self.selEndY]
 			self.selEndPhysical, self.selEndPhysicalY  = self:_LineLog2Phys(logicalLine, self.selEnd)
@@ -517,14 +499,14 @@ function EditBox:__GetStartX(text)
 end
 
 function EditBox:FocusUpdate(...)
-	if spSdlStartTextInput and self.useSDLStartTextInput then
+	if Spring.SDLStartTextInput and self.useSDLStartTextInput then
 		if not self.state.focused then
 			self.textEditing = ""
-			spSdlStopTextInput()
+			Spring.SDLStopTextInput()
 		else
-			spSdlStartTextInput()
+			Spring.SDLStartTextInput()
 			local x, y = self:CorrectlyImplementedLocalToScreen(self.x, self.y)
-			spSdlSetTextInputRect(x, y, 30, 1000)
+			Spring.SDLSetTextInputRect(x, y, 30, 1000)
 		end
 	end
 	self:InvalidateSelf()
@@ -663,7 +645,7 @@ function EditBox:MouseDown(x, y, ...)
 				for _, f in pairs(OnTextClick.OnTextClick) do
 					f(self, cx, cy, ...)
 				end
-				self._interactedTime = spGetTimer()
+				self._interactedTime = Spring.GetTimer()
 				inherited.MouseDown(self, x, y, ...)
 				self:Invalidate()
 				return self
@@ -674,7 +656,7 @@ function EditBox:MouseDown(x, y, ...)
 	if not self.selectable then
 		return false
 	end
-	local _, _, _, shift = spGetModKeyState()
+	local _, _, _, shift = Spring.GetModKeyState()
 	local cp, cpy = self.cursor, self.cursorY
 	self:_SetCursorByMousePos(x, y)
 	if shift then
@@ -689,7 +671,7 @@ function EditBox:MouseDown(x, y, ...)
 		self.selEndY = nil
 	end
 
-	self._interactedTime = spGetTimer()
+	self._interactedTime = Spring.GetTimer()
 	inherited.MouseDown(self, x, y, ...)
 	self:Invalidate()
 	return self
@@ -726,7 +708,7 @@ function EditBox:MouseMove(x, y, dx, dy, button)
 		return self
 	end
 	
-	local _, _, _, shift = spGetModKeyState()
+	local _, _, _, shift = Spring.GetModKeyState()
 	local cp, cpy = self.cursor, self.cursorY
 	self:_SetCursorByMousePos(x, y)
 	if not self.selStart then
@@ -735,7 +717,7 @@ function EditBox:MouseMove(x, y, dx, dy, button)
 	self:_SetSelection(nil, nil, self.cursor, self.cursorY)
 	--Spring.Echo(self:GetSelectionText())
 
-	self._interactedTime = spGetTimer()
+	self._interactedTime = Spring.GetTimer()
 	inherited.MouseMove(self, x, y, dx, dy, button)
 	self:Invalidate()
 	return self
@@ -835,7 +817,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 	local eatInput = true
 
 	-- deletions
-	if key == spGetKeyCode("backspace") and self.editable then
+	if key == Spring.GetKeyCode("backspace") and self.editable then
 		if self.selStart == nil then
 			if mods.ctrl then
 				repeat
@@ -848,7 +830,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 		else
 			self:ClearSelected()
 		end
-	elseif key == spGetKeyCode("delete") and self.editable then
+	elseif key == Spring.GetKeyCode("delete") and self.editable then
 		if self.selStart == nil then
 			if mods.ctrl then
 				repeat
@@ -866,7 +848,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 
 	-- TODO: Fix cursor movement for multiline
 	-- cursor movement
-	elseif key == spGetKeyCode("left") and not self.multiline then
+	elseif key == Spring.GetKeyCode("left") and not self.multiline then
 		if mods.ctrl then
 			repeat
 				self.cursor = Utf8PrevChar(txt, self.cursor)
@@ -874,7 +856,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 		else
 			self.cursor = Utf8PrevChar(txt, cp)
 		end
-	elseif key == spGetKeyCode("right") and not self.multiline then
+	elseif key == Spring.GetKeyCode("right") and not self.multiline then
 		if mods.ctrl then
 			repeat
 				self.cursor = Utf8NextChar(txt, self.cursor)
@@ -882,26 +864,26 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 		else
 			self.cursor = Utf8NextChar(txt, cp)
 		end
-	elseif key == spGetKeyCode("home") and not self.multiline then
+	elseif key == Spring.GetKeyCode("home") and not self.multiline then
 		self.cursor = 1
-	elseif key == spGetKeyCode("end") and not self.multiline then
+	elseif key == Spring.GetKeyCode("end") and not self.multiline then
 		self.cursor = #txt + 1
 
 	-- copy & paste
-	elseif (mods.ctrl and key == spGetKeyCode("c")) or (mods.ctrl and key == spGetKeyCode("insert")) or
-		(self.editable and ((mods.ctrl and key == spGetKeyCode("x")) or (mods.shift and key == spGetKeyCode("delete")))) then
+	elseif (mods.ctrl and key == Spring.GetKeyCode("c")) or (mods.ctrl and key == Spring.GetKeyCode("insert")) or
+		(self.editable and ((mods.ctrl and key == Spring.GetKeyCode("x")) or (mods.shift and key == Spring.GetKeyCode("delete")))) then
 		txt = self:GetSelectionText()
 		if self.selStart and self.selEnd then
-			spSetClipboard(txt)
-			if key == spGetKeyCode("x") or key == spGetKeyCode("delete") then
+			Spring.SetClipboard(txt)
+			if key == Spring.GetKeyCode("x") or key == Spring.GetKeyCode("delete") then
 				self:ClearSelected()
 			end
 		end
-	elseif ((mods.ctrl and key == spGetKeyCode("v")) or (mods.shift and key == spGetKeyCode("insert"))) and self.editable then
-		self:TextInput(spGetClipboard())
+	elseif ((mods.ctrl and key == Spring.GetKeyCode("v")) or (mods.shift and key == Spring.GetKeyCode("insert"))) and self.editable then
+		self:TextInput(Spring.GetClipboard())
 
 	-- select all
-	elseif mods.ctrl and key == spGetKeyCode("a") then
+	elseif mods.ctrl and key == Spring.GetKeyCode("a") then
 		if not self.multiline then
 			self:_SetSelection(1, 1, #txt + 1, 1)
 		else
@@ -912,7 +894,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 	end
 
 	-- text selection handling
-	if key == spGetKeyCode("left") or key == spGetKeyCode("right") or key == spGetKeyCode("home") or key == spGetKeyCode("end") then
+	if key == Spring.GetKeyCode("left") or key == Spring.GetKeyCode("right") or key == Spring.GetKeyCode("home") or key == Spring.GetKeyCode("end") then
 		if mods.shift then
 			if not self.selStart then
 				self:_SetSelection(cp, cpy, nil, nil)
@@ -926,7 +908,7 @@ function EditBox:KeyPress(key, mods, isRepeat, label, unicode, ...)
 		end
 	end
 
-	self._interactedTime = spGetTimer()
+	self._interactedTime = Spring.GetTimer()
 	eatInput = inherited.KeyPress(self, key, mods, isRepeat, label, unicode, ...) or eatInput
 	self:UpdateLayout()
 	self:Invalidate()
@@ -954,7 +936,7 @@ function EditBox:TextInput(utf8char, ...)
 		self.cursor = cp + unicode:len()
 	end
 
-	self._interactedTime = spGetTimer()
+	self._interactedTime = Spring.GetTimer()
 	inherited.TextInput(self, utf8char, ...)
 	inherited.TextModified(self, utf8char, ...)
 	self:UpdateLayout()
