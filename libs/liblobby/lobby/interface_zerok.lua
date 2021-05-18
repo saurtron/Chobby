@@ -788,7 +788,7 @@ local registerResponseCodes = {
 
 local loginResponseCodes = {
 	[0] = "Ok",
-	[2] = "Invalid characters in name",
+	[2] = "Invalid name (check case)",
 	[3] = "Incorrect password",
 	[4] = "Banned",
 	[5] = "Steam linking error. Restart Steam and ensure it is in online mode.",
