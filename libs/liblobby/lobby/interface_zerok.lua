@@ -796,6 +796,8 @@ local loginResponseCodes = {
 	[7] = "Steam account not yet linked. Re-register.",
 	[8] = "Your steam account is already linked to a different account.",
 	[9] = "Sorry, the server is full, please retry later.",
+	[10] = "Invalid RSA signature",
+	[11] = "RSA signature could not be verified",
 }
 
 function Interface:_Welcome(data)
