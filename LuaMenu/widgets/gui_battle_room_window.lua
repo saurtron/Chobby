@@ -2282,6 +2282,18 @@ function BattleRoomWindow.ClearChatHistory()
 		mainWindowFunctions.ClearChatHistory()
 	end
 end
+
+function BattleRoomWindow.IsCurrentMap(map)
+	if not battleLobby then
+		return false
+	end
+	local myBattle = battleLobby:GetMyBattleID() and battleLobby:GetBattle(battleLobby:GetMyBattleID())
+	if not myBattle then
+		return false
+	end
+	return myBattle.mapName == map
+end
+
 local function DelayedInitialize()
 	local function onConfigurationChange(listener, key, value)
 		if mainWindowFunctions and key == "canAuthenticateWithSteam" then

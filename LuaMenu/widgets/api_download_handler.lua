@@ -161,8 +161,8 @@ local function RetryDownload(name, fileType)
 		return false
 	end
 	local download = downloadQueue[index]
-	download.attempts = (download.attempts or 0) + 1 
-	if download.attempts >= (WG.Chobby.Configuration.downloadRetryCount or 0) then
+	download.attempts = (download.attempts or 0) + 1
+	if download.attempts >= (WG.Chobby.Configuration.downloadRetryCount or 0) and not WG.BattleRoomWindow.IsCurrentMap(name) then
 		return false
 	end
 
