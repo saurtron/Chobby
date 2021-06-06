@@ -23,7 +23,7 @@ local lobbyFullscreen = 1
 
 local FUDGE = 0
 
-local SET_SCREEN_MODE_SANE = true
+local SET_SCREEN_MODE_SANE = false
 
 local inLobby = true
 local currentMode = false
