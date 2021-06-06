@@ -23,7 +23,7 @@ local lobbyFullscreen = 1
 
 local FUDGE = 0
 
-local SET_SCREEN_MODE_SANE = false
+local SET_SCREEN_MODE_SANE = true
 
 local inLobby = true
 local currentMode = false
@@ -108,6 +108,7 @@ end
 local function SetLobbyFullscreenMode_Sane(mode, borderOverride)
 	Spring.Echo("SetLobbyFullscreenMode_Sane", mode)
 
+	local Configuration = WG.Chobby.Configuration
 	local screenX, screenY = Spring.GetScreenGeometry()
 
 	if mode == 1 then -- Borderless
