@@ -293,6 +293,10 @@ function Configuration:init()
 	for i = 1, #saneCharacterList do
 		self.saneCharacters[saneCharacterList[i]] = true
 	end
+
+	-- UI Styling globals that are really not config, but need to be somewhere.
+	WG.TOP_BUTTON_Y = 8
+	WG.BUTTON_HEIGHT = 41
 end
 
 ---------------------------------------------------------------------------------

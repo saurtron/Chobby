@@ -302,9 +302,9 @@ local function InitializeControls(parentControl)
 
 	local btnLeaveScreen = Button:New {
 		right = 11,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 80,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		font =  WG.Chobby.Configuration:GetFont(3),
 		caption = i18n("close"),
 		classname = "negative_button",

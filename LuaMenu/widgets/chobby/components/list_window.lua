@@ -44,9 +44,9 @@ function ListWindow:init(parent, title, noWindow, windowClassname, noClose, cust
 	if not noClose then
 		self.btnClose = Button:New {
 			right = 11,
-			y = 7,
+			y = WG.TOP_BUTTON_Y,
 			width = 80,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			caption = i18n("close"),
 			font = Configuration:GetFont(3),
 			classname = "negative_button",

@@ -18,8 +18,8 @@ local function CreateLine(lineText, linkText, onClick)
 		local linkButton = Button:New {
 			x = 3,
 			y = 3,
-			height = 34,
-			width = 95,
+			height = WG.BUTTON_HEIGHT,
+			width = 110,
 			caption = linkText,
 			classname = "action_button",
 			font = WG.Chobby.Configuration:GetFont(2),
@@ -32,8 +32,8 @@ local function CreateLine(lineText, linkText, onClick)
 
 	local text = TextBox:New {
 		name = "text",
-		x = 110,
-		y = 12,
+		x = 125,
+		y = 16,
 		right = 0,
 		height = 20,
 		valign = 'center',
@@ -207,9 +207,9 @@ local communityControl = Control:New {
 
 			Button:New {
 				right = 11,
-				y = 7,
+				y = WG.TOP_BUTTON_Y,
 				width = 80,
-				height = 45,
+				height = WG.BUTTON_HEIGHT,
 				font = WG.Chobby.Configuration:GetFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",
@@ -231,7 +231,7 @@ local communityControl = Control:New {
 				draggable = false,
 				padding = {0, 0, 0, 0},
 			}
-			local list = SortableList(listHolder)
+			local list = SortableList(listHolder, false, WG.BUTTON_HEIGHT + 3)
 
 			local items = {}
 			for i = 1, #communityLines do
@@ -274,9 +274,9 @@ local bugControl = Control:New {
 
 			Button:New {
 				right = 11,
-				y = 7,
+				y = WG.TOP_BUTTON_Y,
 				width = 80,
-				height = 45,
+				height = WG.BUTTON_HEIGHT,
 				font = Configuration:GetFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",

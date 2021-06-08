@@ -146,7 +146,7 @@ local function GetLadderHandler(parentControl)
 
 	local heading = TextBox:New{
 		x = 4,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		right = 4,
 		height = 24,
 		align = "left",
@@ -659,7 +659,7 @@ local function GetNewsHandler(parentControl, headingSize, timeAsTooltip, topHead
 
 	local topHeadingLabel = topHeading and TextBox:New{
 		x = 4,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		right = 4,
 		height = headFormat.height,
 		align = "left",

@@ -221,9 +221,9 @@ local function InitializeControls(parentControl)
 
 	Button:New {
 		x = 100,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 110,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("refresh"),
 		font = Configuration:GetFont(3),
 		classname = "option_button",
@@ -237,9 +237,9 @@ local function InitializeControls(parentControl)
 
 	moreButton = Button:New {
 		x = 340,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 110,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("more"),
 		font = Configuration:GetFont(3),
 		classname = "option_button",
@@ -254,9 +254,9 @@ local function InitializeControls(parentControl)
 	}
 	--local btnClose = Button:New {
 	--	right = 11,
-	--	y = 7,
+	--	y = WG.TOP_BUTTON_Y,
 	--	width = 80,
-	--	height = 45,
+	--	height = WG.BUTTON_HEIGHT,
 	--	caption = i18n("close"),
 	--	font = Configuration:GetFont(3),
 	--	classname = "negative_button",
@@ -271,9 +271,9 @@ local function InitializeControls(parentControl)
 	if WG.BrowserHandler and Configuration.gameConfig.link_replays ~= nil then
 		Button:New {
 			x = 220,
-			y = 7,
+			y = WG.TOP_BUTTON_Y,
 			width = 110,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download"),
 			font = Configuration:GetFont(3),
 			classname = "option_button",

@@ -247,7 +247,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 	local actionButton = Button:New {
 		x = 3,
 		y = 3,
-		bottom = 3,
+		height = WG.BUTTON_HEIGHT,
 		width = 65,
 		caption = i18n("load"),
 		classname = "action_button",
@@ -325,9 +325,9 @@ local function AddSaveEntryButton(saveFile, saveList)
 	local deleteButton = Button:New {
 		parent = container,
 		x = x,
-		width = 65,
 		y = 4,
-		bottom = 4,
+		width = 65,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("delete"),
 		classname = "action_button",
 		font = WG.Chobby.Configuration:GetFont(2),

@@ -576,7 +576,7 @@ local function MakePlanetControl(planetData, DeselectOtherFunc, attacking, defen
 
 	local btnPlanetLink = Button:New {
 		x = 130,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = PLANET_NAME_LENGTH,
 		height = 24,
 		classname = "button_square",
@@ -669,7 +669,7 @@ local function MakePlanetControl(planetData, DeselectOtherFunc, attacking, defen
 		x = 100,
 		width = 160,
 		bottom = 6,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("defend_planet"),
 		font = Configuration:GetFont(3),
 		classname = "option_button",
@@ -873,7 +873,7 @@ local function MakeFactionSelector(parent, x, y, SelectionFunc, CancelFunc, righ
 			x = 140,
 			y = offset,
 			width = 260,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			caption = "Join " .. name,
 			font = Configuration:GetFont(3),
 			classname = "action_button",
@@ -1023,9 +1023,9 @@ local function InitializeControls(window)
 
 	local btnClose = Button:New {
 		right = 11,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 80,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
 		font = Configuration:GetFont(3),
 		classname = "negative_button",

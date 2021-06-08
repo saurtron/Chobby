@@ -12,9 +12,9 @@ function BattleListWindow:init(parent)
 	if not Configuration.gameConfig.disableBattleListHostButton then
 		self.btnNewBattle = Button:New {
 			x = 260,
-			y = 7,
+			y = WG.TOP_BUTTON_Y,
 			width = 150,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			caption = i18n("open_mp_game"),
 			font = Configuration:GetFont(3),
 			classname = "option_button",

@@ -291,9 +291,9 @@ local function InitializeControls()
 
 	local btnClose = Button:New {
 		right = 11,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 80,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
 		font = Configuration:GetFont(3),
 		classname = "negative_button",
@@ -308,9 +308,9 @@ local function InitializeControls()
 	if Configuration.gameConfig.link_maps ~= nil then
 		local btnOnlineMaps = Button:New {
 			right = 98,
-			y = 7,
+			y = WG.TOP_BUTTON_Y,
 			width = 180,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download_maps"),
 			font = Configuration:GetFont(3),
 			classname = "option_button",

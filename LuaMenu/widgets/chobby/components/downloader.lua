@@ -151,6 +151,12 @@ function Downloader:UpdateQueue()
 	end
 end
 
+function Downloader:SetPos(x, y)
+	if self.window then
+		self.window:SetPos(x, y)
+	end
+end
+
 function Downloader:Hide()
 	if self.prDownload.visible then
 		self.lblDownload:Hide()

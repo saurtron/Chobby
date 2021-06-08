@@ -78,7 +78,7 @@ local function QueueSortFunc(a, b)
 end
 
 local function GetQueuePos(pos)
-	return pos*55 + 15
+	return pos*52 + 17
 end
 
 WG.GetCombinedBannedTime = GetCombinedBannedTime
@@ -458,9 +458,9 @@ local function InitializeControls(window)
 
 	local btnClose = Button:New {
 		right = 11,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 80,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
 		font = Configuration:GetFont(3),
 		classname = "negative_button",
@@ -473,10 +473,10 @@ local function InitializeControls(window)
 	}
 
 	local btnInviteFriends = Button:New {
-		right = 101,
-		y = 7,
+		right = 98,
+		y = WG.TOP_BUTTON_Y,
 		width = 180,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		font = Configuration:GetFont(3),
 		caption = i18n("invite_friends"),
 		classname = "option_button",
@@ -491,10 +491,10 @@ local function InitializeControls(window)
 
 	if Configuration.gameConfig.link_matchmakerMapBans then
 		Button:New {
-			right = 291,
-			y = 7,
+			right = 285,
+			y = WG.TOP_BUTTON_Y,
 			width = 180,
-			height = 45,
+			height = WG.BUTTON_HEIGHT,
 			font = Configuration:GetFont(3),
 			caption = i18n("select_maps"),
 			classname = "option_button",

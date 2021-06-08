@@ -314,11 +314,11 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		name = "btnNewTeam",
 		x = 5,
 		y = leftOffset,
-		height = 35,
+		height = WG.BUTTON_HEIGHT,
 		right = 5,
 		classname = "option_button",
 		caption = i18n("add_team") ..  "\b",
-		font = config:GetFont(2),
+		font = config:GetFont(3),
 		OnClick = {
 			function()
 				if OpenNewTeam then
@@ -348,17 +348,17 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		--},
 		parent = leftInfo
 	}
-	leftOffset = leftOffset + 38
+	leftOffset = leftOffset + WG.BUTTON_HEIGHT + 3
 
 	WG.MapListPanel.Preload()
 	local btnPickMap = Button:New {
 		x = 5,
 		y = leftOffset,
-		height = 35,
+		height = WG.BUTTON_HEIGHT,
 		right = 5,
 		classname = "option_button",
 		caption = i18n("pick_map") ..  "\b",
-		font =  config:GetFont(2),
+		font =  config:GetFont(3),
 		OnClick = {
 			function()
 				WG.MapListPanel.Show(battleLobby, battle.mapName)
@@ -366,17 +366,17 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		},
 		parent = leftInfo,
 	}
-	leftOffset = leftOffset + 38
+	leftOffset = leftOffset + WG.BUTTON_HEIGHT + 3
 
 	WG.ModoptionsPanel.LoadModotpions(battle.gameName, battleLobby)
 	local btnModoptions = Button:New {
 		x = 5,
 		y = leftOffset,
-		height = 35,
+		height = WG.BUTTON_HEIGHT,
 		right = 5,
 		classname = "option_button",
 		caption = "Adv Options" ..  "\b",
-		font =  config:GetFont(2),
+		font =  config:GetFont(3),
 		OnClick = {
 			function()
 				WG.ModoptionsPanel.ShowModoptions()
@@ -384,7 +384,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		},
 		parent = leftInfo,
 	}
-	leftOffset = leftOffset + 40
+	leftOffset = leftOffset + WG.BUTTON_HEIGHT + 6
 
 	local lblGame = Label:New {
 		x = 8,
@@ -427,7 +427,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		font = config:GetFont(1),
 		parent = leftInfo,
 	}
-	leftOffset = leftOffset + 25
+	leftOffset = leftOffset + 25 + 8
 
 	local modoptionsHolder = Control:New {
 		x = 0,
@@ -446,34 +446,40 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		modoptionsHolder.children[1]:Hide()
 	end
 
+	local downloader
+	local downloaderOffset = leftOffset
+	local downloaderPos = {
+		x = 0,
+		height = 120,
+		right = 0,
+		y = downloaderOffset,
+		parent = leftInfo,
+	}
+
 	local modoptionTopPosition = leftOffset
-	local modoptionBottomPosition = leftOffset + 120
+	local modoptionBottomPosition = leftOffset + 60
 	local downloadVisibility = true
 	local function OnDownloaderVisibility(newVisible)
 		if newVisible ~= nil then
 			downloadVisibility = newVisible
 		end
-		local newY = downloadVisibility and modoptionBottomPosition or modoptionTopPosition
+		local newY = (downloadVisibility and modoptionBottomPosition) or modoptionTopPosition
+		if battle and battle.disallowCustomTeams then
+			newY = newY - (WG.BUTTON_HEIGHT + 6)
+			downloader:SetPos(nil, downloaderOffset - (WG.BUTTON_HEIGHT + 6))
+		else
+			downloader:SetPos(nil, downloaderOffset)
+		end
 		local newHeight = math.max(10, leftInfo.clientArea[4] - newY)
 		modoptionsHolder:SetPos(nil, newY, nil, newHeight)
 	end
+	downloader = WG.Chobby.Downloader(false, downloaderPos, 8, nil, nil, nil, OnDownloaderVisibility)
+
 	OnDownloaderVisibility(false)
 	leftInfo.OnResize = leftInfo.OnResize or {}
 	leftInfo.OnResize[#leftInfo.OnResize + 1] = function ()
 		OnDownloaderVisibility()
 	end
-
-	local downloaderPos = {
-		x = 0,
-		height = 120,
-		right = 0,
-		y = leftOffset,
-		parent = leftInfo,
-	}
-
-	local downloader = WG.Chobby.Downloader(false, downloaderPos, 8, nil, nil, nil, OnDownloaderVisibility)
-	leftOffset = leftOffset + 120
-
 
 	-- Example downloads
 	--MaybeDownloadArchive("Titan-v2", "map")
@@ -487,12 +493,12 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 			btnNewTeam:SetVisibility(false)
 		else
 			btnNewTeam:SetVisibility(true)
-			offset = offset + 38
+			offset = offset + WG.BUTTON_HEIGHT + 3
 		end
 		btnPickMap:SetPos(nil, offset)
-		offset = offset + 38
+		offset = offset + WG.BUTTON_HEIGHT + 3
 		btnModoptions:SetPos(nil, offset)
-		offset = offset + 40
+		offset = offset + WG.BUTTON_HEIGHT + 6
 		lblGame:SetPos(nil, offset)
 		offset = offset + 26
 		imHaveGame:SetPos(nil, offset)
@@ -500,6 +506,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		offset = offset + 25
 		imHaveMap:SetPos(nil, offset)
 		lblHaveMap:SetPos(nil, offset)
+		OnDownloaderVisibility()
 	end
 	externalFunctions.UpdateBattleMode(battle.disallowCustomTeams)
 
@@ -1324,7 +1331,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 		}
 		opt.countLabel = Label:New {
 			right = 5,
-			y = 7,
+			y = WG.TOP_BUTTON_Y,
 			width = 50,
 			bottom = 0,
 			align = "left",
@@ -1788,9 +1795,9 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 
 	local btnQuitBattle = Button:New {
 		right = 11,
-		y = 7,
+		y = WG.TOP_BUTTON_Y,
 		width = 80,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		font = Configuration:GetFont(3),
 		caption = (isSingleplayer and i18n("close")) or i18n("leave"),
 		classname = "negative_button",
@@ -1803,10 +1810,10 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 	}
 
 	local btnInviteFriends = Button:New {
-		right = 101,
-		y = 7,
+		right = 98,
+		y = WG.TOP_BUTTON_Y,
 		width = 180,
-		height = 45,
+		height = WG.BUTTON_HEIGHT,
 		font = Configuration:GetFont(3),
 		caption = i18n("invite_friends"),
 		classname = "option_button",

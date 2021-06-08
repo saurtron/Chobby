@@ -106,7 +106,7 @@ return {
 		play_normal_multiplayer_game = "Play a normal multiplayer game",
 		quick_start = "Quick Start",
 		custom = "Custom",
-		battle_list = "Battle List",
+		battle_list = "Custom Game",
 		planetwars = "Planetwars",
 		oneVsOne = "1v1",
 		cooperative = "Cooperative",
