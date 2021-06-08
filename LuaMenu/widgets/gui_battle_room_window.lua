@@ -853,7 +853,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 				if (#teamStack.children)%2 == 1 and #teamStack.children < maxEvenPlayers then
 					maxPlayers = #teamStack.children - 1
 				end
-				local position = 0
+				local position = 1
 				local waitingListPosition = false
 				for i = 1, #teamStack.children do
 					if hasWaitingList and maxPlayers + 1 == i then
@@ -1829,7 +1829,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 	local battleTitle = ""
 	local lblBattleTitle = Label:New {
 		x = 20,
-		y = 17,
+		y = WG.TOP_LABEL_Y,
 		right = 100,
 		height = 30,
 		font = Configuration:GetFont(3),

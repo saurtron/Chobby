@@ -1014,7 +1014,7 @@ local function InitializeControls(window)
 	local lblTitle = Label:New {
 		x = 20,
 		right = 5,
-		y = 17,
+		y = WG.TOP_LABEL_Y,
 		height = 20,
 		font = Configuration:GetFont(3),
 		caption = "Planetwars",

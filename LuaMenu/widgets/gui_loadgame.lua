@@ -361,7 +361,7 @@ local function InitializeControls(parent)
 	Label:New {
 		x = 20,
 		right = 5,
-		y = 17,
+		y = WG.TOP_LABEL_Y,
 		height = 20,
 		parent = parent,
 		font = Configuration:GetFont(3),

@@ -295,6 +295,7 @@ function Configuration:init()
 	end
 
 	-- UI Styling globals that are really not config, but need to be somewhere.
+	WG.TOP_LABEL_Y = 16
 	WG.TOP_BUTTON_Y = 8
 	WG.BUTTON_HEIGHT = 41
 end

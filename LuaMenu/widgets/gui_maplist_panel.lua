@@ -184,7 +184,7 @@ local function InitializeControls()
 	Label:New {
 		x = 20,
 		right = 5,
-		y = 17,
+		y = WG.TOP_LABEL_Y,
 		height = 20,
 		parent = mapListWindow,
 		font = Configuration:GetFont(3),

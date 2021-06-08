@@ -33,7 +33,7 @@ function ListWindow:init(parent, title, noWindow, windowClassname, noClose, cust
 		self.lblTitle = Label:New {
 			x = 20,
 			right = 5,
-			y = 17,
+			y = WG.TOP_LABEL_Y,
 			height = 20,
 			font = Configuration:GetFont(3),
 			caption = title,
