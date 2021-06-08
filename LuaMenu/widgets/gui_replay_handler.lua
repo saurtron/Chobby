@@ -17,6 +17,8 @@ end
 --------------------------------------------------------------------------------
 -- Local Variables
 
+local PARTIAL_ADD_NUMBER = 50
+
 local replayListWindow
 
 --------------------------------------------------------------------------------
@@ -66,37 +68,37 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		parent = replayPanel,
 	}
 
-	local replayDate = TextBox:New {
+	local replayDate = Label:New {
 		name = "replayDate",
 		x = 85,
-		y = 12,
+		y = 15,
 		right = 0,
-		height = 20,
+		height = 16,
 		valign = 'center',
 		fontsize = Configuration:GetFont(2).size,
-		text = replayTime,
+		caption = replayTime,
 		parent = replayPanel,
 	}
-	local replayMap = TextBox:New {
+	local replayMap = Label:New {
 		name = "replayMap",
 		x = 305,
-		y = 12,
+		y = 15,
 		right = 0,
-		height = 20,
+		height = 16,
 		valign = 'center',
 		fontsize = Configuration:GetFont(2).size,
-		text = mapName,
+		caption = mapName,
 		parent = replayPanel,
 	}
-	local replayVersion = TextBox:New {
+	local replayVersion = Label:New {
 		name = "replayVersion",
 		x = 535,
-		y = 12,
+		y = 15,
 		width = 400,
-		height = 20,
+		height = 16,
 		valign = 'center',
 		fontsize = Configuration:GetFont(2).size,
-		text = gameName,
+		caption = gameName,
 		parent = replayPanel,
 	}
 	--local replayEngine = TextBox:New {
@@ -192,7 +194,7 @@ local function InitializeControls(parentControl)
 			loadingPanel:SetVisibility(true)
 			loadingPanel:BringToFront()
 			local items = {}
-			for i = 1, 20 do
+			for i = 1, PARTIAL_ADD_NUMBER do
 				if index < 1 then
 					if moreButton then
 						moreButton:SetVisibility(false)

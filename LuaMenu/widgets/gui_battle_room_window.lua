@@ -350,6 +350,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 	}
 	leftOffset = leftOffset + 38
 
+	WG.MapListPanel.Preload()
 	local btnPickMap = Button:New {
 		x = 5,
 		y = leftOffset,

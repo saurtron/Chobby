@@ -16,6 +16,7 @@ end
 
 local mapListWindow
 local lobby
+local loadRate = 1
 local IMG_READY    = LUA_DIRNAME .. "images/ready.png"
 local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 
@@ -59,44 +60,37 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		padding = {0, 0, 0, 0},
 		OnClick = {
 			function()
-				lobby:SelectMap(mapName)
-				CloseFunc()
+				if lobby then
+					lobby:SelectMap(mapName)
+					CloseFunc()
+				end
 			end
 		},
-	}
-
-	local minimap = Panel:New {
-		name = "minimap",
-		x = 3,
-		y = 3,
-		width = 52,
-		height = 52,
-		padding = {1,1,1,1},
-		parent = mapButton,
 	}
 
 	local mapImageFile, needDownload = Configuration:GetMinimapSmallImage(mapName)
 	local minimapImage = Image:New {
 		name = "minimapImage",
-		x = 0,
-		y = 0,
-		right = 0,
-		bottom = 0,
+		x = 3,
+		y = 3,
+		width = 52,
+		height = 52,
+		padding = {1,1,1,1},
 		keepAspect = true,
 		file = mapImageFile,
 		fallbackFile = Configuration:GetLoadingImage(2),
 		checkFileExists = needDownload,
-		parent = minimap,
+		parent = mapButton,
 	}
 
-	TextBox:New {
+	Label:New {
 		x = 65,
-		y = 12,
+		y = 15,
 		width = 200,
-		height = 20,
+		height = 16,
 		valign = 'center',
 		fontsize = Configuration:GetFont(2).size,
-		text = mapName:gsub("_", " "),
+		caption = mapName:gsub("_", " "),
 		parent = mapButton,
 	}
 
@@ -113,38 +107,36 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 	local sortData
 	if mapData then
 		local mapSizeText = (mapData.Width or " ?") .. "x" .. (mapData.Height or " ?")
-
-		TextBox:New {
-			x = 274,
-			y = 12,
-			width = 68,
-			height = 20,
-			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
-			text = mapSizeText,
-			parent = mapButton,
-		}
-
-		TextBox:New {
-			x = 356,
-			y = 12,
-			width = 68,
-			height = 20,
-			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
-			text = mapData.MapType,
-			parent = mapButton,
-		}
-
 		local terrainType = GetTerrainType(mapData.Hills, mapData.WaterLevel)
-		TextBox:New {
-			x = 438,
-			y = 12,
-			width = 160,
-			height = 20,
+
+		Label:New {
+			x = 274,
+			y = 15,
+			width = 68,
+			height = 16,
 			valign = 'center',
 			fontsize = Configuration:GetFont(2).size,
-			text = terrainType,
+			caption = mapSizeText,
+			parent = mapButton,
+		}
+		Label:New {
+			x = 356,
+			y = 15,
+			width = 68,
+			height = 16,
+			valign = 'center',
+			fontsize = Configuration:GetFont(2).size,
+			caption = mapData.MapType,
+			parent = mapButton,
+		}
+		Label:New {
+			x = 438,
+			y = 15,
+			width = 160,
+			height = 16,
+			valign = 'center',
+			fontsize = Configuration:GetFont(2).size,
+			caption = terrainType,
 			parent = mapButton,
 		}
 
@@ -187,6 +179,7 @@ local function InitializeControls()
 		draggable = false,
 		padding = {2, 2, 2, 2},
 	}
+	mapListWindow:Hide()
 
 	Label:New {
 		x = 20,
@@ -262,28 +255,35 @@ local function InitializeControls()
 
 	local featuredMapList = WG.FeaturedMaps and WG.FeaturedMaps.All() or {}
 	local mapFuncs = {}
-
 	local mapList = WG.Chobby.SortableList(listHolder, headings, 60, 1, true, false, ItemInFilter)
 
-	local mapItems = {}
-	local control, sortData
-	for i = 1, #featuredMapList do
-		local mapName = featuredMapList[i].Name
-		control, sortData, mapFuncs[mapName] = CreateMapEntry(mapName, featuredMapList[i], CloseFunc)
-		mapItems[#mapItems + 1] = {mapName, control, sortData}
-	end
-
-	if not Configuration.onlyShowFeaturedMaps then
-		for i, archive in pairs(VFS.GetAllArchives()) do
-			local info = VFS.GetArchiveInfo(archive)
-			if info and info.modtype == 3 and not mapFuncs[info.name] then
-				control, sortData, mapFuncs[info.name] = CreateMapEntry(info.name, nil, CloseFunc)
-				mapItems[#mapItems + 1] = {info.name, control, sortData}
+	local featuredMapIndex = 1
+	local function AddTheNextBatchOfMaps()
+		local mapItems = {}
+		local control, sortData
+		for i = 1, loadRate do
+			if featuredMapList[featuredMapIndex] then
+				local mapName = featuredMapList[featuredMapIndex].Name
+				control, sortData, mapFuncs[mapName] = CreateMapEntry(mapName, featuredMapList[featuredMapIndex], CloseFunc)
+				mapItems[#mapItems + 1] = {mapName, control, sortData}
+				featuredMapIndex = featuredMapIndex + 1
+			end
+		end
+		mapList:AddItems(mapItems)
+		if featuredMapList[featuredMapIndex] then
+			WG.Delay(AddTheNextBatchOfMaps, 0.1)
+		elseif not Configuration.onlyShowFeaturedMaps then
+			for i, archive in pairs(VFS.GetAllArchives()) do
+				local info = VFS.GetArchiveInfo(archive)
+				if info and info.modtype == 3 and not mapFuncs[info.name] then
+					control, sortData, mapFuncs[info.name] = CreateMapEntry(info.name, nil, CloseFunc)
+					mapItems[#mapItems + 1] = {info.name, control, sortData}
+				end
 			end
 		end
 	end
 
-	mapList:AddItems(mapItems)
+	WG.Delay(AddTheNextBatchOfMaps, 0.1)
 
 	-------------------------
 	-- Buttons
@@ -322,7 +322,6 @@ local function InitializeControls()
 			},
 		}
 	end
-	WG.Chobby.PriorityPopup(mapListWindow, CloseFunc)
 
 	-------------------------
 	-- Filtering
@@ -343,7 +342,7 @@ local function InitializeControls()
 					return
 				end
 				local visibleItemIds = mapList:GetVisibleItemIds()
-				if #visibleItemIds[1] then
+				if #visibleItemIds[1] and lobby then
 					lobby:SelectMap(visibleItemIds[1])
 					CloseFunc()
 				end
@@ -401,11 +400,19 @@ local MapListPanel = {}
 
 function MapListPanel.Show(newLobby, zoomToMap)
 	lobby = newLobby
+	loadRate = 40
 	if not mapListWindow then
 		mapListWindow = InitializeControls()
 	end
 	mapListWindow.Show(zoomToMap)
 end
+
+function MapListPanel.Preload()
+	if not mapListWindow then
+		mapListWindow = InitializeControls()
+	end
+end
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Widget Interface
