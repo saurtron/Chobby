@@ -752,7 +752,7 @@ function ChatWindows:GetChannelConsole(chanName)
 		Configuration.channels[chanName] = true
 
 
-		local userListPanel = UserListPanel(function() return lobby:GetChannel(chanName) end, 22, true)
+		local userListPanel = UserListPanel(function() return lobby:GetChannel(chanName) end, 22, true, false, chanName or "_missing")
 		self.userListPanels[chanName] = userListPanel
 
 		local caption = "#" .. chanName

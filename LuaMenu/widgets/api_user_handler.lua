@@ -20,7 +20,6 @@ end
 local battleUsers = {}
 local tooltipUsers = {}
 local singleplayerUsers = {}
-local channelUsers = {}
 local debriefingUsers = {}
 local partyUsers = {}
 local popupUsers = {}
@@ -31,13 +30,14 @@ local friendUsers = {}
 local friendRequestUsers = {}
 local notificationUsers = {}
 
+local channelList = {}
+
 local clanDownloadBegun = {}
 
 local userListList = {
 	battleUsers,
 	tooltipUsers,
 	singleplayerUsers,
-	channelUsers,
 	debriefingUsers,
 	partyUsers,
 	popupUsers,
@@ -893,8 +893,12 @@ function userHandler.GetSingleplayerUser(userName)
 	})
 end
 
-function userHandler.GetChannelUser(userName)
-	return _GetUser(channelUsers, userName, {
+function userHandler.GetChannelUser(userName, channelName)
+	if not channelList[channelName] then
+		channelList[channelName] = {}
+		userListList[#userListList + 1] = channelList[channelName]
+	end
+	return _GetUser(channelList[channelName], userName, {
 		maxNameLength  = WG.Chobby.Configuration.chatMaxNameLength,
 		showModerator  = true,
 	})
