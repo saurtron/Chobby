@@ -143,7 +143,7 @@ return {
 		matchmaking = "Matchmaking",
 		customGames = "Custom Games",
 		playing = "Playing",
-		pick_map = "Change Map",
+		pick_map = "Select Map",
 		add_team = "Add Team",
 		players = "Players",
 		submit = "Submit",

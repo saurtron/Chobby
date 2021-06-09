@@ -375,7 +375,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		height = WG.BUTTON_HEIGHT,
 		right = 5,
 		classname = "option_button",
-		caption = "Adv Options" ..  "\b",
+		caption = "Options" ..  "\b",
 		objectOverrideFont = config:GetButtonFont(3),
 		OnClick = {
 			function()
@@ -1744,7 +1744,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 	local playerPanel = Control:New {
 		x = 0,
 		y = 0,
-		right = "52%",
+		right = "55%",
 		bottom = BOTTOM_SPACING,
 		padding = {EXTERNAL_PAD_HOR, EXTERNAL_PAD_VERT, INTERNAL_PAD, INTERNAL_PAD},
 		parent = topPanel,
@@ -1774,7 +1774,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 	local votePanel = SetupVotePanel(votePanel)
 
 	local leftInfo = Control:New {
-		x = "48%",
+		x = "45%",
 		y = 0,
 		right = "33%",
 		bottom = BOTTOM_SPACING,
