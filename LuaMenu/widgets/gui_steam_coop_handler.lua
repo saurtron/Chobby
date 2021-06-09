@@ -102,7 +102,7 @@ local function InitializeCoopStatusHandler(name, text, leaveFunc, statusAndInvit
 		y = 18,
 		right = rightBound,
 		bottom = bottomBound,
-		fontsize = WG.Chobby.Configuration:GetFont(3).size,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		text = text,
 		parent = panelHolder,
 	}
@@ -115,7 +115,7 @@ local function InitializeCoopStatusHandler(name, text, leaveFunc, statusAndInvit
 		bottom = 4,
 		padding = {0,0,0,0},
 		caption = i18n("leave"),
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()
@@ -132,12 +132,12 @@ local function InitializeCoopStatusHandler(name, text, leaveFunc, statusAndInvit
 		statusText:UpdateClientArea()
 		if ySize < 60 then
 			statusText:SetPos(xSize/4 - 52, 2)
-			statusText.font.size = WG.Chobby.Configuration:GetFont(2).size
+			statusText.font = WG.Chobby.Configuration:GetFont(2)
 			statusText:Invalidate()
 			bigMode = false
 		else
 			statusText:SetPos(xSize/4 - 62, 18)
-			statusText.font.size = WG.Chobby.Configuration:GetFont(3).size
+			statusText.font = WG.Chobby.Configuration:GetFont(3)
 			statusText:Invalidate()
 			bigMode = true
 		end

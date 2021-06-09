@@ -61,7 +61,7 @@ local function AddLinkButton(scroll, name, tooltip, link, requireLogin, x, right
 		caption = name,
 		tooltip = tooltip,
 		classname = "option_button",
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		align = "left",
 		alignPadding = 0.085,
 		OnClick = {
@@ -90,7 +90,7 @@ end
 --{"Name":"GoogleFrog","Awards":[{"AwardKey":"cap","Collected":51},{"AwardKey":"reclaim","Collected":977},{"AwardKey":"pwn","Collected":1824},{"AwardKey":"vet","Collected":362},{"AwardKey":"kam","Collected":70},{"AwardKey":"ouch","Collected":952},{"AwardKey":"shell","Collected":267},{"AwardKey":"terra","Collected":278},{"AwardKey":"navy","Collected":77},{"AwardKey":"nux","Collected":16},{"AwardKey":"fire","Collected":133},{"AwardKey":"air","Collected":74},{"AwardKey":"emp","Collected":112},{"AwardKey":"share","Collected":4},{"AwardKey":"mex","Collected":758},{"AwardKey":"comm","Collected":84},{"AwardKey":"rezz","Collected":3},{"AwardKey":"friend","Collected":1},{"AwardKey":"head","Collected":8},{"AwardKey":"dragon","Collected":2},{"AwardKey":"sweeper","Collected":2},{"AwardKey":"heart","Collected":2},{"AwardKey":"mexkill","Collected":142},{"AwardKey":"slow","Collected":156},{"AwardKey":"silver","Collected":6},{"AwardKey":"bronze","Collected":3},{"AwardKey":"gold","Collected":1}],"Badges":["dev_adv","donator_0"],"Level":133,"LevelUpRatio":"0.69","EffectiveElo":2312,"EffectiveMmElo":2234,"EffectivePwElo":1670,"Kudos":724,"PwMetal":"5105.00","PwDropships":"74.00","PwBombers":"17.00","PwWarpcores":"0.00"}
 
 local function GetAwardsHandler(parentControl, iconWidth, iconHeight, iconSpacing, textOffset, GetEntryData, centerAlign)
-	local fontsize = WG.Chobby.Configuration:GetFont(1).size
+	local objectOverrideFont = WG.Chobby.Configuration:GetFont(1)
 	local imageList, labelList
 	local externalFunctions = {}
 
@@ -234,7 +234,7 @@ local function GetProfileHandler()
 			max = 1,
 			caption = "Level " .. 2,
 			tooltip = tooltip,
-			font = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 			parent = topHolder,
 		}
 		function progressBar:HitTest(x,y) return self end
@@ -274,7 +274,7 @@ local function GetProfileHandler()
 					width = 80,
 					height = 22,
 					align = "right",
-					fontsize = WG.Chobby.Configuration:GetFont(2).size,
+					objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 					caption = "Awards:",
 					parent = awardsHolder,
 				}

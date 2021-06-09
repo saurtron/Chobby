@@ -13,7 +13,7 @@ function Downloader:init(buttonsMode, tbl, timeout, updateListener, completeList
 		height = 20,
 		align = "left",
 		valign = "top",
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = "",
 	}
 
@@ -32,7 +32,7 @@ function Downloader:init(buttonsMode, tbl, timeout, updateListener, completeList
 		height = 16,
 		align = "left",
 		valign = "center",
-		font = Configuration:GetFont(queueFont),
+		objectOverrideFont = Configuration:GetFont(queueFont),
 		caption = "Queue:",
 	}
 
@@ -43,7 +43,7 @@ function Downloader:init(buttonsMode, tbl, timeout, updateListener, completeList
 		bottom = 0,
 		align = "left",
 		valign = "top",
-		font = Configuration:GetFont(queueFont),
+		objectOverrideFont = Configuration:GetFont(queueFont),
 		caption = "",
 	}
 
@@ -77,7 +77,7 @@ function Downloader:init(buttonsMode, tbl, timeout, updateListener, completeList
 			width = 85,
 			caption = "Cancel",
 			classname = "negative_button",
-			font = Configuration:GetFont(2),
+			objectOverrideFont = Configuration:GetFont(2),
 			OnClick = {
 				CancelFunc
 			},

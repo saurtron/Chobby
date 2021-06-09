@@ -75,7 +75,7 @@ local function InitializeDifficultyWindow(parent)
 		height = 30,
 		valign = "top",
 		align = "left",
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = "Difficulty",
 		parent = parent,
 	}
@@ -86,7 +86,7 @@ local function InitializeDifficultyWindow(parent)
 		height = 30,
 		items = {"Easy", "Normal", "Hard", "Brutal"},
 		selected = 2,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		itemFontSize = Configuration:GetFont(2).size,
 		selected = WG.CampaignData.GetDifficultySetting(),
 		OnSelect = {
@@ -195,7 +195,7 @@ local function MakeTab(name, children)
 	return {
 		name = name,
 		caption = name,
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		children = {contentsPanel}
 	}
 end
@@ -229,7 +229,7 @@ local function MakeStandardTab(name, ChildrenFunction)
 	return {
 		name = name,
 		caption = name,
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		children = {contentsPanel}
 	}
 end
@@ -247,7 +247,7 @@ local function InitializeControls(window)
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

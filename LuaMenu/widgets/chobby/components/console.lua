@@ -36,7 +36,7 @@ function Console:init(channelName, sendMessageListener, noHistoryLoad, onResizeF
 		lineSpacing = 2,
 		bottom = 0,
 		text = "",
-		fontsize = Configuration.chatFontSize,
+		objectOverrideFont = Configuration:GetFont(Configuration.chatFontSize, "console_" .. Configuration.chatFontSize, false, true),
 		parent = self.spHistory,
 		selectable = true,
 		subTooltips = true,
@@ -63,7 +63,7 @@ function Console:init(channelName, sendMessageListener, noHistoryLoad, onResizeF
 		height = 25,
 		right = 2,
 		text = "",
-		fontsize = Configuration.chatFontSize,
+		objectOverrideFont = Configuration:GetFont(Configuration.chatFontSize, "console_" .. Configuration.chatFontSize, false, true),
 		--hint = i18n("type_here_to_chat"),
 	}
 
@@ -79,10 +79,10 @@ function Console:init(channelName, sendMessageListener, noHistoryLoad, onResizeF
 				shadow       = oldFont.shadow,
 				size         = value,
 			}
-			self.ebInputText.font = Font:New(fontSettings)
+			self.ebInputText.font = Configuration:GetFont(value, "console_font", fontSettings, true)
 			self.ebInputText:UpdateLayout()
 
-			self.tbHistory.font = Font:New(fontSettings)
+			self.tbHistory.font = Configuration:GetFont(value, "console_font", fontSettings, true)
 			self.tbHistory:UpdateLayout()
 		end
 	end

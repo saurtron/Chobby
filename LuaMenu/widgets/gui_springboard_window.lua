@@ -162,7 +162,7 @@ local function InitializeControls(window)
 				WG.MapListPanel.Show(SpringBoard, SpringBoard.mapName)
 			end
 		},
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = window,
 	}
 end
@@ -223,7 +223,7 @@ local function bla()
         right = 20,
         align = "left",
         parent = btnMapLink,
-        fontsize = Configuration:GetFont(2).size,
+        objectOverrideFont = Configuration:GetFont(2),
         caption = "ABC",
     }
 

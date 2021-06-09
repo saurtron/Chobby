@@ -8,7 +8,7 @@ function widget:GetInfo()
     date      = "2016.05.20",
     license   = "GNU GPL, v2 or later",
     layer     = 0,
-    enabled   = true,
+    enabled   = false, -- Note that this widget uses outdated font handling.
   }
 end
 --------------------------------------------------------------------------------

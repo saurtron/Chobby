@@ -16,7 +16,7 @@ function BattleListWindow:init(parent)
 			width = 150,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("open_mp_game"),
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			classname = "option_button",
 			parent = self.window,
 			OnClick = {
@@ -52,7 +52,7 @@ function BattleListWindow:init(parent)
 		align = "center",
 		valign = "center",
 		parent = self.infoPanel,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 	}
 	self.infoPanel:SetVisibility(false)
 
@@ -61,7 +61,7 @@ function BattleListWindow:init(parent)
 		right = 5,
 		bottom = 11,
 		height = 20,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = "Filter out:",
 		parent = self.window
 	}
@@ -75,7 +75,7 @@ function BattleListWindow:init(parent)
 		boxsize = 20,
 		caption = " Passworded",
 		checked = Configuration.battleFilterPassworded2 or false,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		OnChange = {
 			function (obj, newState)
 				Configuration:SetConfigValue("battleFilterPassworded2", newState)
@@ -93,7 +93,7 @@ function BattleListWindow:init(parent)
 		boxsize = 20,
 		caption = " Non-friend",
 		checked = Configuration.battleFilterNonFriend or false,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		OnChange = {
 			function (obj, newState)
 				Configuration:SetConfigValue("battleFilterNonFriend", newState)
@@ -111,7 +111,7 @@ function BattleListWindow:init(parent)
 		boxsize = 20,
 		caption = " Running",
 		checked = Configuration.battleFilterRunning or false,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		OnChange = {
 			function (obj, newState)
 				Configuration:SetConfigValue("battleFilterRunning", newState)
@@ -316,7 +316,7 @@ function BattleListWindow:MakeWatchBattle(battleID, battle)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = (battle.title or "") .. " - Click to watch",
 		parent = parentButton,
 		OnResize = {
@@ -368,7 +368,7 @@ function BattleListWindow:MakeWatchBattle(battleID, battle)
 		y = 20,
 		height = 15,
 		valign = 'center',
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		caption = playerCount .. ((playerCount == 1 and " player on " ) or " players on ") .. battle.mapName:gsub("_", " "),
 		parent = parentButton,
 	}
@@ -390,7 +390,7 @@ function BattleListWindow:MakeWatchBattle(battleID, battle)
 		y = 36,
 		height = 15,
 		valign = 'center',
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		caption = modeName,
 		parent = parentButton,
 	}
@@ -443,7 +443,7 @@ function BattleListWindow:MakeJoinBattle(battleID, battle)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = battle.title,
 		parent = parentButton,
 		OnResize = {
@@ -494,7 +494,7 @@ function BattleListWindow:MakeJoinBattle(battleID, battle)
 		y = 18,
 		height = 22,
 		valign = 'bottom',
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = lobby:GetBattlePlayerCount(battleID) .. "/" .. battle.maxPlayers,
 		parent = parentButton,
 	}
@@ -534,7 +534,7 @@ function BattleListWindow:MakeJoinBattle(battleID, battle)
 		height = 15,
 		valign = 'center',
 		caption = self:_MakeGameCaption(battle),
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		parent = parentButton,
 	}
 
@@ -556,7 +556,7 @@ function BattleListWindow:MakeJoinBattle(battleID, battle)
 		height = 15,
 		valign = 'center',
 		caption = battle.mapName:gsub("_", " "),
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		parent = parentButton,
 	}
 
@@ -855,7 +855,7 @@ function BattleListWindow:OpenHostWindow()
 		y = 15,
 		height = 35,
 		caption = i18n("open_mp_game"),
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		parent = hostBattleWindow,
 	}
 
@@ -866,7 +866,7 @@ function BattleListWindow:OpenHostWindow()
 		align = "right",
 		height = 35,
 		caption = i18n("game_name") .. ":",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 	}
 	local gameNameEdit = EditBox:New {
@@ -875,7 +875,7 @@ function BattleListWindow:OpenHostWindow()
 		y = 70,
 		height = 35,
 		text = (lobby:GetMyUserName() or "Player") .. "'s Battle",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 	}
 
@@ -886,7 +886,7 @@ function BattleListWindow:OpenHostWindow()
 		align = "right",
 		height = 35,
 		caption = i18n("password_optional") .. ":",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 	}
 	local passwordEdit = EditBox:New {
@@ -895,7 +895,7 @@ function BattleListWindow:OpenHostWindow()
 		y = 110,
 		height = 35,
 		text = "",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		useIME = false,
 		parent = hostBattleWindow,
 	}
@@ -907,7 +907,7 @@ function BattleListWindow:OpenHostWindow()
 		align = "right",
 		height = 35,
 		caption = i18n("game_type") .. ":",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 	}
 	
@@ -923,7 +923,7 @@ function BattleListWindow:OpenHostWindow()
 		height = 35,
 		itemHeight = 22,
 		text = "",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		items = modeList,
 		itemFontSize = Configuration:GetFont(3).size,
 		selected = 1,
@@ -961,7 +961,7 @@ function BattleListWindow:OpenHostWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("host"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 		classname = "action_button",
 		OnClick = {
@@ -977,7 +977,7 @@ function BattleListWindow:OpenHostWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = hostBattleWindow,
 		classname = "negative_button",
 		OnClick = {
@@ -1005,11 +1005,7 @@ function BattleListWindow:JoinBattle(battle)
 			y = 110,
 			height = 80,
 			caption = "",
-			font = {
-				color = { 1, 0, 0, 1 },
-				size = Configuration:GetFont(2).size,
-				shadow = Configuration:GetFont(2).shadow,
-			},
+			objectOverrideFont = Configuration:GetFont(2, "error_red", {color = { 1, 0, 0, 1 }}),
 			parent = passwordWindow,
 		}
 
@@ -1045,7 +1041,7 @@ function BattleListWindow:JoinBattle(battle)
 			right = 15,
 			y = 15,
 			height = 35,
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			caption = i18n("enter_battle_password"),
 			parent = passwordWindow,
 		}
@@ -1057,7 +1053,7 @@ function BattleListWindow:JoinBattle(battle)
 			height = 35,
 			text = "",
 			hint = i18n("password"),
-			fontsize = Configuration:GetFont(3).size,
+			objectOverrideFont = Configuration:GetFont(3),
 			passwordInput = true,
 			useIME = false,
 			parent = passwordWindow,
@@ -1079,7 +1075,7 @@ function BattleListWindow:JoinBattle(battle)
 			bottom = 1,
 			height = 70,
 			caption = i18n("join"),
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			classname = "action_button",
 			OnClick = {
 				function()
@@ -1094,7 +1090,7 @@ function BattleListWindow:JoinBattle(battle)
 			bottom = 1,
 			height = 70,
 			caption = i18n("cancel"),
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			classname = "negative_button",
 			OnClick = {
 				function()

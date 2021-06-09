@@ -136,7 +136,7 @@ local function MakeFeedbackWindow(parent, feedbackLink)
 		y = 15,
 		height = 35,
 		text = "Campaign Testing",
-		fontsize = Configuration:GetFont(4).size,
+		objectOverrideFont = Configuration:GetFont(4),
 		parent = textWindow,
 	}
 
@@ -154,7 +154,7 @@ local function MakeFeedbackWindow(parent, feedbackLink)
 		height = 35,
 		lineSpacing = 1,
 		text = "New missions are released every Sunday. Currently there are " .. (missionCount or "??") .. " missions. Please post your thoughts, feedback and issues on the forum.",
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		parent = textWindow,
 	}
 
@@ -165,7 +165,7 @@ local function MakeFeedbackWindow(parent, feedbackLink)
 		height = WG.BUTTON_HEIGHT,
 		caption = "Post Feedback",
 		classname = "action_button",
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		OnClick = {
 			function ()
 				WG.BrowserHandler.OpenUrl(feedbackLink)
@@ -186,7 +186,7 @@ local function MakeFeedbackButton(parentControl, link, x, y, right, bottom)
 		padding = {0, 0, 0, 0},
 		caption = "Feedback   ",
 		classname = "option_button",
-		font = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		tooltip = "Post feedback on the forum",
 		OnClick = {
 			function ()
@@ -252,7 +252,7 @@ local function InitializeDifficultySetting()
 		height = 30,
 		valign = "top",
 		align = "left",
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = "Difficulty",
 		parent = window,
 	}
@@ -265,7 +265,7 @@ local function InitializeDifficultySetting()
 		items = {"Easy", "Normal", "Hard", "Brutal"},
 		selected = 2,
 		preferComboUp = true,
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		itemFontSize = Configuration:GetFont(2).size,
 		selected = WG.CampaignData.GetDifficultySetting(),
 		OnSelect = {
@@ -338,7 +338,7 @@ local function MakeReward(rewardName, rewardsHolder, position, scroll, stackHeig
 			right = 4,
 			height = 30,
 			text = name,
-			font = Configuration:GetFont(2),
+			objectOverrideFont = Configuration:GetFont(2),
 			parent = rewardsHolder
 		}
 
@@ -388,7 +388,7 @@ local function MakeReward(rewardName, rewardsHolder, position, scroll, stackHeig
 				right = 4,
 				bottom = 6,
 				align = "right",
-				fontsize = Configuration:GetFont(3).size,
+				objectOverrideFont = Configuration:GetFont(3),
 				caption = count,
 				parent = image,
 			}
@@ -403,7 +403,7 @@ local function MakeReward(rewardName, rewardsHolder, position, scroll, stackHeig
 			width = REWARD_ICON_SIZE*widthMult,
 			height = REWARD_ICON_SIZE/stackHeight,
 			caption = string.gsub(tooltip, "_COUNT_", ""),
-			font = Configuration:GetFont(2),
+			objectOverrideFont = Configuration:GetFont(2),
 			OnClick = clickFunc and {
 				function()
 					clickFunc(rewardName)
@@ -607,7 +607,7 @@ local function MakeWinPopup(planetData, bonusObjectiveSuccess, difficulty, extra
 		height = 30,
 		align = "center",
 		caption = "Victory on " .. planetData.name .. "!",
-		font = WG.Chobby.Configuration:GetFont(4),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(4),
 		parent = victoryWindow
 	}
 
@@ -646,7 +646,7 @@ local function MakeWinPopup(planetData, bonusObjectiveSuccess, difficulty, extra
 		bottom = 1,
 		height = 70,
 		caption = i18n("continue"),
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		parent = victoryWindow,
 		classname = "action_button",
 		OnClick = {
@@ -778,14 +778,14 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		x = 8,
 		y = 8,
 		caption = planetName,
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 	}
 
 	local fluffLabels = {
-		Label:New{caption = "Primary", font = Configuration:GetFont(3)},
-		Label:New{caption = planetData.infoDisplay.primary .. " (" .. planetData.infoDisplay.primaryType .. ") ", font = Configuration:GetFont(3)},
-		Label:New{caption = "Type", font = Configuration:GetFont(3)},
-		Label:New{caption = planetData.infoDisplay.terrainType or "<UNKNOWN>", font = Configuration:GetFont(3)},
+		Label:New{caption = "Primary", objectOverrideFont = Configuration:GetFont(3)},
+		Label:New{caption = planetData.infoDisplay.primary .. " (" .. planetData.infoDisplay.primaryType .. ") ", objectOverrideFont = Configuration:GetFont(3)},
+		Label:New{caption = "Type", objectOverrideFont = Configuration:GetFont(3)},
+		Label:New{caption = planetData.infoDisplay.terrainType or "<UNKNOWN>", objectOverrideFont = Configuration:GetFont(3)},
 	}
 	fluffGrid = Grid:New{
 		x = 8,
@@ -804,7 +804,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		bottom = "25%",
 		padding = {0, 0, 10, 0},
 		text = ((startable or Configuration.debugMode) and planetData.infoDisplay.text) or "This planet will need to be approached for further study.",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 	}	
 
 
@@ -849,7 +849,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 			classname = "action_button",
 			parent = buttonHolder,
 			caption = i18n("start"),
-			font = Configuration:GetFont(4),
+			objectOverrideFont = Configuration:GetFont(4),
 			OnClick = {
 				function(self)
 					WG.PlanetBattleHandler.StartBattle(planetID, planetData)
@@ -864,7 +864,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				width = 160,
 				height = 38,
 				padding = {0, 0, 0, 0},
-				font = Configuration:GetFont(2),
+				objectOverrideFont = Configuration:GetFont(2),
 				caption = i18n("invite_friends") .. "   ",
 				classname = "option_button",
 				OnClick = {
@@ -895,7 +895,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				parent = buttonHolder,
 				caption = i18n("skip_tutorial"),
 				tooltip = "Skip quick tutorial. Only recommended for Zero-K veterans or players who have completed Tutorials 1 and 2.",
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				OnClick = {
 					function(self)
 						local function SkipFunc()
@@ -916,7 +916,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Full Auto",
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetVictory(planetID, 0, MakeRandomBonusVictoryList(2, 8), nil, WG.CampaignData.GetDifficultySetting())
@@ -931,7 +931,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Auto Win",
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetVictory(planetID, 352, MakeRandomBonusVictoryList(0.75, 8), nil, WG.CampaignData.GetDifficultySetting())
@@ -946,7 +946,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Auto Lose",
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetDefeat(planetID, 351)
@@ -973,7 +973,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		height = WG.BUTTON_HEIGHT,
 		classname = "negative_button",
 		caption = i18n("close"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		OnClick = {
 			CloseFunc
 		},
@@ -1018,7 +1018,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		local fluffFont = Configuration:GetFont(((planetHandler.height < 720) and 2) or 3)
 		local descFont = Configuration:GetFont(((planetHandler.height < 720) and 1) or 2) 
 
-		planetDesc.font.size = descFont.size
+		planetDesc.font = Configuration:GetFont(descFont.size)
 		planetDesc:Invalidate()
 		if planetHandler.height < 560 then
 			planetDesc._relativeBounds.top = 60
@@ -1050,7 +1050,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		subPanel:UpdateClientArea(false)
 
 		for i = 1, 4 do
-			fluffLabels[i].font.size = fluffFont.size
+			fluffLabels[i].font = Configuration:GetFont(fluffFont.size)
 			fluffLabels[i]:Invalidate()
 		end
 		fluffGrid:Invalidate()
@@ -1195,7 +1195,7 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 						align = "left",
 						valign = "center",
 						caption = rewards.codexEntries[i],
-						font = Configuration:GetFont(1),
+						objectOverrideFont = Configuration:GetFont(1),
 						parent = debugHolder,
 					}
 				end
@@ -1300,7 +1300,7 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 			align = "center",
 			valign = "center",
 			caption = planetID,
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			parent = image,
 		}
 	end
@@ -1438,7 +1438,7 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 				right = 12,
 				y = 8,
 				bottom = 8,
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				text = planetData.mapDisplay.hintText,
 				parent = tipHolder,
 			}

@@ -86,7 +86,7 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		bottom = 4,
 		padding = {0,0,0,0},
 		caption = "Cancel",
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()
@@ -111,7 +111,7 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		y = 12,
 		right = rightBound,
 		bottom = bottomBound,
-		fontsize = WG.Chobby.Configuration:GetFont(2).size,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		text = "",
 		parent = queuePanel
 	}
@@ -207,7 +207,7 @@ local function InitializeInstantQueueHandler()
 		bottom = 4,
 		padding = {0,0,0,0},
 		caption = "Play",
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -226,7 +226,7 @@ local function InitializeInstantQueueHandler()
 		y = 18,
 		right = rightBound,
 		bottom = bottomBound,
-		fontsize = WG.Chobby.Configuration:GetFont(3).size,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		text = "",
 		parent = queuePanel
 	}
@@ -243,12 +243,12 @@ local function InitializeInstantQueueHandler()
 		queueStatusText:UpdateClientArea()
 		if ySize < 60 then
 			queueStatusText:SetPos(xSize/4 - 52, 2)
-			queueStatusText.font.size = WG.Chobby.Configuration:GetFont(2).size
+			queueStatusText.font = WG.Chobby.Configuration:GetFont(2)
 			queueStatusText:Invalidate()
 			bigMode = false
 		else
 			queueStatusText:SetPos(xSize/4 - 62, 18)
-			queueStatusText.font.size = WG.Chobby.Configuration:GetFont(3).size
+			queueStatusText.font = WG.Chobby.Configuration:GetFont(3)
 			queueStatusText:Invalidate()
 			bigMode = true
 		end
@@ -344,7 +344,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		y = 15,
 		height = 35,
 		caption = invitationText,
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		parent = readyCheckWindow,
 	}
 
@@ -354,7 +354,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		y = 80,
 		height = 35,
 		text = "",
-		fontsize = Configuration:GetFont(3).size,
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = readyCheckWindow,
 	}
 
@@ -364,7 +364,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		y = 130,
 		height = 35,
 		caption = "Players accepted: 0",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = readyCheckWindow,
 	}
 
@@ -404,7 +404,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		bottom = 1,
 		height = 70,
 		caption = (allowReject and i18n("accept")) or i18n("ready"),
-		font = Configuration:GetFont((allowReject and 3) or 4),
+		objectOverrideFont = Configuration:GetFont((allowReject and 3) or 4),
 		parent = readyCheckWindow,
 		classname = "action_button",
 		OnClick = {
@@ -420,7 +420,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		bottom = 1,
 		height = 70,
 		caption = i18n("reject"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = readyCheckWindow,
 		classname = "negative_button",
 		OnClick = {

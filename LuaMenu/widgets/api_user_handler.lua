@@ -247,7 +247,7 @@ local function GetUserComboBoxOptions(userName, isInBattle, userControl, showTea
 			y = 0,
 			width = 100,
 			height = 30,
-			font = Configuration:GetFont(1),
+			objectOverrideFont = Configuration:GetFont(1),
 			caption = "No Actions",
 		}
 	end
@@ -292,18 +292,18 @@ end
 local function GetUserNameColor(userName, userControl)
 	local userInfo = userControl.lobby:GetUser(userName) or {}
 	if userControl.showModerator and userInfo.isAdmin then
-		return WG.Chobby.Configuration:GetModeratorColor()
+		return WG.Chobby.Configuration:GetModeratorColor(), "chat_mod_color"
 	end
 	if userControl.showFounder and userInfo.battleID then
 		local battle = lobby:GetBattle(userInfo.battleID)
 		if battle and battle.founder == userName then
-			return WG.Chobby.Configuration:GetFounderColor()
+			return WG.Chobby.Configuration:GetFounderColor(), "chat_founder_color"
 		end
 	end
 	if userInfo.isIgnored then
-		return WG.Chobby.Configuration:GetIgnoredUserNameColor()
+		return WG.Chobby.Configuration:GetIgnoredUserNameColor(), "chat_ignore_color"
 	end
-	return WG.Chobby.Configuration:GetUserNameColor()
+	return WG.Chobby.Configuration:GetUserNameColor(), "chat_user_color"
 end
 
 -- gets status name, image and color
@@ -331,11 +331,11 @@ local function UpdateUserControlStatus(userName, userControls)
 	end
 	if userControls.imStatusLarge then
 		local imgFile, status, fontColor = GetUserStatus(userName, isInBattle, userControls)
-		userControls.tbName.font.color = fontColor
+		userControls.tbName.font = Configuration:GetFont(userControls.tbName.font.size, "status_" .. status, fontColor, true)
 		userControls.tbName:Invalidate()
 		userControls.imStatusLarge.file = imgFile
 		userControls.imStatusLarge:Invalidate()
-		userControls.lblStatusLarge.font.color = fontColor
+		userControls.lblStatusLarge.font = Configuration:GetFont(userControls.lblStatusLarge.font.size, "status_" .. status, fontColor, true)
 		userControls.lblStatusLarge:SetCaption(i18n(status .. "_status"))
 	elseif not userControls.statusImages then
 		return
@@ -407,7 +407,8 @@ local function UpdateUserActivity(listener, userName)
 			userControls.imLevel.file = GetUserRankImageName(userName, userControls)
 			userControls.imLevel:Invalidate()
 
-			userControls.tbName.font.color = GetUserNameColor(userName, userControls)
+			local nameColor, colorIndex = GetUserNameColor(userName, userControls)
+			userControls.tbName.font = WG.Chobby.Configuration:GetFont(userControls.tbName.font.size, colorIndex, {color = nameColor}, true)
 			userControls.tbName:Invalidate()
 
 			UpdateUserControlStatus(userName, userControls)
@@ -641,7 +642,7 @@ local function GetUserControls(userName, opts)
 
 	if large then
 		offset = offset + 1
-		local imgFile, status, fontColor = GetUserStatus(userName, isInBattle, userControls)
+		local imgFile, status = GetUserStatus(userName, isInBattle, userControls)
 		userControls.imStatusLarge = Image:New {
 			name = "imStatusLarge",
 			x = offset,
@@ -661,7 +662,7 @@ local function GetUserControls(userName, opts)
 			valign = 'center',
 			parent = userControls.mainControl,
 			caption = i18n(status .. "_status"),
-			font = Configuration:GetFont(1),
+			objectOverrideFont = Configuration:GetFont(1),
 		}
 		offset = offset + 58
 	end
@@ -736,7 +737,7 @@ local function GetUserControls(userName, opts)
 		bottom = 4,
 		align = "left",
 		parent = userControls.mainControl,
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		text = userName,
 	}
 	local userNameStart = offset
@@ -744,9 +745,9 @@ local function GetUserControls(userName, opts)
 	userControls.nameStartY = offset
 	userControls.maxNameLength = maxNameLength
 
-	local nameColor = GetUserNameColor(userName, userControls)
+	local nameColor, colorIndex = GetUserNameColor(userName, userControls)
 	if nameColor then
-		userControls.tbName.font.color = nameColor
+		userControls.tbName.font = Configuration:GetFont(2, colorIndex, {color = nameColor})
 		userControls.tbName:Invalidate()
 	end
 	if truncatedName then
@@ -780,13 +781,6 @@ local function GetUserControls(userName, opts)
 	if not hideStatus then
 		userControls.statusImages = {}
 		UpdateUserControlStatus(userName, userControls)
-	end
-
-	if large then
-		userControls.lblStatusLarge.font.color = fontColor
-		userControls.lblStatusLarge:Invalidate()
-		userControls.tbName.font.color = fontColor
-		userControls.tbName:Invalidate()
 	end
 
 	if autoResize then

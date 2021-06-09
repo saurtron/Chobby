@@ -64,7 +64,7 @@ local function MakeRewardList(holder, name, rewardsList, tooltipFunction, Unlock
 			right = 4,
 			height = 30,
 			text = name,
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			parent = rewardsHolder
 		}
 		paragraphOffset = MAIN_TITLE_HEIGHT
@@ -77,7 +77,7 @@ local function MakeRewardList(holder, name, rewardsList, tooltipFunction, Unlock
 			right = 4,
 			bottom = 6,
 			align = "right",
-			fontsize = Configuration:GetFont(3).size,
+			objectOverrideFont = Configuration:GetFont(3),
 			caption = "\255\0\255\0x" .. count,
 			parent = imageControl,
 		}
@@ -99,7 +99,7 @@ local function MakeRewardList(holder, name, rewardsList, tooltipFunction, Unlock
 				right = 4,
 				height = 30,
 				text = categories[info.category].name,
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				parent = rewardsHolder
 			}
 
@@ -245,7 +245,7 @@ local function InitializeControls(parentControl)
 		right = 5,
 		y = WG.TOP_LABEL_Y,
 		height = 20,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = i18n("technology"),
 		parent = parentControl
 	}
@@ -256,7 +256,7 @@ local function InitializeControls(parentControl)
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

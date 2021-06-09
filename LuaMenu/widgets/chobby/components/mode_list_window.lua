@@ -22,7 +22,7 @@ function ModeListWindow:init(failFunction, sucessFunction, blacklist, titleOverr
 				height = "100%",
 				caption = modeData.name,
 				tooltip = modeData.description,
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				OnClick = {
 					function()
 						sucessFunction(modeData)

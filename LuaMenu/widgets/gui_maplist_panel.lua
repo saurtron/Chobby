@@ -89,7 +89,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 		width = 200,
 		height = 16,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = mapName:gsub("_", " "),
 		parent = mapButton,
 	}
@@ -115,7 +115,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 16,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = Configuration:GetFont(2),
 			caption = mapSizeText,
 			parent = mapButton,
 		}
@@ -125,7 +125,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 68,
 			height = 16,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = Configuration:GetFont(2),
 			caption = mapData.MapType,
 			parent = mapButton,
 		}
@@ -135,7 +135,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc)--{"ResourceID":7098,"
 			width = 160,
 			height = 16,
 			valign = 'center',
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = Configuration:GetFont(2),
 			caption = terrainType,
 			parent = mapButton,
 		}
@@ -187,7 +187,7 @@ local function InitializeControls()
 		y = WG.TOP_LABEL_Y,
 		height = 20,
 		parent = mapListWindow,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = "Select a Map",
 	}
 
@@ -226,7 +226,7 @@ local function InitializeControls()
 	--	align = "center",
 	--	valign = "center",
 	--	parent = loadingPanel,
-	--	font = Configuration:GetFont(3),
+	--	objectOverrideFont = Configuration:GetFont(3),
 	--	caption = "Loading",
 	--}
 
@@ -295,7 +295,7 @@ local function InitializeControls()
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		classname = "negative_button",
 		parent = mapListWindow,
 		OnClick = {
@@ -312,7 +312,7 @@ local function InitializeControls()
 			width = 180,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download_maps"),
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			classname = "option_button",
 			parent = mapListWindow,
 			OnClick = {
@@ -334,7 +334,7 @@ local function InitializeControls()
 		height = 33,
 		text = '',
 		hint = i18n("type_to_filter"),
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		parent = mapListWindow,
 		OnKeyPress = {
 			function(obj, key, ...)

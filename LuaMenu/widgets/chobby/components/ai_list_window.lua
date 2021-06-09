@@ -76,7 +76,7 @@ function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit)
 		width = "100%",
 		height = "100%",
 		caption = displayName,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		tooltip = tooltip,
 		OnClick = {
 			function()

@@ -55,7 +55,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		width = 65,
 		caption = i18n("start"),
 		classname = "action_button",
-		font = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		OnClick = {
 			function()
 				if not replayPath then
@@ -75,7 +75,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		right = 0,
 		height = 16,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = replayTime,
 		parent = replayPanel,
 	}
@@ -86,7 +86,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		right = 0,
 		height = 16,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = mapName,
 		parent = replayPanel,
 	}
@@ -97,7 +97,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		width = 400,
 		height = 16,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		caption = gameName,
 		parent = replayPanel,
 	}
@@ -108,7 +108,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 	--	width = 400,
 	--	height = 20,
 	--	valign = 'center',
-	--	fontsize = Configuration:GetFont(2).size,
+	--	objectOverrideFont = Configuration:GetFont(2),
 	--	text = engineName,
 	--	parent = replayPanel,
 	--}
@@ -129,7 +129,7 @@ local function InitializeControls(parentControl)
 		width = 180,
 		height = 30,
 		parent = parentControl,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = "Replays",
 	}
 
@@ -150,7 +150,7 @@ local function InitializeControls(parentControl)
 		align = "center",
 		valign = "center",
 		parent = loadingPanel,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = "Loading",
 	}
 
@@ -225,7 +225,7 @@ local function InitializeControls(parentControl)
 		width = 110,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("refresh"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		classname = "option_button",
 		parent = parentControl,
 		OnClick = {
@@ -241,7 +241,7 @@ local function InitializeControls(parentControl)
 		width = 110,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("more"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		classname = "option_button",
 		parent = parentControl,
 		OnClick = {
@@ -258,7 +258,7 @@ local function InitializeControls(parentControl)
 	--	width = 80,
 	--	height = WG.BUTTON_HEIGHT,
 	--	caption = i18n("close"),
-	--	font = Configuration:GetFont(3),
+	--	objectOverrideFont = Configuration:GetFont(3),
 	--	classname = "negative_button",
 	--	OnClick = {
 	--		function()
@@ -275,7 +275,7 @@ local function InitializeControls(parentControl)
 			width = 110,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download"),
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			classname = "option_button",
 			parent = parentControl,
 			OnClick = {

@@ -14,7 +14,7 @@ function FriendListWindow:init(parent)
 		width = 170,
 		height = 42,
 		caption = i18n("invite_friends"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		classname = "option_button",
 		parent = self.window,
 		OnClick = {
@@ -82,9 +82,9 @@ function FriendListWindow:AddFriendRequest(userName)
 		width = 100,
 		height = 30,
 		caption = i18n("friend_request"),
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 	}
-	lblFriendRequest.font.color = { 0.5, 0.5, 0.5, 1 }
+	lblFriendRequest.font = Configuration:GetFont(1, "friend_notify", {color = { 0.5, 0.5, 0.5, 1 }})
 	lblFriendRequest:Invalidate()
 	local btnAccept = Button:New {
 		x = 10,
@@ -92,7 +92,7 @@ function FriendListWindow:AddFriendRequest(userName)
 		width = 100,
 		height = 30,
 		caption = i18n("accept"),
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		classname = "option_button",
 		OnClick = {
 			function()
@@ -107,7 +107,7 @@ function FriendListWindow:AddFriendRequest(userName)
 		width = 100,
 		height = 30,
 		caption = i18n("decline"),
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		classname = "negative_button",
 		OnClick = {
 			function()

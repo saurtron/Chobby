@@ -170,7 +170,8 @@ function ChatWindows:init()
 		bottom = 9,
 		padding = {0, 0, 0, 0},
 		tabs = {
-			[1] = (Configuration.debugMode and { name = "debug", caption = i18n("debug"), children = {self.debugConsole.panel} }) or nil,
+			[1] = (Configuration.debugMode and { name = "debug", caption = i18n("debug"), children = {
+					self.debugConsole.panel}, objectOverrideFont = WG.Chobby.Configuration:GetFont(1)}) or nil,
 			--{ name = "server", caption = i18n("server"), children = {self.serverPanel} },
 		},
 		OnTabChange = {
@@ -310,7 +311,7 @@ function ChatWindows:init()
 		width = "70%",
 		height = "10%",
 		caption = i18n("login_to_chat"),
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		parent = self.window,
 		OnClick = {function ()
 				Spring.Echo("Login")
@@ -327,7 +328,7 @@ function ChatWindows:init()
 					{
 						name = "debug",
 						caption = i18n("debug"),
-						font = Configuration:GetFont(1),
+						objectOverrideFont = Configuration:GetFont(1),
 						children = {self.debugConsole.panel}
 					},
 					false
@@ -497,16 +498,22 @@ function ChatWindows:SetTabActivation(tabName, activationLevel, outlineColor)
 		if (ctrl.activationLevel or 0) > activationLevel then
 			return
 		end
-		ctrl.font.outline = true
-		ctrl._badge.font.outline = true
-		ctrl.font.outlineColor = outlineColor
-		ctrl._badge.font.outlineColor = outlineColor
-		ctrl.font.color = outlineColor
-		ctrl._badge.font.color = outlineColor
+		ctrl.font = Configuration:GetFont(1, "chat_badge_" .. activationLevel, {
+			outline = true,
+			outlineColor = outlineColor,
+			color = outlineColor,
+		})
+		ctrl._badge.font = Configuration:GetFont(1, "chat_badge_" .. activationLevel, {
+			outline = true,
+			outlineColor = outlineColor,
+			color = outlineColor,
+		})
 	else
-		ctrl.font.outline = false
-		ctrl.font.outlineColor = {0,0,0,1}
-		ctrl.font.color = {1,1,1,1}
+		ctrl.font = Configuration:GetFont(1, "chat_badge_white", {
+			outline = false,
+			outlineColor = {0,0,0,1},
+			color = {1,1,1,1},
+		})
 	end
 	ctrl.activationLevel = activationLevel
 
@@ -527,12 +534,11 @@ function ChatWindows:SetTabBadge(tabName, text)
 			y = 0,
 			height = 12,
 			caption = text,
-			font = {
-				Configuration:GetFont(1).size,
+			font = Configuration:GetFont(1, "chat_badge_black", {
 				outline = true,
 				autoOutlineColor = false,
 				outlineColor = { 0, 0, 0, 0.6 },
-			},
+			}),
 			parent = ctrl
 		}
 		ctrl._badge = badge
@@ -759,8 +765,7 @@ function ChatWindows:GetChannelConsole(chanName)
 		local tooltip = nil
 		local origCaption = caption
 		local fontSize = 1
-		local myFont = Font:New(Configuration:GetFont(fontSize))
-		caption = StringUtilities.GetTruncatedStringWithDotDot(caption, myFont, 70)
+		caption = StringUtilities.GetTruncatedStringWithDotDot(caption, Configuration:GetFont(fontSize), 70)
 		if origCaption ~= caption then
 			tooltip = origCaption
 		end
@@ -784,7 +789,7 @@ function ChatWindows:GetChannelConsole(chanName)
 			{
 				name = chanName,
 				caption = caption,
-				font = Configuration:GetFont(fontSize),
+				objectOverrideFont = Configuration:GetFont(fontSize),
 				tooltip = tooltip,
 				children = {
 					Control:New {
@@ -843,8 +848,7 @@ function ChatWindows:GetPrivateChatConsole(userName, switchTo)
 		local tooltip = nil
 		local origCaption = caption
 		local fontSize = 1
-		local myFont = Font:New(Configuration:GetFont(fontSize))
-		caption = StringUtilities.GetTruncatedStringWithDotDot(caption, myFont, 70)
+		caption = StringUtilities.GetTruncatedStringWithDotDot(caption, Configuration:GetFont(fontSize), 70)
 		if origCaption ~= caption then
 			tooltip = origCaption
 		end
@@ -867,7 +871,7 @@ function ChatWindows:GetPrivateChatConsole(userName, switchTo)
 				name = chanName,
 				caption = caption,
 				tooltip = tooltip,
-				font = Configuration:GetFont(fontSize),
+				objectOverrideFont = Configuration:GetFont(fontSize),
 				children = {
 					privateChatConsole.panel,
 					closeChannelButton
@@ -911,7 +915,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		y = 15,
 		height = 35,
 		caption = i18n("join_channel"),
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		parent = self.joinWindow,
 	}
 
@@ -921,7 +925,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		y = 66,
 		height = 35,
 		text = "",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = self.joinWindow,
 	}
 
@@ -946,7 +950,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("join"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = self.joinWindow,
 		classname = "action_button",
 		OnClick = {
@@ -962,7 +966,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = self.joinWindow,
 		classname = "negative_button",
 		OnClick = {

@@ -39,7 +39,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		width = 520,
 		height = 30,
 		align = "center",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = "Reporting " .. userName,
 		parent = reportWindow,
 	}
@@ -51,7 +51,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		y = offset,
 		height = 35,
 		text = "Reason:",
-		fontsize = Configuration:GetFont(3).size,
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = reportWindow,
 	}
 	offset = offset + 38
@@ -62,7 +62,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		height = 35,
 		text = "",
 		hint = "Enter report reason",
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = reportWindow,
 	}
 	offset = offset + 38
@@ -72,7 +72,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		y = offset,
 		height = 35,
 		caption = extraText or "",
-		fontsize = Configuration:GetFont(3).size,
+		objectOverrideFont = Configuration:GetFont(3),
 		parent = reportWindow,
 	}
 	offset = offset + 38
@@ -87,7 +87,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		boxsize = 20,
 		caption = "Kick",
 		checked = false,
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		tooltip = "Start a poll to kick the player or spectator. Do not kick players without a good reason, such as to halt intentional teamkilling.",
 		parent = reportWindow,
 	}
@@ -117,7 +117,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		bottom = 1,
 		height = 70,
 		caption = i18n("submit"),
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		parent = reportWindow,
 		classname = "action_button",
 		OnClick = {
@@ -133,7 +133,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		font = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		parent = reportWindow,
 		classname = "negative_button",
 		OnClick = {

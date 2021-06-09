@@ -251,7 +251,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		width = 65,
 		caption = i18n("load"),
 		classname = "action_button",
-		font = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		OnClick = {
 			function()
 				if ingame then
@@ -273,7 +273,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		text = saveFile.filename,
 		parent = container,
 	}
@@ -287,7 +287,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		text = saveFile.gameName .. "\n" .. saveFile.gameVersion,
 		parent = container,
 	}
@@ -301,7 +301,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		text = WriteDate(saveFile.date),
 		parent = container,
 	}
@@ -315,7 +315,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(1).size,
+		objectOverrideFont = Configuration:GetFont(1),
 		text = GetSaveDescText(saveFile),
 		parent = container,
 	}
@@ -330,7 +330,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("delete"),
 		classname = "action_button",
-		font = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		OnClick = { function(self)
 				WG.Chobby.ConfirmationPopup(function(self) DeleteSave(saveFile.filename, saveList) end, i18n("delete_confirm"), nil, 360, 200)
 			end
@@ -364,7 +364,7 @@ local function InitializeControls(parent)
 		y = WG.TOP_LABEL_Y,
 		height = 20,
 		parent = parent,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = i18n("load_saved_game"),
 	}
 

@@ -22,6 +22,22 @@ function GetTabPanelHandler(name, conf)
 	local buttonSpacing = 1
 	local BUTTON_SIDE_SPACING = 1
 
+	local yellowFontParams = {
+		outline = true,
+		outlineColor = {0.8,1,0,1},
+		color = {0.8,1,0,1},
+	}
+	local whiteFontParams = {
+		outline = true,
+		outlineColor = {1,1,1,1},
+		color = {1,1,1,1},
+	}
+	local redFontParams = {
+		outline = true,
+		outlineColor = {1,0,0,1},
+		color = {1,0,0,1},
+	}
+
 	-------------------------------------------------------------------
 	-- Local variables
 	-------------------------------------------------------------------
@@ -349,18 +365,13 @@ function GetTabPanelHandler(name, conf)
 					tab.priorityLevel = 1
 					activityLabel = ""
 				end
+				local fontSize = tab.activityLabel.font.size
 				if tab.priorityLevel == 1 then
-					tab.activityLabel.font.outline = true
-					tab.activityLabel.font.outlineColor = {1,1,1,1}
-					tab.activityLabel.font.color = {1,1,1,1}
+					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_white", whiteFontParams, true)
 				elseif tab.priorityLevel == 2 then
-					tab.activityLabel.font.outline = true
-					tab.activityLabel.font.outlineColor = {1,0,0,1}
-					tab.activityLabel.font.color = {1,0,0,1}
+					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_red", redFontParamss, true)
 				else
-					tab.activityLabel.font.outline = true
-					tab.activityLabel.font.outlineColor = {0.8,1,0,1}
-					tab.activityLabel.font.color = {0.8,1,0,1}
+					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_yellow", yellowFontParamss, true)
 				end
 				tab.activityLabel:SetCaption(activityLabel)
 			end
@@ -405,7 +416,7 @@ function GetTabPanelHandler(name, conf)
 				height = "100%",
 				padding = {0,0,0,0},
 				caption = humanName,
-				font = Configuration:GetFont(fontSizeScale),
+				objectOverrideFont = Configuration:GetFont(fontSizeScale),
 			}
 		end
 
@@ -473,7 +484,7 @@ function GetTabPanelHandler(name, conf)
 			valign = "top",
 			align = "right",
 			parent = button,
-			font = Configuration:GetFont(1),
+			objectOverrideFont = Configuration:GetFont(1),
 			caption = "",
 		}
 
@@ -570,7 +581,7 @@ function GetTabPanelHandler(name, conf)
 			height = buttonSize,
 			caption = "      Back",
 			padding = {1,0,1,1},
-			font = Configuration:GetFont(fontSizeScale),
+			objectOverrideFont = Configuration:GetFont(fontSizeScale),
 			children = {
 				Image:New {
 					x = 0,

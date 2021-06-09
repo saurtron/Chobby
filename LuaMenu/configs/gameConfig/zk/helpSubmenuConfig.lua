@@ -22,7 +22,7 @@ local function CreateLine(lineText, linkText, onClick)
 			width = 110,
 			caption = linkText,
 			classname = "action_button",
-			font = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 			OnClick = {
 				onClick
 			},
@@ -37,7 +37,7 @@ local function CreateLine(lineText, linkText, onClick)
 		right = 0,
 		height = 20,
 		valign = 'center',
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2),
 		text = lineText,
 		parent = lineHolder,
 	}
@@ -201,7 +201,7 @@ local communityControl = Control:New {
 				width = 180,
 				height = 30,
 				parent = obj,
-				font = WG.Chobby.Configuration:GetFont(3),
+				objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 				caption = "Community and development links",
 			}
 
@@ -210,7 +210,7 @@ local communityControl = Control:New {
 				y = WG.TOP_BUTTON_Y,
 				width = 80,
 				height = WG.BUTTON_HEIGHT,
-				font = WG.Chobby.Configuration:GetFont(3),
+				objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",
 				OnClick = {
@@ -268,7 +268,7 @@ local bugControl = Control:New {
 				width = 180,
 				height = 30,
 				parent = obj,
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				caption = "Send a bug report",
 			}
 
@@ -277,7 +277,7 @@ local bugControl = Control:New {
 				y = WG.TOP_BUTTON_Y,
 				width = 80,
 				height = WG.BUTTON_HEIGHT,
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",
 				OnClick = {
@@ -295,7 +295,7 @@ local bugControl = Control:New {
 				y = offset,
 				height = 35,
 				text ="Title:",
-				fontsize = Configuration:GetFont(3).size,
+				objectOverrideFont = Configuration:GetFont(3),
 				parent = obj,
 			}
 			offset = offset + 36
@@ -305,7 +305,7 @@ local bugControl = Control:New {
 				y = offset - 9,
 				height = 35,
 				text = "",
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				parent = obj,
 			}
 			offset = offset + 36
@@ -317,7 +317,7 @@ local bugControl = Control:New {
 				y = offset,
 				height = 35,
 				text ="Description:",
-				fontsize = Configuration:GetFont(3).size,
+				objectOverrideFont = Configuration:GetFont(3),
 				parent = obj,
 			}
 			offset = offset + 36
@@ -327,7 +327,7 @@ local bugControl = Control:New {
 				y = offset - 9,
 				height = 35,
 				text = "",
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				parent = obj,
 			}
 			offset = offset + 36
@@ -339,7 +339,7 @@ local bugControl = Control:New {
 				y = offset,
 				height = 35,
 				text = "Using Spring engine version " .. Spring.Utilities.GetEngineVersion() .. " " .. ((WG.Chobby.Configuration:GetIsRunning64Bit() and "64-bit.") or "32-bit."),
-				fontsize = Configuration:GetFont(2).size,
+				objectOverrideFont = Configuration:GetFont(2),
 				parent = obj,
 			}
 			offset = offset + 36
@@ -352,7 +352,7 @@ local bugControl = Control:New {
 				height = 80,
 				caption = "Submit",
 				tooltip = "Closes the game and submits the report. Click OK to the resulting pop-up.",
-				font = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetFont(4),
 				classname = "action_button",
 				OnClick = {
 					function()

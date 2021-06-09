@@ -94,7 +94,7 @@ local function InitializeControls(window)
 		height = 40,
 		caption = i18n("login"),
 		parent = window,
-		font = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		OnClick = {Logout}
 	}
 
@@ -106,7 +106,7 @@ local function InitializeControls(window)
 			height = 40,
 			caption = i18n("home"),
 			parent = window,
-			font = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 			OnClick = {GoToProfilePage}
 		}
 	end
@@ -119,7 +119,7 @@ local function InitializeControls(window)
 		height = 20,
 		valign = "center",
 		text = "\255\180\180\180" .. i18n("offline") .. "\b",
-		fontsize = WG.Chobby.Configuration:GetFont(3).size,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 		parent = window,
 	}
 

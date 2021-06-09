@@ -15,7 +15,7 @@ function GameListWindow:init(failFunction, sucessFunction, blacklist, titleOverr
 				width = "100%",
 				height = "100%",
 				caption = info.name,
-				font = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetFont(3),
 				OnClick = {
 					function()
 						sucessFunction(info.name)

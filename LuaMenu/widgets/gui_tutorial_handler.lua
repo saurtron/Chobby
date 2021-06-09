@@ -58,7 +58,7 @@ local function InitializeTutorialPrompt()
 		bottom = 4,
 		padding = {0,0,0,0},
 		caption = "Play the Tutorial",
-		font = WG.Chobby.Configuration:GetFont(4),
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(4),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -107,7 +107,7 @@ local function CheckTutorialPopup()
 		right = 15,
 		y = 23,
 		height = 35,
-		fontsize = Configuration:GetFont(4).size,
+		objectOverrideFont = Configuration:GetFont(4).size,
 		text = "Welcome to Zero-K",
 		parent = tutorialWindow,
 	}
@@ -117,7 +117,7 @@ local function CheckTutorialPopup()
 		right = 28,
 		y = 76,
 		height = 35,
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2).size,
 		text = [[From here you can embark on a galaxy-spanning campaign or play a skirmish against the AI - all under Singleplayer & Coop (invite your friends). Alternately, you can click Multiplayer to host a private game, hop into the matchmaker, or participate in massive public games.]],
 		parent = tutorialWindow,
 	}
@@ -127,7 +127,7 @@ local function CheckTutorialPopup()
 		right = 28,
 		y = 208,
 		height = 35,
-		fontsize = Configuration:GetFont(2).size,
+		objectOverrideFont = Configuration:GetFont(2).size,
 		text = [[To get started we recommend playing the tutorial at the start of the campaign. Click the button below to begin. We hope you have fun, whatever you choose.]],
 		parent = tutorialWindow,
 	}
@@ -148,7 +148,7 @@ local function CheckTutorialPopup()
 		right = "18%",
 		height = 70,
 		caption = "Play the Tutorial",
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		classname = "action_button",
 		padding = {2,4,4,4},
 		OnClick = {
@@ -168,7 +168,7 @@ local function CheckTutorialPopup()
 		height = 42,
 		classname = "negative_button",
 		caption = i18n("close"),
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		OnClick = {
 			CancelFunc
 		},

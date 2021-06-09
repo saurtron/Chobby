@@ -121,7 +121,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		right = 20,
 		align = "left",
 		parent = btnMapLink,
-		fontsize = config:GetFont(2).size,
+		objectOverrideFont = config:GetFont(2),
 	}
 	local tbMapInfo = TextBox:New {
 		name = "tbMapInfo",
@@ -130,7 +130,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		right = 20,
 		align = "left",
 		parent = btnMapLink,
-		fontsize = config:GetFont(1).size,
+		objectOverrideFont = config:GetFont(1),
 	}
 	local imMapLink = Image:New {
 		x = 0,
@@ -217,7 +217,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		height = 48,
 		caption = i18n("start"),
 		classname = "action_button",
-		font = config:GetFont(4),
+		objectOverrideFont = config:GetFont(4),
 		OnClick = {
 			function()
 				if not haveMapAndGame then
@@ -253,7 +253,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		height = 48,
 		classname = "button_highlight",
 		caption = "\255\66\138\201" .. i18n("spectator") ..  "\b",
-		font =  config:GetFont(3),
+		objectOverrideFont = config:GetFont(3),
 		OnClick = {
 			function(obj)
 				battleLobby:SetBattleStatus({isSpectator = true})
@@ -274,7 +274,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		height = 48,
 		classname = "button_highlight",
 		caption = "\255\66\138\201" .. i18n("player") ..  "\b",
-		font =  config:GetFont(3),
+		objectOverrideFont = config:GetFont(3),
 		OnClick = {
 			function(obj)
 				battleLobby:SetBattleStatus({isSpectator = false})
@@ -318,7 +318,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		right = 5,
 		classname = "option_button",
 		caption = i18n("add_team") ..  "\b",
-		font = config:GetFont(3),
+		objectOverrideFont = config:GetFont(3),
 		OnClick = {
 			function()
 				if OpenNewTeam then
@@ -358,7 +358,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		right = 5,
 		classname = "option_button",
 		caption = i18n("pick_map") ..  "\b",
-		font =  config:GetFont(3),
+		objectOverrideFont = config:GetFont(3),
 		OnClick = {
 			function()
 				WG.MapListPanel.Show(battleLobby, battle.mapName)
@@ -376,7 +376,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		right = 5,
 		classname = "option_button",
 		caption = "Adv Options" ..  "\b",
-		font =  config:GetFont(3),
+		objectOverrideFont = config:GetFont(3),
 		OnClick = {
 			function()
 				WG.ModoptionsPanel.ShowModoptions()
@@ -390,7 +390,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		x = 8,
 		y = leftOffset,
 		caption = battle.gameName,
-		font = config:GetFont(1),
+		objectOverrideFont = config:GetFont(1),
 		parent = leftInfo,
 	}
 	leftOffset = leftOffset + 26
@@ -407,7 +407,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		x = 28,
 		y = leftOffset,
 		caption = "",
-		font = config:GetFont(1),
+		objectOverrideFont = config:GetFont(1),
 		parent = leftInfo,
 	}
 	leftOffset = leftOffset + 25
@@ -424,7 +424,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		x = 28,
 		y = leftOffset,
 		caption = "",
-		font = config:GetFont(1),
+		objectOverrideFont = config:GetFont(1),
 		parent = leftInfo,
 	}
 	leftOffset = leftOffset + 25 + 8
@@ -624,7 +624,7 @@ local function AddTeamButtons(parent, offX, joinFunc, aiFunc, unjoinable, disall
 			y = 4,
 			height = 24,
 			width = 72,
-			font = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 			caption = i18n("add_ai") .. "\b",
 			OnClick = {aiFunc},
 			classname = "option_button",
@@ -639,7 +639,7 @@ local function AddTeamButtons(parent, offX, joinFunc, aiFunc, unjoinable, disall
 			y = 4,
 			height = 24,
 			width = 72,
-			font = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 			caption = i18n("join") .. "\b",
 			OnClick = {joinFunc},
 			classname = "option_button",
@@ -803,7 +803,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 				width = 120,
 				height = 30,
 				valign = "center",
-				font = WG.Chobby.Configuration:GetFont(3),
+				objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 				caption = humanName,
 				parent = teamHolder,
 			}
@@ -873,7 +873,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 							width = 120,
 							height = 30,
 							valign = "center",
-							font = WG.Chobby.Configuration:GetFont(3),
+							objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
 							caption = "Waiting List",
 							parent = teamHolder,
 						}
@@ -1266,7 +1266,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 		y = 4,
 		width = 50,
 		bottom = height * 0.4,
-		font = config:GetFont(1),
+		objectOverrideFont = config:GetFont(1),
 		caption = "",
 		parent = activePanel,
 	}
@@ -1286,7 +1286,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 		width = 50,
 		bottom = 0,
 		align = "left",
-		font = config:GetFont(2),
+		objectOverrideFont = config:GetFont(2),
 		caption = "20/50",
 		parent = activePanel,
 	}
@@ -1335,7 +1335,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 			width = 50,
 			bottom = 0,
 			align = "left",
-			font = config:GetFont(3),
+			objectOverrideFont = config:GetFont(3),
 			caption = "20/50",
 			parent = opt.button,
 		}
@@ -1356,7 +1356,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 		right = 0,
 		bottom = height * 0.4,
 		align = "left",
-		font = config:GetFont(2),
+		objectOverrideFont = config:GetFont(2),
 		caption = "",
 		parent = votePanel,
 	}
@@ -1491,7 +1491,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 		right = "40%",
 		y = buttonScale,
 		height = 30,
-		font = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetFont(4),
 		align = "center",
 		valign = "center",
 		caption = pageConfig.humanName,
@@ -1507,7 +1507,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 		height = buttonHeight,
 		classname = "action_button",
 		caption = (nextPage and "Next") or i18n("start"),
-		font = Configuration:GetFont(buttonFont),
+		objectOverrideFont = Configuration:GetFont(buttonFont),
 		OnClick = {
 			function(obj)
 				subPanel:SetVisibility(false)
@@ -1533,7 +1533,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 			right = "26%",
 			height = 200,
 			align = "left",
-			fontsize = Configuration:GetFont(2).size,
+			objectOverrideFont = Configuration:GetFont(2),
 			text = pageConfig.tipText,
 			parent = subPanel,
 		}
@@ -1548,7 +1548,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 		classname = "option_button",
 		caption = "Advanced",
 		tooltip = i18n("advanced_button_tooltip"),
-		font = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(2),
 		OnClick = {
 			function(obj)
 				WG.Analytics.SendOnetimeEvent("lobby:singleplayer:skirmish:advanced")
@@ -1567,7 +1567,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 			height = 48,
 			classname = "option_button",
 			caption = "Back",
-			font = Configuration:GetFont(2),
+			objectOverrideFont = Configuration:GetFont(2),
 			OnClick = {
 				function(obj)
 					subPanel:SetVisibility(false)
@@ -1600,7 +1600,7 @@ local function InitializeSetupPage(subPanel, screenHeight, pageConfig, nextPage,
 			classname = "button_highlight",
 			caption = caption,
 			tooltip = tooltip,
-			font = Configuration:GetFont(buttonFont),
+			objectOverrideFont = Configuration:GetFont(buttonFont),
 			tooltip = pageConfig.optionTooltip and pageConfig.optionTooltip[i],
 			OnClick = {
 				function(obj)
@@ -1798,7 +1798,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 		y = WG.TOP_BUTTON_Y,
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = (isSingleplayer and i18n("close")) or i18n("leave"),
 		classname = "negative_button",
 		OnClick = {
@@ -1814,7 +1814,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 		y = WG.TOP_BUTTON_Y,
 		width = 180,
 		height = WG.BUTTON_HEIGHT,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = i18n("invite_friends"),
 		classname = "option_button",
 		OnClick = {
@@ -1832,7 +1832,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 		y = WG.TOP_LABEL_Y,
 		right = 100,
 		height = 30,
-		font = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetFont(3),
 		caption = "",
 		parent = mainWindow,
 		OnResize = {
@@ -1853,7 +1853,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 			selectByName = true,
 			captionHorAlign = -12,
 			text = "",
-			font = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetFont(3),
 			items = {"Coop", "Team", "1v1", "FFA", "Custom"},
 			itemFontSize = Configuration:GetFont(3).size,
 			selected = Configuration.battleTypeToHumanName[battle.battleMode or 0],

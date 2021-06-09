@@ -242,7 +242,7 @@ function GetSubmenuHandler(buttonWindow, panelWindow, submenuPanelWindow, submen
 			height = buttonHeight,
 			caption = submenus[i].titleText or i18n(submenus[i].name),
 			captionAlign = (submenus[i].twoline and -10) or nil,
-			font = { size = 20},
+			objectOverrideFont = Configuration:GetFont(3),
 			parent = buttonsHolder,
 			OnClick = {
 				function(self)

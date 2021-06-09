@@ -127,11 +127,11 @@ local function GetTooltipLine(parent, hasImage, fontSize, xOffset, imageWidth)
 		height = 20,
 		align = "left",
 		parent = parent,
-		fontsize = WG.Chobby.Configuration:GetFont(fontSize).size,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(fontSize),
 		text = "",
 	}
 
-	function externalFunctions.Update(newPosition, newText, newImage, newColor, needDownload)
+	function externalFunctions.Update(newPosition, newText, newImage, newColor, colorName, needDownload)
 		if not textDisplay.visible then
 			textDisplay:Show()
 		end
@@ -139,8 +139,10 @@ local function GetTooltipLine(parent, hasImage, fontSize, xOffset, imageWidth)
 		textDisplay:SetPos(nil, newPosition)
 
 		if newColor then
-			textDisplay.font.color = newColor
+			textDisplay.font = WG.Chobby.Configuration:GetFont(fontSize, colorName, newColor)
 			textDisplay:Invalidate()
+		else
+			textDisplay.font = WG.Chobby.Configuration:GetFont(fontSize)
 		end
 
 		if hasImage then
@@ -216,7 +218,7 @@ local function GetBattleInfoHolder(parent, offset, battleID)
 		right = 5,
 		height = 20,
 		valign = 'top',
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		caption = battle.title:sub(1, 60),
 		parent = mainControl,
 		OnResize = {
@@ -260,7 +262,7 @@ local function GetBattleInfoHolder(parent, offset, battleID)
 		right = 0,
 		height = 20,
 		valign = 'top',
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		caption = lobby:GetBattlePlayerCount(battleID) .. "/" .. battle.maxPlayers,
 		parent = mainControl,
 	}
@@ -287,7 +289,7 @@ local function GetBattleInfoHolder(parent, offset, battleID)
 		height = 20,
 		valign = 'top',
 		caption = battle.gameName:sub(1, 22),
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		parent = mainControl,
 		OnResize = {
 			function (obj, xSize, ySize)
@@ -306,7 +308,7 @@ local function GetBattleInfoHolder(parent, offset, battleID)
 		height = 20,
 		valign = 'center',
 		caption = battle.mapName:sub(1, 22),
-		font = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(1),
 		parent = mainControl,
 		OnResize = {
 			function (obj, xSize, ySize)
@@ -569,7 +571,7 @@ local function GetUserTooltip(userName, userInfo, userBattleInfo, inBattleroom)
 		end
 
 		local clanFile, needDownload = WG.UserHandler.GetClanImage(userInfo.clan)
-		userTooltip.clan.Update(offset, "Clan: " .. userInfo.clan, clanFile, nil, needDownload)
+		userTooltip.clan.Update(offset, "Clan: " .. userInfo.clan, clanFile, nil, nil, needDownload)
 		offset = offset + 20
 	elseif userTooltip.clan then
 		userTooltip.clan.Hide()
@@ -623,7 +625,8 @@ local function GetUserTooltip(userName, userInfo, userBattleInfo, inBattleroom)
 				offset,
 				"Moderator",
 				IMAGE_MODERATOR,
-				Configuration:GetModeratorColor()
+				Configuration:GetModeratorColor(),
+				"tooltip_moderator"
 			)
 		end
 		userTooltip.moderator.UpdatePosition(offset)

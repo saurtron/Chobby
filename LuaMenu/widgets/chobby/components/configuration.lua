@@ -241,7 +241,8 @@ function Configuration:init()
 
 	self.chatFontSize = 18
 
-	self.font = {
+	self.fontName = "LuaMenu/widgets/chili/skins/Evolved/fonts/n019003l.pfb"
+	self.fontRaw = {
 		[0] = {size = 10, shadow = false},
 		[1] = {size = 14, shadow = false},
 		[2] = {size = 18, shadow = false},
@@ -249,6 +250,19 @@ function Configuration:init()
 		[4] = {size = 32, shadow = false},
 		[5] = {size = 48, shadow = false},
 	}
+	
+	self.fontSpecial = {}
+	self.font = {}
+	for i = 0, #self.fontRaw do
+		self.font[i] = WG.Chili.Font:New {
+			size         = self.fontRaw[i].size,
+			font         = self.fontName,
+			color        = {1,1,1,1},
+			outlineColor = {0.05,0.05,0.05,0.9},
+			outline      = false,
+			shadow       = false,
+		}
+	end
 
 	self.configParamTypes = {}
 	for _, param in pairs(Spring.GetConfigParams()) do
@@ -695,12 +709,27 @@ function Configuration:GetTick()
 	return self:GetSuccessColor() .. "O"
 end
 
-function Configuration:GetFont(sizeScale, fontName)
-	return {
-		size = self.font[sizeScale].size,
-		shadow = self.font[sizeScale].shadow,
-		font = fontName,
-	}
+function Configuration:GetFont(sizeScale, specialName, specialData, rawSize)
+	if not specialName and not rawSize then
+		return self.font[sizeScale]
+	end
+	local size = (rawSize and sizeScale) or self.fontRaw[sizeScale].size
+	if not self.fontSpecial[size] then
+		self.fontSpecial[size] = {}
+	end
+	if not self.fontSpecial[size][specialName] then
+		specialData = specialData or {}
+		specialData.font = self.fontName
+		specialData.size = size
+		
+		specialData.color        = specialData.color or {1,1,1,1}
+		specialData.outlineColor = specialData.outlineColor or {0.05,0.05,0.05,0.9}
+		specialData.outline      = specialData.outline or false
+		specialData.shadow       = specialData.shadow or false
+		
+		self.fontSpecial[size][specialName] = WG.Chili.Font:New(specialData)
+	end
+	return self.fontSpecial[size][specialName]
 end
 
 function Configuration:AllowNotification(playerName, playerList)
