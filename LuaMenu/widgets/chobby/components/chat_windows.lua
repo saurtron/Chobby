@@ -926,6 +926,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		height = 35,
 		text = "",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		parent = self.joinWindow,
 	}
 

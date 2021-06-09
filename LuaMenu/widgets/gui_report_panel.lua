@@ -63,6 +63,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		text = "",
 		hint = "Enter report reason",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		parent = reportWindow,
 	}
 	offset = offset + 38

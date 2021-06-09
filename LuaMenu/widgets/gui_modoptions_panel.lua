@@ -73,7 +73,7 @@ local function ProcessListOption(data, index)
 		x = 5,
 		y = 0,
 		width = 350,
-		height = 30,
+		height = 26,
 		valign = "center",
 		align = "left",
 		caption = data.name,
@@ -143,7 +143,7 @@ local function ProcessBoolOption(data, index)
 		x = 5,
 		y = index*32,
 		width = 355,
-		height = 40,
+		height = 28,
 		boxalign = "right",
 		boxsize = 20,
 		caption = data.name,
@@ -168,7 +168,7 @@ local function ProcessNumberOption(data, index)
 		x = 5,
 		y = 0,
 		width = 350,
-		height = 30,
+		height = 26,
 		valign = "center",
 		align = "left",
 		caption = data.name,
@@ -186,6 +186,7 @@ local function ProcessNumberOption(data, index)
 		text   = oldText,
 		useIME = false,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideHintFont = WG.Chobby.Configuration:GetHintFont(2),
 		tooltip = data.desc,
 		OnFocusUpdate = {
 			function (obj)
@@ -232,7 +233,7 @@ local function ProcessStringOption(data, index)
 		x = 5,
 		y = 0,
 		width = 350,
-		height = 30,
+		height = 26,
 		valign = "center",
 		align = "left",
 		caption = data.name,
@@ -251,6 +252,7 @@ local function ProcessStringOption(data, index)
 		useIME = false,
 		tooltip = data.desc,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideHintFont = WG.Chobby.Configuration:GetHintFont(2),
 		OnFocusUpdate = {
 			function (obj)
 				if obj.focused then
@@ -386,7 +388,7 @@ local function CreateModoptionWindow()
 		name = "modoptionsSelectionWindow",
 		parent = WG.Chobby.lobbyInterfaceHolder,
 		width = 920,
-		height = 500,
+		height = 504,
 		resizable = false,
 		draggable = false,
 		classname = "main_window",

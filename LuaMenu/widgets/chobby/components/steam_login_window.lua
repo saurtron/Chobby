@@ -66,6 +66,7 @@ function SteamLoginWindow:init(failFunction, cancelText, windowClassname)
 		height = 35,
 		text = Configuration.userName or Configuration.suggestedNameFromSteam or "",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 		parent = self.window
 	}
@@ -86,6 +87,7 @@ function SteamLoginWindow:init(failFunction, cancelText, windowClassname)
 		text = Configuration.password or "",
 		passwordInput = true,
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 		OnKeyPress = {
 			function(obj, key, mods, ...)

@@ -876,6 +876,7 @@ function BattleListWindow:OpenHostWindow()
 		height = 35,
 		text = (lobby:GetMyUserName() or "Player") .. "'s Battle",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		parent = hostBattleWindow,
 	}
 
@@ -895,7 +896,9 @@ function BattleListWindow:OpenHostWindow()
 		y = 110,
 		height = 35,
 		text = "",
+		hint = "Set for a private game",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 		parent = hostBattleWindow,
 	}
@@ -1054,6 +1057,7 @@ function BattleListWindow:JoinBattle(battle)
 			text = "",
 			hint = i18n("password"),
 			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideHintFont = Configuration:GetHintFont(3),
 			passwordInput = true,
 			useIME = false,
 			parent = passwordWindow,

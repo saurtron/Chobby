@@ -354,6 +354,7 @@ local function GetValueEntryBox(parent, name, position, currentValue)
 		height = 35,
 		text = tostring(currentValue),
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 		parent = parent,
 		OnFocusUpdate = {
@@ -664,6 +665,7 @@ local function AddNumberSetting(offset, caption, desc, key, default, minVal, max
 		height = 30,
 		text = ToPercent(default*100),
 		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideHintFont = Configuration:GetHintFont(2),
 		useIME = false,
 		OnFocusUpdate = {
 			function (obj)
@@ -1153,6 +1155,7 @@ local function GetVoidTabControls()
 		height = 30,
 		text = Configuration.serverAddress,
 		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideHintFont = Configuration:GetHintFont(2),
 		useIME = false,
 		OnFocusUpdate = {
 			function (obj)
@@ -1184,6 +1187,7 @@ local function GetVoidTabControls()
 		height = 30,
 		text = tostring(Configuration.serverPort),
 		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideHintFont = Configuration:GetHintFont(2),
 		useIME = false,
 		OnFocusUpdate = {
 			function (obj)
@@ -1605,6 +1609,7 @@ local function ProcessSettingsNumber(data, offset, defaults, customSettingsSwitc
 		height = 30,
 		text = FormatFunc(Configuration.settingsMenuValues[data.name] or defaults[data.name]),
 		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideHintFont = Configuration:GetHintFont(2),
 		useIME = false,
 		OnFocusUpdate = {
 			function (obj)

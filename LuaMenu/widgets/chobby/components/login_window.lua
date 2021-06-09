@@ -101,6 +101,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		height = 35,
 		text = Configuration.userName or Configuration.suggestedNameFromSteam or "",
 		objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 	}
 
@@ -111,6 +112,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		height = 35,
 		text = i18n("password") .. ":",
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 	}
 	self.ebPassword = EditBox:New {
 		x = 135,
@@ -121,6 +123,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		passwordInput = true,
 		hint = "Enter password",
 		objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideHintFont = Configuration:GetHintFont(3),
 		useIME = false,
 		OnKeyPress = {
 			function(obj, key, mods, ...)
@@ -155,6 +158,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		hint = "Confirm password",
 		passwordInput = true,
 		objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideHintFont = Configuration:GetHintFont(3),
 		OnKeyPress = {
 			function(obj, key, mods, ...)
 				if key == Spring.GetKeyCode("enter") or key == Spring.GetKeyCode("numpad_enter") then
@@ -186,6 +190,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 			height = 35,
 			text = "",
 			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideHintFont = Configuration:GetHintFont(3),
 			useIME = false,
 			OnKeyPress = {
 				function(obj, key, mods, ...)
@@ -524,6 +529,7 @@ function LoginWindow:createAgreementWindow()
 			height = 35,
 			text = "",
 			objectOverrideFont = Configuration:GetFont(2),
+			objectOverrideHintFont = Configuration:GetHintFont(2),
 			useIME = false,
 			parent = self.agreementWindow,
 		}

@@ -136,6 +136,7 @@ local function PromptNewSave(backOnFail)
 		text = defaultCommName,
 		hint = i18n("commander_name"),
 		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideHintFont = Configuration:GetHintFont(3),
 		parent = newSaveWindow,
 	}
 	offset = offset + 52

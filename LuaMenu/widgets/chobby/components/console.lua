@@ -64,6 +64,7 @@ function Console:init(channelName, sendMessageListener, noHistoryLoad, onResizeF
 		right = 2,
 		text = "",
 		objectOverrideFont = Configuration:GetFont(Configuration.chatFontSize, "console_" .. Configuration.chatFontSize, false, true),
+		objectOverrideHintFont = Configuration:GetHintFont(Configuration.chatFontSize, "console_hint_" .. Configuration.chatFontSize, false, true),
 		--hint = i18n("type_here_to_chat"),
 	}
 

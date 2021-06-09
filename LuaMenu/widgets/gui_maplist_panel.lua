@@ -283,7 +283,7 @@ local function InitializeControls()
 		end
 	end
 
-	WG.Delay(AddTheNextBatchOfMaps, 0.1)
+	WG.Delay(AddTheNextBatchOfMaps, 0.5 / loadRate)
 
 	-------------------------
 	-- Buttons
@@ -335,6 +335,7 @@ local function InitializeControls()
 		text = '',
 		hint = i18n("type_to_filter"),
 		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideHintFont = Configuration:GetHintFont(2),
 		parent = mapListWindow,
 		OnKeyPress = {
 			function(obj, key, ...)

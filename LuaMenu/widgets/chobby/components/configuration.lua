@@ -732,6 +732,13 @@ function Configuration:GetFont(sizeScale, specialName, specialData, rawSize)
 	return self.fontSpecial[size][specialName]
 end
 
+function Configuration:GetHintFont(sizeScale, specialName, specialData, rawSize)
+	specialName = (specialName or "") .. "_hint_" .. sizeScale
+	specialData = specialData or {}
+	specialData.color = {1,1,1,0.48}
+	return self:GetFont(sizeScale, specialName, specialData, rawSize)
+end
+
 function Configuration:AllowNotification(playerName, playerList)
 	if (not self.ingameNotifcations) and (Spring.GetGameName() ~= "") then
 		return false
