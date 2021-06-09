@@ -9,7 +9,7 @@ function widget:GetInfo()
 		date      = "2017.02.18",
 		license   = "GNU LGPL, v2.1 or later",
 		layer     = 0,
-		enabled   = true  --  loaded by default?
+		enabled   = false  --  loaded by default?
 	}
 end
 
@@ -305,7 +305,7 @@ local function InitializeControls(parentControl)
 		y = WG.TOP_BUTTON_Y,
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
-		objectOverrideFont =  WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont =  WG.Chobby.Configuration:GetButtonFont(3),
 		caption = i18n("close"),
 		classname = "negative_button",
 		OnClick = {

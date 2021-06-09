@@ -87,7 +87,7 @@ local function CreateRankUpdateWindow(oldIcon, newIcon)
 		bottom = 1,
 		height = 60, -- standard height is 70
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = { CloseFunction },
 		parent = rankUpdateWindow,

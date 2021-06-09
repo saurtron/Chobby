@@ -951,7 +951,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("join"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		parent = self.joinWindow,
 		classname = "action_button",
 		OnClick = {
@@ -967,7 +967,7 @@ function ChatWindows:CreateJoinChannelWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		parent = self.joinWindow,
 		classname = "negative_button",
 		OnClick = {

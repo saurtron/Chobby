@@ -16,7 +16,7 @@ function BattleListWindow:init(parent)
 			width = 150,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("open_mp_game"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "option_button",
 			parent = self.window,
 			OnClick = {
@@ -964,7 +964,7 @@ function BattleListWindow:OpenHostWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("host"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		parent = hostBattleWindow,
 		classname = "action_button",
 		OnClick = {
@@ -980,7 +980,7 @@ function BattleListWindow:OpenHostWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		parent = hostBattleWindow,
 		classname = "negative_button",
 		OnClick = {
@@ -1079,7 +1079,7 @@ function BattleListWindow:JoinBattle(battle)
 			bottom = 1,
 			height = 70,
 			caption = i18n("join"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "action_button",
 			OnClick = {
 				function()
@@ -1094,7 +1094,7 @@ function BattleListWindow:JoinBattle(battle)
 			bottom = 1,
 			height = 70,
 			caption = i18n("cancel"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "negative_button",
 			OnClick = {
 				function()

@@ -458,7 +458,7 @@ local function ShowWindowGeoConfig(name, modeNum, modeName, retreatPadding)
 		bottom = 1,
 		height = 70,
 		caption = i18n("apply"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -473,7 +473,7 @@ local function ShowWindowGeoConfig(name, modeNum, modeName, retreatPadding)
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()
@@ -564,7 +564,7 @@ local function ShowManualFullscreenEntryWindow(name)
 		bottom = 1,
 		height = 70,
 		caption = i18n("apply"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -579,7 +579,7 @@ local function ShowManualFullscreenEntryWindow(name)
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

@@ -78,7 +78,7 @@ local function SteamCheckPopup()
 		right = "26%",
 		height = 65,
 		caption = "Store Page",
-		objectOverrideFont = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetButtonFont(4),
 		classname = "action_button",
 		padding = {2,4,4,4},
 		OnClick = {
@@ -96,7 +96,7 @@ local function SteamCheckPopup()
 		right = "27%",
 		height = 42,
 		caption = "Settings Guide",
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		padding = {2,4,4,4},
 		OnClick = {
@@ -124,7 +124,7 @@ local function SteamCheckPopup()
 		height = 42,
 		classname = "negative_button",
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		OnClick = {
 			CancelFunc
 		},

@@ -52,7 +52,7 @@ function InformationPopup:init(infoText, extras)
 		bottom = 1,
 		height = 70,
 		caption = extras.caption or i18n("ok"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = extras.buttonClass or "action_button",
 		OnClick = {
 			function()

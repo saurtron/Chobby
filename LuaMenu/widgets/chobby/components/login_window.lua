@@ -235,7 +235,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		y = self.windowHeight - 143,
 		height = 70,
 		caption = i18n("login_verb"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -250,7 +250,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		y = self.windowHeight - 143,
 		height = 70,
 		caption = i18n("register_verb"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		OnClick = {
 			function()
@@ -266,7 +266,7 @@ function LoginWindow:init(failFunction, cancelText, windowClassname, params)
 		y = self.windowHeight - 143,
 		height = 70,
 		caption = i18n(cancelText or "cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

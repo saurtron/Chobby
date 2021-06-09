@@ -541,7 +541,7 @@ local function CreateModoptionWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("select_custom_mode"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = modoptionsSelectionWindow,
 		classname = "option_button",
 		OnClick = {
@@ -558,7 +558,7 @@ local function CreateModoptionWindow()
 			bottom = 1,
 			height = 70,
 			caption = i18n("select_mod"),
-			objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+			objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 			parent = modoptionsSelectionWindow,
 			classname = "option_button",
 			OnClick = {
@@ -575,7 +575,7 @@ local function CreateModoptionWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("reset"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = modoptionsSelectionWindow,
 		classname = "option_button",
 		OnClick = {
@@ -591,7 +591,7 @@ local function CreateModoptionWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("apply"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = modoptionsSelectionWindow,
 		classname = "action_button",
 		OnClick = {
@@ -607,7 +607,7 @@ local function CreateModoptionWindow()
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = modoptionsSelectionWindow,
 		classname = "negative_button",
 		OnClick = {

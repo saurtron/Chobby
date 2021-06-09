@@ -120,7 +120,7 @@ function SteamLoginWindow:init(failFunction, cancelText, windowClassname)
 		bottom = 2,
 		height = 70,
 		caption = i18n("connect"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -136,7 +136,7 @@ function SteamLoginWindow:init(failFunction, cancelText, windowClassname)
 		bottom = 2,
 		height = 70,
 		caption = i18n(cancelText or "cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

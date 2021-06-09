@@ -165,7 +165,7 @@ local function MakeFeedbackWindow(parent, feedbackLink)
 		height = WG.BUTTON_HEIGHT,
 		caption = "Post Feedback",
 		classname = "action_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		OnClick = {
 			function ()
 				WG.BrowserHandler.OpenUrl(feedbackLink)
@@ -186,7 +186,7 @@ local function MakeFeedbackButton(parentControl, link, x, y, right, bottom)
 		padding = {0, 0, 0, 0},
 		caption = "Feedback   ",
 		classname = "option_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
 		tooltip = "Post feedback on the forum",
 		OnClick = {
 			function ()
@@ -646,7 +646,7 @@ local function MakeWinPopup(planetData, bonusObjectiveSuccess, difficulty, extra
 		bottom = 1,
 		height = 70,
 		caption = i18n("continue"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = victoryWindow,
 		classname = "action_button",
 		OnClick = {
@@ -849,7 +849,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 			classname = "action_button",
 			parent = buttonHolder,
 			caption = i18n("start"),
-			objectOverrideFont = Configuration:GetFont(4),
+			objectOverrideFont = Configuration:GetButtonFont(4),
 			OnClick = {
 				function(self)
 					WG.PlanetBattleHandler.StartBattle(planetID, planetData)
@@ -864,7 +864,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				width = 160,
 				height = 38,
 				padding = {0, 0, 0, 0},
-				objectOverrideFont = Configuration:GetFont(2),
+				objectOverrideFont = Configuration:GetButtonFont(2),
 				caption = i18n("invite_friends") .. "   ",
 				classname = "option_button",
 				OnClick = {
@@ -895,7 +895,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				parent = buttonHolder,
 				caption = i18n("skip_tutorial"),
 				tooltip = "Skip quick tutorial. Only recommended for Zero-K veterans or players who have completed Tutorials 1 and 2.",
-				objectOverrideFont = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
 						local function SkipFunc()
@@ -916,7 +916,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Full Auto",
-				objectOverrideFont = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetVictory(planetID, 0, MakeRandomBonusVictoryList(2, 8), nil, WG.CampaignData.GetDifficultySetting())
@@ -931,7 +931,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Auto Win",
-				objectOverrideFont = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetVictory(planetID, 352, MakeRandomBonusVictoryList(0.75, 8), nil, WG.CampaignData.GetDifficultySetting())
@@ -946,7 +946,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				classname = "action_button",
 				parent = buttonHolder,
 				caption = "Auto Lose",
-				objectOverrideFont = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
 						ProcessPlanetDefeat(planetID, 351)
@@ -973,7 +973,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		height = WG.BUTTON_HEIGHT,
 		classname = "negative_button",
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		OnClick = {
 			CloseFunc
 		},

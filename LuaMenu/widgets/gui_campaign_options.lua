@@ -247,7 +247,7 @@ local function InitializeControls(window)
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

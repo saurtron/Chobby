@@ -101,7 +101,7 @@ local function AddLinkButton(scroll, name, tooltip, link, x, right, y, bottom)
 		classname = "option_button",
 		align = "left",
 		alignPadding = 0.12,
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		OnClick = {
 			function ()
 				WG.BrowserHandler.OpenUrl(link)
@@ -268,7 +268,7 @@ local function GetTutorialControl()
 		right = "18%",
 		height = 70,
 		caption = "Play the Tutorial",
-		objectOverrideFont = Configuration:GetFont(4),
+		objectOverrideFont = Configuration:GetButtonFont(4),
 		classname = "action_button",
 		padding = {2,4,4,4},
 		OnClick = {
@@ -287,7 +287,7 @@ local function GetTutorialControl()
 	--	height = 42,
 	--	classname = "negative_button",
 	--	caption = i18n("close"),
-	--	objectOverrideFont = Configuration:GetFont(3),
+	--	objectOverrideFont = Configuration:GetButtonFont(3),
 	--	OnClick = {
 	--		CancelFunc
 	--	},

@@ -295,7 +295,7 @@ local function InitializeControls()
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		parent = mapListWindow,
 		OnClick = {
@@ -312,7 +312,7 @@ local function InitializeControls()
 			width = 180,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download_maps"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "option_button",
 			parent = mapListWindow,
 			OnClick = {

@@ -77,7 +77,7 @@ function Downloader:init(buttonsMode, tbl, timeout, updateListener, completeList
 			width = 85,
 			caption = "Cancel",
 			classname = "negative_button",
-			objectOverrideFont = Configuration:GetFont(2),
+			objectOverrideFont = Configuration:GetButtonFont(2),
 			OnClick = {
 				CancelFunc
 			},

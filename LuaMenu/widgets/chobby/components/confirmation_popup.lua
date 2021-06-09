@@ -57,7 +57,7 @@ function ConfirmationPopup:init(successFunction, question, doNotAskAgainKey, wid
 		bottom = 1,
 		height = 70,
 		caption = i18n(yesText or "yes"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -72,7 +72,7 @@ function ConfirmationPopup:init(successFunction, question, doNotAskAgainKey, wid
 		bottom = 1,
 		height = 70,
 		caption = i18n(noText or "cancel"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()

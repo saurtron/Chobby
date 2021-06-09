@@ -48,7 +48,7 @@ function ListWindow:init(parent, title, noWindow, windowClassname, noClose, cust
 			width = 80,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("close"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "negative_button",
 			OnClick = {
 				function()

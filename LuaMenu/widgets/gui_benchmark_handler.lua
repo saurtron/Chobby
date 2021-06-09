@@ -165,7 +165,7 @@ local function InitializeControls(parentControl)
 		y = WG.TOP_BUTTON_Y,
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		caption = i18n("close"),
 		classname = "negative_button",
 		OnClick = {
@@ -187,7 +187,7 @@ local function InitializeControls(parentControl)
 			y = offset,
 			height = 50,
 			caption = benchmarkData[i].humanName,
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "action_button",
 			OnClick = {
 				function()
@@ -218,7 +218,7 @@ local function InitializeControls(parentControl)
 			height = 80,
 			caption = "Generate Script",
 			tooltip = "Generates a startscript from luamenu/startscripts/config.lua.",
-			objectOverrideFont = Configuration:GetFont(4),
+			objectOverrideFont = Configuration:GetButtonFont(4),
 			classname = "action_button",
 			OnClick = {
 				function()

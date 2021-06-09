@@ -330,7 +330,7 @@ local function InitializeActivityPromptHandler()
 		bottom = 4,
 		padding = {0,0,0,0},
 		caption = "Join",
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function()
@@ -671,7 +671,7 @@ local function MakePlanetControl(planetData, DeselectOtherFunc, attacking, defen
 		bottom = 6,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("defend_planet"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		OnClick = {
 			function(obj)
@@ -875,7 +875,7 @@ local function MakeFactionSelector(parent, x, y, SelectionFunc, CancelFunc, righ
 			width = 260,
 			height = WG.BUTTON_HEIGHT,
 			caption = "Join " .. name,
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "action_button",
 			OnClick = {
 				function()
@@ -909,7 +909,7 @@ local function MakeFactionSelector(parent, x, y, SelectionFunc, CancelFunc, righ
 		width = 170,
 		height = 35,
 		caption = "Factions Page",
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetButtonFont(2),
 		classname = "option_button",
 		padding = {2,4,4,4},
 		OnClick = {
@@ -936,7 +936,7 @@ local function MakeFactionSelector(parent, x, y, SelectionFunc, CancelFunc, righ
 			y = offset,
 			width = 84,
 			height = 35,
-			objectOverrideFont =  WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont =  WG.Chobby.Configuration:GetButtonFont(2),
 			caption = i18n("cancel"),
 			classname = "negative_button",
 			OnClick = {
@@ -1027,7 +1027,7 @@ local function InitializeControls(window)
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()
@@ -1052,7 +1052,7 @@ local function InitializeControls(window)
 		width = 150,
 		height = 32,
 		caption = "Galaxy Map",
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetButtonFont(2),
 		classname = "option_button",
 		padding = {2,4,4,4},
 		OnClick = {

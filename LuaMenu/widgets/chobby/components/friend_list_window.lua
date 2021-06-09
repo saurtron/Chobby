@@ -14,7 +14,7 @@ function FriendListWindow:init(parent)
 		width = 170,
 		height = 42,
 		caption = i18n("invite_friends"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		parent = self.window,
 		OnClick = {
@@ -92,7 +92,7 @@ function FriendListWindow:AddFriendRequest(userName)
 		width = 100,
 		height = 30,
 		caption = i18n("accept"),
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetButtonFont(2),
 		classname = "option_button",
 		OnClick = {
 			function()
@@ -107,7 +107,7 @@ function FriendListWindow:AddFriendRequest(userName)
 		width = 100,
 		height = 30,
 		caption = i18n("decline"),
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetButtonFont(2),
 		classname = "negative_button",
 		OnClick = {
 			function()

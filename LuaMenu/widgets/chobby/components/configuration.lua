@@ -739,6 +739,15 @@ function Configuration:GetHintFont(sizeScale, specialName, specialData, rawSize)
 	return self:GetFont(sizeScale, specialName, specialData, rawSize)
 end
 
+function Configuration:GetButtonFont(sizeScale, specialName, specialData, rawSize)
+	specialName = (specialName or "") .. "_button_" .. sizeScale
+	specialData = specialData or {}
+	specialData.outline = true
+	specialData.outlineWidth = 3
+	specialData.outlineHeight = 3
+	return self:GetFont(sizeScale, specialName, specialData, rawSize)
+end
+
 function Configuration:AllowNotification(playerName, playerList)
 	if (not self.ingameNotifcations) and (Spring.GetGameName() ~= "") then
 		return false

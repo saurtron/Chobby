@@ -251,7 +251,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		width = 65,
 		caption = i18n("load"),
 		classname = "action_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
 		OnClick = {
 			function()
 				if ingame then
@@ -330,7 +330,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("delete"),
 		classname = "action_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
 		OnClick = { function(self)
 				WG.Chobby.ConfirmationPopup(function(self) DeleteSave(saveFile.filename, saveList) end, i18n("delete_confirm"), nil, 360, 200)
 			end

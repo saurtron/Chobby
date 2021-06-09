@@ -22,7 +22,7 @@ local function CreateLine(lineText, linkText, onClick)
 			width = 110,
 			caption = linkText,
 			classname = "action_button",
-			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+			objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
 			OnClick = {
 				onClick
 			},
@@ -210,7 +210,7 @@ local communityControl = Control:New {
 				y = WG.TOP_BUTTON_Y,
 				width = 80,
 				height = WG.BUTTON_HEIGHT,
-				objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+				objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",
 				OnClick = {
@@ -277,7 +277,7 @@ local bugControl = Control:New {
 				y = WG.TOP_BUTTON_Y,
 				width = 80,
 				height = WG.BUTTON_HEIGHT,
-				objectOverrideFont = Configuration:GetFont(3),
+				objectOverrideFont = Configuration:GetButtonFont(3),
 				caption = i18n("close"),
 				classname = "negative_button",
 				OnClick = {
@@ -354,7 +354,7 @@ local bugControl = Control:New {
 				height = 80,
 				caption = "Submit",
 				tooltip = "Closes the game and submits the report. Click OK to the resulting pop-up.",
-				objectOverrideFont = Configuration:GetFont(4),
+				objectOverrideFont = Configuration:GetButtonFont(4),
 				classname = "action_button",
 				OnClick = {
 					function()

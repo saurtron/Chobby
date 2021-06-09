@@ -113,7 +113,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		width = 80,
 		bottom = 0,
 		caption = i18n("join"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		OnClick = {
 			function(obj)
@@ -146,7 +146,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		width = 80,
 		bottom = 0,
 		caption = i18n("leave"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
 		OnClick = {
 			function(obj)
@@ -462,7 +462,7 @@ local function InitializeControls(window)
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("close"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "negative_button",
 		OnClick = {
 			function()
@@ -477,7 +477,7 @@ local function InitializeControls(window)
 		y = WG.TOP_BUTTON_Y,
 		width = 180,
 		height = WG.BUTTON_HEIGHT,
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		caption = i18n("invite_friends"),
 		classname = "option_button",
 		OnClick = {
@@ -495,7 +495,7 @@ local function InitializeControls(window)
 			y = WG.TOP_BUTTON_Y,
 			width = 180,
 			height = WG.BUTTON_HEIGHT,
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			caption = i18n("select_maps"),
 			classname = "option_button",
 			OnClick = {

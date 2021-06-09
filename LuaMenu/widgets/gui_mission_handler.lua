@@ -100,7 +100,7 @@ local function CreateMissionEntry(missionData)
 		height = 34,
 		caption = i18n("play"),
 		classname = "action_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
 		OnClick = {
 			function()
 				local startScript = missionData.Script
@@ -213,7 +213,7 @@ local function InitializeControls(parentControl)
 		y = WG.TOP_BUTTON_Y,
 		width = 80,
 		height = WG.BUTTON_HEIGHT,
-		objectOverrideFont =  WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont =  WG.Chobby.Configuration:GetButtonFont(3),
 		caption = i18n("close"),
 		classname = "negative_button",
 		OnClick = {

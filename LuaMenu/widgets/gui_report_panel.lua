@@ -118,7 +118,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		bottom = 1,
 		height = 70,
 		caption = i18n("submit"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = reportWindow,
 		classname = "action_button",
 		OnClick = {
@@ -134,7 +134,7 @@ local function CreateReportWindow(parentHolder, userName, extraText, usePopupBac
 		bottom = 1,
 		height = 70,
 		caption = i18n("cancel"),
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		parent = reportWindow,
 		classname = "negative_button",
 		OnClick = {

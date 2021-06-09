@@ -61,7 +61,7 @@ local function AddLinkButton(scroll, name, tooltip, link, requireLogin, x, right
 		caption = name,
 		tooltip = tooltip,
 		classname = "option_button",
-		objectOverrideFont = WG.Chobby.Configuration:GetFont(3),
+		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(3),
 		align = "left",
 		alignPadding = 0.085,
 		OnClick = {

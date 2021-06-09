@@ -55,7 +55,7 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 		width = 65,
 		caption = i18n("start"),
 		classname = "action_button",
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetButtonFont(2),
 		OnClick = {
 			function()
 				if not replayPath then
@@ -225,7 +225,7 @@ local function InitializeControls(parentControl)
 		width = 110,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("refresh"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		parent = parentControl,
 		OnClick = {
@@ -241,7 +241,7 @@ local function InitializeControls(parentControl)
 		width = 110,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("more"),
-		objectOverrideFont = Configuration:GetFont(3),
+		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		parent = parentControl,
 		OnClick = {
@@ -258,7 +258,7 @@ local function InitializeControls(parentControl)
 	--	width = 80,
 	--	height = WG.BUTTON_HEIGHT,
 	--	caption = i18n("close"),
-	--	objectOverrideFont = Configuration:GetFont(3),
+	--	objectOverrideFont = Configuration:GetButtonFont(3),
 	--	classname = "negative_button",
 	--	OnClick = {
 	--		function()
@@ -275,7 +275,7 @@ local function InitializeControls(parentControl)
 			width = 110,
 			height = WG.BUTTON_HEIGHT,
 			caption = i18n("download"),
-			objectOverrideFont = Configuration:GetFont(3),
+			objectOverrideFont = Configuration:GetButtonFont(3),
 			classname = "option_button",
 			parent = parentControl,
 			OnClick = {
