@@ -331,11 +331,11 @@ local function UpdateUserControlStatus(userName, userControls)
 	end
 	if userControls.imStatusLarge then
 		local imgFile, status, fontColor = GetUserStatus(userName, isInBattle, userControls)
-		userControls.tbName.font = Configuration:GetFont(userControls.tbName.font.size, "status_" .. status, fontColor, true)
+		userControls.tbName.font = WG.Chobby.Configuration:GetFont(userControls.tbName.font.size, "status_" .. status, fontColor, true)
 		userControls.tbName:Invalidate()
 		userControls.imStatusLarge.file = imgFile
 		userControls.imStatusLarge:Invalidate()
-		userControls.lblStatusLarge.font = Configuration:GetFont(userControls.lblStatusLarge.font.size, "status_" .. status, fontColor, true)
+		userControls.lblStatusLarge.font = WG.Chobby.Configuration:GetFont(userControls.lblStatusLarge.font.size, "status_" .. status, fontColor, true)
 		userControls.lblStatusLarge:SetCaption(i18n(status .. "_status"))
 	elseif not userControls.statusImages then
 		return
