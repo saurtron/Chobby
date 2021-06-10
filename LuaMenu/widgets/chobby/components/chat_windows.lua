@@ -428,7 +428,7 @@ function ChatWindows:ProcessChat(chanName, userName, message, msgDate, notifyCol
 	end
 	local nameColor
 	if source == lobby.SOURCE_DISCORD then
-	channelConsole:AddMessage(message, userName, msgDate, chatColour, thirdPerson, "\255\40\210\220", "Discord user.", true)
+		channelConsole:AddMessage(message, userName, msgDate, chatColour, thirdPerson, "\255\40\210\220", "Discord user.", true)
 	else
 		channelConsole:AddMessage(message, userName, msgDate, chatColour, thirdPerson, nameColor)
 	end
@@ -503,11 +503,13 @@ function ChatWindows:SetTabActivation(tabName, activationLevel, outlineColor)
 			outlineColor = outlineColor,
 			color = outlineColor,
 		})
-		ctrl._badge.font = Configuration:GetFont(1, "chat_badge_" .. activationLevel, {
-			outline = true,
-			outlineColor = outlineColor,
-			color = outlineColor,
-		})
+		if ctrl._badge then
+			ctrl._badge.font = Configuration:GetFont(1, "chat_badge_" .. activationLevel, {
+				outline = true,
+				outlineColor = outlineColor,
+				color = outlineColor,
+			})
+		end
 	else
 		ctrl.font = Configuration:GetFont(1, "chat_badge_white", {
 			outline = false,
@@ -521,30 +523,31 @@ function ChatWindows:SetTabActivation(tabName, activationLevel, outlineColor)
 end
 
 function ChatWindows:SetTabBadge(tabName, text)
+	if not Configuration.useChatTabBadges then
+		return
+	end
 	local ctrl = self:_GetTabBarItem(tabName)
 	if not ctrl then
 		Spring.Echo("SetTabBadge missing control", tabName, text)
 		return
 	end
-	local badge = ctrl._badge
-	if badge == nil then
-		badge = Label:New {
-			right = 0,
-			width = 10,
-			y = 0,
-			height = 12,
+	if not ctrl._badge then
+		ctrl._badge = Label:New {
+			x = 30,
+			y = -20,
+			width = 14,
+			height = 14,
 			caption = text,
-			font = Configuration:GetFont(1, "chat_badge_black", {
+			objectOverrideFont = Configuration:GetFont(1, "chat_badge_black", {
 				outline = true,
 				autoOutlineColor = false,
 				outlineColor = { 0, 0, 0, 0.6 },
 			}),
 			parent = ctrl
 		}
-		ctrl._badge = badge
 	end
 
-	badge:SetCaption(text)
+	ctrl._badge:SetCaption(text)
 end
 
 function ChatWindows:_NotifyTab(tabName, userName, chanName, nameMentioned, message, sound, popupDuration)
