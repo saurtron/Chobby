@@ -266,7 +266,6 @@ local function InitializeDifficultySetting()
 		selected = 2,
 		preferComboUp = true,
 		objectOverrideFont = Configuration:GetFont(2),
-		itemFontSize = Configuration:GetFont(2).size,
 		selected = WG.CampaignData.GetDifficultySetting(),
 		OnSelect = {
 			function (obj)
@@ -805,7 +804,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		padding = {0, 0, 10, 0},
 		text = ((startable or Configuration.debugMode) and planetData.infoDisplay.text) or "This planet will need to be approached for further study.",
 		objectOverrideFont = Configuration:GetFont(3),
-	}	
+	}
 
 
 	local subPanel = Panel:New{
@@ -1016,10 +1015,9 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 
 	local function SizeUpdate()
 		local fluffFont = Configuration:GetFont(((planetHandler.height < 720) and 2) or 3)
-		local descFont = Configuration:GetFont(((planetHandler.height < 720) and 1) or 2) 
-
-		planetDesc.font = Configuration:GetFont(descFont.size)
+		planetDesc.font = Configuration:GetFont(((planetHandler.height < 720) and 1) or 2)
 		planetDesc:Invalidate()
+		
 		if planetHandler.height < 560 then
 			planetDesc._relativeBounds.top = 60
 			fluffGrid:SetVisibility(false)
@@ -1050,7 +1048,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		subPanel:UpdateClientArea(false)
 
 		for i = 1, 4 do
-			fluffLabels[i].font = Configuration:GetFont(fluffFont.size)
+			fluffLabels[i].font = fluffFont
 			fluffLabels[i]:Invalidate()
 		end
 		fluffGrid:Invalidate()
