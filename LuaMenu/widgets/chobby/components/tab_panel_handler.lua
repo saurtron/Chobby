@@ -369,9 +369,9 @@ function GetTabPanelHandler(name, conf)
 				if tab.priorityLevel == 1 then
 					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_white", whiteFontParams, true)
 				elseif tab.priorityLevel == 2 then
-					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_red", redFontParamss, true)
+					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_red", redFontParams, true)
 				else
-					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_yellow", yellowFontParamss, true)
+					tab.activityLabel.font = Configuration:GetFont(fontSize, "tab_yellow", yellowFontParams, true)
 				end
 				tab.activityLabel:SetCaption(activityLabel)
 			end
