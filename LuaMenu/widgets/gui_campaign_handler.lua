@@ -731,10 +731,10 @@ local function ProcessPlanetVictory(planetID, battleFrames, bonusObjectives, bon
 end
 
 local function ProcessPlanetDefeat(planetID, battleFrames)
-	if selectedPlanet then
-		selectedPlanet.Close()
-		selectedPlanet = nil
-	end
+	--if selectedPlanet then
+	--	selectedPlanet.Close()
+	--	selectedPlanet = nil
+	--end
 	WG.Chobby.InformationPopup("Battle for " .. planetConfig[planetID].name .. " lost.", {caption = i18n("continue")})
 	WG.CampaignData.AddPlayTime(battleFrames, true)
 

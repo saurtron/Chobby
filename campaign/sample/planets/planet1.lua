@@ -89,9 +89,35 @@ local function GetPlanet(planetUtilities, planetID)
 						difficultyAtMost = 3,
 					},
 					{
+						name = "turretriot",
+						x = 1140,
+						z = 3760,
+						facing = 1,
+					},
+					{
+						name = "turretriot",
+						x = 350,
+						z = 2110,
+						facing = 1,
+						difficultyAtMost = 3,
+					},
+					{
+						name = "turretriot",
+						x = 360,
+						z = 3230,
+						facing = 1,
+					},
+					{
+						name = "turretriot",
+						x = 930,
+						z = 3260,
+						facing = 1,
+						difficultyAtMost = 1,
+					},
+					{
 						name = "turretlaser",
-						x = 1050,
-						z = 3850,
+						x = 970,
+						z = 3900,
 						facing = 1,
 					},
 					{
@@ -165,12 +191,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 3630,
 							z = 220,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 3880,
 							z = 200,
 							facing = 2,
+							difficultyAtLeast = 3,
 						},
 						{
 							name = "turretlaser",
@@ -198,6 +226,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 3880,
 							z = 520,
 							facing = 2,
+							difficultyAtLeast = 4,
 						},
 						{
 							name = "energysolar",
@@ -223,6 +252,139 @@ local function GetPlanet(planetUtilities, planetID)
 						},
 					
 					}
+				},
+				{
+					startX = 4000,
+					startZ = 75,
+					aiLib = "Null AI",
+					humanName = "Loiterer",
+					bitDependant = false,
+					allyTeam = 1,
+					commander = false,
+					startUnits = {
+						{
+							name = "energywind",
+							x = 1240,
+							z = 1090,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1200,
+							z = 1150,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1190,
+							z = 1220,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 2930,
+							z = 2567,
+							facing = 2,
+						},
+						{
+							name = "staticradar",
+							x = 1190,
+							z = 1298,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1755,
+							z = 1700,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1725,
+							z = 1822,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1770,
+							z = 1940,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1789,
+							z = 1763,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1920,
+							z = 1930,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 2000,
+							z = 2020,
+							facing = 2,
+						},
+						{
+							name = "staticradar",
+							x = 2985,
+							z = 2345,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 2975,
+							z = 2415,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 2965,
+							z = 2485,
+							facing = 2,
+						},
+						{
+							name = "spiderassault",
+							x = 3486,
+							z = 2350,
+							facing = 4,
+						},
+						{
+							name = "spiderassault",
+							x = 2634,
+							z = 1947,
+							facing = 4,
+						},
+						{
+							name = "spiderassault",
+							x = 1732,
+							z = 1193,
+							facing = 3,
+						},
+						{
+							name = "spiderassault",
+							x = 1300,
+							z = 570,
+							facing = 4,
+						},
+					}
+				},
+			},
+			initialWrecks = {
+				{
+					name = "staticmex_dead",
+					x = 361,
+					z = 2006,
+					facing = 3,
+				},
+				{
+					name = "turretlaser_dead",
+					x = 1772,
+					z = 2094,
+					facing = 0,
 				},
 			},
 			defeatConditionConfig = {

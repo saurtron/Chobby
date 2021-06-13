@@ -70,14 +70,14 @@ local function GetPlanet(planetUtilities, planetID)
 				startUnits = {
 					{
 						name = "staticradar",
-						x = 3730,
-						z = 3625,
+						x = 3010,
+						z = 2540,
 						facing = 3,
 					},
 					{
 						name = "staticradar",
-						x = 3010,
-						z = 2540,
+						x = 2400,
+						z = 3580,
 						facing = 3,
 					},
 					{
@@ -307,6 +307,30 @@ local function GetPlanet(planetUtilities, planetID)
 							name = "energywind",
 							x = 220,
 							z = 130,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1140,
+							z = 2440,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1120,
+							z = 2528,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 1095,
+							z = 2600,
+							facing = 2,
+						},
+						{
+							name = "energywind",
+							x = 925,
+							z = 2650,
 							facing = 2,
 						},
 					}
