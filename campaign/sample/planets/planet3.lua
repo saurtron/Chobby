@@ -216,14 +216,14 @@ local function GetPlanet(planetUtilities, planetID)
 					},
 					{
 						name = "turretmissile",
-						x = 3122,
-						z = 870,
+						x = 2375,
+						z = 900,
 						facing = 3,
 					},
 					{
 						name = "turretlaser",
-						x = 2710,
-						z = 3500,
+						x = 3122,
+						z = 870,
 						facing = 3,
 					},
 				}
