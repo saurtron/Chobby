@@ -43,17 +43,29 @@ local RESTART_GAME = "restartGame"
 local GAME_INIT = "ingameInfoInit"
 local GAME_START = "ingameInfoStart"
 local REPORT_USER = "reportUser"
+local AUTOSAVE_COMPLETE = "autosaveComplete"
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Utilities
+
+local function ConvertString(str)
+	if str == "true" then
+		return true
+	elseif str == "false" then
+		return false
+	elseif tonumber(str) then
+		return tonumber(str)
+	end
+	return str
+end
 
 local function StringToDataTable(msg)
 	local data = msg:split("_")
 	local dataTable = {}
 	local index = 3
 	while data[index] do
-		dataTable[data[index - 1]] = data[index]
+		dataTable[data[index - 1]] = ConvertString(data[index])
 		index = index + 2
 	end
 	return dataTable
@@ -161,7 +173,7 @@ end
 --------------------------------------------------------------------------------
 -- Ingame Info
 
-local function MsgToDiscordData(msg)
+local function MsgToIngameData(msg)
 	local data = msg:split("_")
 	if tonumber(data[2]) then
 		return {
@@ -187,7 +199,7 @@ local function HandleGameInfoInit(msg)
 		return
 	end
 	if WG.DiscordHandler then
-		WG.DiscordHandler.SetIngameInfo(MsgToDiscordData(msg))
+		WG.DiscordHandler.SetIngameInfo(MsgToIngameData(msg))
 	end
 end
 
@@ -195,8 +207,12 @@ local function HandleGameInfoStart(msg)
 	if string.find(msg, GAME_START) ~= 1 then
 		return
 	end
+	local ingameData = MsgToIngameData(msg)
 	if WG.DiscordHandler then
-		WG.DiscordHandler.SetIngameInfo(MsgToDiscordData(msg))
+		WG.DiscordHandler.SetIngameInfo(ingameData)
+	end
+	if WG.QueueStatusPanel then
+		WG.QueueStatusPanel.SetWantAutosaveFromGameData(ingameData)
 	end
 end
 
@@ -214,6 +230,30 @@ local function HandleReport(msg)
 	end
 	
 	WG.ReportPanel.OpenReportWindow(data[2], data[3], true)
+	return true
+end
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-- Autosave
+
+local function HandleAutosaveComplete(msg)
+	if string.find(msg, AUTOSAVE_COMPLETE) ~= 1 then
+		return
+	end
+	local data = msg:split("_")
+	if not (data and data[2]) then
+		return
+	end
+
+	if WG.QueueStatusPanel then
+		local saveName = data[2]
+		local delayAutosave = function ()
+			WG.QueueStatusPanel.OnAutosaveComplete(saveName)
+		end
+		WG.Delay(delayAutosave, 1)
+	end
+
 	return true
 end
 
@@ -249,7 +289,11 @@ function widget:RecvLuaMsg(msg)
 	if HandleReport(msg) then
 		return
 	end
+	if HandleAutosaveComplete(msg) then
+		return
+	end
 end
+
 
 function widget:ActivateMenu()
 	local Chobby = WG.Chobby

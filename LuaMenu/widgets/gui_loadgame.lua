@@ -248,7 +248,7 @@ local function AddSaveEntryButton(saveFile, saveList)
 		x = 3,
 		y = 3,
 		height = WG.BUTTON_HEIGHT,
-		width = 65,
+		width = 60,
 		caption = i18n("load"),
 		classname = "action_button",
 		objectOverrideFont = WG.Chobby.Configuration:GetButtonFont(2),
@@ -265,12 +265,12 @@ local function AddSaveEntryButton(saveFile, saveList)
 	}
 
 	-- save name
-	local x = 80
+	local x = 72
 	local saveName = TextBox:New {
 		name = "saveName",
 		x = x,
 		y = 12,
-		right = 0,
+		width = 155,
 		height = 20,
 		valign = 'center',
 		objectOverrideFont = Configuration:GetFont(2),
@@ -279,40 +279,40 @@ local function AddSaveEntryButton(saveFile, saveList)
 	}
 
 	-- save's modgame name
-	x = x + 200
+	x = x + 155
 	local gameName = TextBox:New {
 		name = "gameName",
 		x = x,
 		y = 12,
-		right = 0,
+		width = 90,
 		height = 20,
 		valign = 'center',
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(1),
 		text = saveFile.gameName .. "\n" .. saveFile.gameVersion,
 		parent = container,
 	}
 
 	-- save date
-	x = x + 140
+	x = x + 90
 	local saveDate = TextBox:New {
 		name = "saveDate",
 		x = x,
 		y = 12,
-		right = 0,
+		width = 90,
 		height = 20,
 		valign = 'center',
-		objectOverrideFont = Configuration:GetFont(2),
+		objectOverrideFont = Configuration:GetFont(1),
 		text = WriteDate(saveFile.date),
 		parent = container,
 	}
 
 	-- save details
-	x = x + 110
+	x = x + 90
 	local details = TextBox:New {
 		name = "saveDetails",
 		x = x,
 		y = 12,
-		right = 0,
+		right = 68,
 		height = 20,
 		valign = 'center',
 		objectOverrideFont = Configuration:GetFont(1),
@@ -321,12 +321,11 @@ local function AddSaveEntryButton(saveFile, saveList)
 	}
 
 	-- delete button
-	x = x + 180
 	local deleteButton = Button:New {
 		parent = container,
-		x = x,
 		y = 4,
-		width = 65,
+		right = 0,
+		width = 60,
 		height = WG.BUTTON_HEIGHT,
 		caption = i18n("delete"),
 		classname = "action_button",
@@ -384,12 +383,12 @@ local function InitializeControls(parent)
 	}
 
 	local headings = {
-		{name = "Name", x = 82, width = 200},
-		{name = "Game", x = 82 + 200, width = 140},
-		{name = "Date", x = 82 + 200 + 138, width = 110},
+		{name = "Name", x = 74, width = 150},
+		{name = "Game", x = 74 + 155, width = 90},
+		{name = "Date", x = 74 + 155 + 90, width = 90},
 	}
 
-	local saveList = WG.Chobby.SortableList(listHolder, headings, 80, 3)
+	local saveList = WG.Chobby.SortableList(listHolder, headings, 80, 3, false)
 	PopulateSaveList(saveList)
 
 	local externalFunctions = {}

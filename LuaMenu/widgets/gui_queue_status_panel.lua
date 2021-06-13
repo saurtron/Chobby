@@ -19,9 +19,14 @@ end
 local statusQueueLobby -- global for timer update
 local statusQueueIngame
 local readyCheckPopup
+
 local findingMatch = false
+local wantAutosave = false
+
 local ALLOW_REJECT_QUICKPLAY = true
 local ALLOW_REJECT_REGULAR = false
+
+local SEND_AUTOSAVE = "MatchmakerAutosaveRequired"
 
 local instantStartQueuePriority = {
 	["Battle"] = 5,
@@ -126,7 +131,9 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		end
 		timeWaiting = newTimeWaiting
 		timeString = SecondsToMinutes(timeWaiting)
-		queueStatusText:SetText("Finding Match - " .. timeString .. "\n" .. queueString .. ((bigMode and  "\nPlayers: ") or "\nPlay: ") .. playersString)
+		local doAutosave = wantAutosave and WG.Chobby.Configuration.autosaveOnMatchmaker
+		local thirdLine = (wantAutosave and "\nAutosave Enabled") or (((bigMode and  "\nPlayers: ") or "\nPlay: ") .. playersString)
+		queueStatusText:SetText("Finding Match - " .. timeString .. "\n" .. queueString .. thirdLine)
 	end
 
 	local function UpdateQueueText()
@@ -300,6 +307,10 @@ end
 
 local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChance, isQuickPlay)
 	local Configuration = WG.Chobby.Configuration
+	local waitingForAutosave = wantAutosave and Configuration.autosaveOnMatchmaker and Spring.SendLuaUIMsg
+	if waitingForAutosave then
+		Spring.SendLuaUIMsg(SEND_AUTOSAVE)
+	end
 
 	local snd_volui = Spring.GetConfigString("snd_volui")
 	local snd_volmaster = Spring.GetConfigString("snd_volmaster")
@@ -327,7 +338,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		name = "readyCheckWindow",
 		parent = screen0,
 		width = 310,
-		height = 310,
+		height = waitingForAutosave and 330 or 280,
 		resizable = false,
 		draggable = false,
 		classname = "main_window",
@@ -351,7 +362,7 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 	local statusLabel = TextBox:New {
 		x = 15,
 		width = 250,
-		y = 80,
+		y = 70,
 		height = 35,
 		text = "",
 		objectOverrideFont = Configuration:GetFont(3),
@@ -361,9 +372,19 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 	local playersAcceptedLabel = Label:New {
 		x = 15,
 		width = 250,
-		y = 130,
+		y = 115,
 		height = 35,
 		caption = "Players accepted: 0",
+		objectOverrideFont = Configuration:GetFont(3),
+		parent = readyCheckWindow,
+	}
+
+	local autosaveLabel = Label:New {
+		x = 15,
+		width = 250,
+		y = 155,
+		height = 35,
+		caption = "",
 		objectOverrideFont = Configuration:GetFont(3),
 		parent = readyCheckWindow,
 	}
@@ -439,6 +460,17 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 		banChecked = true
 	end
 
+	local function SetAutosaveStatus(stillWaiting, saveName)
+		if stillWaiting then
+			autosaveLabel:SetCaption(Configuration:GetWarningColor() .. "Saving Game")
+		else
+			autosaveLabel:SetCaption(Configuration:GetSuccessColor() .. "Autosave Complete:\n" .. saveName)
+		end
+	end
+	if waitingForAutosave then
+		SetAutosaveStatus(true)
+	end
+
 	local popupHolder = WG.Chobby.PriorityPopup(readyCheckWindow, allowReject and CancelFunc, AcceptFunc, screen0)
 	local externalFunctions = {}
 
@@ -483,6 +515,11 @@ local function CreateReadyCheckWindow(DestroyFunc, secondsRemaining, minWinChanc
 
 	function externalFunctions.DisconnectedRudely()
 		CheckBan()
+	end
+
+	function externalFunctions.OnAutosaveComplete(saveName)
+		waitingForAutosave = false
+		SetAutosaveStatus(false, saveName)
 	end
 
 	function externalFunctions.MatchMakingComplete(success)
@@ -546,6 +583,24 @@ local QueueStatusPanel = {}
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Widget Interface
+
+function QueueStatusPanel.SetWantAutosaveFromGameData(ingameData)
+	if not ingameData then
+		wantAutosave = false
+		return
+	end
+	if ingameData.isReplay then
+		wantAutosave = false
+		return
+	end
+	wantAutosave = (ingameData.isPlayer and ingameData.playerCount == 1) or (not ingameData.isPlayer and ingameData.playerCount == 0)
+end
+
+function QueueStatusPanel.OnAutosaveComplete(saveName)
+	if readyCheckPopup then
+		readyCheckPopup.OnAutosaveComplete(saveName)
+	end
+end
 
 function DelayedInitialize()
 	local lobby = WG.LibLobby.lobby
@@ -672,6 +727,10 @@ function widget:Update()
 	if readyCheckPopup then
 		readyCheckPopup.UpdateTimer()
 	end
+end
+
+function widget:ActivateMenu()
+	wantAutosave = false
 end
 
 function widget:Initialize()

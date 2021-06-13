@@ -116,7 +116,7 @@ local function MakeRealTable(proxy)
 	return ret
 end
 
-local function TableEcho(data, name, indent, tableChecked)
+local function TableEcho(data, name, indent, tableChecked, printType)
 	name = name or "TableEcho"
 	indent = indent or ""
 	if (not tableChecked) and type(data) ~= "table" then
@@ -129,14 +129,20 @@ local function TableEcho(data, name, indent, tableChecked)
 		local ty = type(v)
 		--Spring.Echo("type", ty)
 		if ty == "table" then
-			TableEcho(v, name, newIndent, true)
+			TableEcho(v, name, newIndent, true, printType)
 		elseif ty == "boolean" then
 			Spring.Echo(newIndent .. name .. " = " .. (v and "true" or "false"))
+			if printType then
+				Spring.Echo(newIndent .. type(v))
+			end
 		elseif ty == "string" or ty == "number" then
 			if type(name) == "userdata" then
 				Spring.Echo(newIndent, name, v)
 			else
 				Spring.Echo(newIndent .. name .. " = " .. v)
+			end
+			if printType then
+				Spring.Echo(newIndent .. type(v))
 			end
 		elseif ty == "userdata" then
 			Spring.Echo(newIndent .. "userdata", name, v)

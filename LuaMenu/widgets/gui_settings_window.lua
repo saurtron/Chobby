@@ -977,6 +977,8 @@ local function GetLobbyTabControls()
 	if not Configuration.gameConfig.disablePlanetwars then
 		children[#children + 1], offset = AddCheckboxSetting(offset, i18n("planetwars_notifications"), "planetwarsNotifications", false)
 	end
+	
+	children[#children + 1], offset = AddCheckboxSetting(offset, "Autosave SP on matchmaker", "autosaveOnMatchmaker", true)
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("ingame_notifcations"), "ingameNotifcations", true)
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("non_friend_notifications"), "nonFriendNotifications", true)
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("notifyForAllChat"), "notifyForAllChat", false)

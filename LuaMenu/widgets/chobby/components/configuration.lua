@@ -193,6 +193,7 @@ function Configuration:init()
 
 	self.lastLoginChatLength = 25
 	self.notifyForAllChat = true
+	self.autosaveOnMatchmaker = true
 	self.planetwarsNotifications = false -- Possibly too intrusive? See how it goes.
 	self.ingameNotifcations = true -- Party, chat
 	self.nonFriendNotifications = true -- Party, chat

@@ -19,7 +19,7 @@ local menuItems = {
 					control = WG.CodexHandler.GetControl(),
 				},
 				{
-					name = "options",
+					name = "saveload",
 					control = WG.CampaignOptionsWindow.GetControl(),
 				},
 			},
