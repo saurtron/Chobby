@@ -116,7 +116,6 @@ local function CreateColorChangeWindow(opts)
 		items = colorNames,
 		parent = colorChangeWindow,
 		objectOverrideFont = Configuration:GetFont(2),
-		itemFontSize = Configuration:GetFont(2).size,
 		itemHeight = 30,
 		selectByName = true,
 		OnSelectName = {

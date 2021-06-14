@@ -117,14 +117,12 @@ end
 -- Stats Window
 
 local function MakeStatLabel(parent, offset, name)
-	local fontSize = WG.Chobby.Configuration:GetFont(2).size
-
 	TextBox:New {
 		x = 20,
 		y = offset + TEXT_OFFSET,
 		width = 200,
 		height = 30,
-		fontsize = fontSize,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		text = name,
 		parent = parent,
 	}
@@ -133,7 +131,7 @@ local function MakeStatLabel(parent, offset, name)
 		y = offset + TEXT_OFFSET,
 		width = 200,
 		height = 30,
-		fontsize = fontSize,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		text = "",
 		parent = parent,
 	}

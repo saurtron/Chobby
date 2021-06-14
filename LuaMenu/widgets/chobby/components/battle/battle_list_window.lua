@@ -928,7 +928,6 @@ function BattleListWindow:OpenHostWindow()
 		text = "",
 		objectOverrideFont = Configuration:GetFont(3),
 		items = modeList,
-		itemFontSize = Configuration:GetFont(3).size,
 		selected = 1,
 		parent = hostBattleWindow,
 	}

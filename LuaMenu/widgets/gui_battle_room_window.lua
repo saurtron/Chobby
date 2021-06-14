@@ -1855,7 +1855,6 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 			text = "",
 			objectOverrideFont = Configuration:GetFont(3),
 			items = {"Coop", "Team", "1v1", "FFA", "Custom"},
-			itemFontSize = Configuration:GetFont(3).size,
 			selected = Configuration.battleTypeToHumanName[battle.battleMode or 0],
 			OnSelectName = {
 				function (obj, selectedName)

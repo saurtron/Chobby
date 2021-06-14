@@ -539,7 +539,7 @@ local function GetUserControls(userName, opts)
 			tooltip = (not disableInteraction) and tooltip,
 			ignoreItemCaption = true,
 			selectByName = true,
-			itemFontSize = Configuration:GetFont(2).size,
+			objectOverrideFont = Configuration:GetFont(2),
 			itemHeight = 30,
 			selected = 0,
 			maxDropDownWidth = large and 220 or 150,

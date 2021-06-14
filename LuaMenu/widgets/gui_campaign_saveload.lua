@@ -159,7 +159,6 @@ local function PromptNewSave(backOnFail)
 		text = "",
 		items = {"Easy", "Normal", "Hard", "Brutal"},
 		objectOverrideFont = Configuration:GetFont(3),
-		itemFontSize = Configuration:GetFont(3).size,
 		selected = 2,
 		parent = newSaveWindow,
 	}
