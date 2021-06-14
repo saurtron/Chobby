@@ -35,11 +35,11 @@ local menuItems = {
 		control = WG.LoadGameWindow.GetControl(),
 		entryCheck = WG.BattleRoomWindow.SetSingleplayerGame,
 	},
-	{
-		name = "commanders",
-		control = WG.CommConfig.GetControl(),
-		entryCheck = WG.BattleRoomWindow.SetSingleplayerGame,
-	},
+	--{
+	--	name = "commanders",
+	--	control = WG.CommConfig.GetControl(),
+	--	entryCheck = WG.BattleRoomWindow.SetSingleplayerGame,
+	--},
 	--{
 	--	name = "quick_start",
 	--	control = Control:New {},
