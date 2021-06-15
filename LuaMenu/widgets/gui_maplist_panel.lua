@@ -270,6 +270,7 @@ local function InitializeControls()
 			end
 		end
 		mapList:AddItems(mapItems)
+
 		if featuredMapList[featuredMapIndex] then
 			WG.Delay(AddTheNextBatchOfMaps, 0.1)
 		elseif not Configuration.onlyShowFeaturedMaps then
@@ -280,6 +281,7 @@ local function InitializeControls()
 					mapItems[#mapItems + 1] = {info.name, control, sortData}
 				end
 			end
+			mapList:AddItems(mapItems)
 		end
 	end
 
