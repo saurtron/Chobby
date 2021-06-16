@@ -230,6 +230,7 @@ local function InitializeControls(parentControl)
 		parent = codexTextScroll,
 		x = 0,
 		y = 0,
+		lineSpacing = 1,
 		width = "100%",
 		height = "100%",
 		text = "",

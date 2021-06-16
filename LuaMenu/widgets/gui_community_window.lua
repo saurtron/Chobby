@@ -238,18 +238,20 @@ local function GetTutorialControl()
 		right = 8,
 		y = 76,
 		height = 35,
+		lineSpacing = 1,
 		objectOverrideFont = Configuration:GetFont(2),
-		text = [[Embark on a campaign to uncover the secrets of a seemingly empty galaxy, and learn Zero-K along the way. The campaign is under 'Singleplayer & Coop', but can also be started by clicking 'Play the Tutorial'. Alternately, battle a range of non-cheating AIs in the skirmish mode. Play either option with friends by inviting them with the Steam friends list.]],
+		text = [[Start with the campaign for a smooth introduction to Zero-K.  Click 'Play the Tutorial' to begin.  Play co-op by inviting friends with the Steam friends list and launching a mission.]],
 		parent = holder,
 	}
 
 	TextBox:New {
 		x = 8,
 		right = 8,
-		y = 186,
+		y = 158,
 		height = 35,
+		lineSpacing = 1,
 		objectOverrideFont = Configuration:GetFont(2),
-		text = [[Click 'Multiplayer' for private games, public games, and the matchmaker. Say 'hi' on Discord or the forum, or even get into modding and development. Zero-K runs on involvement as it is entirely community-made.]],
+		text = [[Under 'Multiplayer' you'll find a list of game lobbies and matchmaker populated by our friendly community.  Join the Discord to say 'hi' or for help if you run into trouble.]],
 		parent = holder,
 	}
 
@@ -261,7 +263,7 @@ local function GetTutorialControl()
 		end
 	end
 
-	local offset = 262
+	local offset = 242
 	Button:New {
 		x = "18%",
 		y = offset,
@@ -569,6 +571,7 @@ local function GetNewsEntry(parentHolder, index, headingSize, timeAsTooltip, sho
 					height = 120,
 					align = "left",
 					valign = "top",
+					lineSpacing = 1,
 					text = entryData.text,
 					objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 					parent = holder,
