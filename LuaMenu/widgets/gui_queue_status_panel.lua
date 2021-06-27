@@ -32,6 +32,7 @@ local instantStartQueuePriority = {
 	["Battle"] = 5,
 	["Sortie"] = 4,
 	["Teams"] = 3,
+	["1v1 Narrow"] = 2.5,
 	["1v1"] = 2,
 	["Coop"] = 1,
 }
@@ -240,7 +241,7 @@ local function InitializeInstantQueueHandler()
 
 	local function UpdateQueueText()
 		if queueName then
-			queueStatusText:SetText(queueName .. " Available\nClick to Play")
+			queueStatusText:SetText(queueName .. "\nMatch Available")
 		end
 	end
 

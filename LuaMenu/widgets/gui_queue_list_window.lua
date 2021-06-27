@@ -68,9 +68,10 @@ end
 local queueSortOverride = {
 	["Coop"] = "A",
 	["1v1"] = "AA",
-	["Teams"] = "AAA",
-	["Sortie"] = "AAAA",
-	["Battle"] = "AAAAA",
+	["1v1 Narrow"] = "AAA",
+	["Teams"] = "AAAA",
+	["Sortie"] = "AAAAA",
+	["Battle"] = "AAAAAA",
 }
 
 local function QueueSortFunc(a, b)
@@ -78,7 +79,7 @@ local function QueueSortFunc(a, b)
 end
 
 local function GetQueuePos(pos)
-	return pos*52 + 17
+	return pos*58 + 17
 end
 
 WG.GetCombinedBannedTime = GetCombinedBannedTime
@@ -99,7 +100,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		x = 10,
 		y = GetQueuePos(pos),
 		right = 0,
-		height = 45,
+		height = 54,
 		caption = "", -- Status Window
 		parent = parentControl,
 		resizable = false,
@@ -111,7 +112,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		x = 0,
 		y = 0,
 		width = 80,
-		bottom = 0,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("join"),
 		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
@@ -144,7 +145,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		x = 0,
 		y = 0,
 		width = 80,
-		bottom = 0,
+		height = WG.BUTTON_HEIGHT,
 		caption = i18n("leave"),
 		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "action_button",
@@ -173,8 +174,8 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	labelDisabled:SetVisibility(false)
 
 	local lblTitle = TextBox:New {
-		x = 105,
-		y = 15,
+		x = 98,
+		y = 4,
 		width = 120,
 		height = 33,
 		objectOverrideFont = Configuration:GetFont(3),
@@ -183,10 +184,10 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	}
 
 	local lblDescription = TextBox:New {
-		x = 180,
-		y = 8,
+		x = 100,
+		y = 27,
 		width = 120,
-		height = 22,
+		bottom = 0,
 		right = 5,
 		align = "bottom",
 		objectOverrideFont = Configuration:GetFont(1),
@@ -195,25 +196,25 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	}
 
 	local lblPlayers = TextBox:New {
-		x = 180,
-		y = 30,
+		x = 248,
+		y = 6,
 		width = 120,
 		height = 22,
 		right = 5,
 		align = "bottom",
-		objectOverrideFont = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(2),
 		text = "Playing: " .. players,
 		parent = queueHolder
 	}
 
 	local lblWaiting = TextBox:New {
-		x = 280,
-		y = 30,
+		x = 372,
+		y = 6,
 		width = 120,
 		height = 22,
 		right = 5,
 		align = "bottom",
-		objectOverrideFont = Configuration:GetFont(1),
+		objectOverrideFont = Configuration:GetFont(2),
 		text = "Waiting: " .. waiting,
 		parent = queueHolder
 	}
@@ -511,7 +512,7 @@ local function InitializeControls(window)
 		x = 5,
 		right = 5,
 		y = 55,
-		height = 250,
+		height = 310,
 		borderColor = {0,0,0,0},
 		horizontalScrollbar = false,
 		parent = window
