@@ -241,7 +241,7 @@ local function InitializeInstantQueueHandler()
 
 	local function UpdateQueueText()
 		if queueName then
-			queueStatusText:SetText(queueName .. "\nMatch Available")
+			queueStatusText:SetText("Match Available\n" .. queueName)
 		end
 	end
 
