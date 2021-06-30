@@ -74,6 +74,10 @@ local queueSortOverride = {
 	["Battle"] = "AAAAAA",
 }
 
+local queueAlso = {
+	["1v1"] = {"1v1 Narrow"},
+}
+
 local function QueueSortFunc(a, b)
 	return (queueSortOverride[a.name] or a.name) < (queueSortOverride[b.name] or b.name)
 end
@@ -108,6 +112,34 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		padding = {0, 0, 0, 0},
 	}
 
+	local function ButtonJoinQueue(obj)
+		local banTime = GetBanTime()
+		if banTime then
+			WG.Chobby.InformationPopup("You are currently banned from matchmaking.\n" .. banTime .. " seconds remaining.")
+			return
+		end
+		if not HaveRightEngineVersion() then
+			WG.Chobby.InformationPopup("Engine update required, restart the game to apply.")
+			return
+		end
+		if requiredResourceCount ~= 0 then
+			WG.Chobby.InformationPopup("All required maps and games must be downloaded before you can join matchmaking.")
+			return
+		end
+
+		lobby:JoinMatchMaking(queueName)
+		if queueAlso[queueName] then
+			local alsoData = queueAlso[queueName]
+			for i = 1, #alsoData do
+				panelInterface.JoinQueue(alsoData[i])
+			end
+		end
+		
+		obj:SetVisibility(false)
+		btnLeave:SetVisibility(true)
+		WG.Analytics.SendOnetimeEvent("lobby:multiplayer:matchmaking:join_" .. queueName)
+	end
+
 	btnJoin = Button:New {
 		x = 0,
 		y = 0,
@@ -117,26 +149,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		objectOverrideFont = Configuration:GetButtonFont(3),
 		classname = "option_button",
 		OnClick = {
-			function(obj)
-				local banTime = GetBanTime()
-				if banTime then
-					WG.Chobby.InformationPopup("You are currently banned from matchmaking.\n" .. banTime .. " seconds remaining.")
-					return
-				end
-				if not HaveRightEngineVersion() then
-					WG.Chobby.InformationPopup("Engine update required, restart the game to apply.")
-					return
-				end
-				if requiredResourceCount ~= 0 then
-					WG.Chobby.InformationPopup("All required maps and games must be downloaded before you can join matchmaking.")
-					return
-				end
-
-				lobby:JoinMatchMaking(queueName)
-				obj:SetVisibility(false)
-				btnLeave:SetVisibility(true)
-				WG.Analytics.SendOnetimeEvent("lobby:multiplayer:matchmaking:join_" .. queueName)
-			end
+			ButtonJoinQueue
 		},
 		parent = queueHolder
 	}
@@ -243,6 +256,10 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		end
 		inQueue = newInQueue
 		UpdateButton()
+	end
+
+	function externalFunctions.DoJoinQueue()
+		ButtonJoinQueue(btnJoin)
 	end
 
 	function externalFunctions.UpdateCurrentPartySize(newCurrentPartySize)
@@ -676,6 +693,12 @@ local function InitializeControls(window)
 
 	-- External functions
 	local externalFunctions = {}
+
+	function externalFunctions.JoinQueue(queueName)
+		if queueHolders[queueName] then
+			queueHolders[queueName].DoJoinQueue()
+		end
+	end
 
 	function externalFunctions.UpdateBanTimer()
 		if not banStart then
