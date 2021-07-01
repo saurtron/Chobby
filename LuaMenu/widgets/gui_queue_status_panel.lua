@@ -140,7 +140,7 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		timeString = SecondsToMinutes(timeWaiting)
 		local doAutosave = wantAutosave and WG.Chobby.Configuration.autosaveOnMatchmaker
 		local thirdLine = (wantAutosave and "\nAutosave Enabled") or (((bigMode and  "\nPlayers: ") or "\nPlay: ") .. playersString)
-		local truncatedQueueString = StringUtilities.GetTruncatedStringWithDotDot(queueString, queueStatusText.font, 195)
+		local truncatedQueueString = StringUtilities.GetTruncatedStringWithDotDot(queueString or "", queueStatusText.font, 195) or queueString
 		queueStatusText:SetText("Finding Match - " .. timeString .. "\n" .. truncatedQueueString .. thirdLine)
 	end
 
