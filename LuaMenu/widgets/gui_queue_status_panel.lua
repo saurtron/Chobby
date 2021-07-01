@@ -38,6 +38,11 @@ local instantStartQueuePriority = {
 	["Coop"] = 1,
 }
 
+local shortQueueName = {
+	["1v1 Narrow"] = "1v1 Nar",
+	["1v1 Wide"] = "1v1 Wd",
+}
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Utilities
@@ -135,7 +140,8 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		timeString = SecondsToMinutes(timeWaiting)
 		local doAutosave = wantAutosave and WG.Chobby.Configuration.autosaveOnMatchmaker
 		local thirdLine = (wantAutosave and "\nAutosave Enabled") or (((bigMode and  "\nPlayers: ") or "\nPlay: ") .. playersString)
-		queueStatusText:SetText("Finding Match - " .. timeString .. "\n" .. queueString .. thirdLine)
+		local truncatedQueueString = StringUtilities.GetTruncatedStringWithDotDot(queueString, queueStatusText.font, 195)
+		queueStatusText:SetText("Finding Match - " .. timeString .. "\n" .. truncatedQueueString .. thirdLine)
 	end
 
 	local function UpdateQueueText()
@@ -172,6 +178,7 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		local firstQueue = true
 		playersString = ""
 		queueString = ""
+		local abbreviate = (#joinedQueueList >= 3)
 		for i = 1, #joinedQueueList do
 			if not firstQueue then
 				queueString = queueString .. ", "
@@ -179,7 +186,11 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 			end
 			playersString = playersString .. ((queueCounts and queueCounts[joinedQueueList[i]]) or 0)
 			firstQueue = false
-			queueString = queueString .. joinedQueueList[i]
+			if abbreviate and shortQueueName[joinedQueueList[i]] then
+				queueString = queueString .. shortQueueName[joinedQueueList[i]]
+			else
+				queueString = queueString .. joinedQueueList[i]
+			end
 		end
 
 		UpdateQueueText()
@@ -622,7 +633,7 @@ function DelayedInitialize()
 		findingMatch = inMatchMaking
 
 		if not statusQueueIngame then
-			local pos = {right = 2, y = 52, width = 290, height = 70}
+			local pos = {right = 2, y = 52, width = 300, height = 75}
 			statusQueueIngame = InitializeQueueStatusHandler("ingameQueue", Window, WG.Chobby.interfaceRoot.GetIngameInterfaceHolder(), pos)
 			statusQueueIngame.GetHolder():SetVisibility(inMatchMaking)
 		end
