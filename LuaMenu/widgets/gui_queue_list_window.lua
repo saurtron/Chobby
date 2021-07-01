@@ -69,13 +69,15 @@ local queueSortOverride = {
 	["Coop"] = "A",
 	["1v1"] = "AA",
 	["1v1 Narrow"] = "AAA",
-	["Teams"] = "AAAA",
-	["Sortie"] = "AAAAA",
-	["Battle"] = "AAAAAA",
+	["1v1 Wide"] = "AAAA",
+	["Teams"] = "AAAAA",
+	["Sortie"] = "AAAAAA",
+	["Battle"] = "AAAAAAA",
 }
 
 local queueAlso = {
 	["1v1"] = {"1v1 Narrow"},
+	["1v1 Wide"] = {"1v1 Narrow"},
 }
 
 local function QueueSortFunc(a, b)
@@ -398,7 +400,7 @@ local function SetupDebriefingTracker(window)
 			debriefingChat.Delete()
 		end
 		debriefingChannelName = chanName
-		debriefingChat = GetDebriefingChat(window, 430, debriefingChannelName, RemoveFunction)
+		debriefingChat = GetDebriefingChat(window, 445, debriefingChannelName, RemoveFunction)
 		WG.Chobby.interfaceRoot.OpenMultiplayerTabByName("matchmaking")
 
 		if channelTopics[debriefingChannelName] then
@@ -529,16 +531,16 @@ local function InitializeControls(window)
 		x = 5,
 		right = 5,
 		y = 55,
-		height = 310,
+		height = 368,
 		borderColor = {0,0,0,0},
 		horizontalScrollbar = false,
 		parent = window
 	}
 
 	local statusText = TextBox:New {
-		x = 12,
+		x = 18,
 		right = 5,
-		y = 320,
+		y = 420,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(2),
 		text = "",
@@ -546,9 +548,9 @@ local function InitializeControls(window)
 	}
 
 	local requirementText = TextBox:New {
-		x = 12,
+		x = 18,
 		right = 5,
-		y = 400,
+		y = 444,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(2),
 		text = "",

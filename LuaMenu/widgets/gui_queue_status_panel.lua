@@ -34,6 +34,7 @@ local instantStartQueuePriority = {
 	["Teams"] = 3,
 	["1v1 Narrow"] = 2.5,
 	["1v1"] = 2,
+	["1v1 Wide"] = 1.5,
 	["Coop"] = 1,
 }
 
