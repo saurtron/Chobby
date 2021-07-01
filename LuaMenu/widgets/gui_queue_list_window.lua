@@ -66,13 +66,13 @@ local function GetCombinedBannedTime(banTimeFromServer)
 end
 
 local queueSortOverride = {
-	["Coop"] = "A",
 	["1v1"] = "AA",
 	["1v1 Narrow"] = "AAA",
 	["1v1 Wide"] = "AAAA",
 	["Teams"] = "AAAAA",
 	["Sortie"] = "AAAAAA",
 	["Battle"] = "AAAAAAA",
+	["Coop"] = "AAAAAAAA",
 }
 
 local queueAlso = {
