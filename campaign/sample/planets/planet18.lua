@@ -637,6 +637,12 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 424,
 							z = 3784,
 							facing = 3,
+							terraformHeight = 40,
+							bonusObjectiveID = 1,
+							mapMarker = {
+								text = "Destroy",
+								color = "red_small"
+							},
 						},
 						{
 							name = "energypylon",
@@ -1575,6 +1581,11 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5112,
 							z = 104,
 							facing = 1,
+							bonusObjectiveID = 1,
+							mapMarker = {
+								text = "Destroy",
+								color = "red_small"
+							},
 						},
 						{
 							name = "turretemp",
