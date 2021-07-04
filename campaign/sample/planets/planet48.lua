@@ -3128,6 +3128,7 @@ local function GetPlanet(planetUtilities, planetID)
 				"tacnuke",
 				"napalmmissile",
 				"empmissile",
+				"seismic",
 			},
 			modules = {
 				"commweapon_slamrocket",
