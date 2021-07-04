@@ -175,7 +175,7 @@ local function GetPlanet(planetUtilities, planetID)
 						x = 1540,
 						z = 320,
 						facing = 0,
-						difficultyAtMost = 2,
+						difficultyAtMost = 3,
 					},
 					{
 						name = "spidercon",
@@ -189,7 +189,7 @@ local function GetPlanet(planetUtilities, planetID)
 						x = 1580,
 						z = 260,
 						facing = 0,
-						difficultyAtMost = 3,
+						difficultyAtMost = 2,
 					},
 					{
 						name = "staticradar",
@@ -2845,7 +2845,7 @@ local function GetPlanet(planetUtilities, planetID)
 				},
 				{
 					terraformShape = planetUtilities.TERRAFORM_SHAPE.RAMP,
-					position = {1666, 308, 399, 1749, 218, 577},
+					position = {1636, 308, 369, 1709, 218, 537},
 					width = 140,
 					needConstruction = true,
 					teamID = 0,
@@ -2866,7 +2866,7 @@ local function GetPlanet(planetUtilities, planetID)
 				{
 					terraformShape = planetUtilities.TERRAFORM_SHAPE.LINE,
 					terraformType = planetUtilities.TERRAFORM_TYPE.LEVEL,
-					position = {2060, 1140, 2222, 1180},
+					position = {2060, 1140, 2200, 1250},
 					height = 136,
 					needConstruction = true,
 					teamID = 0,
