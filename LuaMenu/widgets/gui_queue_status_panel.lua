@@ -28,20 +28,45 @@ local ALLOW_REJECT_REGULAR = false
 
 local SEND_AUTOSAVE = "MatchmakerAutosaveRequired"
 
-local instantStartQueuePriority = {
-	["Battle"] = 5,
-	["Sortie"] = 4,
-	["Teams"] = 3,
-	["1v1 Narrow"] = 2.5,
-	["1v1"] = 2,
-	["1v1 Wide"] = 1.5,
-	["Coop"] = 1,
+local queueNameOverride = {
+	["1v1 Narrow"] = "1v1",
+	["1v1"] = "1v1 Handicap",
+	["1v1 Wide"] = "1v1 Wide",
 }
 
-local shortQueueName = {
-	["1v1 Narrow"] = "1v1 Nar",
-	["1v1 Wide"] = "1v1 Wd",
+local subQueueListName = {
+	["1v1"] = "Handicap",
+	["1v1 Wide"] = "Wide",
 }
+
+local subQueues = {
+	["1v1"] = "1v1 Narrow",
+	["1v1 Wide"] = "1v1 Narrow",
+}
+
+local function GetQueueStartPriority()
+	local Configuration = WG.Chobby.Configuration
+	if Configuration.queue_handicap or not Configuration.queue_wide then
+		return {
+			["Battle"] = 5,
+			["Sortie"] = 4,
+			["Teams"] = 3,
+			["1v1 Narrow"] = 2.5,
+			["1v1"] = 2,
+			["1v1 Wide"] = 1.5,
+			["Coop"] = 1,
+		}
+	end
+	return {
+		["Battle"] = 5,
+		["Sortie"] = 4,
+		["Teams"] = 3,
+		["1v1 Narrow"] = 2.5,
+		["1v1 Wide"] = 2,
+		["1v1"] = 1.5,
+		["Coop"] = 1,
+	}
+end
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -178,18 +203,46 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 		local firstQueue = true
 		playersString = ""
 		queueString = ""
-		local abbreviate = (#joinedQueueList >= 3)
+		
+		local joinedQueues = {}
 		for i = 1, #joinedQueueList do
-			if not firstQueue then
-				queueString = queueString .. ", "
-				playersString = playersString .. ", "
+			joinedQueues[joinedQueueList[i]] = true
+		end
+		local extraInfoList = {}
+		for i = 1, #joinedQueueList do
+			local queueName = joinedQueueList[i]
+			if subQueues[queueName] and joinedQueues[subQueues[queueName]] then
+				local extraData = extraInfoList[subQueues[queueName]] or {}
+				extraData[#extraData + 1] = queueName
+				extraInfoList[subQueues[queueName]] = extraData
 			end
-			playersString = playersString .. ((queueCounts and queueCounts[joinedQueueList[i]]) or 0)
-			firstQueue = false
-			if abbreviate and shortQueueName[joinedQueueList[i]] then
-				queueString = queueString .. shortQueueName[joinedQueueList[i]]
-			else
-				queueString = queueString .. joinedQueueList[i]
+		end
+		--local abbreviate = (#joinedQueueList >= 3)
+		for i = 1, #joinedQueueList do
+			local queueName = joinedQueueList[i]
+			if not (subQueues[queueName] and joinedQueues[subQueues[queueName]]) then
+				if not firstQueue then
+					queueString = queueString .. ", "
+					playersString = playersString .. ", "
+				end
+				playersString = playersString .. ((queueCounts and queueCounts[queueName]) or 0)
+				firstQueue = false
+				
+				queueString = queueString .. (queueNameOverride[queueName] or queueName)
+				if extraInfoList[queueName] then
+					local extra = extraInfoList[queueName]
+					local firstExtra = true
+					for j = 1, #extra do
+						if firstExtra then
+							queueString = queueString .. " ("
+						else
+							queueString = queueString .. ", "
+						end
+						firstExtra = false
+						queueString = queueString .. (subQueueListName[extra[j]] or extra[j])
+					end
+					queueString = queueString .. ")"
+				end
 			end
 		end
 
@@ -253,7 +306,7 @@ local function InitializeInstantQueueHandler()
 
 	local function UpdateQueueText()
 		if queueName then
-			queueStatusText:SetText("Match Available\n" .. queueName)
+			queueStatusText:SetText("Match Available\n" .. (queueNameOverride[queueName] or queueName))
 		end
 	end
 
@@ -291,6 +344,7 @@ local function InitializeInstantQueueHandler()
 		end
 		if instantStartQueues and #instantStartQueues > 0 then
 			local instantQueueName
+			local instantStartQueuePriority = GetQueueStartPriority()
 			local bestPriority = -1
 			for i = 1, #instantStartQueues do
 				local queueName = instantStartQueues[i]

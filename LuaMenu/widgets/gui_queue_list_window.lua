@@ -75,9 +75,40 @@ local queueSortOverride = {
 	["Coop"] = "AAAAAAAA",
 }
 
-local queueAlso = {
-	["1v1"] = {"1v1 Narrow"},
-	["1v1 Wide"] = {"1v1 Narrow"},
+local complicatedQueues = {
+	["1v1 Narrow"] = {
+		humanName = "1v1",
+		description = "Play 1v1 with an opponent of similar skill.",
+		subordinates = {
+			handicap = "1v1",
+			wide = "1v1 Wide",
+		}
+	}
+}
+
+local queueOptions = {
+	handicap = {
+		confKey = "queue_handicap",
+		humanName = "For handicap games",
+		tooltip = "Tick to match with people beyond the usual range for unranked games. These games give a resource bonus to the lower rated player. Both players must tick the option to find a match.",
+		default = true,
+	},
+	wide = {
+		confKey = "queue_wide",
+		humanName = "For ranked games",
+		tooltip = "Tick to match with people beyond the usual range for ranked games. Both players must tick the option to find a match.",
+		default = false,
+	},
+}
+
+local subserviantQueues = {
+	["1v1"] = true,
+	["1v1 Wide"] = true,
+}
+
+local queueOptionsList = {
+	"handicap",
+	"wide",
 }
 
 local function QueueSortFunc(a, b)
@@ -85,7 +116,7 @@ local function QueueSortFunc(a, b)
 end
 
 local function GetQueuePos(pos)
-	return pos*58 + 17
+	return pos*50 + 17
 end
 
 WG.GetCombinedBannedTime = GetCombinedBannedTime
@@ -114,6 +145,40 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		padding = {0, 0, 0, 0},
 	}
 
+	local function UpdateQueueState(queueState)
+		if not complicatedQueues[queueName] then
+			if queueState then
+				lobby:JoinMatchMaking(queueName)
+			else
+				lobby:LeaveMatchMaking(queueName)
+			end
+			return
+		end
+		local compData = complicatedQueues[queueName]
+
+		local joinQueueList = {}
+		local leaveQueueList = {}
+		if queueState then
+			joinQueueList[#joinQueueList + 1] = queueName
+		else
+			leaveQueueList[#leaveQueueList + 1] = queueName
+		end
+		
+		for key, subName in pairs(compData.subordinates) do
+			if queueState and Configuration[queueOptions[key].confKey] then
+				joinQueueList[#joinQueueList + 1] = subName
+			else
+				leaveQueueList[#leaveQueueList + 1] = subName
+			end
+		end
+		if #joinQueueList ~= 0 then
+			lobby:JoinMatchMaking(joinQueueList)
+		end
+		if #leaveQueueList ~= 0 then
+			lobby:LeaveMatchMaking(leaveQueueList)
+		end
+	end
+
 	local function ButtonJoinQueue(obj)
 		local banTime = GetBanTime()
 		if banTime then
@@ -129,14 +194,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 			return
 		end
 
-		lobby:JoinMatchMaking(queueName)
-		if queueAlso[queueName] then
-			local alsoData = queueAlso[queueName]
-			for i = 1, #alsoData do
-				panelInterface.JoinQueue(alsoData[i])
-			end
-		end
-		
+		UpdateQueueState(true)
 		obj:SetVisibility(false)
 		btnLeave:SetVisibility(true)
 		WG.Analytics.SendOnetimeEvent("lobby:multiplayer:matchmaking:join_" .. queueName)
@@ -166,7 +224,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		classname = "action_button",
 		OnClick = {
 			function(obj)
-				lobby:LeaveMatchMaking(queueName)
+				UpdateQueueState(false)
 				obj:SetVisibility(false)
 				btnJoin:SetVisibility(true)
 			end
@@ -194,7 +252,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		width = 120,
 		height = 33,
 		objectOverrideFont = Configuration:GetFont(3),
-		text = queueName,
+		text = (complicatedQueues[queueName] and complicatedQueues[queueName].humanName) or queueName,
 		parent = queueHolder
 	}
 
@@ -206,7 +264,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 		right = 5,
 		align = "bottom",
 		objectOverrideFont = Configuration:GetFont(1),
-		text = queueDescription,
+		text = (complicatedQueues[queueName] and complicatedQueues[queueName].description) or queueDescription,
 		parent = queueHolder
 	}
 
@@ -247,6 +305,45 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	end
 
 	local externalFunctions = {}
+
+	function externalFunctions.CheckQueueConsistency(inMainQueue, joinedQueueNames)
+		local compData = complicatedQueues[queueName]
+		if not compData then
+			return
+		end
+		if not joinedQueueNames then
+			-- Do full queue override, just to be sure.
+			if inMainQueue then
+				UpdateQueueState(true)
+			end
+			return
+		end
+		
+		local mismatchFound = false
+		for key, subName in pairs(compData.subordinates) do
+			local wantQueue = inMainQueue and Configuration[queueOptions[key].confKey]
+			local inSubQueue = joinedQueueNames[subName]
+			if (wantQueue and not inSubQueue) or (not wantQueue and inSubQueue) then
+				mismatchFound = true
+				break
+			end
+		end
+		if mismatchFound then
+			UpdateQueueState(joinedQueueNames[queueName])
+		end
+	end
+
+	function externalFunctions.UpdateSubIngameCounts(ingameCounts)
+		local compData = complicatedQueues[queueName]
+		if not compData then
+			return
+		end
+		local totalIngame = (ingameCounts[queueName] or 0)
+		for _, subName in pairs(compData.subordinates) do
+			totalIngame = totalIngame + (ingameCounts[subName] or 0)
+		end
+		lblPlayers:SetText("Playing: " .. totalIngame)
+	end
 
 	function externalFunctions.SetPos(newPos)
 		queueHolder:SetPos(nil, GetQueuePos(pos))
@@ -368,7 +465,7 @@ local function GetDebriefingChat(window, vertPos, channelName, RemoveFunction)
 	return externalFunctions
 end
 
-local function SetupDebriefingTracker(window)
+local function SetupDebriefingTracker(window, offset)
 	local Configuration = WG.Chobby.Configuration
 	local lobby = WG.LibLobby.lobby
 
@@ -400,7 +497,7 @@ local function SetupDebriefingTracker(window)
 			debriefingChat.Delete()
 		end
 		debriefingChannelName = chanName
-		debriefingChat = GetDebriefingChat(window, 445, debriefingChannelName, RemoveFunction)
+		debriefingChat = GetDebriefingChat(window, offset, debriefingChannelName, RemoveFunction)
 		WG.Chobby.interfaceRoot.OpenMultiplayerTabByName("matchmaking")
 
 		if channelTopics[debriefingChannelName] then
@@ -466,6 +563,9 @@ local function InitializeControls(window)
 	local banStart
 	local banDuration
 
+	local queues = 0
+	local queueHolders = {}
+
 	local lblTitle = Label:New {
 		x = 20,
 		right = 5,
@@ -527,30 +627,80 @@ local function InitializeControls(window)
 		}
 	end
 
+	local offset = 55
 	local listPanel = ScrollPanel:New {
 		x = 5,
 		right = 5,
-		y = 55,
-		height = 368,
+		y = offset,
+		height = 230,
 		borderColor = {0,0,0,0},
 		horizontalScrollbar = false,
 		parent = window
 	}
+	offset = offset + 230
 
+	offset = offset + 10
+	local tickboxHeading = TextBox:New {
+		x = 18,
+		right = 5,
+		y = offset,
+		height = 200,
+		objectOverrideFont = Configuration:GetFont(3),
+		text = "Widen 1v1 match range:",
+		parent = window
+	}
+	offset = offset + 24
+	
+	for i = 1, #queueOptionsList do
+		local optData = queueOptions[queueOptionsList[i]]
+		local checked = Configuration[optData.confKey]
+		if checked == nil then
+			Configuration:SetConfigValue(optData.confKey, optData.default)
+			checked = optData.default
+		end
+		local checkbox = Checkbox:New {
+			x = 20,
+			y = offset,
+			width = 250,
+			height = 30,
+			boxalign = "left",
+			textoffset = 6,
+			boxsize = 24,
+			caption = optData.humanName,
+			checked = checked,
+			tooltip = optData.tooltip,
+			objectOverrideFont = Configuration:GetFont(3),
+			OnChange = {
+				function (obj, newState)
+					Configuration:SetConfigValue(optData.confKey, newState)
+					for queueName, _ in pairs(complicatedQueues) do
+						if queueHolders[queueName] then
+							queueHolders[queueName].CheckQueueConsistency(lobby:GetInQueue(queueName))
+						end
+					end
+				end
+			},
+			parent = window
+		}
+		offset = offset + 30
+	end
+
+	offset = offset + 20
 	local statusText = TextBox:New {
 		x = 18,
 		right = 5,
-		y = 420,
+		y = offset,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(2),
 		text = "",
 		parent = window
 	}
+	offset = offset + 24
 
 	local requirementText = TextBox:New {
 		x = 18,
 		right = 5,
-		y = 444,
+		y = offset,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(2),
 		text = "",
@@ -564,12 +714,14 @@ local function InitializeControls(window)
 		return false
 	end
 
-	local queues = 0
-	local queueHolders = {}
 	local function AddQueue(_, queueName, queueDescription, mapNames, maxPartySize)
 		local queueData = lobby:GetQueue(queueName) or {}
 		if queueHolders[queueName] then
 			queueHolders[queueName].UpdateQueueInformation(queueName, queueDescription, queueData.playersIngame or "?", queueData.playersWaiting or "?", maxPartySize)
+			return
+		end
+		
+		if subserviantQueues[queueName] then
 			return
 		end
 
@@ -626,8 +778,8 @@ local function InitializeControls(window)
 		if joinedQueueList then
 			for i = 1, #joinedQueueList do
 				local queueName = joinedQueueList[i]
+				joinedQueueNames[queueName] = true
 				if queueHolders[queueName] then
-					joinedQueueNames[queueName] = true
 					queueHolders[queueName].SetInQueue(true)
 				end
 			end
@@ -635,13 +787,22 @@ local function InitializeControls(window)
 
 		if queueCounts then
 			for queueName, waitingCount in pairs(queueCounts) do
-				queueHolders[queueName].UpdateQueueInformation(nil, nil, ingameCounts and ingameCounts[queueName], waitingCount)
+				if queueHolders[queueName] then
+					queueHolders[queueName].UpdateQueueInformation(nil, nil, ingameCounts and ingameCounts[queueName], waitingCount)
+				end
 			end
 		end
 
 		for queueName, queueHolder in pairs(queueHolders) do
 			if not joinedQueueNames[queueName] then
 				queueHolder.SetInQueue(false)
+			end
+		end
+
+		for queueName, _ in pairs(complicatedQueues) do
+			if queueHolders[queueName] then
+				queueHolders[queueName].CheckQueueConsistency(joinedQueueNames[queueName], joinedQueueNames)
+				queueHolders[queueName].UpdateSubIngameCounts(ingameCounts)
 			end
 		end
 
@@ -691,7 +852,7 @@ local function InitializeControls(window)
 		OnPartyUpdate(_, lobby:GetMyPartyID(), lobby:GetMyParty())
 	end
 
-	SetupDebriefingTracker(window)
+	SetupDebriefingTracker(window, offset)
 
 	-- External functions
 	local externalFunctions = {}

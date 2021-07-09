@@ -1547,6 +1547,10 @@ function Lobby:GetQueues()
 	return ShallowCopy(self.queues)
 end
 
+function Lobby:GetInQueue(queueName)
+	return self.joinedQueues and self.joinedQueues[queueName]
+end
+
 function Lobby:GetJoinedQueues()
 	return ShallowCopy(self.joinedQueues)
 end

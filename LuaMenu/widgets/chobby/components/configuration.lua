@@ -557,6 +557,8 @@ function Configuration:GetConfigData()
 		drawAtFullSpeed = self.drawAtFullSpeed,
 		lobbyIdleSleep = self.lobbyIdleSleep,
 		rememberQueuesOnStart2 = self.rememberQueuesOnStart2,
+		queue_handicap = self.queue_handicap,
+		queue_wide = self.queue_wide,
 		loadLocalWidgets = self.loadLocalWidgets,
 		activeDebugConsole = self.activeDebugConsole,
 		onlyShowFeaturedMaps = self.onlyShowFeaturedMaps,
