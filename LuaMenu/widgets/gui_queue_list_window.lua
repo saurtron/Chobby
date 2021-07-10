@@ -90,13 +90,13 @@ local queueOptions = {
 	handicap = {
 		confKey = "queue_handicap",
 		humanName = "For handicap games",
-		tooltip = "Play unranked matches with people beyond your usual ladder range. These games give a resource bonus to the lower rated player. Both players must tick the option to find a match.",
+		tooltip = "Find unranked matches beyond your usual match range. The lower rated player recieves a resource bonus. Both players must enable this, and normal games are unaffected.",
 		default = true,
 	},
 	wide = {
 		confKey = "queue_wide",
 		humanName = "For ranked games",
-		tooltip = "Play ranked matches with people beyond your usual ladder range. Both players must tick the option to find a match.",
+		tooltip = "Find ranked matches beyond your usual match range. Both players must enable this. The search range is the same as for the option above.",
 		default = true,
 	},
 }
@@ -646,7 +646,7 @@ local function InitializeControls(window)
 		y = offset,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(3),
-		text = "Widen 1v1 match range:",
+		text = "Wider 1v1 match range:",
 		parent = window
 	}
 	offset = offset + 24
