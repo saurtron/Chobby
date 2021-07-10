@@ -90,13 +90,13 @@ local queueOptions = {
 	handicap = {
 		confKey = "queue_handicap",
 		humanName = "For handicap games",
-		tooltip = "Tick to match with people beyond the usual range for unranked games. These games give a resource bonus to the lower rated player. Both players must tick the option to find a match.",
+		tooltip = "Play unranked matches with people beyond your usual ladder range. These games give a resource bonus to the lower rated player. Both players must tick the option to find a match.",
 		default = true,
 	},
 	wide = {
 		confKey = "queue_wide",
 		humanName = "For ranked games",
-		tooltip = "Tick to match with people beyond the usual range for ranked games. Both players must tick the option to find a match.",
+		tooltip = "Play ranked matches with people beyond your usual ladder range. Both players must tick the option to find a match.",
 		default = true,
 	},
 }
