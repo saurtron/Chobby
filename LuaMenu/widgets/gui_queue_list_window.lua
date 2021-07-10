@@ -97,7 +97,7 @@ local queueOptions = {
 		confKey = "queue_wide",
 		humanName = "For ranked games",
 		tooltip = "Tick to match with people beyond the usual range for ranked games. Both players must tick the option to find a match.",
-		default = false,
+		default = true,
 	},
 }
 

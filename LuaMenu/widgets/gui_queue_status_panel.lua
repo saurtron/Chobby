@@ -39,6 +39,10 @@ local subQueueListName = {
 	["1v1 Wide"] = "Wide",
 }
 
+local alwaysParen = {
+	["1v1 Narrow"] = true,
+}
+
 local subQueues = {
 	["1v1"] = "1v1 Narrow",
 	["1v1 Wide"] = "1v1 Narrow",
@@ -231,17 +235,18 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 				queueString = queueString .. (queueNameOverride[queueName] or queueName)
 				if extraInfoList[queueName] then
 					local extra = extraInfoList[queueName]
-					local firstExtra = true
-					for j = 1, #extra do
-						if firstExtra then
-							queueString = queueString .. " ("
-						else
+					if #extra == 2 then
+						queueString = queueString .. " (All"
+					else
+						queueString = queueString .. " (Normal"
+						for j = 1, #extra do
 							queueString = queueString .. ", "
+							queueString = queueString .. (subQueueListName[extra[j]] or extra[j])
 						end
-						firstExtra = false
-						queueString = queueString .. (subQueueListName[extra[j]] or extra[j])
 					end
 					queueString = queueString .. ")"
+				elseif alwaysParen[queueName] then
+					queueString = queueString .. " (Normal)"
 				end
 			end
 		end
