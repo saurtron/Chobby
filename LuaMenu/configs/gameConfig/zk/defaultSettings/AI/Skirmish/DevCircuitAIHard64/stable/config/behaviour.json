@@ -11,7 +11,7 @@
 		"static": 4.25,  // initial modifier for power of attack group based on static enemy threat
 		"comm": 0.75
 	},
-	"aa_threat": 80.0,  // anti-air threat threshold, air factories will stop production when AA threat exceeds
+	"aa_threat": 90.0,  // anti-air threat threshold, air factories will stop production when AA threat exceeds
 	"slack_mod": {
 		"all": 0.5,  // threat map 64-elmos slack multiplier for all units
 		"static": 1.5,  // additional 64-elmo-cells for static units
@@ -21,8 +21,8 @@
 
 // If unit's health drops below specified percent it will retreat
 "retreat": {
-	"builder": [0.70, 1.0],  // [<default>, <UnitDef modifier>] for all builders
-	"fighter": [0.45, 1.0],  // [<default>, <UnitDef modifier>] for all not-builder units
+	"builder": [0.70, 0.92],  // [<default>, <UnitDef modifier>] for all builders
+	"fighter": [0.45, 0.92],  // [<default>, <UnitDef modifier>] for all not-builder units
 	"shield": [0.25, 0.275]  // [<empty>, <full>] shield power
 },
 
