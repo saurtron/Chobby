@@ -281,9 +281,7 @@ local settingsConfig = {
 				humanName = "Graphics Driver Selected: ",
 				isLabelSetting = true,
 				desc = "WIP",
-				size = 2,				
-				options = {
-				},
+				size = 2,
 			},
 			{
 				name = "AtiIntelCompatibility_2",
