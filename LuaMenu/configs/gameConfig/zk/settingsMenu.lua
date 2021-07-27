@@ -276,7 +276,15 @@ local settingsConfig = {
 				humanName = "Menu Display Mode",
 				lobbyDisplayModeToggle = true,
 			},
-
+			{
+				name = "ActiveGraphicsLabel",
+				humanName = "Graphics Driver Selected: ",
+				isLabelSetting = true,
+				desc = "WIP",
+				size = 2,				
+				options = {
+				},
+			},
 			{
 				name = "AtiIntelCompatibility_2",
 				humanName = "ATI/Intel Compatibility",

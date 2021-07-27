@@ -1632,6 +1632,33 @@ local function ProcessSettingsNumber(data, offset, defaults, customSettingsSwitc
 	return label, numberInput, offset + ITEM_OFFSET
 end
 
+local function ProcessSettingsLabel(data, offset)
+	local Configuration = WG.Chobby.Configuration
+
+	local label = Label:New {
+		x = 20,
+		y = offset + TEXT_OFFSET,
+		width = 350,
+		height = 30,
+		valign = "top",
+		align = "left",
+		caption = data.humanName,
+		objectOverrideFont = Configuration:GetFont(data.size),
+	}
+
+	local descLabel = Label:New {
+		x = COMBO_X,
+		y = offset + TEXT_OFFSET,
+		width = COMBO_WIDTH,
+		height = 30,
+		valign = "top",
+		align = "center",
+		caption = data.desc,
+		objectOverrideFont = Configuration:GetFont(data.size),
+	}
+	return label, descLabel, offset + ITEM_OFFSET
+end
+
 local function PopulateTab(settingPresets, settingOptions, settingsDefault)
 	local children = {}
 	local offset = 5
@@ -1653,6 +1680,8 @@ local function PopulateTab(settingPresets, settingOptions, settingsDefault)
 			label, list, offset = ProcessScreenSizeOption(data, offset)
 		elseif data.isNumberSetting then
 			label, list, offset = ProcessSettingsNumber(data, offset, settingsDefault, customSettingsSwitch)
+		elseif data.isLabelSetting then
+			label, list, offset = ProcessSettingsLabel(data, offset, settingsDefault, customSettingsSwitch)
 		else
 			label, list, offset = ProcessSettingsOption(data, offset, settingsDefault, customSettingsSwitch)
 		end
