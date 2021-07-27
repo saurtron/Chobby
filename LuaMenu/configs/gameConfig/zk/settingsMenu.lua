@@ -280,7 +280,7 @@ local settingsConfig = {
 				name = "ActiveGraphicsLabel",
 				humanName = "Graphics Driver Selected: ",
 				isLabelSetting = true,
-				desc = "WIP",
+				desc = Platform.gpuVendor,
 				size = 2,
 			},
 			{
