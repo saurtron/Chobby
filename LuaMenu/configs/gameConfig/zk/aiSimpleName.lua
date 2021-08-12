@@ -18,7 +18,6 @@ local devSubnameMap = {
 	{"DevCircuitAINormal", "AI: Normal" .. DEV_NAME},
 	{"DevCircuitAIHard", "AI: Hard" .. DEV_NAME},
 	{"DevCircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
-	{"DevCircuitEconomist", "AI: Economist Personality" .. DEV_NAME},
 	{"DevCircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
 	{"CAI", "AI: Legacy"},
 }
@@ -46,7 +45,6 @@ local simpleAiOrder = {
 	["AI: Normal" .. DEV_NAME] = -3,
 	["AI: Hard" .. DEV_NAME] = -2,
 	["AI: Brutal" .. DEV_NAME] = -1,
-	["AI: Economist Personality" .. DEV_NAME] = -0.9,
 	["AI: Bleeding edge test" .. DEV_NAME] = -0.1,
 	["AI: Beginner" .. STABLE_NAME] = 0,
 	["AI: Novice" .. STABLE_NAME] = 1,
@@ -72,7 +70,6 @@ local aiTooltip = {
 	["AI: Normal" .. DEV_NAME] = "Recommended for veteran strategy gamers.",
 	["AI: Hard" .. DEV_NAME] = "Recommended for veteran strategy gamers who aren't afraid of losing.",
 	["AI: Brutal" .. DEV_NAME] = "Recommended for veterans of Zero-K.",
-	["AI: Economist Personality" .. DEV_NAME] = "Brutal AI with a bias for escalating and economy.",
 	["AI: Bleeding edge test" .. DEV_NAME] = "Latest test version.",
 	["AI: Beginner" .. STABLE_NAME] = "Recommended for players with no strategy game experience.",
 	["AI: Novice" .. STABLE_NAME] = "Recommended for players with some strategy game experience, or experience with related genres (such as MOBA).",
