@@ -39,7 +39,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/staticradar.png",
-				text = [[Radar only reveals the approximate location of enemy forces so, in order to consistently hit their target, most artillery units require a spotter. Once a radar signature is identified as a structure it will no longer wobble.]]
+				text = [[Radar only reveals the approximate location of enemy forces so, in order to consistently hit their target, most artillery units require a spotter. Once a radar signature is identified as a structure it will no longer wobble. Destroying enemy Radar Towers may make them slower to respond to future attacks.]]
 			},
 			{
 				image = "unitpics/planelightscout.png",
@@ -465,6 +465,18 @@ local function GetPlanet(planetUtilities, planetID)
 							z = 2180,
 							facing = 2,
 						},
+                        {
+							name = "staticradar",
+							x = 60,
+							z = 1072,
+							facing = 2,
+						},
+                        {
+							name = "staticradar",
+							x = 4104,
+							z = 1898,
+							facing = 2,
+						},
 					}
 				},
 			},
@@ -505,23 +517,28 @@ local function GetPlanet(planetUtilities, planetID)
 					description = "Build 12 Slings",
 					experience = planetUtilities.BONUS_EXP,
 				},
-				[3] = { -- Win in 10 minutes
-					victoryByTime = 600,
-					image = planetUtilities.ICON_OVERLAY.CLOCK,
-					description = "Win by 10:00",
-					experience = planetUtilities.BONUS_EXP,
-				},
-				[2] = { -- Protect all mex
-					satisfyForever = true,
-					failOnUnitLoss = true, -- Fails the objective if any units being used to satisfy the objective are lost.
+				[2] = { -- Have 15 mex
+                    satisfyOnce = true,
 					comparisionType = planetUtilities.COMPARE.AT_LEAST,
-					targetNumber = 0,
+					targetNumber = 15,
 					unitTypes = {
 						"staticmex",
 					},
 					image = planetUtilities.ICON_DIR .. "staticmex.png",
-					imageOverlay = planetUtilities.ICON_OVERLAY.GUARD,
-					description = "Don't lose any Metal Extractors",
+					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
+					description = "Have 15 Metal Extractors",
+					experience = planetUtilities.BONUS_EXP,
+				},
+                [3] = { -- Kill enemy Radars
+                    satisfyOnce = true,
+					comparisionType = planetUtilities.COMPARE.AT_MOST,
+					targetNumber = 0,
+					enemyUnitTypes = {
+						"staticradar",
+					},
+					image = planetUtilities.ICON_DIR .. "staticradar.png",
+					imageOverlay = planetUtilities.ICON_OVERLAY.ATTACK,
+					description = "Find and destroy all 4 enemy Radar Towers",
 					experience = planetUtilities.BONUS_EXP,
 				},
 			},
