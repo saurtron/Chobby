@@ -417,8 +417,8 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			bonusObjectiveConfig = {
 				-- Indexed by bonusObjectiveID
-				[1] = { -- Have 3 mex by 1 minute.
-					satisfyByTime = 60,
+				[1] = { -- Have 3 mex
+                    satisfyOnce = true,
 					comparisionType = planetUtilities.COMPARE.AT_LEAST,
 					targetNumber = 3,
 					unitTypes = {
@@ -426,11 +426,11 @@ local function GetPlanet(planetUtilities, planetID)
 					},
 					image = planetUtilities.ICON_DIR .. "staticmex.png",
 					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
-					description = "Have 3 Metal Extractors by 1:00",
+					description = "Have 3 Metal Extractors",
 					experience = planetUtilities.BONUS_EXP,
 				},
-				[2] = { -- Have 3 solar by 2 minute.
-					satisfyByTime = 120,
+				[2] = { -- Have 3 solar
+                    satisfyOnce = true,
 					comparisionType = planetUtilities.COMPARE.AT_LEAST,
 					targetNumber = 3,
 					unitTypes = {
@@ -438,7 +438,7 @@ local function GetPlanet(planetUtilities, planetID)
 					},
 					image = planetUtilities.ICON_DIR .. "energysolar.png",
 					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
-					description = "Have 3 Solar Generators by 2:00",
+					description = "Have 3 Solar Generators",
 					experience = planetUtilities.BONUS_EXP,
 				},
 				[3] = { -- Build a radar
@@ -454,7 +454,20 @@ local function GetPlanet(planetUtilities, planetID)
 					description = "Build a Radar Tower",
 					experience = planetUtilities.BONUS_EXP,
 				},
-				[4] = { -- Build 3 Reavers
+                [4] = { -- Build 10 Glaives
+					satisfyOnce = true,
+					countRemovedUnits = true, -- count units that previously died.
+					comparisionType = planetUtilities.COMPARE.AT_LEAST,
+					targetNumber = 12,
+					unitTypes = {
+						"cloakraid",
+					},
+					image = planetUtilities.ICON_DIR .. "cloakraid.png",
+					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
+					description = "Build 10 more Glaives",
+					experience = planetUtilities.BONUS_EXP,
+				},
+				[5] = { -- Build 3 Reavers
 					satisfyOnce = true,
 					countRemovedUnits = true, -- count units that previously died.
 					comparisionType = planetUtilities.COMPARE.AT_LEAST,
@@ -465,12 +478,6 @@ local function GetPlanet(planetUtilities, planetID)
 					image = planetUtilities.ICON_DIR .. "cloakriot.png",
 					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
 					description = "Build 3 Reavers",
-					experience = planetUtilities.BONUS_EXP,
-				},
-				[5] = {
-					victoryByTime = 480,
-					image = planetUtilities.ICON_OVERLAY.CLOCK,
-					description = "Win by 8:00",
 					experience = planetUtilities.BONUS_EXP,
 				},
 			}

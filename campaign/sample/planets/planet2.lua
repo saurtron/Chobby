@@ -406,8 +406,8 @@ local function GetPlanet(planetUtilities, planetID)
 					description = "Build 10 Ronins",
 					experience = planetUtilities.BONUS_EXP,
 				},
-				[4] = { -- Kill enemy Stardusts in 8 minutes.
-					satisfyByTime = 480,
+				[4] = { -- Kill enemy Stardusts
+                    satisfyOnce = true,
 					comparisionType = planetUtilities.COMPARE.AT_MOST,
 					targetNumber = 0,
 					enemyUnitTypes = {
@@ -415,7 +415,7 @@ local function GetPlanet(planetUtilities, planetID)
 					},
 					image = planetUtilities.ICON_DIR .. "turretriot.png",
 					imageOverlay = planetUtilities.ICON_OVERLAY.ATTACK,
-					description = "Find and destroy all 4 enemy Stardust turrets before 8:00",
+					description = "Find and destroy all 4 enemy Stardust turrets",
 					experience = planetUtilities.BONUS_EXP,
 				},
 			},

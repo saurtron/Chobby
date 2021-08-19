@@ -476,10 +476,17 @@ local function GetPlanet(planetUtilities, planetID)
 					description = "Destroy the enemy Impaler",
 					experience = planetUtilities.BONUS_EXP,
 				},
-				[3] = {
-					victoryByTime = 360,
-					image = planetUtilities.ICON_OVERLAY.CLOCK,
-					description = "Win by 6:00",
+				[3] = { -- Build 4 Imps
+					satisfyOnce = true,
+					countRemovedUnits = true, -- count units that previously died.
+					comparisionType = planetUtilities.COMPARE.AT_LEAST,
+					targetNumber = 7, -- The player starts with three Imps
+					unitTypes = {
+						"cloakbomb",
+					},
+					image = planetUtilities.ICON_DIR .. "cloakbomb.png",
+					imageOverlay = planetUtilities.ICON_OVERLAY.REPAIR,
+					description = "Build 4 Imps",
 					experience = planetUtilities.BONUS_EXP,
 				},
 			},
