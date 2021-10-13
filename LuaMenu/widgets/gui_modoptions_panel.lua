@@ -204,7 +204,7 @@ local function ProcessNumberOption(data, index)
 				-- Bound the number
 				newValue = math.min(data.max, math.max(data.min, newValue))
 				-- Round to step size
-				newValue = math.floor(newValue/data.step + 0.5)*data.step + 0.01*data.step
+				newValue = math.floor(newValue/data.step + 0.49)*data.step + 0.01*data.step
 
 				oldText = TextFromNum(newValue, data.step)
 				localModoptions[data.key] = oldText
