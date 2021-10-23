@@ -22,7 +22,6 @@ local settingsConfig, settingsNames, settingsDefault, SettingsPresetFunc = VFS.I
 
 local headingLarge    = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/headingLarge.png"
 local headingSmall    = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/headingSmall.png"
-local backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background.jpg"
 local taskbarIcon     = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/taskbarLogo.png"
 
 
@@ -44,7 +43,7 @@ local subheadings = {
 }
 
 local background = {
-	image           = backgroundImage,
+	image           = backgroundConfig.backgroundImage,
 	backgroundFocus = backgroundConfig.backgroundFocus,
 }
 
