@@ -2,7 +2,7 @@ local shortname = "zk"
 local backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background.jpg"
 
 local currentTime = os.date('*t')
-if currentTime and (tonumber(currentTime.month or 0) == 10 and tonumber(currentTime.day or 0) >= 24) or (currentTime.month == 11 and currentTime.day == 1) then
+if currentTime and (tonumber(currentTime.month or 0) == 10 and tonumber(currentTime.day or 0) >= 23) or (currentTime.month == 11 and currentTime.day == 1) then
 	backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background_halloween_kingstad.jpg"
 end
 
