@@ -142,12 +142,20 @@ local function GetPlanet(planetUtilities, planetID)
 						x = 1016,
 						z = 3208,
 						facing = 1,
+						commands = {
+							{cmdID = planetUtilities.COMMAND.PATROL, pos = {1016, 3208}},
+							{cmdID = planetUtilities.COMMAND.PATROL, pos = {1016 + 32, 3208 + 32}, options = {"shift"}},
+						},
 					},
 					{
 						name = "staticcon",
 						x = 1016,
 						z = 3304,
 						facing = 1,
+						commands = {
+							{cmdID = planetUtilities.COMMAND.PATROL, pos = {1016, 3304}},
+							{cmdID = planetUtilities.COMMAND.PATROL, pos = {1016 + 32, 3304 + 32}, options = {"shift"}},
+						},
 					},
 					{
 						name = "tankriot",
