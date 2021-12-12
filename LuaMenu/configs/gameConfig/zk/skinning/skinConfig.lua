@@ -6,6 +6,10 @@ if currentTime and (tonumber(currentTime.month or 0) == 10 and tonumber(currentT
 	backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background_halloween_kingstad.jpg"
 end
 
+if currentTime and (tonumber(currentTime.month or 0) == 12 and tonumber(currentTime.day or 0) >= 18) then
+	backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background_christmas.jpg"
+end
+
 local config = {
 	backgroundFocus = {
 		0.25,
