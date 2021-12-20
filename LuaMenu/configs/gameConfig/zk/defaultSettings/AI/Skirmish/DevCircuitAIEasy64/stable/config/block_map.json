@@ -10,13 +10,13 @@
 
 			// Unit of measurement: 1 size/yard/radius = SQUARE_SIZE * 2 = 16 elmos, integer.
 			// Offset in South facing
-			"offset": [0, 6],  // default: [0, 0]
+			"offset": [0, 8],  // default: [0, 0]
 
 			// Size of a blocker without yard
 //			"size": [7, 7],  // default: size of a unit
 
 			// Spacer, blocker_size = size + yard
-			"yard": [12, 12]  // default: [0, 0]
+			"yard": [14, 14]  // default: [0, 0]
 
 			// "ignore": [<structure_type>, <structure_type>, ...]
 			// Ignore specified structures.
@@ -30,7 +30,7 @@
 		"fac_water": {
 			"type": ["rectangle", "factory"],
 			"offset": [0, 4],
-			"yard": [10, 12]
+			"yard": [12, 14]
 		},
 		"fac_strider": {
 			"type": ["rectangle", "special"],
@@ -40,14 +40,14 @@
 		"solar": {
 			"type": ["circle", "engy_low"],
 			"ignore": ["mex", "engy_mid", "engy_high", "def_low", "pylon", "nano"],
-			"radius": 6
+			"radius": 8.5
 		},
 		"wind": {
 			"type": ["circle", "engy_low"],
 			// Integer radius of a blocker or description string.
 			// Available string values: explosion, expl_ally
 //			"radius": "explosion",  // default: "explosion"
-			"radius": 3,
+			"radius": 5,
 			"not_ignore": ["factory", "engy_low", "terra"]
 		},
 		"fusion": {
@@ -73,7 +73,7 @@
 		},
 		"def_low": {
 			"type": ["circle", "def_low"],
-			"radius": 8,  // 128 / (SQUARE_SIZE * 2)
+			"radius": 15,  // 128 / (SQUARE_SIZE * 2)
 			"ignore": ["engy_mid", "engy_high", "engy_low", "pylon", "nano"]
 		},
 		"caretaker": {
