@@ -949,6 +949,8 @@ function BattleListWindow:OpenHostWindow()
 				modeData.roomType or "Custom",
 				modeData.map,
 				modeData.game,
+				--modeData.game or (modeData.rapidTag and VFS.GetNameFromRapidTag and VFS.GetNameFromRapidTag(modeData.rapidTag)),
+				--VFS.GetNameFromRapidTag returns very old versions sometimes.
 				modeData.options
 			)
 		else
