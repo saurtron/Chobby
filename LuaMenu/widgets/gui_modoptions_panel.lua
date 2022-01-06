@@ -350,6 +350,9 @@ local function OnCustomGameMode(_, shortName, displayName, gameModeJson)
 		if modeData.game then
 			lobby:SelectGame(modeData.game, true)
 		end
+		if modeData.rapidTag then
+			lobby:SelectGame(modeData.rapidTag, true, true)
+		end
 		if modeData.roomType then
 			lobby:SetBattleType(modeData.roomType)
 		end
