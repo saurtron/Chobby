@@ -26,7 +26,7 @@ function Interface:init()
 	self.connectionTimeout = 50
 
 	-- private
-	self.buffer = ""
+	self.raggedJsonStore = {}
 
 	self:super("init")
 end
@@ -113,7 +113,7 @@ function Interface:CommandReceived(command)
 	local cmdId, cmdName, arguments
 	local argumentsPos = false
 	if command:sub(1,1) == "#" then
-		i = command:find(" ")
+		local i = command:find(" ")
 		cmdId = command:sub(2, i - 1)
 		argumentsPos = command:find(" ", i + 1)
 		if argumentsPos ~= nil then
@@ -241,18 +241,42 @@ function Interface:_SocketUpdate()
 			Spring.Log(LOG_SECTION, LOG.DEBUG, commandsStr)
 			
 			if config and config.debugRawMessages then
-				Spring.Echo("self.buffer", self.buffer)
+				Spring.Utilities.TableEcho("self.raggedJsonStore", self.raggedJsonStore)
 				Spring.Echo("commandsStr", commandsStr)
 			end
 			local commands = explode("\n", commandsStr)
-			commands[1] = self.buffer .. commands[1]
-			for i = 1, #commands-1 do
-				local command = commands[i]
-				if command ~= nil then
-					self:CommandReceived(command)
+			
+			if #commands > 0 then
+				local allFail = true
+				local newRagged = {}
+				for i = 1, #self.raggedJsonStore do
+					local success = pcall(function () self:CommandReceived(self.raggedJsonStore[i] .. commands[1]) end)
+					if success then
+						allFail = false
+					else
+						newRagged[#newRagged + 1] = self.raggedJsonStore[i]
+					end
+				end
+				self.raggedJsonStore = newRagged
+				if allFail then
+					local success = pcall(function () self:CommandReceived(commands[1]) end)
+					if not success then
+						Spring.Echo("Processing failed for", commands[1])
+					end
+				end
+				for i = 2, #commands-1 do
+					local command = commands[i]
+					if command ~= nil then
+						self:CommandReceived(command)
+					end
+				end
+				if #commands > 1 then
+					local success = pcall(function () self:CommandReceived(commands[#commands]) end)
+					if not success then
+						self.raggedJsonStore[#self.raggedJsonStore + 1] = commands[#commands]
+					end
 				end
 			end
-			self.buffer = commands[#commands]
 		elseif status == "closed" then
 			Spring.Log(LOG_SECTION, LOG.INFO, "Disconnected from server.")
 			input:close()
