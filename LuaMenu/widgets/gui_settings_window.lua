@@ -90,6 +90,18 @@ local function SaveWindowPos(width, height, x, y)
 	Spring.SetConfigInt("WindowState", (x == 0 and 1) or 0, false)
 end
 
+local function EnableProfilerFunc(newState)
+	if newState then
+		WG.WidgetProfiler.Enable()
+	else
+		WG.WidgetProfiler.Disable()
+	end
+end
+
+local function EnableInspectorFunc(newState)
+	widgetHandler:ToggleWidget("ChiliInspector")
+end
+
 local function ManualBorderlessChange(modeName)
 	oldBorders = currentManualBorderless
 	if not oldBorders then
@@ -1067,11 +1079,9 @@ end
 
 local function GetVoidTabControls()
 	local freezeSettings = true
-
 	local Configuration = WG.Chobby.Configuration
 
 	local offset = 5
-
 	local children = {}
 
 	children[#children + 1] = TextBox:New {
@@ -1086,18 +1096,11 @@ local function GetVoidTabControls()
 	}
 	offset = offset + 65
 
-	local function EnableProfilerFunc(newState)
-		if newState then
-			WG.WidgetProfiler.Enable()
-		else
-			WG.WidgetProfiler.Disable()
-		end
-	end
-
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("debugMode"), "debugMode", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug server messages", "activeDebugConsole", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug raw server messages", "debugRawMessages", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug auto win", "debugAutoWin", false)
+	children[#children + 1], offset = AddCheckboxSetting(offset, "Enable Inspector", "enableInspector", false, EnableInspectorFunc)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Enable Profiler", "enableProfiler", false, EnableProfilerFunc)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Show Planet Unlocks", "showPlanetUnlocks", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Show Planet Codex", "showPlanetCodex", false)
