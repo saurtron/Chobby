@@ -1,24 +1,25 @@
-local DEV_NAME = ""
-local STABLE_NAME = " (old)"
+local DEV_NAME = " Dev"
+local STABLE_NAME = ""
 
 local stableSubnameMap = {
-	{"CircuitAIBeginner", "AI: Beginner" .. STABLE_NAME},
-	{"CircuitAINovice", "AI: Novice" .. STABLE_NAME},
-	{"CircuitAIEasy", "AI: Easy" .. STABLE_NAME},
-	{"CircuitAINormal", "AI: Normal" .. STABLE_NAME},
-	{"CircuitAIHard", "AI: Hard" .. STABLE_NAME},
-	{"CircuitAIBrutal", "AI: Brutal" .. STABLE_NAME},
+	{"DevCircuitAIBeginner", "AI: Beginner" .. STABLE_NAME},
+	{"DevCircuitAINovice", "AI: Novice" .. STABLE_NAME},
+	{"DevCircuitAIEasy", "AI: Easy" .. STABLE_NAME},
+	{"DevCircuitAINormal", "AI: Normal" .. STABLE_NAME},
+	{"DevCircuitAIHard", "AI: Hard" .. STABLE_NAME},
+	{"DevCircuitAIBrutal", "AI: Brutal" .. STABLE_NAME},
+	{"DevCircuitTest", "AI: Bleeding edge test" .. STABLE_NAME},
 	{"CAI", "AI: Legacy"},
 }
 
 local devSubnameMap = {
-	{"DevCircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
-	{"DevCircuitAINovice", "AI: Novice" .. DEV_NAME},
-	{"DevCircuitAIEasy", "AI: Easy" .. DEV_NAME},
-	{"DevCircuitAINormal", "AI: Normal" .. DEV_NAME},
-	{"DevCircuitAIHard", "AI: Hard" .. DEV_NAME},
-	{"DevCircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
-	{"DevCircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
+	{"105CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
+	{"105CircuitAINovice", "AI: Novice" .. DEV_NAME},
+	{"105CircuitAIEasy", "AI: Easy" .. DEV_NAME},
+	{"105CircuitAINormal", "AI: Normal" .. DEV_NAME},
+	{"105CircuitAIHard", "AI: Hard" .. DEV_NAME},
+	{"105CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
+	{"105CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
 	{"CAI", "AI: Legacy"},
 }
 
@@ -52,6 +53,7 @@ local simpleAiOrder = {
 	["AI: Normal" .. STABLE_NAME] = 3,
 	["AI: Hard" .. STABLE_NAME] = 4,
 	["AI: Brutal" .. STABLE_NAME] = 5,
+	["AI: Bleeding edge test" .. STABLE_NAME] = 5.5,
 	["Inactive AI"] = 6,
 	["Chicken: Beginner"] = 6.5,
 	["Chicken: Very Easy"] = 7,
@@ -77,6 +79,7 @@ local aiTooltip = {
 	["AI: Normal" .. STABLE_NAME] = "Recommended for veteran strategy gamers.",
 	["AI: Hard" .. STABLE_NAME] = "Recommended for veteran strategy gamers who aren't afraid of losing.",
 	["AI: Brutal" .. STABLE_NAME] = "Recommended for veterans of Zero-K.",
+	["AI: Bleeding edge test" .. STABLE_NAME] = "Latest test version.",
 	["AI: Legacy"] = "Older unsupported AI, still potentially challenging.",
 	["Inactive AI"] = "This AI does absolutely nothing after spawning.",
 	["Chicken: Beginner"] = "Defeat waves of aliens.",

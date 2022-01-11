@@ -15,11 +15,11 @@ local circuitDifficultiesAlly = {
 }
 
 function aiLibFunctions.Circuit_difficulty_autofill(difficultySetting)
-	return ((WG.Chobby.Configuration:GetIsDevEngine() and "Dev") or "") .. circuitDifficulties[difficultySetting]
+	return ((WG.Chobby.Configuration:GetIsDevEngine() and "105") or "Dev") .. circuitDifficulties[difficultySetting]
 end
 
 function aiLibFunctions.Circuit_difficulty_autofill_ally(difficultySetting)
-	return ((WG.Chobby.Configuration:GetIsDevEngine() and "Dev") or "") .. circuitDifficultiesAlly[difficultySetting]
+	return ((WG.Chobby.Configuration:GetIsDevEngine() and "105") or "Dev") .. circuitDifficultiesAlly[difficultySetting]
 end
 
 return {

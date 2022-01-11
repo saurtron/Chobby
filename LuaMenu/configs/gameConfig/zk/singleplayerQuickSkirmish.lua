@@ -84,7 +84,7 @@ function skirmishSetupData.ApplyFunction(battleLobby, pageChoices)
 	end
 
 	local bitAppend = (Configuration:GetIsRunning64Bit() and "64") or "32"
-	local devString = ((Configuration:GetIsDevEngine() and "Dev") or "")
+	local devString = ((Configuration:GetIsDevEngine() and "105") or "Dev")
 	local aiName = devString .. aiDifficultyMap[difficulty] .. bitAppend
 	local displayName = aiName
 

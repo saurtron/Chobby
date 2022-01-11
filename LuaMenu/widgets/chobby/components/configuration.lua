@@ -948,8 +948,11 @@ end
 function Configuration:GetIsDevEngine()
 	local engine = self:GetTruncatedEngineVersion()
 	local splits = engine:split("-")
-	if splits and splits[2] and tonumber(splits[2]) then
-		return tonumber(splits[2]) > 400
+	for i = 1, #splits do
+		splits[i] = splits[i]:split("%.")[1]
+	end
+	if splits and splits[1] and tonumber(splits[1]) then
+		return tonumber(splits[1]) > 104
 	end
 	return false
 end
