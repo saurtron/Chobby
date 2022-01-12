@@ -439,6 +439,7 @@
 	},
 	"vehraid": {
 		"role": ["raider"],
+		"limit": 0,
 		"attribute": ["melee", "ret_fight"],
 		"retreat": 0.3,
 		"pwr_mod": 1.1,

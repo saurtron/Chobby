@@ -129,6 +129,8 @@
 		},
 		"raveparty": {
 			"hub": [[
+					{"unit": "energypylon", "category": "defence", "offset": [0, -100]},
+					{"unit": "energypylon", "category": "defence", "offset": [0, 100]},
 					{"unit": "staticradar", "category": "radar", "offset": {"back": 40}},
 					{"unit": "turretaafar", "category": "defence", "offset": {"left": 120}, "condition": "air"},
 					{"unit": "turretlaser", "category": "defence", "offset": [-80, 80]},
@@ -137,7 +139,6 @@
 					{"unit": "turretmissile", "category": "defence", "offset": [80, 80]},
 					{"unit": "staticshield", "category": "defence", "offset": [-10, -10]},
 					{"unit": "staticshield", "category": "defence", "offset": [10, 10]},
-					{"unit": "staticstorage", "category": "defence", "offset": [-10, -10]},
 					{"unit": "turretriot", "category": "defence", "offset": [80, 80]},
 					{"unit": "turretriot", "category": "defence", "offset": [-80, -80]},
 					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
@@ -145,6 +146,8 @@
 		},
 		"mahlazer": {
 			"hub": [[
+					{"unit": "energypylon", "category": "defence", "offset": [0, -100]},
+					{"unit": "energypylon", "category": "defence", "offset": [0, 100]},
 					{"unit": "staticradar", "category": "radar", "offset": {"back": 40}},
 					{"unit": "turretaafar", "category": "defence", "offset": {"left": 120}, "condition": "air"},
 					{"unit": "turretlaser", "category": "defence", "offset": [-80, 80]},
@@ -152,7 +155,22 @@
 					{"unit": "turretmissile", "category": "defence", "offset": [80, 80]},
 					{"unit": "staticshield", "category": "defence", "offset": [-10, -10]},
 					{"unit": "staticshield", "category": "defence", "offset": [10, 10]},
-					{"unit": "staticstorage", "category": "defence", "offset": [-10, -10]},
+					{"unit": "turretriot", "category": "defence", "offset": [80, 80]},
+					{"unit": "turretriot", "category": "defence", "offset": [-80, -80]},
+					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
+				]]
+		},
+		"zenith": {
+			"hub": [[
+					{"unit": "energypylon", "category": "defence", "offset": [0, -100]},
+					{"unit": "energypylon", "category": "defence", "offset": [0, 100]},
+					{"unit": "staticradar", "category": "radar", "offset": {"back": 40}},
+					{"unit": "turretaafar", "category": "defence", "offset": {"left": 120}, "condition": "air"},
+					{"unit": "turretlaser", "category": "defence", "offset": [-80, 80]},
+					{"unit": "turretlaser", "category": "defence", "offset": [80, -80]},
+					{"unit": "turretmissile", "category": "defence", "offset": [80, 80]},
+					{"unit": "staticshield", "category": "defence", "offset": [-10, -10]},
+					{"unit": "staticshield", "category": "defence", "offset": [10, 10]},
 					{"unit": "turretriot", "category": "defence", "offset": [80, 80]},
 					{"unit": "turretriot", "category": "defence", "offset": [-80, -80]},
 					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
