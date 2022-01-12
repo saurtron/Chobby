@@ -10,10 +10,6 @@
 
 			// Morph params
 			"upgrade": {
-				"time": 120,  // Force-morph delay, in seconds
-				"module": [  // List of dynamic module IDs
-					[13]  // shotgun
-				]
 			},
 
 			// Commander hides if ("time" elapsed) and ("threat" exceeds value or enemy has "air")
@@ -29,10 +25,6 @@
 
 			// Morph params
 			"upgrade": {
-				"time": 120,  // Force-morph delay, in seconds
-				"module": [  // List of dynamic module IDs
-					[7]  // Machinegun
-				]
 			},
 
 			// Commander hides if ("time" elapsed) and ("threat" exceeds value or enemy has "air")
@@ -48,10 +40,6 @@
 
 			// Morph params
 			"upgrade": {
-				"time": 120,  // Force-morph delay, in seconds
-				"module": [  // List of dynamic module IDs
-					[11]  // Riot
-				]
 			},
 
 			// Commander hides if ("time" elapsed) and ("threat" exceeds value or enemy has "air")
@@ -67,10 +55,6 @@
 
 			// Morph params
 			"upgrade": {
-				"time": 120,  // Force-morph delay, in seconds
-				"module": [  // List of dynamic module IDs
-					[4]  // beam laser
-				]
 			},
 
 			// Commander hides if ("time" elapsed) and ("threat" exceeds value or enemy has "air")
