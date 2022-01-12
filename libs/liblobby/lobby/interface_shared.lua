@@ -241,7 +241,7 @@ function Interface:_SocketUpdate()
 			Spring.Log(LOG_SECTION, LOG.DEBUG, commandsStr)
 			
 			if config and config.debugRawMessages then
-				Spring.Utilities.TableEcho("self.raggedJsonStore", self.raggedJsonStore)
+				Spring.Utilities.TableEcho(self.raggedJsonStore, "self.raggedJsonStore")
 				Spring.Echo("commandsStr", commandsStr)
 			end
 			local commands = explode("\n", commandsStr)
