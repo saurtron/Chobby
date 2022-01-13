@@ -27,7 +27,7 @@
 
 	"superweapon": {
 		"unit":   ["raveparty", "staticnuke", "staticheavyarty", "zenith", "mahlazer", "staticantinuke"],  // FIXME: last aren't superweapon
-		"weight": [ 0.10,         0.20,        0.20,              0.05,     0.25,    0.10],
+		"weight": [ 0.10,         0.20,        0.20,              0.10,     0.10,    0.10],
 
 		"condition": [16, 20000]  // [<Minimum income>, <maximum seconds to build>]
 	},
