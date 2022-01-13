@@ -129,7 +129,7 @@
 		"mex": ["staticmex"],
 		"def_low": ["turretmissile", "turretlaser", "staticarty"],
 		"caretaker": ["staticcon", "staticrearm"],
-		"superweapon": ["raveparty", "staticnuke", "zenith", "turretaaheavy", "staticheavyarty", "staticantinuke", "staticheavyradar"],
+		"superweapon": ["raveparty", "staticnuke", "zenith", "mahlazer", "turretaaheavy", "staticheavyarty", "staticantinuke", "staticheavyradar"],
 //		"protector": ["staticantinuke"],
 //		"terraform": ["terraunit"],
 		"strider": ["striderantiheavy", "striderscorpion", "striderdante", "striderarty", "striderfunnelweb", "striderbantha", "striderdetriment", "subtacmissile", "shipcarrier", "shipheavyarty"],

@@ -929,7 +929,7 @@
 	},
 	"raveparty": {
 		"role": ["static", "heavy"],
-		"limit": 1,
+		"limit": 0,
 		"since": 1200,
 		"thr_mod": 0.01
 	},
@@ -937,8 +937,14 @@
 		"role": ["static", "heavy"],
 		"fire_state": "hold",  // burst attacks
 		"reload": 105.0,  // 105sec / 0.7sec/met = 150 meteorsControlled
-		"limit": 1,
+		"limit": 0,
 		"since": 900,
+		"thr_mod": 0.01
+	},
+	"mahlazer": {
+		"role": ["static", "heavy"],
+		"limit": 0,
+		"since": 1200,
 		"thr_mod": 0.01
 	},
 	"staticheavyarty": {
