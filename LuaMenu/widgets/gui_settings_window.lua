@@ -1872,8 +1872,17 @@ function SettingsWindow.GetSettingsString()
 		end
 	end
 
-	local gameSettings = WG.Chobby.Configuration.game_settings
-	local settingsOverride = WG.Chobby.Configuration.fixedSettingsOverride
+	local conf = WG.Chobby.Configuration
+	for i = 1, #conf.settingsToSendExternal do
+		local value = Spring.GetConfigInt(conf.settingsToSendExternal[i], -1234)
+		--Spring.Echo("conf.settingsToSendExternal", conf.settingsToSendExternal[i], value)
+		if value ~= -1234 then
+			WriteSetting(conf.settingsToSendExternal[i], value)
+		end
+	end
+
+	local gameSettings = conf.game_settings
+	local settingsOverride = conf.fixedSettingsOverride
 	for key, value in pairs(gameSettings) do
 		WriteSetting(key, (settingsOverride and settingsOverride[key]) or value)
 	end
@@ -1898,14 +1907,14 @@ function SettingsWindow.GetSettingsString()
 		WriteSetting("WindowBorderless", 0)
 		WriteSetting("Fullscreen", 1)
 	elseif battleStartDisplay == 4 then -- Manual Borderless
-		local borders = WG.Chobby.Configuration.manualBorderless.game or {}
+		local borders = conf.manualBorderless.game or {}
 		WriteSetting("XResolutionWindowed", borders.width or screenX)
 		WriteSetting("YResolutionWindowed", borders.height or screenY)
 		WriteSetting("WindowPosX", borders.x or 0)
 		WriteSetting("WindowPosY", borders.y or 0)
 		WriteSetting("WindowBorderless", 1)
 	elseif battleStartDisplay == 5 then -- Manual Fullscreen
-		local resolution = WG.Chobby.Configuration.manualFullscreen.game or {}
+		local resolution = conf.manualFullscreen.game or {}
 		WriteSetting("XResolution", resolution.width or screenX)
 		WriteSetting("YResolution", resolution.height or screenY)
 		WriteSetting("WindowBorderless", 0)

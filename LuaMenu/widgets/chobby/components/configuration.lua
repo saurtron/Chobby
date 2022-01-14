@@ -69,6 +69,21 @@ function Configuration:init()
 		lobby = {},
 	}
 
+	self.settingsToSendExternal = {
+		'HardwareCursor',
+		'ShadowMapSize',
+		'GroundDecals',
+		'MaxParticles',
+		'UnitLodDist',
+		'UnitIconDist',
+		'AdvUnitShading',
+		'snd_volmaster',
+		'snd_volbattle',
+		'snd_volui',
+		'snd_volunitreply',
+		'snd_volgeneral',
+	}
+
 	self.ignoreLevel = false
 
 	self.errorColor = "\255\255\0\0"
