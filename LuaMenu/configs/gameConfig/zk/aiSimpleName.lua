@@ -23,14 +23,14 @@ local devSubnameMap = {
 	{"CAI", "AI: Legacy"},
 }
 
-local function GetAiSimpleName(name)
+local function GetAiSimpleName(name, engineName)
 	if name == "Null AI" then
 		return "Inactive AI"
 	end
 	if string.find(name, "Chicken") then
 		return name
 	end
-	local subnameMap = (WG.Chobby.Configuration:GetIsDevEngine() and devSubnameMap) or stableSubnameMap
+	local subnameMap = (WG.Chobby.Configuration:GetIsDevEngine(engineName) and devSubnameMap) or stableSubnameMap
 	for i = 1, #subnameMap do
 		if string.find(name, subnameMap[i][1]) then
 			return subnameMap[i][2]

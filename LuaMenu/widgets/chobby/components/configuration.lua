@@ -960,8 +960,8 @@ function Configuration:GetIsRunning64Bit()
 	return false
 end
 
-function Configuration:GetIsDevEngine()
-	local engine = self:GetTruncatedEngineVersion()
+function Configuration:GetIsDevEngine(overrideEngineName)
+	local engine = overrideEngineName or self:GetTruncatedEngineVersion()
 	local splits = engine:split("-")
 	for i = 1, #splits do
 		splits[i] = splits[i]:split("%.")[1]

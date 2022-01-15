@@ -342,7 +342,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		--				isSpectator = false,
 		--			})
 		--		elseif obj.selected == 2 then
-		--			WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, emptyTeamIndex)
+		--			WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, battle.engineName, emptyTeamIndex)
 		--		end
 		--	end
 		--},
@@ -830,7 +830,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 						if button == 3 and WG.Chobby.Configuration.lastAddedAiName then
 							quickAddAi = WG.Chobby.Configuration.lastAddedAiName
 						end
-						WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, teamIndex, quickAddAi)
+						WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, battle.engineName, teamIndex, quickAddAi)
 					end,
 					disallowCustomTeams and teamIndex ~= 0,
 					(disallowBots or disallowCustomTeams) and teamIndex ~= 1
@@ -930,7 +930,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 								})
 						end,
 						function()
-							WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, teamIndex)
+							WG.PopupPreloader.ShowAiListWindow(battleLobby, battle.gameName, battle.engineName, teamIndex)
 						end,
 						disallowCustomTeams and teamIndex ~= 0,
 						(disallowBots or disallowCustomTeams) and teamIndex ~= 1

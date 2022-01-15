@@ -1,6 +1,6 @@
 AiListWindow = ListWindow:extends{}
 
-function AiListWindow:init(gameName)
+function AiListWindow:init(gameName, engineName)
 
 	self:super('init', lobbyInterfaceHolder, "Choose AI", false, "main_window", nil, {6, 7, 7, 4})
 	self.window:SetPos(nil, nil, 500, 700)
@@ -15,7 +15,7 @@ function AiListWindow:init(gameName)
 	local isRunning64Bit = Configuration:GetIsRunning64Bit()
 
 	for i, ai in pairs(ais) do
-		self:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit)
+		self:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit, engineName)
 	end
 
 end
@@ -29,7 +29,7 @@ function AiListWindow:CompareItems(id1, id2)
 	return true
 end
 
-function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit)
+function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit, engineName)
 	local shortName = ai.shortName or "Unknown"
 
 	if blackList and blackList[shortName] then
@@ -39,7 +39,6 @@ function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit)
 	if (isRunning64Bit and string.find(shortName, "32")) or ((not isRunning64Bit) and string.find(shortName, "64")) then
 		return
 	end
-
 
 	local version = " " .. ai.version
 	if version == " <not-versioned>" then
@@ -57,7 +56,7 @@ function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit)
 
 	local displayName = aiName
 	if Configuration.simpleAiList and Configuration.gameConfig.GetAiSimpleName then
-		displayName = Configuration.gameConfig.GetAiSimpleName(displayName)
+		displayName = Configuration.gameConfig.GetAiSimpleName(displayName, engineName)
 		if not displayName then
 			return
 		end

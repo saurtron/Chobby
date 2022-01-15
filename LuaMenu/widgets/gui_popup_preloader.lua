@@ -11,6 +11,7 @@ function widget:GetInfo()
 end
 
 local oldGameName
+local oldEngineName
 local aiListWindow
 local aiPopup
 
@@ -21,11 +22,11 @@ local simpleAiList = true
 --------------------------------------------------------------------------
 -- AI List window updating
 
-local function UpdateAiListWindow(gameName)
+local function UpdateAiListWindow(gameName, engineName)
 	if aiPopup then
 		aiPopup:ClosePopup()
 	end
-	aiListWindow = WG.Chobby.AiListWindow(gameName)
+	aiListWindow = WG.Chobby.AiListWindow(gameName, engineName)
 	aiListWindow.window:Hide()
 end
 
@@ -41,25 +42,27 @@ local function InitializeListeners(battleLobby)
 			return
 		end
 		local newGameName = battleLobby:GetBattle(updatedBattleID).gameName
-		if newGameName == oldGameName then
+		local newEngineName = battleLobby:GetBattle(updatedBattleID).engineName
+		if newGameName == oldGameName and newEngineName == oldEngineName then
 			return
 		end
-
 		oldGameName = newGameName
-		UpdateAiListWindow(newGameName)
+		oldEngineName = newEngineName
+		UpdateAiListWindow(newGameName, newEngineName)
 	end
 
 	local function OnJoinedBattle(listener, joinedBattleId, userName)
 		if userName ~= battleLobby:GetMyUserName() then
 			return
 		end
-		local newGameName = battleLobby:GetBattle(joinedBattleId).gameName
-		if newGameName == oldGameName then
+		local newGameName = battleLobby:GetBattle(updatedBattleID).gameName
+		local newEngineName = battleLobby:GetBattle(updatedBattleID).engineName
+		if newGameName == oldGameName and newEngineName == oldEngineName then
 			return
 		end
-
 		oldGameName = newGameName
-		UpdateAiListWindow(newGameName)
+		oldEngineName = newEngineName
+		UpdateAiListWindow(newGameName, newEngineName)
 	end
 
 	battleLobby:AddListener("OnUpdateBattleInfo", OnUpdateBattleInfo)
@@ -72,13 +75,14 @@ end
 
 local PopupPreloader = {}
 
-function PopupPreloader.ShowAiListWindow(battleLobby, newGameName, teamIndex, quickAddAi)
+function PopupPreloader.ShowAiListWindow(battleLobby, newGameName, newEngineName, teamIndex, quickAddAi)
 	local conf = WG.Chobby.Configuration
-	if newGameName ~= oldGameName or conf.showOldAiVersions ~= showOldAiVersions or conf.simpleAiList ~= simpleAiList then
+	if newGameName ~= oldGameName or newEngineName ~= oldEngineName or conf.showOldAiVersions ~= showOldAiVersions or conf.simpleAiList ~= simpleAiList then
 		oldGameName = newGameName
+		oldEngineName = newEngineName
 		showOldAiVersions = conf.showOldAiVersions
 		simpleAiList = conf.simpleAiList
-		UpdateAiListWindow(newGameName)
+		UpdateAiListWindow(newGameName, newEngineName)
 	end
 
 	aiListWindow:SetLobbyAndAllyTeam(battleLobby, teamIndex)
