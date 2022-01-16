@@ -863,13 +863,14 @@ function Configuration:GetHeadingImage(fullscreenMode, title)
 	end
 end
 
-function Configuration:GetTruncatedEngineVersion()
-	if tonumber(Spring.Utilities.GetEngineVersion()) then
+function Configuration:GetTruncatedEngineVersion(overrideEngineName)
+	local engineVer = overrideEngineName or Spring.Utilities.GetEngineVersion()
+	if tonumber(engineVer) then
 		-- Master releases lack the '.0' at the end. Who knows what other cases are wrong.
 		-- Add as required.
-		return (Spring.Utilities.GetEngineVersion() .. ".0")
+		return (engineVer .. ".0")
 	else
-		return string.gsub(string.gsub(string.gsub(Spring.Utilities.GetEngineVersion(), " BAR", ""), " maintenance", ""), " develop", "")
+		return string.gsub(string.gsub(string.gsub(string.gsub(engineVer, "Spring ", ""), " BAR", ""), " maintenance", ""), " develop", "")
 	end
 end
 
@@ -961,7 +962,7 @@ function Configuration:GetIsRunning64Bit()
 end
 
 function Configuration:GetIsDevEngine(overrideEngineName)
-	local engine = overrideEngineName or self:GetTruncatedEngineVersion()
+	local engine = self:GetTruncatedEngineVersion(overrideEngineName)
 	local splits = engine:split("-")
 	for i = 1, #splits do
 		splits[i] = splits[i]:split("%.")[1]
