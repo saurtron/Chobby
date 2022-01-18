@@ -304,6 +304,7 @@ local function StartBattleForReal(planetID, planetData)
 		planetmissioninformationtext = TableToBase64(informationText),
 		planetmissionnewtonfirezones = TableToBase64(gameConfig.playerConfig.newtonFirezones),
 		fixedstartpos = 1,
+		init_terra_save_fix = gameConfig.initTerraSaveFix and "1" or "0",
 		planetmissiondifficulty = missionDifficulty,
 		singleplayercampaignbattleid = planetID,
 		initalterraform = TableToBase64(gameConfig.terraform),
