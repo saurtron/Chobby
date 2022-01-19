@@ -105,7 +105,7 @@ function Configuration:init()
 
 	self.loadLocalWidgets = false
 	self.displayBots = false
-	self.displayBadEngines2 = false
+	self.displayBadEngines3 = true
 	self.allEnginesRunnable = true
 	self.doNotSetAnySpringSettings = false
 	self.agressivelySetBorderlessWindowed = false
@@ -582,7 +582,7 @@ function Configuration:GetConfigData()
 		coopConnectDelay = self.coopConnectDelay,
 		useSpringRestart = self.useSpringRestart,
 		displayBots = self.displayBots,
-		displayBadEngines2 = self.displayBadEngines2,
+		displayBadEngines3 = self.displayBadEngines3,
 		useWrongEngine = self.useWrongEngine,
 		multiplayerLaunchNewSpring = self.multiplayerLaunchNewSpring,
 		doNotSetAnySpringSettings = self.doNotSetAnySpringSettings,
