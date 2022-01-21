@@ -543,12 +543,6 @@
       {
          "Platform":null,
          "VersionNumber":164,
-         "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/DevCircuitAIBeginner/stable/config/response.json",
-         "TargetPath":"AI/Skirmish/DevCircuitAIBeginner64/stable/config/response.json"
-      },
-      {
-         "Platform":null,
-         "VersionNumber":164,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/DevCircuitAIBeginner64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/DevCircuitAIBeginner64/stable/AIInfo.lua"
       },
