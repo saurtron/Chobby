@@ -110,6 +110,9 @@ function Interface:SendCommandToBuffer(cmdName)
 end
 
 function Interface:CommandReceived(command)
+	if command == "" then
+		return
+	end
 	local cmdId, cmdName, arguments
 	local argumentsPos = false
 	if command:sub(1,1) == "#" then
