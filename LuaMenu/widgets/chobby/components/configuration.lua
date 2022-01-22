@@ -870,7 +870,7 @@ function Configuration:GetTruncatedEngineVersion(overrideEngineName)
 		-- Add as required.
 		return (engineVer .. ".0")
 	else
-		return string.gsub(string.gsub(string.gsub(string.gsub(string.gsub(engineVer, " BAR105", ""), "Spring ", ""), " BAR", ""), " maintenance", ""), " develop", "")
+		return string.gsub(string.gsub(string.gsub(string.gsub(string.gsub(engineVer, " BAR105", ""), " BAR", ""), "Spring ", ""), " maintenance", ""), " develop", "")
 	end
 end
 
