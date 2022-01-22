@@ -293,7 +293,10 @@ function InterfaceSkirmish:StartReplay(replayFilename, myName, hostPort)
 	--scriptFile:write(scriptTxt)
 	--scriptFile:close()
 
-	Spring.Reload(scriptTxt)
+	local function DelayedStart()
+		Spring.Reload(scriptTxt)
+	end
+	WG.Delay(DelayedStart, 0.3)
 	return false
 end
 
@@ -330,22 +333,31 @@ function InterfaceSkirmish:StartGameFromLuaScript(gameType, scriptTable, friendL
 	--scriptFile:write(scriptTxt)
 	--scriptFile:close()
 
-	Spring.Reload(scriptTxt)
+	local function DelayedStart()
+		Spring.Reload(scriptTxt)
+	end
+	WG.Delay(DelayedStart, 0.3)
 end
 
 function InterfaceSkirmish:StartGameFromString(scriptString, gameType)
 	self:_CallListeners("OnBattleAboutToStart", gameType)
-	Spring.Reload(scriptString)
+	local function DelayedStart()
+		Spring.Reload(scriptString)
+	end
+	WG.Delay(DelayedStart, 0.3)
 	return false
 end
 
 function InterfaceSkirmish:StartGameFromFile(scriptFileName, gameType)
 	self:_CallListeners("OnBattleAboutToStart", gameType)
-	if self.useSpringRestart then
-		Spring.Restart(scriptFileName, "")
-	else
-		Spring.Start(scriptFileName, "")
+	local function DelayedStart()
+		if self.useSpringRestart then
+			Spring.Restart(scriptFileName, "")
+		else
+			Spring.Start(scriptFileName, "")
+		end
 	end
+	WG.Delay(DelayedStart, 0.3)
 	return false
 end
 
@@ -363,7 +375,10 @@ function InterfaceSkirmish:StartBattle(gameType, myName, friendList, friendsRepl
 
 	self:_CallListeners("OnBattleAboutToStart", gameType, battle.gameName, battle.mapName)
 	self:_OnSaidBattleEx("Battle", "about to start", battle.gameName, battle.mapName, myName)
-	self:_StartScript(battle.gameName, battle.mapName, myName, friendList, friendsReplaceAI, hostPort)
+	local function DelayedStart()
+		self:_StartScript(battle.gameName, battle.mapName, myName, friendList, friendsReplaceAI, hostPort)
+	end
+	WG.Delay(DelayedStart, 0.3)
 	return self
 end
 
