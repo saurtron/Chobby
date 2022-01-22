@@ -1040,7 +1040,7 @@ function Interface:_BattleAdded(data)
 		maxEvenPlayers = header.MaxEvenPlayers,
 		passworded = (header.Password and header.Password ~= "" and true) or false,
 
-		engineName = "Spring " .. header.Engine,
+		engineName = header.Engine,
 		engineVersion = header.Engine,
 		gameName = header.Game,
 		mapName = header.Map,
