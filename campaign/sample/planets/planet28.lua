@@ -48,7 +48,6 @@ local function GetPlanet(planetUtilities, planetID)
 		},
 		gameConfig = {
 			mapName = "ScorpioBattleground",
-			initTerraSaveFix = true,
 			playerConfig = {
 				startX = 7480,
 				startZ = 1400,

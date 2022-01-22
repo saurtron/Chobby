@@ -111,7 +111,7 @@ end
 
 function Interface:CommandReceived(command)
 	if command == "" then
-		return
+		return true -- Mark as successful to remove the command.
 	end
 	local cmdId, cmdName, arguments
 	local argumentsPos = false
@@ -142,14 +142,14 @@ function Interface:CommandReceived(command)
 		self.commandsInBuffer = self.commandsInBuffer + 1
 		self.commandBuffer[self.commandsInBuffer] = command
 		self:_CallListeners("OnCommandBuffered", command)
-		return
+		return true
 	end
 
 	if argumentsPos then
 		arguments = command:sub(argumentsPos + 1)
 	end
 
-	self:_OnCommandReceived(cmdName, arguments, cmdId)
+	return self:_OnCommandReceived(cmdName, arguments, cmdId)
 end
 
 function Interface:_GetCommandPattern(cmdName)
@@ -197,6 +197,7 @@ function Interface:_OnCommandReceived(cmdName, arguments, cmdId)
 			local success, obj = pcall(json.decode, arguments)
 			if not success then
 				Spring.Log(LOG_SECTION, LOG.ERROR, "Failed to parse JSON: " .. tostring(arguments))
+				return false
 			end
 			if obj then
 				jsonCommandFunction(self, obj)
@@ -206,6 +207,7 @@ function Interface:_OnCommandReceived(cmdName, arguments, cmdId)
 		end
 	end
 	self:_CallListeners("OnCommandReceived", fullCmd)
+	return true
 end
 
 function Interface:_SocketUpdate()
@@ -253,8 +255,9 @@ function Interface:_SocketUpdate()
 				local allFail = true
 				local newRagged = {}
 				for i = 1, #self.raggedJsonStore do
-					local success = pcall(function () self:CommandReceived(self.raggedJsonStore[i] .. commands[1]) end)
-					if success then
+					local internalSuccess
+					local success = pcall(function () internalSuccess = self:CommandReceived(self.raggedJsonStore[i] .. commands[1]) end)
+					if (success and internalSuccess) then
 						allFail = false
 					else
 						newRagged[#newRagged + 1] = self.raggedJsonStore[i]
@@ -262,8 +265,9 @@ function Interface:_SocketUpdate()
 				end
 				self.raggedJsonStore = newRagged
 				if allFail then
-					local success = pcall(function () self:CommandReceived(commands[1]) end)
-					if not success then
+					local internalSuccess
+					local success = pcall(function () internalSuccess = self:CommandReceived(commands[1]) end)
+					if not (success and internalSuccess) then
 						Spring.Echo("Processing failed for", commands[1])
 					end
 				end
@@ -274,8 +278,9 @@ function Interface:_SocketUpdate()
 					end
 				end
 				if #commands > 1 then
-					local success = pcall(function () self:CommandReceived(commands[#commands]) end)
-					if not success then
+					local internalSuccess
+					local success = pcall(function () internalSuccess = self:CommandReceived(commands[#commands]) end)
+					if not (success and internalSuccess) then
 						self.raggedJsonStore[#self.raggedJsonStore + 1] = commands[#commands]
 					end
 				end
