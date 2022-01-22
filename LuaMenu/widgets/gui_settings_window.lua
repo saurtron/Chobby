@@ -197,7 +197,6 @@ local function SetLobbyFullscreenMode_Sane(mode, borderOverride)
 end
 
 local function SetLobbyFullscreenMode(mode, borderOverride)
-
 	mode = mode or delayedModeSet
 	borderOverride = borderOverride or delayedBorderOverride
 	if mode == currentMode and (not borderOverride) then
@@ -224,7 +223,7 @@ local function SetLobbyFullscreenMode(mode, borderOverride)
 
 	local screenX, screenY = Spring.GetScreenGeometry()
 
-	Spring.Echo("SetLobbyFullscreenMode", mode)
+	Spring.Echo("SetLobbyFullscreenMode", mode, screenX, screenY)
 	--Spring.Log(LOG_SECTION, LOG.ERROR, debug.traceback("problem"))
 
 	if mode == 1 then -- Borderless
@@ -1978,46 +1977,49 @@ function widget:Initialize()
 		local screenX, screenY = Spring.GetScreenGeometry()
 
 		inLobby = false
-		SetLobbyFullscreenMode(battleStartDisplay)
 		local Configuration = WG.Chobby.Configuration
 
 		-- Settings which rely on io
 		local gameSettings = Configuration.game_settings
+	
+		if lobbyFullscreen ~= battleStartDisplay or battleStartDisplay >= 4 then
+			SetLobbyFullscreenMode(battleStartDisplay)
 
-		if battleStartDisplay == 1 then -- Borderless Window
-			Configuration:SetSpringsettingsValue("XResolutionWindowed", screenX)
-			Configuration:SetSpringsettingsValue("YResolutionWindowed", screenY)
-			Configuration:SetSpringsettingsValue("WindowPosX", 0)
-			Configuration:SetSpringsettingsValue("WindowPosY", 0)
-			Configuration:SetSpringsettingsValue("WindowBorderless", 1)
-		elseif battleStartDisplay == 2 then -- Window
-			Configuration:SetSpringsettingsValue("WindowPosX", 0)
-			Configuration:SetSpringsettingsValue("WindowPosY", 80)
-			Configuration:SetSpringsettingsValue("XResolutionWindowed", screenX)
-			Configuration:SetSpringsettingsValue("YResolutionWindowed", screenY - 80)
-			Configuration:SetSpringsettingsValue("WindowBorderless", 0)
-			Configuration:SetSpringsettingsValue("WindowBorderless", 0)
-			Configuration:SetSpringsettingsValue("Fullscreen", 0)
-		elseif battleStartDisplay == 3 then -- Fullscreen
-			Configuration:SetSpringsettingsValue("XResolution", screenX)
-			Configuration:SetSpringsettingsValue("YResolution", screenY)
-			Configuration:SetSpringsettingsValue("WindowPosX", 0)
-			Configuration:SetSpringsettingsValue("WindowPosY", 0)
-			Configuration:SetSpringsettingsValue("Fullscreen", 1)
-		elseif battleStartDisplay == 4 then -- Manual Borderless
-			local borders = WG.Chobby.Configuration.manualBorderless.game or {}
-			Configuration:SetSpringsettingsValue("XResolutionWindowed", borders.width or screenX)
-			Configuration:SetSpringsettingsValue("YResolutionWindowed", borders.height or screenY)
-			Configuration:SetSpringsettingsValue("WindowPosX", borders.x or 0)
-			Configuration:SetSpringsettingsValue("WindowPosY", borders.y or 0)
-			Configuration:SetSpringsettingsValue("WindowBorderless", 1)
-		elseif battleStartDisplay == 5 then -- Manual Fullscreen
-			local resolution = WG.Chobby.Configuration.manualFullscreen.game or {}
-			Configuration:SetSpringsettingsValue("XResolution", resolution.width or screenX)
-			Configuration:SetSpringsettingsValue("YResolution", resolution.height or screenY)
-			Configuration:SetSpringsettingsValue("WindowPosX", 0)
-			Configuration:SetSpringsettingsValue("WindowPosY", 0)
-			Configuration:SetSpringsettingsValue("Fullscreen", 1)
+			if battleStartDisplay == 1 then -- Borderless Window
+				Configuration:SetSpringsettingsValue("XResolutionWindowed", screenX)
+				Configuration:SetSpringsettingsValue("YResolutionWindowed", screenY)
+				Configuration:SetSpringsettingsValue("WindowPosX", 0)
+				Configuration:SetSpringsettingsValue("WindowPosY", 0)
+				Configuration:SetSpringsettingsValue("WindowBorderless", 1)
+			elseif battleStartDisplay == 2 then -- Window
+				Configuration:SetSpringsettingsValue("WindowPosX", 0)
+				Configuration:SetSpringsettingsValue("WindowPosY", 80)
+				Configuration:SetSpringsettingsValue("XResolutionWindowed", screenX)
+				Configuration:SetSpringsettingsValue("YResolutionWindowed", screenY - 80)
+				Configuration:SetSpringsettingsValue("WindowBorderless", 0)
+				Configuration:SetSpringsettingsValue("WindowBorderless", 0)
+				Configuration:SetSpringsettingsValue("Fullscreen", 0)
+			elseif battleStartDisplay == 3 then -- Fullscreen
+				Configuration:SetSpringsettingsValue("XResolution", screenX)
+				Configuration:SetSpringsettingsValue("YResolution", screenY)
+				Configuration:SetSpringsettingsValue("WindowPosX", 0)
+				Configuration:SetSpringsettingsValue("WindowPosY", 0)
+				Configuration:SetSpringsettingsValue("Fullscreen", 1)
+			elseif battleStartDisplay == 4 then -- Manual Borderless
+				local borders = WG.Chobby.Configuration.manualBorderless.game or {}
+				Configuration:SetSpringsettingsValue("XResolutionWindowed", borders.width or screenX)
+				Configuration:SetSpringsettingsValue("YResolutionWindowed", borders.height or screenY)
+				Configuration:SetSpringsettingsValue("WindowPosX", borders.x or 0)
+				Configuration:SetSpringsettingsValue("WindowPosY", borders.y or 0)
+				Configuration:SetSpringsettingsValue("WindowBorderless", 1)
+			elseif battleStartDisplay == 5 then -- Manual Fullscreen
+				local resolution = WG.Chobby.Configuration.manualFullscreen.game or {}
+				Configuration:SetSpringsettingsValue("XResolution", resolution.width or screenX)
+				Configuration:SetSpringsettingsValue("YResolution", resolution.height or screenY)
+				Configuration:SetSpringsettingsValue("WindowPosX", 0)
+				Configuration:SetSpringsettingsValue("WindowPosY", 0)
+				Configuration:SetSpringsettingsValue("Fullscreen", 1)
+			end
 		end
 
 		for key, value in pairs(gameSettings) do
