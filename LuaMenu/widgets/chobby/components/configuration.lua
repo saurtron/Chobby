@@ -226,7 +226,7 @@ function Configuration:init()
 	self.activeDebugConsole = false
 	self.onlyShowFeaturedMaps = true
 	self.showFullModList = false
-	self.simpleAiList = true
+	self.simpleAiList2 = true
 	self.useSpringRestart = false
 	self.menuMusicVolume = 0.5
 	self.menuNotificationVolume = 0.8
@@ -578,7 +578,7 @@ function Configuration:GetConfigData()
 		activeDebugConsole = self.activeDebugConsole,
 		onlyShowFeaturedMaps = self.onlyShowFeaturedMaps,
 		showFullModList = self.showFullModList,
-		simpleAiList = self.simpleAiList,
+		simpleAiList2 = self.simpleAiList2,
 		coopConnectDelay = self.coopConnectDelay,
 		useSpringRestart = self.useSpringRestart,
 		displayBots = self.displayBots,

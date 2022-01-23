@@ -20,7 +20,7 @@ function AiListWindow:init(gameName, engineName)
 
 end
 function AiListWindow:CompareItems(id1, id2)
-	local order = Configuration.simpleAiList and Configuration.gameConfig.simpleAiOrder
+	local order = Configuration.simpleAiList2 and Configuration.gameConfig.simpleAiOrder
 	if order then
 		local pos1 = order[id1]
 		local pos2 = order[id2]
@@ -55,7 +55,7 @@ function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit, 
 	end
 
 	local displayName = aiName
-	if Configuration.simpleAiList and Configuration.gameConfig.GetAiSimpleName then
+	if Configuration.simpleAiList2 and Configuration.gameConfig.GetAiSimpleName then
 		displayName = Configuration.gameConfig.GetAiSimpleName(displayName, engineName)
 		if not displayName then
 			return
