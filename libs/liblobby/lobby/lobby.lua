@@ -311,7 +311,7 @@ function Lobby:ConnectToBattle(useSpringRestart, battleIp, battlePort, clientPor
 		end
 	end
 	
-	WG.Delay(DelayedStart, 0.3)
+	WG.Delay(DelayedStart, 0.45)
 end
 
 function Lobby:VoteYes()
