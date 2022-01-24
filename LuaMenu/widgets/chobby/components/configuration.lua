@@ -253,8 +253,8 @@ function Configuration:init()
 		["de"] = {locale = "de", name="Deutsch (unvollständig)"},
 	}
 
-	self.lobby_fullscreen = 1
-	self.game_fullscreen = 1
+	self.lobby_fullscreen = 3
+	self.game_fullscreen = 3
 
 	self.chatFontSize = 18
 
