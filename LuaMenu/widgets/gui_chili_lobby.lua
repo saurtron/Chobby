@@ -53,6 +53,7 @@ end
 
 local ignoreFirstCall = true
 function widget:ActivateMenu()
+	Spring.ReplaceMouseCursor('cursornormal', 'cursornormal') -- Otherwise the cursor diappears when the game ends.
 	if ignoreFirstCall then
 		ignoreFirstCall = false
 		return
