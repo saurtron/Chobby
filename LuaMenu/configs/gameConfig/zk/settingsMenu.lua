@@ -987,6 +987,7 @@ local settingsConfig = {
 					InterfaceScale = defaultUiScale,
 					MouseZoomSpeed = 25,
 					InvertZoom = "Off",
+					HardwareCursor = "On",
 					TextToSpeech = "On",
 					EdgeScroll = "On",
 					CommandAlpha = 60,
@@ -1068,6 +1069,24 @@ local settingsConfig = {
 								ScrollWheelSpeed = currentZoom * -1,
 							}
 						end
+					},
+				},
+			},
+			{
+				name = "HardwareCursor",
+				humanName = "Hardware Cursor",
+				options = {
+					{
+						name = "On",
+						apply = {
+							HardwareCursor = 1,
+						}
+					},
+					{
+						name = "Off",
+						apply = {
+							HardwareCursor = 0,
+						}
 					},
 				},
 			},
@@ -1304,6 +1323,7 @@ local settingsDefault = {
 	InterfaceScale = defaultUiScale,
 	MouseZoomSpeed = 25,
 	InvertZoom = "Off",
+	HardwareCursor = "On",
 	TextToSpeech = "On",
 	EdgeScroll = "On",
 	CommandAlpha = 60,
