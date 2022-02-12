@@ -7,6 +7,13 @@ function InterfaceSkirmish:init()
 	self.useTeamColor = true
 end
 
+function InterfaceSkirmish:FixScript(str)
+	while str ~= string.gsub(str, "\]\]", "\]") do
+		 str = string.gsub(str, "\]\]", "\]")
+	end
+	return str
+end
+
 function InterfaceSkirmish:WriteTable(key, value)
 	local str = '\t['..key..']\n\t{\n'
 	for k, v in pairs(value) do
@@ -20,8 +27,12 @@ function InterfaceSkirmish:WriteTable(key, value)
 end
 
 function InterfaceSkirmish:MakeScriptTXT(script)
+	if VFS.FileExists("_debug_override_script.txt") then
+		Spring.Echo("======== Using _debug_override_script.txt ========")
+		return self:FixScript(VFS.LoadFile("_debug_override_script.txt"))
+	end
+	
 	local str = '[Game]\n{\n\n'
-
 	-- First write Tables
 	for key, value in pairs(script) do
 		if type(value) == 'table' then
@@ -36,7 +47,7 @@ function InterfaceSkirmish:MakeScriptTXT(script)
 		end
 	end
 	str = str..'}'
-	return str
+	return self:FixScript(str)
 end
 
 function InterfaceSkirmish:_StartScript(gameName, mapName, playerName, friendList, friendsReplaceAI, hostPort)
