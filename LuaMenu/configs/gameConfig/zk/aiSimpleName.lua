@@ -1,5 +1,5 @@
-local DEV_NAME = " Dev"
-local STABLE_NAME = ""
+local DEV_NAME = ""
+local STABLE_NAME = " Old"
 
 local stableSubnameMap = {
 	{"DevCircuitAIBeginner", "AI: Beginner" .. STABLE_NAME},
