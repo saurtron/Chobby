@@ -96,6 +96,7 @@ local function RunBenchmark(config)
 
 		function RunNext()
 			if aborted then
+				Chotify:Post({title = "Benchmarker",body  = "RunNext aborted",})
 				return
 			end
 			realIndex = perm[index]%runTypes + 1
@@ -110,11 +111,13 @@ local function RunBenchmark(config)
 				Engine = runData[realIndex].engine,
 				SpringSettings = settings,
 			}
+			Chotify:Post({title = "Benchmarker",body  = "Starting " .. runData[realIndex].runName,})
 			WG.WrapperLoopback.StartNewSpring(params)
 		end
 
 		function CheckNextRun()
 			if aborted then
+				Chotify:Post({title = "Benchmarker",body  = "CheckNextRun aborted",})
 				return
 			end
 			dataFile = io.open(dataFilePath, "r")
@@ -125,12 +128,15 @@ local function RunBenchmark(config)
 				index = index + 1
 				realIndex = perm[index%runTypes + 1]
 				if index <= totalRuns then
+					Chotify:Post({title = "Benchmarker",body  = "RunNext Delay",})
 					WG.Delay(RunNext, 4)
 				else
 					UploadBenchmarkFile(config, dataFilePath)
+					Chotify:Post({title = "Benchmarker",body  = "UploadBenchmarkFile",})
 					return
 				end
 			end
+			Chotify:Post({title = "Benchmarker",body  = "CheckNextRun Delay",})
 			WG.Delay(CheckNextRun, 5)
 		end
 
