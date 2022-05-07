@@ -209,6 +209,10 @@ local function SteamConnectSpring(args)
 	]]--
 end
 
+local function SteamP2PDirectConnectRequest(args)
+	SteamConnectSpring(args)
+end
+
 local function DownloadImageDone(args)
 	--[[
     public class DownloadImageDone
@@ -265,6 +269,7 @@ commands["SteamFriendJoinedMe"] = SteamFriendJoinedMe
 commands["SteamHostGameSuccess"] = SteamHostGameSuccess
 commands["SteamHostGameFailed"] = SteamHostGameFailed
 commands["SteamConnectSpring"] = SteamConnectSpring
+commands["SteamP2PDirectConnectRequest"] =  SteamP2PDirectConnectRequest
 commands["DownloadImageDone"] = DownloadImageDone
 commands["DownloadFileProgress"] = DownloadFileProgress
 commands["ReadReplayInfoDone"] = ReadReplayInfoDone

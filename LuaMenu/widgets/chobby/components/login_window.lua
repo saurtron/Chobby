@@ -416,6 +416,7 @@ function LoginWindow:tryLogin()
 		end
 		lobby:AddListener("OnDisconnected", self.onDisconnected)
 
+		Spring.Echo("Attempting Login", Configuration:GetServerAddress(), Configuration:GetServerPort(), username)
 		lobby:Connect(Configuration:GetServerAddress(), Configuration:GetServerPort(), username, password, 3, nil, GetLobbyName())
 	else
 		lobby:Login(username, password, 3, nil, GetLobbyName())
