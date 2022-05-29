@@ -16,7 +16,7 @@
 local infos = {
 	{
 		key    = 'shortName',
-		value  = '105_941_CircuitAINovice64', -- AI name - !This comment is used for parsing!
+		value  = '105941CircuitTest64', -- AI name - !This comment is used for parsing!
 		desc   = 'machine conform name.',
 	},
 	{
@@ -25,7 +25,7 @@ local infos = {
 	},
 	{
 		key    = 'name',
-		value  = 'Circuit Novice',
+		value  = 'Circuit Test',
 		desc   = 'human readable name.',
 	},
 	{
@@ -40,7 +40,7 @@ local infos = {
 	},
 	{
 		key    = 'loadSupported',
-		value  = 'no',
+		value  = 'yes',
 		desc   = 'whether this AI supports loading or not',
 	},
 	{

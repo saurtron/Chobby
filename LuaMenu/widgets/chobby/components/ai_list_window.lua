@@ -31,7 +31,7 @@ end
 
 function AiListWindow:AddAiToList(ai, blackList, oldAiVersions, isRunning64Bit, engineName)
 	local shortName = ai.shortName or "Unknown"
-
+	Spring.Echo("ai", ai)
 	if blackList and blackList[shortName] then
 		return
 	end
