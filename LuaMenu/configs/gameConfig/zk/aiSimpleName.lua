@@ -23,6 +23,26 @@ local devSubnameMap = {
 	{"CAI", "AI: Legacy"},
 }
 
+local engine_105_941_SubnameMap = {
+	{"105_941_CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
+	{"105_941_CircuitAINovice", "AI: Novice" .. DEV_NAME},
+	{"105_941_CircuitAIEasy", "AI: Easy" .. DEV_NAME},
+	{"105_941_CircuitAINormal", "AI: Normal" .. DEV_NAME},
+	{"105_941_CircuitAIHard", "AI: Hard" .. DEV_NAME},
+	{"105_941_CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
+	{"105_941_CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
+	{"CAI", "AI: Legacy"},
+}
+
+local function GetNameMap()
+	if WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 900) then
+		Spring.Echo("Selecting 105.941 AI")
+		return engine_105_941_SubnameMap
+	end
+	Spring.Echo("Selecting dev AI", WG.Chobby.Configuration:GetIsDevEngine(engineName))
+	return (WG.Chobby.Configuration:GetIsDevEngine(engineName) and devSubnameMap) or stableSubnameMap
+end
+
 local function GetAiSimpleName(name, engineName)
 	if name == "Null AI" then
 		return "Inactive AI"
@@ -30,7 +50,7 @@ local function GetAiSimpleName(name, engineName)
 	if string.find(name, "Chicken") then
 		return name
 	end
-	local subnameMap = (WG.Chobby.Configuration:GetIsDevEngine(engineName) and devSubnameMap) or stableSubnameMap
+	local subnameMap = GetNameMap()
 	for i = 1, #subnameMap do
 		if string.find(name, subnameMap[i][1]) then
 			return subnameMap[i][2]
