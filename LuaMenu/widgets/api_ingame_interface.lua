@@ -224,7 +224,7 @@ local function HandleReport(msg)
 	if string.find(msg, REPORT_USER) ~= 1 then
 		return
 	end
-	local data = msg:split("_")
+	local data = msg:split(";")
 	if not (data and data[3]) then
 		return
 	end
