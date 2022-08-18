@@ -555,7 +555,7 @@ So.
 Thanks to those lone static defenses, I could breach the perimeter.
 For something so well-guarded, though, I can't find what they were actually guarding. There is nothing there!
 Getting in was the easiest part, it would seem.
-Those weren't the only thing down thee though. The
+Those weren't the only thing down there though. The
 Interlopers weren't part of the defense.
 By
 The time I took care of them, it was pretty clear they were actually hostile to the defenses. In a
