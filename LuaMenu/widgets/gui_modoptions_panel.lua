@@ -22,6 +22,7 @@ local localModoptions = {}
 local modoptionControlNames = {}
 
 local hostedModeName
+local wantedGameResponse = false
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -697,7 +698,7 @@ local modoptionsDisplay
 
 local ModoptionsPanel = {}
 
-function ModoptionsPanel.LoadModotpions(gameName, newBattleLobby)
+function ModoptionsPanel.LoadModoptions(gameName, newBattleLobby)
 	battleLobby = newBattleLobby
 
 	modoptions = WG.Chobby.Configuration.gameConfig.defaultModoptions
@@ -706,6 +707,16 @@ function ModoptionsPanel.LoadModotpions(gameName, newBattleLobby)
 		sectionTitles = {},
 		sections = {}
 	}
+	
+	if WG.WrapperLoopback then
+		WG.WrapperLoopback.GetResourceInfo(gameName)
+		wantedGameResponse = gameName
+		local function StopWaiting()
+			wantedGameResponse = false
+		end
+		WG.Delay(StopWaiting, 5)
+	end
+	
 	if not modoptions then
 		return
 	end
@@ -742,6 +753,19 @@ function ModoptionsPanel.LoadModotpions(gameName, newBattleLobby)
 			end
 		end
 	end
+end
+
+local function ProcessWrapperModoptions(responseName, responseData)
+	--Spring.Echo("responseName", responseName, wantedGameResponse)
+	--Spring.Utilities.TableEcho(responseData, "responseData")
+	if responseName ~= wantedGameResponse then
+		return
+	end
+	--CreateModoptionWindow()
+end
+
+function ModoptionsPanel.WrapperModoptionResponse(responseName, responseData)
+	ProcessWrapperModoptions(responseName, responseData)
 end
 
 function ModoptionsPanel.ShowModoptions()
