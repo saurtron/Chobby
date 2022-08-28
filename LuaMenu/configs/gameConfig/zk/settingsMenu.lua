@@ -1255,37 +1255,79 @@ local settingsConfig = {
 					{
 						name = "Very Fast",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 2,
+							LuaGarbageCollectionMemLoadMult = 1,
 						}
 					},
 					{
 						name = "Fast",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 3,
+							LuaGarbageCollectionMemLoadMult = 1.75,
 						}
 					},
 					{
 						name = "Recommended",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 4,
+							LuaGarbageCollectionMemLoadMult = 2.5,
 						}
 					},
 					{
 						name = "Slow",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 7,
+							LuaGarbageCollectionMemLoadMult = 3.25,
 						}
 					},
 					{
 						name = "Slower",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 15,
+							LuaGarbageCollectionMemLoadMult = 4,
 						}
 					},
 					{
 						name = "Slowest",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 100,
+							LuaGarbageCollectionMemLoadMult = 10,
+						}
+					},
+				},
+			},
+			{
+				name = "GcTimeMult",
+				humanName = "GC Time Mult",
+				options = {
+					{
+						name = "Lowest",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 1,
+						}
+					},
+					{
+						name = "Low",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 1.25,
+						}
+					},
+					{
+						name = "Recommended",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 1.5,
+						}
+					},
+					{
+						name = "High",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 2,
+						}
+					},
+					{
+						name = "Higher",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 3.5,
+						}
+					},
+					{
+						name = "Highest",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 5,
 						}
 					},
 				},
@@ -1333,6 +1375,7 @@ local settingsDefault = {
 	NetworkSettings = "Balanced",
 	SmoothBuffer = "Off",
 	GcRate = "Recommended",
+	GcTimeMult = "Recommended",
 }
 
 local settingsNames = {}
