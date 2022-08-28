@@ -505,7 +505,7 @@ function Configuration:SetConfigData(data)
 		self.serverAddress = "zero-k.info"
 	end
 
-	local newSpringsettings, onlyIfMissingSettings = VFS.Include(LUA_DIRNAME .. "configs/springsettings/springsettingsChanges.lua")
+	local newSpringsettings, onlyIfMissingSettings, onlyIfOutdated, settingsVersion = VFS.Include(LUA_DIRNAME .. "configs/springsettings/springsettingsChanges.lua")
 	for key, value in pairs(newSpringsettings) do
 		self.game_settings[key] = value
 	end
@@ -513,6 +513,13 @@ function Configuration:SetConfigData(data)
 		if self.game_settings[key] == nil then
 			self.game_settings[key] = value
 		end
+	end
+	
+	if (self.settingsVersion or 0) < settingsVersion then
+		for key, value in pairs(onlyIfOutdated) do
+			self.game_settings[key] = value
+		end
+		self.settingsVersion = settingsVersion
 	end
 
 	if data.settingsMenuValues then
@@ -610,6 +617,7 @@ function Configuration:GetConfigData()
 		nextCampaignSaveNumber = self.nextCampaignSaveNumber,
 		steamReleasePopupSeen = self.steamReleasePopupSeen,
 		campaignConfigName = self.campaignConfigName,
+		settingsVersion = self.settingsVersion,
 	}
 end
 

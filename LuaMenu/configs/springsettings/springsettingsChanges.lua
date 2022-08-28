@@ -15,4 +15,10 @@ local onlyIfMissingSettings = {
 	FeatureFadeDistance = 600000,
 }
 
-return settings, onlyIfMissingSettings
+local onlyIfOutdated = {
+	LuaGarbageCollectionMemLoadMult = 2.5,
+	LuaGarbageCollectionRunTimeMult = 1.5,
+}
+local settingsVersion = 1
+
+return settings, onlyIfMissingSettings, onlyIfOutdated, settingsVersion
