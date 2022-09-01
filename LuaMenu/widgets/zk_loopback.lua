@@ -315,7 +315,7 @@ function WrapperLoopback.GetSpringBattleInfo(gameId)
 	SendCommand("GetSpringBattleInfo", {GameID = gameID})
 end
 
-function WrapperLoopback.GetResourceInfo(archiveName, internalName)
+function WrapperLoopback.GetResourceInfo(internalName, archiveName)
 	SendCommand("GetResourceInfo", {InternalName = internalName, ArchiveName = archiveName})
 end
 
