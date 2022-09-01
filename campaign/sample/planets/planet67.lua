@@ -1408,6 +1408,20 @@ local function GetPlanet(planetUtilities, planetID)
 						z = 216,
 						facing = 3,
 					},
+ 					{
+						name = "staticantinuke",
+						x = 5640,
+						z = 1770,
+						facing = 2,
+						difficultyAtMost = 1,
+					},
+ 					{
+						name = "energyfusion",
+						x = 7080,
+						z = 1550,
+						facing = 1,
+						difficultyAtMost = 2,
+					},
 				}
 			},
 			aiConfig = {
@@ -2003,7 +2017,7 @@ local function GetPlanet(planetUtilities, planetID)
 							z = 3500,
 							facing = 0,
 							spawnRadius = 150,
-							delay = 8*30*60,
+							delay = 10*30*60,
 							orbitalDrop = true,
 							difficultyAtLeast = 1,
 							difficultyAtMost = 1,
@@ -2016,6 +2030,17 @@ local function GetPlanet(planetUtilities, planetID)
 							spawnRadius = 150,
 							delay = 15*30*60,
 							orbitalDrop = true,
+							difficultyAtLeast = 2,
+						},
+						{
+							name = "striderdetriment",
+							x = 5000,
+							z = 7800,
+							facing = 0,
+							spawnRadius = 150,
+							delay = 17*30*60,
+							orbitalDrop = true,
+							difficultyAtMost = 1,
 						},
 					},
 					startUnits = {

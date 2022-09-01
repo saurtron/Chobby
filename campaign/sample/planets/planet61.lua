@@ -60,6 +60,7 @@ local function GetPlanet(planetUtilities, planetID)
 				extraUnlocks = {
 					"striderhub",
 					"striderfunnelweb",
+					"striderfunnelweb",
 				},
 				startUnits = {
 					{
@@ -627,18 +628,21 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 6920,
 							z = 4920,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 6760,
 							z = 5112,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 7016,
 							z = 5208,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
@@ -651,18 +655,21 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 6568,
 							z = 2952,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 6744,
 							z = 2760,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 6872,
 							z = 3048,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "energyheavygeo",
@@ -846,18 +853,21 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4584,
 							z = 5208,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 5048,
 							z = 4440,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 4472,
 							z = 5960,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
@@ -984,6 +994,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4911,
 							z = 5001,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "striderarty",
@@ -1111,6 +1122,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4912,
 							z = 5918,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "spiderassault",
@@ -1123,6 +1135,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5119,
 							z = 5384,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "spiderassault",
@@ -3006,36 +3019,42 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4550,
 							z = 1806,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 5353,
 							z = 2369,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 4629,
 							z = 692,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 5094,
 							z = 2522,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 4510,
 							z = 745,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 4717,
 							z = 764,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakarty",
@@ -3060,6 +3079,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5246,
 							z = 2333,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakarty",
@@ -3078,6 +3098,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5001,
 							z = 576,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakarty",
@@ -3096,6 +3117,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5219,
 							z = 2269,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "turretaalaser",
@@ -3108,6 +3130,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4072,
 							z = 3112,
 							facing = 1,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "turretaalaser",
@@ -3144,36 +3167,42 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 6824,
 							z = 968,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 7048,
 							z = 808,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 6808,
 							z = 712,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 5976,
 							z = 968,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 5192,
 							z = 968,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 5080,
 							z = 1800,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
@@ -3234,14 +3263,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 7240,
 							z = 688,
 							facing = 2,
-						difficultyAtLeast = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "energyfusion",
 							x = 7048,
 							z = 1168,
 							facing = 2,
-						difficultyAtLeast = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
@@ -3512,6 +3541,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4444,
 							z = 1424,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3530,12 +3560,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4378,
 							z = 1775,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
 							x = 4517,
 							z = 1020,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3560,6 +3592,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4568,
 							z = 662,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3578,12 +3611,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4920,
 							z = 2328,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
 							x = 4750,
 							z = 700,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3602,6 +3637,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5271,
 							z = 2195,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3614,6 +3650,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5354,
 							z = 2325,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3638,6 +3675,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5320,
 							z = 2499,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakskirm",
@@ -3662,12 +3700,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4771,
 							z = 1059,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakriot",
 							x = 4839,
 							z = 2265,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakriot",
@@ -3680,6 +3720,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5097,
 							z = 2223,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakriot",
@@ -3716,18 +3757,21 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4780,
 							z = 2029,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakriot",
 							x = 4617,
 							z = 838,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakriot",
 							x = 5231,
 							z = 2134,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakassault",
@@ -3758,12 +3802,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4849,
 							z = 973,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakassault",
 							x = 4899,
 							z = 2090,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
@@ -3782,12 +3828,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5043,
 							z = 2237,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
 							x = 4401,
 							z = 1517,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
@@ -3824,6 +3872,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4934,
 							z = 2347,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "cloakraid",
@@ -3963,6 +4012,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4041,
 							z = 6877,
 							facing = 1,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankassault",
@@ -3990,12 +4040,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4704,
 							z = 6096,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankriot",
 							x = 4208,
 							z = 6736,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankheavyraid",
@@ -4008,12 +4060,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4959,
 							z = 5884,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankheavyraid",
 							x = 5129,
 							z = 7814,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankheavyraid",
@@ -4038,12 +4092,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5918,
 							z = 7577,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankraid",
 							x = 4704,
 							z = 6319,
 							facing = 3,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "tankraid",
@@ -4087,24 +4143,28 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 7304,
 							z = 6968,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 7448,
 							z = 7224,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 7176,
 							z = 7176,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "staticmex",
 							x = 6200,
 							z = 7160,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "energypylon",
@@ -4217,12 +4277,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 4696,
 							z = 7520,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "energyfusion",
 							x = 7464,
 							z = 6992,
 							facing = 2,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "turrettorp",
@@ -4487,6 +4549,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 7640,
 							z = 7464,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "energyfusion",
