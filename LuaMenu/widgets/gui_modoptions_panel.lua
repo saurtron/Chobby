@@ -708,14 +708,14 @@ function ModoptionsPanel.LoadModoptions(gameName, newBattleLobby)
 		sections = {}
 	}
 	
-	if WG.WrapperLoopback then
-		WG.WrapperLoopback.GetResourceInfo(gameName)
-		wantedGameResponse = gameName
-		local function StopWaiting()
-			wantedGameResponse = false
-		end
-		WG.Delay(StopWaiting, 5)
-	end
+	--if WG.WrapperLoopback then
+	--	WG.WrapperLoopback.GetResourceInfo(gameName)
+	--	wantedGameResponse = gameName
+	--	local function StopWaiting()
+	--		wantedGameResponse = false
+	--	end
+	--	WG.Delay(StopWaiting, 5)
+	--end
 	
 	if not modoptions then
 		return
