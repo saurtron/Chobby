@@ -43,7 +43,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/energysolar.png",
-				text = [[All construction requires equal amounts of metal and energy. Build Solar Collectors to gather energy.]]
+				text = [[All construction requires equal amounts of metal and energy. Build Solar Collectors to gather energy. Shift-drag to queue a line of structures.]]
 			},
 			{
 				image = "unitpics/cloakriot.png",
