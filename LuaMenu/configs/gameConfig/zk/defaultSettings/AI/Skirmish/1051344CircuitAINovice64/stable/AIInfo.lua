@@ -16,7 +16,7 @@
 local infos = {
 	{
 		key    = 'shortName',
-		value  = '105941CircuitAINovice64', -- AI name - !This comment is used for parsing!
+		value  = '1051344CircuitAINovice64', -- AI name - !This comment is used for parsing!
 		desc   = 'machine conform name.',
 	},
 	{
