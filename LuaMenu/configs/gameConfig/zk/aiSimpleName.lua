@@ -23,21 +23,21 @@ local devSubnameMap = {
 	{"CAI", "AI: Legacy"},
 }
 
-local engine_105941SubnameMap = {
-	{"105941CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
-	{"105941CircuitAINovice", "AI: Novice" .. DEV_NAME},
-	{"105941CircuitAIEasy", "AI: Easy" .. DEV_NAME},
-	{"105941CircuitAINormal", "AI: Normal" .. DEV_NAME},
-	{"105941CircuitAIHard", "AI: Hard" .. DEV_NAME},
-	{"105941CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
-	{"105941CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
+local engine_1051344SubnameMap = {
+	{"1051344CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
+	{"1051344CircuitAINovice", "AI: Novice" .. DEV_NAME},
+	{"1051344CircuitAIEasy", "AI: Easy" .. DEV_NAME},
+	{"1051344CircuitAINormal", "AI: Normal" .. DEV_NAME},
+	{"1051344CircuitAIHard", "AI: Hard" .. DEV_NAME},
+	{"1051344CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
+	{"1051344CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
 	{"CAI", "AI: Legacy"},
 }
 
 local function GetNameMap()
 	if WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 900) then
-		Spring.Echo("Selecting 105.941 AI")
-		return engine_105941SubnameMap
+		Spring.Echo("Selecting 105.1344 AI")
+		return engine_1051344SubnameMap
 	end
 	Spring.Echo("Selecting dev AI", WG.Chobby.Configuration:GetIsDevEngine(engineName))
 	return (WG.Chobby.Configuration:GetIsDevEngine(engineName) and devSubnameMap) or stableSubnameMap
