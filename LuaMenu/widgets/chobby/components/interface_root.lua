@@ -487,7 +487,6 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 	}
 
 	local function UpdateTitle(newTitle)
-		Spring.Echo("newTitle", newTitle, math.random())
 		heading_image.file = Configuration:GetHeadingImage(doublePanelMode, newTitle)
 		heading_image:Invalidate()
 	end
