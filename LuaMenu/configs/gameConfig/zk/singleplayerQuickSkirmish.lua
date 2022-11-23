@@ -84,7 +84,10 @@ function skirmishSetupData.ApplyFunction(battleLobby, pageChoices)
 	end
 
 	local bitAppend = (Configuration:GetIsRunning64Bit() and "64") or "32"
-	local devString = ((Configuration:GetIsDevEngine() and "105") or "Dev")
+	local devString = "105"
+	if WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 900) then
+		devString = "1051344"
+	end
 	local aiName = devString .. aiDifficultyMap[difficulty] .. bitAppend
 	local displayName = aiName
 
