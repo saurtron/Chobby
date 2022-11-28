@@ -1253,37 +1253,43 @@ local settingsConfig = {
 				humanName = "GC Rate",
 				options = {
 					{
-						name = "Very Fast",
+						name = "Highest performance",
 						apply = {
 							LuaGarbageCollectionMemLoadMult = 1,
 						}
 					},
 					{
-						name = "Fast",
+						name = "Higher performance",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 1.75,
+							LuaGarbageCollectionMemLoadMult = 1.8,
+						}
+					},
+					{
+						name = "More performance",
+						apply = {
+							LuaGarbageCollectionMemLoadMult = 2.2,
 						}
 					},
 					{
 						name = "Recommended",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 2.5,
+							LuaGarbageCollectionMemLoadMult = 2.65,
 						}
 					},
 					{
-						name = "Slow",
+						name = "More Stability",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 3.25,
+							LuaGarbageCollectionMemLoadMult = 3.8,
 						}
 					},
 					{
-						name = "Slower",
+						name = "Higher Stability",
 						apply = {
-							LuaGarbageCollectionMemLoadMult = 4,
+							LuaGarbageCollectionMemLoadMult = 5,
 						}
 					},
 					{
-						name = "Slowest",
+						name = "Highest Stability",
 						apply = {
 							LuaGarbageCollectionMemLoadMult = 10,
 						}
@@ -1295,37 +1301,43 @@ local settingsConfig = {
 				humanName = "GC Time Mult",
 				options = {
 					{
-						name = "Lowest",
+						name = "Highest performance",
 						apply = {
 							LuaGarbageCollectionRunTimeMult = 1,
 						}
 					},
 					{
-						name = "Low",
+						name = "Higher Performance",
 						apply = {
-							LuaGarbageCollectionRunTimeMult = 1.25,
+							LuaGarbageCollectionRunTimeMult = 1.3,
 						}
 					},
 					{
-						name = "Recommended",
+						name = "More Performance",
 						apply = {
 							LuaGarbageCollectionRunTimeMult = 1.5,
 						}
 					},
 					{
-						name = "High",
+						name = "Recommended",
 						apply = {
-							LuaGarbageCollectionRunTimeMult = 2,
+							LuaGarbageCollectionRunTimeMult = 1.65,
 						}
 					},
 					{
-						name = "Higher",
+						name = "More Stability",
+						apply = {
+							LuaGarbageCollectionRunTimeMult = 2.1,
+						}
+					},
+					{
+						name = "Higher Stability",
 						apply = {
 							LuaGarbageCollectionRunTimeMult = 3.5,
 						}
 					},
 					{
-						name = "Highest",
+						name = "Highest Stability",
 						apply = {
 							LuaGarbageCollectionRunTimeMult = 5,
 						}
