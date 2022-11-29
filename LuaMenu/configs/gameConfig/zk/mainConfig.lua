@@ -69,6 +69,7 @@ local externalFuncAndData = {
 	GetAiSimpleName         = aiSimpleNames.GetAiSimpleName,
 	simpleAiOrder           = aiSimpleNames.simpleAiOrder,
 	aiTooltip               = aiSimpleNames.aiTooltip,
+	aiPrefixFunc            = aiSimpleNames.aiPrefixFunc,
 	oldAiVersions           = oldAiVersions,
 	settingsConfig          = settingsConfig,
 	settingsNames           = settingsNames,

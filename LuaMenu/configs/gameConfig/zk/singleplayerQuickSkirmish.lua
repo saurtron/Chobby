@@ -1,3 +1,6 @@
+
+local AiPrefixFunc = VFS.Include(LUA_DIRNAME .. "configs/gameConfig/zk/aiPrefixFunc.lua")
+
 local skirmishSetupData = {
 	pages = {
 		{
@@ -84,11 +87,7 @@ function skirmishSetupData.ApplyFunction(battleLobby, pageChoices)
 	end
 
 	local bitAppend = (Configuration:GetIsRunning64Bit() and "64") or "32"
-	local devString = "105"
-	if WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 900) then
-		devString = "1051344"
-	end
-	local aiName = devString .. aiDifficultyMap[difficulty] .. bitAppend
+	local aiName = AiPrefixFunc() .. aiDifficultyMap[difficulty] .. bitAppend
 	local displayName = aiName
 
 	if Configuration.gameConfig.GetAiSimpleName then

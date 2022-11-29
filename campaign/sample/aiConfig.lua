@@ -1,3 +1,6 @@
+
+local AiPrefixFunc = VFS.Include(LUA_DIRNAME .. "configs/gameConfig/zk/aiPrefixFunc.lua")
+
 local aiLibFunctions = {}
 
 local circuitDifficulties = {
@@ -15,11 +18,11 @@ local circuitDifficultiesAlly = {
 }
 
 function aiLibFunctions.Circuit_difficulty_autofill(difficultySetting)
-	return ((WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 1250) and "1051344") or "105") .. circuitDifficulties[difficultySetting]
+	return AiPrefixFunc() .. circuitDifficulties[difficultySetting]
 end
 
 function aiLibFunctions.Circuit_difficulty_autofill_ally(difficultySetting)
-	return ((WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 1250) and "1051344") or "105") .. circuitDifficultiesAlly[difficultySetting]
+	return AiPrefixFunc() .. circuitDifficultiesAlly[difficultySetting]
 end
 
 return {

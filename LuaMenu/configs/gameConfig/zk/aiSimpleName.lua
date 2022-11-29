@@ -1,47 +1,22 @@
 local DEV_NAME = ""
 local STABLE_NAME = " Old"
 
-local stableSubnameMap = {
-	{"DevCircuitAIBeginner", "AI: Beginner" .. STABLE_NAME},
-	{"DevCircuitAINovice", "AI: Novice" .. STABLE_NAME},
-	{"DevCircuitAIEasy", "AI: Easy" .. STABLE_NAME},
-	{"DevCircuitAINormal", "AI: Normal" .. STABLE_NAME},
-	{"DevCircuitAIHard", "AI: Hard" .. STABLE_NAME},
-	{"DevCircuitAIBrutal", "AI: Brutal" .. STABLE_NAME},
-	{"DevCircuitTest", "AI: Bleeding edge test" .. STABLE_NAME},
-	{"CAI", "AI: Legacy"},
+local AiPrefixFunc = VFS.Include(LUA_DIRNAME .. "configs/gameConfig/zk/aiPrefixFunc.lua")
+
+local subnameMap = {
+	{"CircuitAIBeginner", "AI: Beginner"},
+	{"CircuitAINovice", "AI: Novice"},
+	{"CircuitAIEasy", "AI: Easy"},
+	{"CircuitAINormal", "AI: Normal"},
+	{"CircuitAIHard", "AI: Hard"},
+	{"CircuitAIBrutal", "AI: Brutal"},
+	{"CircuitTest", "AI: Bleeding edge test"},
 }
 
-local devSubnameMap = {
-	{"105CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
-	{"105CircuitAINovice", "AI: Novice" .. DEV_NAME},
-	{"105CircuitAIEasy", "AI: Easy" .. DEV_NAME},
-	{"105CircuitAINormal", "AI: Normal" .. DEV_NAME},
-	{"105CircuitAIHard", "AI: Hard" .. DEV_NAME},
-	{"105CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
-	{"105CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
-	{"CAI", "AI: Legacy"},
-}
-
-local engine_1051344SubnameMap = {
-	{"1051344CircuitAIBeginner", "AI: Beginner" .. DEV_NAME},
-	{"1051344CircuitAINovice", "AI: Novice" .. DEV_NAME},
-	{"1051344CircuitAIEasy", "AI: Easy" .. DEV_NAME},
-	{"1051344CircuitAINormal", "AI: Normal" .. DEV_NAME},
-	{"1051344CircuitAIHard", "AI: Hard" .. DEV_NAME},
-	{"1051344CircuitAIBrutal", "AI: Brutal" .. DEV_NAME},
-	{"1051344CircuitTest", "AI: Bleeding edge test" .. DEV_NAME},
-	{"CAI", "AI: Legacy"},
-}
-
-local function GetNameMap()
-	if WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 900) then
-		Spring.Echo("Selecting 105.1344 AI")
-		return engine_1051344SubnameMap
-	end
-	Spring.Echo("Selecting dev AI", WG.Chobby.Configuration:GetIsDevEngine(engineName))
-	return (WG.Chobby.Configuration:GetIsDevEngine(engineName) and devSubnameMap) or stableSubnameMap
+for i = 1, #subnameMap do
+	subnameMap[i][1] = AiPrefixFunc() .. subnameMap[i][1]
 end
+subnameMap[#subnameMap + 1] = {"CAI", "AI: Legacy"}
 
 local function GetAiSimpleName(name, engineName)
 	if name == "Null AI" then
@@ -50,7 +25,6 @@ local function GetAiSimpleName(name, engineName)
 	if string.find(name, "Chicken") then
 		return name
 	end
-	local subnameMap = GetNameMap()
 	for i = 1, #subnameMap do
 		if string.find(name, subnameMap[i][1]) then
 			return subnameMap[i][2]
