@@ -3097,12 +3097,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5720,
 							z = 10120,
 							facing = 0,
+							terraformHeight = 25,
 						},
  						{
 							name = "energysingu",
 							x = 4680,
-							z = 10184,
+							z = 10120,
 							facing = 0,
+							terraformHeight = 25,
 						},
  						{
 							name = "energysingu",
