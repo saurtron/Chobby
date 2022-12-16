@@ -710,7 +710,7 @@ local moduleDefs = {
 	{
 		name = "module_heavy_armor",
 		humanName = "High Density Plating",
-		description = "High Density Plating - Provides " .. 1600*HP_MULT .. " health but reduces movement by 10%. " ..
+		description = "High Density Plating - Provides " .. 1600*HP_MULT .. " health but reduces speed by 2. " ..
 		"Limit: 8, Requires Ablative Armour Plates",
 		image = moduleImagePath .. "module_heavy_armor.png",
 		limit = 8,
@@ -726,7 +726,7 @@ local moduleDefs = {
 	{
 		name = "module_dmg_booster",
 		humanName = "Damage Booster",
-		description = "Damage Booster - Increases damage by 10%, increased weapon weight reduces speed by 2.5%.  Limit: 8",
+		description = "Damage Booster - Increases damage by 15% but reduces speed by 1.  Limit: 8",
 		image = moduleImagePath .. "module_dmg_booster.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
@@ -741,7 +741,7 @@ local moduleDefs = {
 	{
 		name = "module_high_power_servos",
 		humanName = "High Power Servos",
-		description = "High Power Servos - Increases speed by 10%. Limit: 8",
+		description = "High Power Servos - Increases speed by 3. Limit: 8",
 		image = moduleImagePath .. "module_high_power_servos.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
@@ -754,7 +754,7 @@ local moduleDefs = {
 	{
 		name = "module_adv_targeting",
 		humanName = "Adv. Targeting System",
-		description = "Advanced Targeting System - Increases range by 7.5%, increased weapon weight reduces speed by 2.5%. Limit: 8",
+		description = "Advanced Targeting System - Increases range by 7.5% but reduces speed by 1. Limit: 8",
 		image = moduleImagePath .. "module_adv_targeting.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
