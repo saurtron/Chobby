@@ -582,7 +582,7 @@ local moduleDefs = {
 	{
 		name = "module_personal_cloak",
 		humanName = "Personal Cloak",
-		description = "Personal Cloak - A personal cloaking device. Reduces speed by 8 and cannot be used with shields. Requires at least a level 2 module slot.",
+		description = "Personal Cloak - A personal cloaking device. Reduces total speed by 12% and cannot be used with shields. Requires at least a level 2 module slot.",
 		image = moduleImagePath .. "module_personal_cloak.png",
 		limit = 1,
 		cost = 400,
