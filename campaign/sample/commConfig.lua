@@ -630,7 +630,7 @@ local moduleDefs = {
 	{
 		name = "module_jumpjet",
 		humanName = "Jumpjets",
-		description = "Jumpjets - Leap over obstacles and out of danger. Requires at least a level 4 module slot.",
+		description = "Jumpjets - Leap over obstacles and out of danger. Each High Powered Servos reduces jump reload by 1s. Requires at least a level 4 module slot.",
 		image = moduleImagePath .. "module_jumpjet.png",
 		limit = 1,
 		cost = 400,
@@ -688,7 +688,7 @@ local moduleDefs = {
 	{
 		name = "module_ablative_armor",
 		humanName = "Ablative Armour Plates",
-		description = "Ablative Armour Plates - Provides 600 health._COUNT_",
+		description = "Ablative Armour Plates - Provides 750 health._COUNT_",
 		image = moduleImagePath .. "module_ablative_armor.png",
 		limit = 8,
 		cost = 150,
@@ -701,7 +701,7 @@ local moduleDefs = {
 	{
 		name = "module_heavy_armor",
 		humanName = "High Density Plating",
-		description = "High Density Plating - Provides 1600 health but reduces speed by 3. Requires Ablative Armour Plates and  at least a level 3 module slot._COUNT_",
+		description = "High Density Plating - Provides 2000 health but reduces total speed by 2%. Requires Ablative Armour Plates and  at least a level 3 module slot._COUNT_",
 		image = moduleImagePath .. "module_heavy_armor.png",
 		limit = 8,
 		cost = 400,
@@ -716,7 +716,7 @@ local moduleDefs = {
 	{
 		name = "module_dmg_booster",
 		humanName = "Damage Booster",
-		description = "Damage Booster - Increases damage by 10% but reduces speed by 1._COUNT_",
+		description = "Damage Booster - Increases damage by 15% but reduces total speed by 2%._COUNT_",
 		image = moduleImagePath .. "module_dmg_booster.png",
 		limit = 8,
 		cost = 150,
@@ -731,7 +731,7 @@ local moduleDefs = {
 	{
 		name = "module_high_power_servos",
 		humanName = "High Power Servos",
-		description = "High Power Servos - Increases speed by 3._COUNT_",
+		description = "High Power Servos - Increases speed by 4._COUNT_",
 		image = moduleImagePath .. "module_high_power_servos.png",
 		limit = 8,
 		cost = 150,
@@ -744,7 +744,7 @@ local moduleDefs = {
 	{
 		name = "module_adv_targeting",
 		humanName = "Adv. Targeting System",
-		description = "Advanced Targeting System - Increases range by 7.5% but reduces speed by 1._COUNT_",
+		description = "Advanced Targeting System - Increases range by 7.5% but reduces total speed by 2%._COUNT_",
 		image = moduleImagePath .. "module_adv_targeting.png",
 		limit = 8,
 		cost = 150,
@@ -758,7 +758,7 @@ local moduleDefs = {
 	{
 		name = "module_adv_nano",
 		humanName = "CarRepairer's Nanolathe",
-		description = "CarRepairer's Nanolathe - Increases build power by 4._COUNT_",
+		description = "CarRepairer's Nanolathe - Increases build power by 5._COUNT_",
 		image = moduleImagePath .. "module_adv_nano.png",
 		limit = 8,
 		cost = 150,

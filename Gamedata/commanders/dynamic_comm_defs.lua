@@ -605,7 +605,7 @@ local moduleDefs = {
 	{
 		name = "module_personal_cloak",
 		humanName = "Personal Cloak",
-		description = "Personal Cloak - A personal cloaking device for the Commander.",
+		description = "Personal Cloak - A personal cloaking device. Reduces speed by 8.",
 		image = moduleImagePath .. "module_personal_cloak.png",
 		limit = 1,
 		cost = 400 * COST_MULT,
@@ -648,6 +648,21 @@ local moduleDefs = {
 		slotType = "module",
 		applicationFunction = function (modules, sharedData)
 			sharedData.canResurrect = true
+		end
+	},
+	
+	{
+		name = "module_jumpjet",
+		humanName = "Jumpjets",
+		description = "Jumpjets - Leap over obstacles and out of danger. Each High Powered Servos reduces jump reload by 1s.",
+		image = moduleImagePath .. "module_jumpjet.png",
+		limit = 1,
+		cost = 400 * COST_MULT,
+		requireChassis = {"knight"},
+		requireLevel = 3,
+		slotType = "module",
+		applicationFunction = function (modules, sharedData)
+			sharedData.canJump = true
 		end
 	},
 	
@@ -710,7 +725,7 @@ local moduleDefs = {
 	{
 		name = "module_heavy_armor",
 		humanName = "High Density Plating",
-		description = "High Density Plating - Provides " .. 1600*HP_MULT .. " health but reduces speed by 2. " ..
+		description = "High Density Plating - Provides " .. 2000*HP_MULT .. " health but reduces total speed by 2%. " ..
 		"Limit: 8, Requires Ablative Armour Plates",
 		image = moduleImagePath .. "module_heavy_armor.png",
 		limit = 8,
@@ -726,7 +741,7 @@ local moduleDefs = {
 	{
 		name = "module_dmg_booster",
 		humanName = "Damage Booster",
-		description = "Damage Booster - Increases damage by 15% but reduces speed by 1.  Limit: 8",
+		description = "Damage Booster - Increases damage by 15% but reduces total speed by 2%.  Limit: 8",
 		image = moduleImagePath .. "module_dmg_booster.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
@@ -741,7 +756,7 @@ local moduleDefs = {
 	{
 		name = "module_high_power_servos",
 		humanName = "High Power Servos",
-		description = "High Power Servos - Increases speed by 3. Limit: 8",
+		description = "High Power Servos - Increases speed by 4. Limit: 8",
 		image = moduleImagePath .. "module_high_power_servos.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
@@ -754,7 +769,7 @@ local moduleDefs = {
 	{
 		name = "module_adv_targeting",
 		humanName = "Adv. Targeting System",
-		description = "Advanced Targeting System - Increases range by 7.5% but reduces speed by 1. Limit: 8",
+		description = "Advanced Targeting System - Increases range by 7.5% but reduces total speed by 3%. Limit: 8",
 		image = moduleImagePath .. "module_adv_targeting.png",
 		limit = 8,
 		cost = 150 * COST_MULT,
@@ -771,12 +786,12 @@ local moduleDefs = {
 		description = "CarRepairer's Nanolathe - Increases build power by 5. Limit: 8",
 		image = moduleImagePath .. "module_adv_nano.png",
 		limit = 8,
-		cost = 150 * COST_MULT,
+		cost = 200 * COST_MULT,
 		requireLevel = 1,
 		slotType = "module",
 		applicationFunction = function (modules, sharedData)
 			-- All comms have 10 BP in their unitDef (even support)
-			sharedData.bonusBuildPower = (sharedData.bonusBuildPower or 0) + 5
+			sharedData.bonusBuildPower = (sharedData.bonusBuildPower or 0) + 4
 		end
 	},
 	
