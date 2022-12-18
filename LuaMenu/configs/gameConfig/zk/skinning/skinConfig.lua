@@ -17,7 +17,7 @@ if currentTime and (tonumber(currentTime.month or 0) == 12 and tonumber(currentT
 	end
 end
 
-if currentTime and (tonumber(currentTime.month or 0) == 1 and tonumber(currentTime.day or 0) < 6) then
+if currentTime and (tonumber(currentTime.month or 0) == 1 and tonumber(currentTime.day or 0) < 7) then
 	backgroundImage = LUA_DIRNAME .. "configs/gameConfig/" .. shortname .. "/skinning/background_new_year.jpg"
 end
 
