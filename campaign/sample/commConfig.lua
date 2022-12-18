@@ -674,7 +674,7 @@ local moduleDefs = {
 	{
 		name = "module_autorepair",
 		humanName = "Autorepair",
-		description = "Autorepair - Commander self-repairs at +10 hp/s at the cost of 100 health._COUNT_",
+		description = "Autorepair - Commander self-repairs at +12 hp/s at the cost of 100 health._COUNT_",
 		image = moduleImagePath .. "module_autorepair.png",
 		limit = 8,
 		cost = 150,
