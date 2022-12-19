@@ -160,7 +160,7 @@
 					[47, 47, 47],  // range
 					[47, 47, 44],  // range, damage
 					[44, 44, 44],  // damage
-					[43, 43, 43],  // high density
+					[43, 43, 43]  // high density
 				]
 			},
 
