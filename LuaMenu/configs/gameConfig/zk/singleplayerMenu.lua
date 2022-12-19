@@ -107,7 +107,7 @@ return {
 					control = WG.CodexHandler.GetControl(),
 				},
 				{
-					name = "saveload",
+					name = "profile",
 					control = WG.CampaignOptionsWindow.GetControl(),
 				},
 			},
