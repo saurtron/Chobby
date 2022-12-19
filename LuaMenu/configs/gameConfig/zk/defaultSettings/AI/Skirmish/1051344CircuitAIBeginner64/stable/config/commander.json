@@ -65,27 +65,18 @@
 					[15, 47, 42],  // Heavy particle beam, range, health
 					[36, 36, 36],  // companion drones
 					[37, 37, 37],  // battle drones
-					[37, 37, 37],  // battle drones
 					[37, 37, 36],  // battle drones, companion drones
-					[36, 36, 36],  // companion drones
 					[36, 46, 46],  // companion drones, speed
 					[46, 46, 46],  // speed
-					[46, 46, 46],  // speed
-					[42, 42, 42],  // health
 					[42, 42, 42],  // health
 					[42, 39, 39],  // health, regen
 					[39, 39, 39],  // regen
-					[39, 39, 39],  // regen
-					[48, 48, 48],  // nano
 					[48, 48, 48],  // nano
 					[48, 28, 30],  // nano, disruptor ammo, jammer
 					[33, 34, 44],  // area cloak, lazarus, damage
 					[47, 47, 47],  // range
-					[47, 47, 47],  // range
 					[47, 43, 43],  // range, high density
 					[43, 43, 43],  // high density
-					[43, 43, 43],  // high density
-					[44, 44, 44],  // damage
 					[44, 44, 44],  // damage
 					[44]  // damage
 				]
@@ -159,26 +150,18 @@
 					[32, 39],  // Cloak, Regen
 					[20, 43, 44],  // disruptor bomb, high density, damage boost
 					[36, 36, 36],  // companion drones
-					[36, 36, 36],  // companion drones
 					[36, 36, 45],  // companion drones, speed
-					[45, 45, 45],  // speed
 					[45, 45, 45],  // speed
 					[45, 42, 42],  // speed, health
 					[42, 42, 42],  // health
-					[42, 42, 42],  // health
-					[39, 39, 39],  // regen
 					[39, 39, 39],  // regen
 					[39, 50, 50],  // regen, builder
 					[50, 50, 50],  // builder
-					[50, 50, 50],  // builder
 					[43, 28, 30],  // radar, disruptor ammo, jammer
-					[47, 47, 47],  // range
 					[47, 47, 47],  // range
 					[47, 47, 44],  // range, damage
 					[44, 44, 44],  // damage
-					[44, 44, 44],  // damage
 					[43, 43, 43],  // high density
-					[43, 43, 43]   // high density
 				]
 			},
 
@@ -253,25 +236,17 @@
 					[59, 47, 47],  // Double Riot, range
 					[41, 47, 47],  // high density, range
 					[39, 47, 39],  // regen, range, regen
-					[47, 47, 47],  // range
-					[44, 44, 44],  // damage
 					[44, 44, 44],  // damage
 					[44, 44, 26],  // damage, area shield
 					[27, 30, 46],  // napalm, jammer, speed
 					[36, 36, 36],  // companion drones
-					[36, 36, 36],  // companion drones
 					[36, 36, 46],  // companion drones, speed
-					[46, 46, 46],  // speed
 					[46, 46, 41],  // speed, high density
 					[46, 39, 39],  // speed, regen
-					[39, 39, 39],  // regen
 					[39, 49, 49],  // regen, nano
 					[49, 49, 49],  // nano
-					[49, 49, 49],  // nano
-					[40, 40, 40],  // health
 					[40, 40, 40],  // health
 					[40, 41, 41],  // health, high density
-					[41, 41, 41],  // high density
 					[41]  // high density
 				]
 			},
@@ -345,25 +320,17 @@
 					[32, 38],  // cloak, regen
 					[56, 46, 38],  // lightning, speed, regen
 					[42, 46, 38],  // health, speed, regen
-					[42, 46, 38],  // health, speed, regen
-					[42, 46, 38],  // health, speed, regen
-					[42, 46, 38],  // health, speed, regen
 					[46, 46, 46],  // speed
 					[29, 30, 49],  // flux, jammer, nano
 					[38, 38, 42],  // regen, health
 					[42, 42, 42],  // health
 					[33, 47, 47],  // area cloak, range
 					[47, 47, 47],  // range
-					[47, 47, 47],  // range
-					[36, 36, 36],  // companion drones
 					[36, 36, 36],  // companion drones
 					[36, 36, 49],  // companion drones, nano
-					[49, 49, 49],  // nano
 					[49, 49, 43],  // nano, high density
 					[49, 44, 44],  // nano, damage
 					[44, 44, 44],  // damage
-					[44, 44, 44],  // damage
-					[43, 43, 43],  // high density
 					[43, 43, 43],  // high density
 					[43]  // high density
 				]
