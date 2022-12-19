@@ -61,7 +61,7 @@
 				"time": 420,  // Force-morph delay, in seconds
 				"module": [  // List of dynamic module IDs
 					[10, 48],  // Light particle beam, Nano
-					[32, 48],  // Cloak, Nano
+					[39, 48],  // Health, Nano
 					[15, 47, 42],  // Heavy particle beam, range, health
 					[36, 36, 36],  // companion drones
 					[37, 37, 37],  // battle drones
@@ -69,7 +69,7 @@
 					[36, 46, 46],  // companion drones, speed
 					[46, 46, 46],  // speed
 					[42, 42, 42],  // health
-					[42, 39, 39],  // health, regen
+					[42, 39, 44],  // health, regen, damage
 					[39, 39, 39],  // regen
 					[48, 48, 48],  // nano
 					[48, 28, 30],  // nano, disruptor ammo, jammer
@@ -77,8 +77,7 @@
 					[47, 47, 47],  // range
 					[47, 43, 43],  // range, high density
 					[43, 43, 43],  // high density
-					[44, 44, 44],  // damage
-					[44]  // damage
+					[44, 44, 44]   // damage
 				]
 			},
 
@@ -146,13 +145,13 @@
 			"upgrade": {
 				"time": 240,  // Force-morph delay, in seconds
 				"module": [  // List of dynamic module IDs
-					[8, 42],  // Machinegun
-					[32, 39],  // Cloak, Regen
+					[8, 42],  // Machinegun, health
+					[42, 39],  // Cloak, Regen
 					[20, 43, 44],  // disruptor bomb, high density, damage boost
 					[36, 36, 36],  // companion drones
 					[36, 36, 45],  // companion drones, speed
-					[45, 45, 45],  // speed
-					[45, 42, 42],  // speed, health
+					[45, 42, 45],  // speed
+					[45, 42, 39],  // speed, health
 					[42, 42, 42],  // health
 					[39, 39, 39],  // regen
 					[39, 50, 50],  // regen, builder
@@ -317,10 +316,10 @@
 				"time": 315,  // Force-morph delay, in seconds
 				"module": [  // List of dynamic module IDs
 					[5, 42],  // beam laser
-					[32, 38],  // cloak, regen
+					[46, 38],  // cloak, regen
 					[56, 46, 38],  // lightning, speed, regen
 					[42, 46, 38],  // health, speed, regen
-					[46, 46, 46],  // speed
+					[46, 46, 42],  // speed
 					[29, 30, 49],  // flux, jammer, nano
 					[38, 38, 42],  // regen, health
 					[42, 42, 42],  // health
