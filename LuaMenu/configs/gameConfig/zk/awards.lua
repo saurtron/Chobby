@@ -68,7 +68,7 @@ local awards = {
 		image = "LuaMenu/configs/gameConfig/zk/awards/trophy_ouch.png",
 	},
 	kam = {
-		text = "Kamikaze Award",
+		text = "Blaze of Glory",
 		image = "LuaMenu/configs/gameConfig/zk/awards/trophy_kam.png",
 	},
 	comm = {
