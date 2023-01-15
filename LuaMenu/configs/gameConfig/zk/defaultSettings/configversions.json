@@ -2157,6 +2157,12 @@
       {
          "Platform":null,
          "VersionNumber":1170,
+         "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/commander.as",
+         "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/commander.as"
+      },
+      {
+         "Platform":null,
+         "VersionNumber":1170,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/response.json"
       },
