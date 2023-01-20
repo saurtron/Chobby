@@ -104,12 +104,11 @@
 		},
 		"factorygunship": {
 			"hub": [[{"unit": "staticcon", "category": "nano", "offset": {"front": 150}}]]
-		},
+		}
+	},
+	"support": {
 		"striderhub": {
-			"pylon": true,
-			"hub": [[
-					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}}
-			]]
+			"pylon": true
 		}
 	},
 	"mex": {
@@ -133,12 +132,6 @@
 					{"unit": "staticstorage", "category": "defence", "offset": [-10, -10]},
 					{"unit": "turretriot", "category": "defence", "offset": [80, -80]},
 					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
-				]]
-		},
-		"staticarty": {
-			"pylon": true,
-			"hub": [[
-					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}}
 				]]
 		},
 		"raveparty": {
