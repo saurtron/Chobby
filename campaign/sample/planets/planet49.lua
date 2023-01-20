@@ -110,6 +110,12 @@ local function GetPlanet(planetUtilities, planetID)
 						 buildProgress = 0.6
 					},
 					{
+						name = "energypylon",
+						x = 2650,
+						z = 3000,
+						facing = 3,
+					},
+					{
 						name = "energygeo",
 						x = 2984,
 						z = 2888,

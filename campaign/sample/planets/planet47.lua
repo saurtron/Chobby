@@ -2343,6 +2343,13 @@ local function GetPlanet(planetUtilities, planetID)
 							difficultyAtLeast = 4,
 						},
 						{
+							name = "energypylon",
+							x = 3820,
+							z = 6990,
+							facing = 3,
+							difficultyAtLeast = 4,
+						},
+						{
 							name = "staticcon",
 							x = 3975,
 							z = 7000,
