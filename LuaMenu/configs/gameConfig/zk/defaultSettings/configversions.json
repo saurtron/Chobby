@@ -2042,817 +2042,817 @@
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/military.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/commander.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/script/manager/commander.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBeginner64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBeginner64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINovice64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINovice64/stable/script/manager/military.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIEasy64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIEasy64/stable/script/manager/military.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAINormal64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAINormal64/stable/script/manager/military.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIHard64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIHard64/stable/script/manager/military.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/libSkirmishAI.so"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAIBrutal64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitAICommon64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitAIBrutal64/stable/script/manager/military.as"
       },
       {
          "Platform":"linux64",
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/libSkirmishAI.so",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/libSkirmishAI.so"
       },
       {
          "Platform":"win64",
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/SkirmishAI.dll",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/SkirmishAI.dll"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/behaviour.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/behaviour.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/block_map.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/block_map.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/build_chain.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/build_chain.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/commander.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/commander.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/economy.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/economy.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/factory.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/factory.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/config/response.json",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/config/response.json"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/AIInfo.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/AIInfo.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/AIOptions.lua",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/AIOptions.lua"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/init.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/init.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/main.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/main.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/role.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/role.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/side.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/side.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/manager/builder.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/manager/builder.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/manager/economy.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/manager/economy.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/manager/factory.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/manager/factory.as"
       },
       {
          "Platform":null,
-         "VersionNumber":1170,
+         "VersionNumber":1171,
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/AI/Skirmish/1051344CircuitTest64/stable/script/manager/military.as",
          "TargetPath":"AI/Skirmish/1051344CircuitTest64/stable/script/manager/military.as"
       },

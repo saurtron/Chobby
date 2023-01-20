@@ -104,6 +104,12 @@
 		},
 		"factorygunship": {
 			"hub": [[{"unit": "staticcon", "category": "nano", "offset": {"front": 150}}]]
+		},
+		"striderhub": {
+			"pylon": true,
+			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}}
+			]]
 		}
 	},
 	"mex": {
@@ -115,7 +121,9 @@
 	},
 	"big_gun": {
 		"staticheavyarty": {
+			"pylon": true,
 			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}},
 					{"unit": "staticradar", "category": "radar", "offset": {"back": 40}},
 					{"unit": "turretaafar", "category": "defence", "offset": {"left": 120}, "condition": "air"},
 					{"unit": "turretlaser", "category": "defence", "offset": [-80, 80]},
@@ -128,7 +136,9 @@
 				]]
 		},
 		"raveparty": {
+			"pylon": true,
 			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}},
 					{"unit": "energypylon", "category": "defence", "offset": [250, -250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, 250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, -250]},
@@ -147,7 +157,9 @@
 				]]
 		},
 		"mahlazer": {
+			"pylon": true,
 			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}},
 					{"unit": "energypylon", "category": "defence", "offset": [250, -250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, 250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, -250]},
@@ -165,7 +177,9 @@
 				]]
 		},
 		"zenith": {
+			"pylon": true,
 			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}},
 					{"unit": "energypylon", "category": "defence", "offset": [250, -250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, 250]},
 					{"unit": "energypylon", "category": "defence", "offset": [-250, -250]},
@@ -229,7 +243,6 @@
 				]]
 		},
 		"turretaaheavy": {
-			"pylon": true,
 			"hub": [
 					[
 					{"unit": "staticradar", "category": "radar", "offset": {"back": 40}},
