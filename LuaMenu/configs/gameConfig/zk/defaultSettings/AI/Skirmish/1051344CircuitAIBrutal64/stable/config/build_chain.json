@@ -135,6 +135,12 @@
 					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
 				]]
 		},
+		"staticarty": {
+			"pylon": true,
+			"hub": [[
+					{"unit": "energypylon", "category": "pylon", "offset": {"back": 350}}
+				]]
+		},
 		"raveparty": {
 			"pylon": true,
 			"hub": [[
