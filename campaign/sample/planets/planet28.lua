@@ -2186,6 +2186,12 @@ local function GetPlanet(planetUtilities, planetID)
 							z = 5056,
 							facing = 3,
 						},
+						{
+							name = "energypylon",
+							x = 7271,
+							z = 5280,
+							facing = 3,
+						},
  						{
 							name = "jumpcon",
 							x = 4708,

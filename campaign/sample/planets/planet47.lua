@@ -2388,6 +2388,12 @@ local function GetPlanet(planetUtilities, planetID)
 							facing = 2,
 						},
 						{
+							name = "energypylon",
+							x = 444,
+							z = 6728,
+							facing = 3,
+						},
+						{
 							name = "turretriot",
 							x = 700,
 							z = 6688,

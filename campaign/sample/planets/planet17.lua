@@ -748,6 +748,30 @@ local function GetPlanet(planetUtilities, planetID)
 							difficultyAtLeast = 3,
 						},
 						{
+							name = "energypylon",
+							x = 7580,
+							z = 7454,
+							facing = 3,
+						},
+						{
+							name = "energypylon",
+							x = 8260,
+							z = 7120,
+							facing = 3,
+						},
+						{
+							name = "energypylon",
+							x = 7200,
+							z = 7730,
+							facing = 3,
+						},
+						{
+							name = "energypylon",
+							x = 6920,
+							z = 8190,
+							facing = 3,
+						},
+						{
 							name = "striderdante",
 							x = 7470,
 							z = 7640,
