@@ -3452,6 +3452,12 @@ local function GetPlanet(planetUtilities, planetID)
 							z = 448,
 							facing = 0,
 						},
+						{
+							name = "energypylon",
+							x = 1500,
+							z = 170,
+							facing = 3,
+						},
  						{
 							name = "staticmex",
 							x = 2008,

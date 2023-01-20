@@ -819,6 +819,18 @@ local function GetPlanet(planetUtilities, planetID)
 								{cmdID = planetUtilities.COMMAND.PATROL, pos = {4695, 5079}, options = {"shift"}},
 							},
 						},
+						{
+							name = "energypylon",
+							x = 5020,
+							z = 5420,
+							facing = 3,
+						},
+						{
+							name = "energypylon",
+							x = 5620,
+							z = 5844,
+							facing = 3,
+						},
  						{
 							name = "staticcon",
 							x = 4824,

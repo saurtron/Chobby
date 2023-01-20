@@ -377,7 +377,7 @@ local function GetPlanet(planetUtilities, planetID)
 						facing = 2,
 					},
  					{
-						name = "striderhub",
+						name = "striderhub", -- Intentionally not powered
 						x = 7056,
 						z = 6016,
 						facing = 2,
@@ -385,6 +385,12 @@ local function GetPlanet(planetUtilities, planetID)
 							{cmdID = planetUtilities.COMMAND.PATROL, pos = {7056, 6016}},
 							{cmdID = planetUtilities.COMMAND.PATROL, pos = {7031, 5991}, options = {"shift"}},
 						},
+					},
+					{
+						name = "energypylon",
+						x = 7850,
+						z = 6374,
+						facing = 3,
 					},
  					{
 						name = "staticcon",

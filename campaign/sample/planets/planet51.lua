@@ -906,10 +906,12 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 1584,
 							z = 4736,
 							facing = 1,
-							commands = {
-								{cmdID = planetUtilities.COMMAND.PATROL, pos = {1584, 4736}},
-								{cmdID = planetUtilities.COMMAND.PATROL, pos = {1609, 4711}, options = {"shift"}},
-							},
+						},
+						{
+							name = "energypylon",
+							x = 1218,
+							z = 4670,
+							facing = 3,
 						},
  						{
 							name = "staticmex",
