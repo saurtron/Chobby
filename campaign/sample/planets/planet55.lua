@@ -44,7 +44,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/striderfunnelweb.png",
-				text = [[Funnelweb support striders are armed with a flock of drones and a strong area shield. A single Funnelweb is fairly easy to kill, but in large numbers they are almost impervious to conventional attacks.]]
+				text = [[Funnelweb support striders have high build rate and a strong area shield. A single Funnelweb is fairly easy to kill, but in large numbers they are almost impervious to conventional attacks.]]
 			},
 		},
 		gameConfig = {
