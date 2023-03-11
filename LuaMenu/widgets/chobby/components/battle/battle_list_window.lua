@@ -612,8 +612,14 @@ function BattleListWindow:CompareItems(id1, id2)
 		if not (battle1 and battle2) then
 			return false
 		end
+		if battle1.passworded ~= battle2.passworded then
+			return battle2.passworded
+		end
 		if battle1.isMatchMaker ~= battle2.isMatchMaker then
 			return battle2.isMatchMaker
+		end
+		if (lobby:GetBattlePlayerCount(battle1.battleID) == 0) ~= (lobby:GetBattlePlayerCount(battle2.battleID) == 0) then
+			return (lobby:GetBattlePlayerCount(battle2.battleID) == 0)
 		end
 		if battle1.isRunning ~= battle2.isRunning then
 			return battle2.isRunning

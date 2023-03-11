@@ -119,11 +119,12 @@ function ListWindow:Clear()
 	self.listPanel:ClearChildren()
 	self.scrollChildren = 0
 	self.itemNames = {}
+	self.itemForceToColumFunc = {}
 	self.itemPanelMapping = {}
 	self.orderPanelMapping = {}
 end
 
-function ListWindow:AddRow(items, id)
+function ListWindow:AddRow(items, id, forceToColumnFunc)
 	if self.itemPanelMapping[id] then
 		--Spring.Log("Chobby", LOG.ERROR, "Tried to add duplicate list window item", id)
 		return
@@ -136,6 +137,7 @@ function ListWindow:AddRow(items, id)
 	end
 
 	self.itemNames[id] = itemNames
+	self.itemForceToColumFunc[id] = forceToColumnFunc
 
 	local container = Control:New {
 		name = "container",
@@ -200,7 +202,7 @@ function ListWindow:CalulatePosition(index)
 end
 
 function ListWindow:RecalculatePosition(index)
-	local x,y,width,height = self:CalulatePosition(index)
+	local x, y, width, height = self:CalulatePosition(index)
 
 	local child = self.orderPanelMapping[index]
 
@@ -303,5 +305,6 @@ function ListWindow:RemoveRow(id)
 	self.listPanel:RemoveChild(panel)
 	self.scrollChildren = self.scrollChildren - 1
 	self.itemNames[id] = nil
+	self.itemForceToColumFunc[id] = nil
 	self.itemPanelMapping[id] = nil
 end
