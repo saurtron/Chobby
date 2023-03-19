@@ -39,15 +39,15 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/empmissile.png",
-				text = [[Shockley missiles deliver a massive amount of EMP damage in a small radius, and are not affected by shields. Use this to disable the most important part of your opponent's defenses just before you attack.]]
+				text = [[The Shockley emp missile deliver a massive amount of EMP damage in a small radius, and is not affected by shields. Use this to disable the most important part of your opponent's defenses just before you attack.]]
 			},
 			{
 				image = "unitpics/napalmmissile.png",
-				text = [[Inferno missiles create fire in a large radius, which inflicts damage over time. This is very useful for destroying low-HP economic buildings like Wind Generators and Caretakers, or preventing production from a Factory.]]
+				text = [[The Inferno naplam missile create fire in a large radius, which inflicts damage over time. This is very useful for destroying low-HP economic buildings like Wind Generators and Caretakers, or preventing production from a Factory.]]
 			},
 			{
 				image = "unitpics/missileslow.png",
-				text = [[Zeno missiles deal a large amount of slow damage to a single target, then leave lingering slow in a large area. Use them to ward small units away from an area, or to slow a large single target. Their homing allowed them to hit striders.]]
+				text = [[The Zeno slow missile deals high slow damage to a single target. It is effective against mobile targets, such as striders, due to its ability to home. After impact, it leaves lingering slow damage in a large area, which dissuades armies of smaller units.]]
 			},
 			{
 				image = "unitpics/seismic.png",
