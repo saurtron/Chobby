@@ -46,6 +46,10 @@ local function GetPlanet(planetUtilities, planetID)
 				text = [[Inferno missiles create fire in a large radius, which inflicts damage over time. This is very useful for destroying low-HP economic buildings like Wind Generators and Caretakers, or preventing production from a Factory.]]
 			},
 			{
+				image = "unitpics/missileslow.png",
+				text = [[Zeno missiles deal a large amount of slow damage to a single target, then leave lingering slow in a large area. Use them to ward small units away from an area, or to slow a large single target. Their homing allowed them to hit striders.]]
+			},
+			{
 				image = "unitpics/seismic.png",
 				text = [[The Quake seismic missile's main purpose is reducing terraformed walls so that other missiles can strike their targets. It can also be used to smooth other difficult terrain.]]
 			},
@@ -65,6 +69,7 @@ local function GetPlanet(planetUtilities, planetID)
 					"staticmissilesilo",
 					"tacnuke",
 					"napalmmissile",
+					"missileslow",
 					"empmissile",
 					"seismic",
 				},
@@ -3127,6 +3132,7 @@ local function GetPlanet(planetUtilities, planetID)
 				"staticmissilesilo",
 				"tacnuke",
 				"napalmmissile",
+				"missileslow",
 				"empmissile",
 				"seismic",
 			},
