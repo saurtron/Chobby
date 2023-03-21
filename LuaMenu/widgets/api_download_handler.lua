@@ -202,7 +202,7 @@ end
 -- Externals Functions
 
 function externalFunctions.HasReplay(name)
-	local replays = VFS.DirList("demos")
+	local replays = VFS.DirList("demos") -- Please improve on this method.
 	if not (string.find(name, "demos/") or string.find(name, "demos\\")) then
 		name = "demos/" .. name
 	end
