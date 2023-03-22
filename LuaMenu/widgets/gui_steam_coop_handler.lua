@@ -413,8 +413,9 @@ function SteamCoopHandler.AttemptGameStart(gameType, gameName, mapName, scriptTa
 					return
 				end
 				local engine = string.gsub(string.gsub(string.gsub(startEngineVersion, " BAR105", ""), " maintenance", ""), " develop", "")
+				local StartDemoName = startReplayFile:gsub("demos/", ""):gsub("demos\\", "")
 				local params = {
-					StartDemoName = string.sub(startReplayFile, 7),
+					StartDemoName = StartDemoName,
 					Engine = engine,
 					SpringSettings = WG.SettingsWindow.GetSettingsString(),
 				}
