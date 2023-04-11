@@ -157,7 +157,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		if mapItem then
 			tbMapInfo:SetText(mapItem.Width .. "x" .. mapItem.Height .. " " .. mapItem.MapType)
 		else
-			tbMapInfo:SetText("<No details>")
+			tbMapInfo:SetText("")
 		end
 		local length = tbMapName.font:GetTextWidth(mapName)
 		imMapLink:SetPos(length + 5)
