@@ -33,12 +33,38 @@ local function ToMapType(mapItem)
 	return "Special"
 end
 
+local function ToTerrainType(mapItem)
+	if mapItem.WaterLevel == 3 then
+		return "Sea"
+	end
+	local first
+	if mapItem.Hills == 1 then
+		first = "Flat "
+	elseif mapItem.Hills == 2 then
+		first = "Hilly "
+	else
+		first = "Mountainous "
+	end
+	local second
+	if mapItem.WaterLevel == 1 then
+		second = "land"
+	else
+		second = "mixed"
+	end
+
+	return first .. second
+end
+
 local function InitMapItems()
 	if not mapItems then
-		mapItems = WG.CommunityWindow and WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}
-		for i = 1, #mapItems do
-			mapItems[i].MapType = ToMapType(mapItems[i])
+		mapItems = {}
+		for _, v in pairs(WG.CommunityWindow and WG.CommunityWindow.LoadStaticCommunityData().MapItems or {}) do
+			local mapItem = table.deepcopy(v)
+			mapItem.MapType = ToMapType(mapItem)
+			mapItem.TerrainType = ToTerrainType(mapItem)
+			mapItems[#mapItems+1] = mapItem
 		end
+		table.sort(mapItems, function(l, r) return l.Name:upper() < r.Name:upper() end)
 	end
 end
 
