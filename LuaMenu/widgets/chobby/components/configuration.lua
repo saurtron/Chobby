@@ -516,6 +516,11 @@ function Configuration:SetConfigData(data)
 		end
 	end
 	
+	if (self.lobbySettingsVersion or 0) < 1 then
+		self.settingsMenuValues.InterfaceScale = nil -- Reset the setting
+	end
+	self.lobbySettingsVersion = 1
+	
 	if (self.settingsVersion or 0) < settingsVersion then
 		for key, value in pairs(onlyIfOutdated) do
 			self.game_settings[key] = value
@@ -619,6 +624,7 @@ function Configuration:GetConfigData()
 		steamReleasePopupSeen = self.steamReleasePopupSeen,
 		campaignConfigName = self.campaignConfigName,
 		settingsVersion = self.settingsVersion,
+		lobbySettingsVersion = self.lobbySettingsVersion,
 	}
 end
 
