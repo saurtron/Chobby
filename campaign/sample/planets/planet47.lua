@@ -2521,7 +2521,7 @@ local function GetPlanet(planetUtilities, planetID)
 					vitalUnitTypes = {
 						"striderhub",
 						--"striderscorpion",
-						"stridercatapult",
+						"striderarty",
 					},
 					loseAfterSeconds = false,
 					allyTeamLossObjectiveID = 1,
