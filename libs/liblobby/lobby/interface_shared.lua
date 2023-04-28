@@ -94,8 +94,12 @@ function Interface:ProcessBuffer()
 	self.bufferExecutionPos = self.bufferExecutionPos + 1
 	local command = self.commandBuffer[self.bufferExecutionPos]
 	if not self.commandBuffer[self.bufferExecutionPos + 1] then
+		-- Reset buffer pointers because external widgets read (self.commandsInBuffer > 0)
+		-- to set self.bufferCommandsEnabled.
 		self:CommandReceived(command)
 		self.commandBuffer = false
+		self.commandsInBuffer = 0
+		self.bufferExecutionPos = 0
 		return false
 	end
 	self:CommandReceived(command)
