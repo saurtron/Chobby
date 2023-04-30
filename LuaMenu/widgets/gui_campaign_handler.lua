@@ -746,12 +746,191 @@ local function ProcessPlanetResign(planetID, battleFrames)
 	WG.Analytics.SendIndexedRepeatEvent("campaign:planet_" .. planetID .. ":difficulty_" .. WG.CampaignData.GetDifficultySetting() .. ":lose", math.floor(battleFrames/30), ":resign")
 end
 
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-- Briefing Window (Debug Only)
+
+local function GetNewTextHandler(parentControl, paragraphSpacing, imageSize)
+	local offset = 0
+	
+	local holder = Chili.Control:New{
+		x = 0,
+		y = 0,
+		right = 0,
+		padding = {0,0,0,0},
+		parent = parentControl,
+	}
+	
+	local externalFunctions = {}
+	
+	function externalFunctions.AddEntry(textBody, imageFile)
+		local textPos = 4
+		if imageFile then
+			textPos = imageSize + 10
+			
+			local image = Chili.Image:New{
+				x = 4,
+				y = offset,
+				width = imageSize,
+				height = imageSize,
+				keepAspect = true,
+				file = imageFile,
+				parent = holder
+			}
+			local label = Chili.TextBox:New{
+				x = 0,
+				y = 0,
+				right = 4,
+				height = textSpacing,
+				align = "left",
+				valign = "top",
+				text = "\0\0\0\0" .. imageFile,
+				fontsize = 12,
+				parent = image,
+			}
+		end
+		
+		local label = Chili.TextBox:New{
+			x = textPos,
+			y = offset + 6,
+			right = 4,
+			height = textSpacing,
+			align = "left",
+			valign = "top",
+			text = textBody,
+			fontsize = 16, -- The ingame font is not the same as chobby, so size is different
+			parent = holder,
+		}
+		
+		local offsetSize = (#label.physicalLines)*14 + 2
+		if imageFile and (offsetSize < imageSize) then
+			offsetSize = imageSize
+		end
+		
+		offset = offset + offsetSize + paragraphSpacing
+		holder:SetPos(nil, nil, nil, offset - paragraphSpacing/2)
+		return offset
+	end
+	
+	return externalFunctions
+end
+
+local function InitializeBriefingWindow(planetInformation)
+	local BRIEF_WIDTH = 720
+	local BRIEF_HEIGHT = 680
+	
+	local SCROLL_POS = 70
+	local SCROLL_HEIGHT = 170
+	local DEFAULT_SCROLL_SIZE = 320
+	
+	local wantUnpause = true
+	
+	local externalFunctions = {}
+	
+	local screenWidth, screenHeight = Spring.GetViewGeometry()
+	
+	local briefingWindow = Chili.Window:New{
+		classname = "main_window",
+		name = 'mission_galaxy_brief',
+		x = math.floor((screenWidth - BRIEF_WIDTH)/2),
+		y = math.max(50, math.floor((screenHeight - BRIEF_HEIGHT)/2.5)),
+		width = BRIEF_WIDTH,
+		height = BRIEF_HEIGHT,
+		minWidth = BRIEF_WIDTH,
+		minHeight = BRIEF_HEIGHT,
+		dockable = false,
+		draggable = false,
+		resizable = false,
+		tweakDraggable = true,
+		tweakResizable = true,
+		parent = Chili.Screen0,
+	}
+	briefingWindow:BringToFront()
+	
+	Chili.Label:New{
+		x = 0,
+		y = 12,
+		width = briefingWindow.width - (briefingWindow.padding[2] + briefingWindow.padding[4]),
+		height = 26,
+		fontsize = 44,
+		align = "center",
+		caption = "Planet " .. planetInformation.name,
+		parent = briefingWindow,
+	}
+	
+	local mainHolder = Chili.ScrollPanel:New{
+		x = "4%",
+		y = SCROLL_POS,
+		width = "44%",
+		height = SCROLL_HEIGHT,
+		horizontalScrollbar = false,
+		parent = briefingWindow,
+	}
+	
+	local bonusHolder
+	if bonusObjectiveBlock then
+		bonusHolder = Chili.ScrollPanel:New{
+			right = "4%",
+			y = SCROLL_POS,
+			width = "44%",
+			height = SCROLL_HEIGHT,
+			horizontalScrollbar = false,
+			parent = briefingWindow,
+		}
+	end
+	
+	local textScroll = Chili.ScrollPanel:New{
+		x = "4%",
+		y = SCROLL_POS + SCROLL_HEIGHT + 22,
+		right = "4%",
+		bottom = 80,
+		horizontalScrollbar = false,
+		parent = briefingWindow,
+	}
+	local planetTextHandler = GetNewTextHandler(textScroll, 22, 64)
+	local textSize = planetTextHandler.AddEntry(planetInformation.infoDisplay.extendedText)
+	
+	if planetInformation.tips then
+		local tips = tipsOverride or planetInformation.tips
+		for i = 1, #tips do
+			textSize = planetTextHandler.AddEntry(tips[i].text, tips[i].image)
+		end
+	end
+	
+	local totalSize = math.min(math.floor(screenHeight*0.90), (BRIEF_HEIGHT + math.max(0, textSize - DEFAULT_SCROLL_SIZE)))
+	local finalPosition = math.max(50, math.floor((screenHeight - totalSize)/2.5))
+	briefingWindow:SetPos(nil, finalPosition, nil, totalSize)
+	
+	function externalFunctions.Close()
+		briefingWindow:Dispose()
+	end
+
+	Chili.Button:New{
+		x = "38%",
+		right = "38%",
+		bottom = 10,
+		height = 60,
+		caption = "Continue",
+		fontsize = 26,
+		OnClick = {
+			function ()
+				externalFunctions.Close()
+			end
+		},
+		parent = briefingWindow
+	}
+	
+	return externalFunctions
+end
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- TODO: use shader animation to ease info panel in
 
 local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, startable)
 	local Configuration = WG.Chobby.Configuration
+	local debugBriefWindow = Configuration.debugMode and InitializeBriefingWindow(planetData)
 
 	WG.Chobby.interfaceRoot.GetRightPanelHandler().CloseTabs()
 	WG.Chobby.interfaceRoot.GetMainWindowHandler().CloseTabs()
@@ -957,6 +1136,10 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 
 	-- close button
 	local function CloseFunc()
+		if debugBriefWindow then
+			debugBriefWindow.Close()
+			debugBriefWindow = false
+		end
 		if starmapInfoPanel then
 			starmapInfoPanel:Dispose()
 			starmapInfoPanel = nil
@@ -978,7 +1161,6 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		},
 		parent = buttonHolder,
 	}
-
 
 	WG.Chobby.interfaceRoot.SetBackgroundCloseListener(CloseFunc)
 
@@ -1292,12 +1474,31 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 	if (not LIVE_TESTING) and Configuration.debugMode then
 		local number = Label:New {
 			x = 3,
-			y = 3,
+			y = 0,
 			right = 6,
-			bottom = 6,
 			align = "center",
-			valign = "center",
+			valign = "top",
 			caption = planetID,
+			fontsize = 8,
+			objectOverrideFont = Configuration:GetFont(3),
+			parent = image,
+		}
+		
+		local allies = 1 -- The player
+		for i = 1, #planetData.gameConfig.aiConfig do
+			if planetData.gameConfig.aiConfig[i].allyTeam == 0 then
+				allies = allies + 1
+			end
+		end
+		local enemies = #planetData.gameConfig.aiConfig - allies + 1
+		local teamSizes = Label:New {
+			x = 3,
+			y = 20,
+			right = 6,
+			align = "center",
+			valign = "top",
+			caption = allies .. "v" .. enemies,
+			fontsize = 8,
 			objectOverrideFont = Configuration:GetFont(3),
 			parent = image,
 		}
