@@ -43,12 +43,12 @@ local function GetPlanet(planetUtilities, planetID)
 				text = [[Badgers are very good for grinding down your opposition. They fire mines which can make a region practically impassable for the enemy. They are almost defenseless unless you plan ahead with some well placed mines, so make sure they don't get flanked. Press F to force your Badgers to fire at a given location.]]
 			},
 			{
-				image = "unitpics/module_dmg_booster.png",
-				text = [[The water on this planet is acidic. Don't move your Commander into it.]]
-			},
-			{
 				image = "unitpics/spidercrabe.png",
 				text = [[Your ally's Spiders can climb up sheer cliffs, so there are some parts of the battlefield which they will be better at fighting over. The heavy Crab spider in particular is a potent fighting force even when alone.]]
+			},
+			{
+				image = "unitpics/module_dmg_booster.png",
+				text = [[The water on this planet is acidic. Don't move your Commander into it.]]
 			},
 		},
 		gameConfig = {

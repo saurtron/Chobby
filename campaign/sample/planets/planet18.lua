@@ -32,16 +32,12 @@ local function GetPlanet(planetUtilities, planetID)
 			,
 			extendedText = "Simple automated defenses are usually easily overcome, if only I didn't have to compress most of my construction blueprints to make room for terrain manipulation technology. I really, really hope I can revert that compression later."
 			.. "\n "
-			.. "\nI will have to use terraforming (at a 50% discount) to clog up or bypass the defenses surrounding the Interception Network, so I can jam hostile units and make my escape."
+			.. "\nI will have to use advanced terraforming (at a 50% discount, and not blocked by nearby enemies) to clog up or bypass the defenses surrounding the Interception Network, so I can jam hostile units and make my escape."
 		},
 		tips = {
 			{
 				image = "LuaUI/Images/commands/level.png",
 				text = [[Every constructor is a powerful terraformer with access to five commands: Ramp, Level, Raise, Restore and Smooth. Read the tooltips and experiment with the commands as each has quite a few modifers and options. Consult the online manual for more details.]]
-			},
-			{
-				image = "LuaUI/Images/commands/ramp.png",
-				text = [[In this mission only, your terraforming tools are half cost and are not affected by nearby enemy units and structures. Feel free to experiment.]]
 			},
 			{
 				image = "unitpics/shieldscout.png",

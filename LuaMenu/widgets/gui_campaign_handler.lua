@@ -13,6 +13,9 @@ function widget:GetInfo()
 	}
 end
 
+local DEBUG_SHOW_ALLY = false
+local DEBUG_SHOW_INGAME_BRIEF = false
+
 local GALAXY_IMAGE = LUA_DIRNAME .. "images/heic1403aDowngrade.jpg"
 local IMAGE_BOUNDS = {
 	x = 810/4000,
@@ -930,7 +933,7 @@ end
 
 local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, startable)
 	local Configuration = WG.Chobby.Configuration
-	local debugBriefWindow = Configuration.debugMode and InitializeBriefingWindow(planetData)
+	local debugBriefWindow = DEBUG_SHOW_INGAME_BRIEF and Configuration.debugMode and InitializeBriefingWindow(planetData)
 
 	WG.Chobby.interfaceRoot.GetRightPanelHandler().CloseTabs()
 	WG.Chobby.interfaceRoot.GetMainWindowHandler().CloseTabs()
@@ -1474,7 +1477,7 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 	if (not LIVE_TESTING) and Configuration.debugMode then
 		local number = Label:New {
 			x = 3,
-			y = 0,
+			y = 8,
 			right = 6,
 			align = "center",
 			valign = "top",
@@ -1484,24 +1487,26 @@ local function GetPlanet(popupOverlay, planetListHolder, planetID, planetData, a
 			parent = image,
 		}
 		
-		local allies = 1 -- The player
-		for i = 1, #planetData.gameConfig.aiConfig do
-			if planetData.gameConfig.aiConfig[i].allyTeam == 0 then
-				allies = allies + 1
+		if DEBUG_SHOW_ALLY then
+			local allies = 1 -- The player
+			for i = 1, #planetData.gameConfig.aiConfig do
+				if planetData.gameConfig.aiConfig[i].allyTeam == 0 then
+					allies = allies + 1
+				end
 			end
+			local enemies = #planetData.gameConfig.aiConfig - allies + 1
+			local teamSizes = Label:New {
+				x = 3,
+				y = 20,
+				right = 6,
+				align = "center",
+				valign = "top",
+				caption = allies .. "v" .. enemies,
+				fontsize = 8,
+				objectOverrideFont = Configuration:GetFont(3),
+				parent = image,
+			}
 		end
-		local enemies = #planetData.gameConfig.aiConfig - allies + 1
-		local teamSizes = Label:New {
-			x = 3,
-			y = 20,
-			right = 6,
-			align = "center",
-			valign = "top",
-			caption = allies .. "v" .. enemies,
-			fontsize = 8,
-			objectOverrideFont = Configuration:GetFont(3),
-			parent = image,
-		}
 	end
 
 	local function UpdateSize(sizeScale)

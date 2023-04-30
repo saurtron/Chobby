@@ -41,7 +41,15 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/gunshipkrow.png",
-				text = [[Make sure your own units are well out of the way when you use the manual fire weapon of the Krow (default hotkey D). Its massive barrage of Cluster Bombs do not distinguish between friend and foe.]]
+				text = [[Krow is designed to hurl itself at the enemy, destroy everything around it, then retreat for repairs before a response arrives. Invest in constructors, such as Wasp or Caretakers, to reduce downtime. Strike a good balance between fighting and survival to amass an overwhelming force without losing the mainland.]]
+			},
+			{
+				image = "LuaUI/Images/Commands/Bold/bomb.png",
+				text = [[Make sure your own units are well out of the way when you use the manual fire weapon of the Krow (default hotkey D). Its massive barrage of Cluster Bombs deals heavy damage directly below itself, and does not distinguish between friend and foe.]]
+			},
+			{
+				image = "LuaUI/Images/Commands/Bold/retreat.png",
+				text = [[Units can be told to retreat to a preset zone when damaged. Place zones with the reatreat icon in the top left and tell units when to retreat via the retreat state (right size of the command panel). Automatic retreat lacks finesse, so is best used for swarms of Tridents rather than individual Krows.]]
 			},
 		},
 		gameConfig = {
