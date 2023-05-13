@@ -315,12 +315,12 @@ local function GetPlanet(planetUtilities, planetID)
 						"amphbomb",
 						"amphaa",
 						"striderhub",
-						"striderarty",
+						"striderdante",
 					},
 					commander = false,
 					midgameUnits = {
 						{
-							name = "striderarty",
+							name = "striderdante",
 							x = 400,
 							z = 3500,
 							facing = 0,

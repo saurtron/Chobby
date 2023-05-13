@@ -303,7 +303,6 @@ local function GetPlanet(planetUtilities, planetID)
 						"tankriot",
 						"striderhub",
 						"striderdante",
-						"striderarty",
 						"factoryplane",
 						"planecon",
 						"planescout",
@@ -688,7 +687,7 @@ local function GetPlanet(planetUtilities, planetID)
 							facing = 1,
 						},
  						{
-							name = "striderarty",
+							name = "striderdante",
 							x = 864,
 							z = 2720,
 							facing = 0,
@@ -984,7 +983,6 @@ local function GetPlanet(planetUtilities, planetID)
 						"spideraa",
 						"striderhub",
 						"striderdante",
-						"striderarty",
 					},
 					commander = false,
 					startUnits = {
@@ -1275,7 +1273,7 @@ local function GetPlanet(planetUtilities, planetID)
 							facing = 1,
 						},
  						{
-							name = "striderarty",
+							name = "striderdante",
 							x = 1232,
 							z = 6016,
 							facing = 0,
@@ -1540,7 +1538,7 @@ local function GetPlanet(planetUtilities, planetID)
 							facing = 1,
 						},
  						{
-							name = "striderarty",
+							name = "striderdante",
 							x = 2922,
 							z = 4680,
 							facing = 2,
