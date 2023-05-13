@@ -13,7 +13,7 @@ local circuitDifficulties = {
 local circuitDifficultiesAlly = {
 	"CircuitAINormal",
 	"CircuitAIHard",
-	"CircuitAIBrutal",
+	"CircuitAIHard",
 	"CircuitAIBrutal",
 }
 
