@@ -125,7 +125,7 @@ local settingsConfig = {
 			{
 				name = "Lowest",
 				settings = {
-					WaterType = "Reflective",
+					WaterType = "Bumpmapped",
 					WaterQuality = "Low",
 					DeferredRendering = "Off",
 					UnitReflections = "Low",
