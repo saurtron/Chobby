@@ -73,7 +73,7 @@ local function GetPlanet(planetUtilities, planetID)
 						terraformHeight = 247,
 						difficultyAtLeast = 1,
 						difficultyAtMost = 1,
-						buildProgress = 0.68,
+						buildProgress = 0.6667,
 					},
 					{
 						name = "raveparty",
@@ -83,7 +83,7 @@ local function GetPlanet(planetUtilities, planetID)
 						terraformHeight = 247,
 						difficultyAtLeast = 2,
 						difficultyAtMost = 2,
-						buildProgress = 0.59,
+						buildProgress = 0.5714,
 					},
 					{
 						name = "raveparty",
@@ -93,7 +93,7 @@ local function GetPlanet(planetUtilities, planetID)
 						terraformHeight = 247,
 						difficultyAtLeast = 3,
 						difficultyAtMost = 3,
-						buildProgress = 0.5,
+						buildProgress = 0.476,
 					},
 					{
 						name = "raveparty",
@@ -103,7 +103,7 @@ local function GetPlanet(planetUtilities, planetID)
 						terraformHeight = 247,
 						difficultyAtLeast = 4,
 						difficultyAtMost = 4,
-						buildProgress = 0.41,
+						buildProgress = 0.381,
 					},
 					-- {
 						-- name = "staticantinuke",
