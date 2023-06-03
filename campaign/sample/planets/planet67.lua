@@ -38,7 +38,7 @@ local function GetPlanet(planetUtilities, planetID)
 		tips = {
 			{
 				image = "unitpics/raveparty.png",
-				text = [[The Disco Rave Party cannon fires a colourful variety of projectiles into enemy armies and bases. Like all superweapons it is unsubtle, but the DRP makes up for it with style.]]
+				text = [[The Disco Rave Party fires a colourful variety of projectiles into enemy armies and bases. It takes some time to get going, spinning faster as it fires and slowing down as it turns. Like all superweapons it is unsubtle, but the DRP makes up for it with style.]]
 			},
 			{
 				image = "unitpics/staticantinuke.png",
@@ -67,43 +67,43 @@ local function GetPlanet(planetUtilities, planetID)
 				startUnits = {
 					{
 						name = "raveparty",
-						x = 6312,
-						z = 1912,
+						x = 6226,
+						z = 2004,
 						facing = 0,
 						terraformHeight = 247,
 						difficultyAtLeast = 1,
 						difficultyAtMost = 1,
-						buildProgress = 0.65,
+						buildProgress = 0.68,
 					},
 					{
 						name = "raveparty",
-						x = 6312,
-						z = 1912,
+						x = 6226,
+						z = 2004,
 						facing = 0,
 						terraformHeight = 247,
 						difficultyAtLeast = 2,
 						difficultyAtMost = 2,
-						buildProgress = 0.55,
+						buildProgress = 0.59,
 					},
 					{
 						name = "raveparty",
-						x = 6312,
-						z = 1912,
+						x = 6226,
+						z = 2004,
 						facing = 0,
 						terraformHeight = 247,
 						difficultyAtLeast = 3,
 						difficultyAtMost = 3,
-						buildProgress = 0.45,
+						buildProgress = 0.5,
 					},
 					{
 						name = "raveparty",
-						x = 6312,
-						z = 1912,
+						x = 6226,
+						z = 2004,
 						facing = 0,
 						terraformHeight = 247,
 						difficultyAtLeast = 4,
 						difficultyAtMost = 4,
-						buildProgress = 0.35,
+						buildProgress = 0.41,
 					},
 					-- {
 						-- name = "staticantinuke",
