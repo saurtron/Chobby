@@ -57,10 +57,9 @@ function widget:Update()
 		return
 	end
 
+	lobby.bufferCommandsEnabled = false
 	local repetitions = 1
-	local startTime = Spring.GetTimer()
-	while Spring.DiffTimers(Spring.GetTimer(), startTime) < 0.05 and repetitions <= CMD_PER_UPDATE and lobby:ProcessBuffer() do
+	while repetitions <= CMD_PER_UPDATE and lobby:ProcessBuffer() do
 		repetitions = repetitions + 1
 	end
-	lobby.bufferCommandsEnabled = lobby.commandsInBuffer and (lobby.commandsInBuffer > 0)
 end
