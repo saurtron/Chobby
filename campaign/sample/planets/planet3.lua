@@ -39,7 +39,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/cloakbomb.png",
-				text = [[Imp EMP bombs will stun any nearby units when they explode. They are mostly a defensive tool, and don't kill anything themselves, so make sure you have other units like Reavers to finish the job.]]
+				text = [[Imp EMP bombs stun nearby units when they explode. They are invisible while stationary so place them in areas the enemy is likely to pass through. They don't kill anything themselves, so make sure you have other units like Reavers to finish the job.]]
 			},
 			{
 				image = "unitpics/vehraid.png",
