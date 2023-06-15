@@ -272,22 +272,6 @@ function BattleListWindow:UpdateInfoPanel()
 end
 
 function BattleListWindow:MakeWatchBattle(battleID, battle)
-	local function RejoinBattleFunc()
-		if not VFS.HasArchive(battle.mapName) then
-			WG.Chobby.InformationPopup("Map download required. Wait for the download to complete and try again.")
-			WG.DownloadHandler.MaybeDownloadArchive(battle.mapName, "map", -1)
-			return
-		end
-
-		if not VFS.HasArchive(battle.gameName) then
-			WG.Chobby.InformationPopup("Game update required. Wait for the download to complete or restart the game.")
-			WG.DownloadHandler.MaybeDownloadArchive(battle.gameName, "game", -1)
-			return
-		end
-
-		lobby:RejoinBattle(battleID)
-	end
-
 	local height = self.itemHeight - 20
 	local parentButton = Button:New {
 		classname = "button_rounded",
@@ -298,9 +282,14 @@ function BattleListWindow:MakeWatchBattle(battleID, battle)
 		height = self.itemHeight,
 		caption = "",
 		OnClick = {
-			function()
+			function(obj, mx, my, mouseButton)
+				if mouseButton == 3 then
+					local items = {"Watch Battle"}
+					BattleListWindow:MakeJoinWatchOptionPopup(obj, battleID, battle, items, mx, my, mouseButton)
+					return
+				end
 				if Spring.GetGameName() == "" then
-					RejoinBattleFunc()
+					self:TryToWatchBattle(battleID, battle)
 				else
 					WG.Chobby.ConfirmationPopup(RejoinBattleFunc, "Are you sure you want to leave your current game to watch/rejoin this one?", nil, 315, 200)
 				end
@@ -398,8 +387,78 @@ function BattleListWindow:MakeWatchBattle(battleID, battle)
 	return parentButton
 end
 
-function BattleListWindow:MakeJoinBattle(battleID, battle)
+function BattleListWindow:TryToWatchBattle(battleID, battle)
+	if not VFS.HasArchive(battle.mapName) then
+		WG.Chobby.InformationPopup("Map download required. Wait for the download to complete and try again.")
+		WG.DownloadHandler.MaybeDownloadArchive(battle.mapName, "map", -1)
+		return
+	end
 
+	if not VFS.HasArchive(battle.gameName) then
+		WG.Chobby.InformationPopup("Game update required. Wait for the download to complete or restart the game.")
+		WG.DownloadHandler.MaybeDownloadArchive(battle.gameName, "game", -1)
+		return
+	end
+
+	lobby:RejoinBattle(battleID)
+end
+
+function BattleListWindow:TryToJoinBattle(battleID, battle)
+	local myBattleID = lobby:GetMyBattleID()
+	if myBattleID then
+		if battleID == myBattleID then
+			-- Do not rejoin current battle
+			local battleTab = WG.Chobby.interfaceRoot.GetBattleStatusWindowHandler()
+			battleTab.OpenTabByName("myBattle")
+			return
+		end
+		if not Configuration.confirmation_battleFromBattle then
+			local myBattle = lobby:GetBattle(myBattleID)
+			if not WG.Chobby.Configuration.showMatchMakerBattles and myBattle and not myBattle.isMatchMaker then
+				local function Success()
+					self:JoinBattle(battle)
+				end
+				ConfirmationPopup(Success, "Are you sure you want to leave your current battle and join a new one?", "confirmation_battleFromBattle")
+				return
+			end
+		end
+	end
+	self:JoinBattle(battle)
+end
+
+function BattleListWindow:MakeJoinWatchOptionPopup(parentButton, battleID, battle, items, mx, my, mouseButton)
+	local optionMenu = ComboBox:New {
+		x = 0,
+		bottom = 0,
+		width = 150,
+		height = 60,
+		padding = {0, 0, 0, 0},
+		caption = "",
+		ignoreItemCaption = true,
+		selectByName = true,
+		objectOverrideFont = Configuration:GetFont(2),
+		itemHeight = 30,
+		selected = 0,
+		maxDropDownWidth = large and 220 or 150,
+		minDropDownHeight = 0,
+		maxDropDownHeight = 300,
+		parent = parentButton,
+		items = items,
+		OnSelectName = {
+			function (obj, selectedName)
+				if selectedName == "Join Room" then
+					self:TryToJoinBattle(battleID, battle)
+				elseif selectedName == "Watch Battle" then
+					self:TryToWatchBattle(battleID, battle)
+				end
+			end
+		}
+	}
+	optionMenu:MouseDown(mx, my, mouseButton)
+	screen0:FocusControl(optionMenu)
+end
+
+function BattleListWindow:MakeJoinBattle(battleID, battle)
 	local height = self.itemHeight - 20
 	local parentButton = Button:New {
 		classname = "button_rounded",
@@ -410,27 +469,13 @@ function BattleListWindow:MakeJoinBattle(battleID, battle)
 		height = self.itemHeight,
 		caption = "",
 		OnClick = {
-			function()
-				local myBattleID = lobby:GetMyBattleID()
-				if myBattleID then
-					if battleID == myBattleID then
-						-- Do not rejoin current battle
-						local battleTab = WG.Chobby.interfaceRoot.GetBattleStatusWindowHandler()
-						battleTab.OpenTabByName("myBattle")
-						return
-					end
-					if not Configuration.confirmation_battleFromBattle then
-						local myBattle = lobby:GetBattle(myBattleID)
-						if not WG.Chobby.Configuration.showMatchMakerBattles and myBattle and not myBattle.isMatchMaker then
-							local function Success()
-								self:JoinBattle(battle)
-							end
-							ConfirmationPopup(Success, "Are you sure you want to leave your current battle and join a new one?", "confirmation_battleFromBattle")
-							return
-						end
-					end
+			function(obj, mx, my, mouseButton)
+				if mouseButton == 3 then
+					local items = (battle.isRunning and {"Join Room", "Watch Battle"}) or {"Join Room"}
+					BattleListWindow:MakeJoinWatchOptionPopup(obj, battleID, battle, items, mx, my, mouseButton)
+					return
 				end
-				self:JoinBattle(battle)
+				self:TryToJoinBattle(battleID, battle)
 			end
 		},
 		tooltip = "battle_tooltip_" .. battleID,
