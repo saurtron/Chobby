@@ -299,7 +299,9 @@ local function IsNewUserList(newUsers)
 		oldUsers = newUsers
 		return true
 	end
+	Spring.Echo("Checking users", #newUsers, #oldUsers)
 	for i = 1, math.max(#newUsers, #oldUsers) do
+		Spring.Echo(newUsers[i], oldUsers[i])
 		if newUsers[i] ~= oldUsers[i] then
 			oldUsers = newUsers
 			return true
