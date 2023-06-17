@@ -228,6 +228,7 @@ function Configuration:init()
 	self.onlyShowFeaturedMaps = true
 	self.showFullModList = false
 	self.simpleAiList2 = true
+	self.enableDebugBuffer = false
 	self.useSpringRestart = false
 	self.menuMusicVolume = 0.5
 	self.menuNotificationVolume = 0.8
@@ -663,6 +664,10 @@ end
 ---------------------------------------------------------------------------------
 -- Getters
 ---------------------------------------------------------------------------------
+
+function Configuration:IsLobbyVisible()
+	return WG.Chobby.interfaceRoot.GetLobbyInterfaceHolder().visible
+end
 
 function Configuration:GetServerAddress()
 	if self.ForceDefaultServer then

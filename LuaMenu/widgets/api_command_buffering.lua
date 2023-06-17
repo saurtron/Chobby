@@ -32,6 +32,7 @@ local bufferBypass = {
 	BattleRemoved = true,
 	BattlePoll = true,
 	BattlePollOutcome = true,
+	UpdateUserBattleStatus = true,
 }
 
 local CMD_PER_UPDATE = 14
@@ -48,7 +49,8 @@ end
 
 function widget:Update()
 	local lobby = WG.LibLobby.lobby
-	local isLobbyVisible = WG.Chobby.interfaceRoot.GetLobbyInterfaceHolder().visible
+	local Configuration = WG.Chobby.Configuration
+	local isLobbyVisible = Configuration:IsLobbyVisible() and not Configuration.enableDebugBuffer
 	if not isLobbyVisible then
 		if not lobby.bufferCommandsEnabled then
 			lobby.bufferBypass = bufferBypass
