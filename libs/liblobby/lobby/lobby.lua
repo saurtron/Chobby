@@ -906,6 +906,23 @@ function Lobby:_OnUpdateUserBattleStatus(userName, status)
 	if changedSpectator or changedAllyTeam then
 		--Spring.Echo("OnUpdateUserTeamStatus", changedAllyTeam, changedSpectator, "spectator", status.isSpectator, userData.isSpectator, "ally Team", status.allyNumber, userData.allyNumber)
 		self:_CallListeners("OnUpdateUserTeamStatus", userName, status.allyNumber, status.isSpectator)
+		
+		local battle = self.myBattleID and self.battles[self.myBattleID]
+		if battle then
+			local realPlayers, realSpectators = 0, 0
+			for i = 1, #battle.users do
+				if not (self.userBattleStatus[battle.users[i]] or {}).isSpectator then
+					realPlayers = realPlayers + 1
+				else
+					realSpectators = realSpectators + 1
+				end
+			end
+			
+			self:_OnUpdateBattleInfo(self.myBattleID, {
+				playerCount = realPlayers,
+				spectatorCount = realSpectators,
+			})
+		end
 	end
 end
 

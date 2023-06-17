@@ -218,6 +218,7 @@ local function GetBattleInfoHolder(parent, battleID)
 	end
 	lobby:AddListener("OnLeftBattle", PlayersUpdate)
 	lobby:AddListener("OnJoinedBattle", PlayersUpdate)
+	lobby:AddListener("UpdateBattleInfo", PlayersUpdate)
 
 	local function OnUpdateUserTeamStatus(listeners)
 		lblPlayers:SetCaption(playersPrefix .. lobby:GetBattlePlayerCount(battleID) .. "/" .. battle.maxPlayers)
