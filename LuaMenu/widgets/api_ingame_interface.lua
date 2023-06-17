@@ -325,7 +325,7 @@ local function PlayersUpdate(listeners, updatedBattleID)
 	--Spring.Echo(LOBBY_CHAT_UPDATE .. " Players waiting " .. (lobby:GetBattlePlayerCount(updatedBattleID) or "??") .. "/" .. (battle.maxPlayers or "??"))
 	if Spring.SendLuaUIMsg then
 		if battle.users and #battle.users > 0 then
-			Spring.SendLuaUIMsg(LOBBY_CHAT_UPDATE .. "Players waiting " .. newPlayerCount .. "/" .. (battle.maxPlayers or "??"))
+			Spring.SendLuaUIMsg(LOBBY_CHAT_UPDATE .. "Players waiting: " .. newPlayerCount .. "/" .. (battle.maxPlayers or "??"))
 			if IsNewUserList(battle.users) then
 				local userString = ""
 				for i = 1, (#battle.users) - 1 do
