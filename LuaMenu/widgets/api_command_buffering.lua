@@ -33,6 +33,7 @@ local bufferBypass = {
 	BattlePoll = true,
 	BattlePollOutcome = true,
 	UpdateUserBattleStatus = true,
+	User = true,
 }
 
 local CMD_PER_UPDATE = 14

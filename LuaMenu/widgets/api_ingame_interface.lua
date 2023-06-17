@@ -296,14 +296,12 @@ local oldUsers = false
 
 local function IsNewUserList(newUsers)
 	if not oldUsers then
-		oldUsers = newUsers
+		oldUsers = Spring.Utilities.ShallowCopy(newUsers)
 		return true
 	end
-	Spring.Echo("Checking users", #newUsers, #oldUsers)
 	for i = 1, math.max(#newUsers, #oldUsers) do
-		Spring.Echo(newUsers[i], oldUsers[i])
 		if newUsers[i] ~= oldUsers[i] then
-			oldUsers = newUsers
+			oldUsers = Spring.Utilities.ShallowCopy(newUsers)
 			return true
 		end
 	end
@@ -320,7 +318,8 @@ local function PlayersUpdate(listeners, updatedBattleID)
 	end
 	local battle = lobby:GetBattle(lobby:GetMyBattleID()) or {}
 	local newPlayerCount = (lobby:GetBattlePlayerCount(updatedBattleID) or "??")
-	if newPlayerCount == oldPlayerCount then
+	local haveNewUsers = IsNewUserList(battle.users)
+	if newPlayerCount == oldPlayerCount and not haveNewUsers then
 		return
 	end
 	oldPlayerCount = newPlayerCount
@@ -328,7 +327,7 @@ local function PlayersUpdate(listeners, updatedBattleID)
 	if Spring.SendLuaUIMsg then
 		if battle.users and #battle.users > 0 then
 			Spring.SendLuaUIMsg(LOBBY_CHAT_UPDATE .. "Players waiting: " .. newPlayerCount .. "/" .. (battle.maxPlayers or "??"))
-			if IsNewUserList(battle.users) then
+			if haveNewUsers then
 				local userString = ""
 				for i = 1, (#battle.users) - 1 do
 					userString = userString .. (battle.users[i] or "??") .. ", "
