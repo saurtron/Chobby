@@ -850,7 +850,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 				local maxPlayers = (battleLobby:GetBattle(battleID) and battleLobby:GetBattle(battleID).maxPlayers) or 300
 				local maxEvenPlayers = (battleLobby:GetBattle(battleID) and battleLobby:GetBattle(battleID).maxEvenPlayers) or 0
 				table.sort(teamStack.children, SortPlayers)
-				if (#teamStack.children)%2 == 1 and #teamStack.children < maxEvenPlayers then
+				if (#teamStack.children)%2 == 1 and #teamStack.children <= maxEvenPlayers then
 					maxPlayers = #teamStack.children - 1
 				end
 				local position = 1
