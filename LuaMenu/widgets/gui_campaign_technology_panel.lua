@@ -185,7 +185,7 @@ local function MakeRewardList(holder, name, rewardsList, tooltipFunction, Unlock
 	local externalFunctions = {}
 
 	function externalFunctions.ResizeFunction(xSize)
-		iconsAcross = math.floor((xSize - 16)/(REWARD_ICON_SIZE + 4))
+		iconsAcross = math.floor((xSize - 24)/(REWARD_ICON_SIZE + 4))
 		if GetPosition then
 			position = GetPosition()
 		end
