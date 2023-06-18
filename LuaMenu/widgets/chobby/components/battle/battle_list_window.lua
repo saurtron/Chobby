@@ -451,8 +451,14 @@ function BattleListWindow:MakeJoinWatchOptionPopup(parentButton, battleID, battl
 				elseif selectedName == "Watch Battle" then
 					self:TryToWatchBattle(battleID, battle)
 				end
+				obj:Dispose()
 			end
-		}
+		},
+		OnClose = {
+			function (obj)
+				obj:Dispose()
+			end
+		},
 	}
 	optionMenu:MouseDown(mx, my, mouseButton)
 	screen0:FocusControl(optionMenu)
