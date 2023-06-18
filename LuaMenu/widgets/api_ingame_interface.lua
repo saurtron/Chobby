@@ -19,6 +19,8 @@ end
 
 VFS.Include("libs/liblobby/lobby/json.lua")
 
+local SEND_USER_CHANGE_MESSAGE = false
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Externals Functions
@@ -318,7 +320,7 @@ local function PlayersUpdate(listeners, updatedBattleID)
 	end
 	local battle = lobby:GetBattle(lobby:GetMyBattleID()) or {}
 	local newPlayerCount = (lobby:GetBattlePlayerCount(updatedBattleID) or "??")
-	local haveNewUsers = IsNewUserList(battle.users)
+	local haveNewUsers = SEND_USER_CHANGE_MESSAGE and IsNewUserList(battle.users)
 	if newPlayerCount == oldPlayerCount and not haveNewUsers then
 		return
 	end
