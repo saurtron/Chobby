@@ -428,10 +428,10 @@ end
 
 function BattleListWindow:MakeJoinWatchOptionPopup(parentButton, battleID, battle, items, mx, my, mouseButton)
 	local optionMenu = ComboBox:New {
-		x = 0,
-		bottom = 0,
+		x = mx,
+		y = my - 20,
 		width = 150,
-		height = 60,
+		height = 20,
 		padding = {0, 0, 0, 0},
 		caption = "",
 		ignoreItemCaption = true,
@@ -460,6 +460,7 @@ function BattleListWindow:MakeJoinWatchOptionPopup(parentButton, battleID, battl
 			end
 		},
 	}
+	optionMenu:SetPos(mx, my - 20)
 	optionMenu:MouseDown(mx, my, mouseButton)
 	screen0:FocusControl(optionMenu)
 end
