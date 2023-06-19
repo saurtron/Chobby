@@ -44,7 +44,8 @@ end
 
 function FriendListWindow:OnAddUser(userName)
 	local userInfo = lobby:TryGetUser(userName)
-	if userInfo.isFriend and WG.Chobby.Configuration:AllowNotification(userName) then
+	local Conf = WG.Chobby.Configuration
+	if userInfo.isFriend and Conf:AllowNotification(userName) and (Conf.friendNotifyIngame or Conf:IsLobbyVisible()) then
 		local userControl = WG.UserHandler.GetNotificationUser(userName)
 		userControl:SetPos(30, 30, 250, 20)
 		Chotify:Post({
