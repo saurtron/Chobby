@@ -18,11 +18,19 @@ end
 -- Variables
 
 local bufferBypass = {
+	BattleDebriefing = true,
+	CustomGameModeResponse = true,
+	SetModOptions = true,
+	SetRectangle = true,
+	UserProfile = true,
+	RemoveBot = true,
+	UpdateBotStatus = true,
 	Welcome = true,
 	Ping = true,
 	AreYouReady = true,
 	AreYouReadyUpdate = true,
 	AreYouReadyResult = true,
+	MatchMakerSetup = true,
 	MatchMakerStatus = true,
 	MatchMakerQueueRequestFailed = true,
 	SiteToLobbyCommand = true,
@@ -34,6 +42,14 @@ local bufferBypass = {
 	BattlePollOutcome = true,
 	UpdateUserBattleStatus = true,
 	User = true,
+	JoinedBattle = true,
+	JoinBattleSuccess = true,
+	RejoinOption = true,
+	LeftBattle = true,
+	LoginResponse = true,
+	RegisterResponse = true,
+	DefaultGameChanged = true,
+	DefaultEngineChanged = true,
 }
 
 local CMD_PER_UPDATE = 14
