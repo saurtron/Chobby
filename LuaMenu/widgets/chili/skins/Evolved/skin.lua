@@ -448,6 +448,31 @@ skin.main_window = {
   DrawResizeGrip = DrawResizeGrip,
 }
 
+skin.main_window_large = {
+  TileImage = ":c:tech_mainwindow_darker.png",
+  tiles = {176, 64, 176, 64}, --// tile widths: left,top,right,bottom
+  padding = {5, 4, 5, 2},
+  hitpadding = {4, 4, 4, 4},
+
+  captionColor = {1, 1, 1, 0.45},
+  backgroundColor = {0.1, 0.1, 0.1, 0.9},
+
+  boxes = {
+    resize = {-21, -21, -10, -10},
+    drag = {0, 0, "100%", 10},
+  },
+
+  NCHitTest = NCHitTestWithPadding,
+  NCMouseDown = WindowNCMouseDown,
+  NCMouseDownPostChildren = WindowNCMouseDownPostChildren,
+  noClickThrough = true,
+
+  DrawControl = DrawWindow,
+  DrawDragGrip = function() end,
+  DrawResizeGrip = DrawResizeGrip,
+}
+
+
 skin.main_window_small = {
   TileImage = ":c:tech_mainwindow_small_darker.png",
   tiles = {76, 40, 76, 40}, --// tile widths: left,top,right,bottom

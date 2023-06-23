@@ -241,13 +241,12 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 		y = 0,
 		right = 0,
 		bottom = 0,
-		classname = "main_window",
+		classname = "main_window_large",
 		name = "rightPanel_window",
 		caption = "", -- Panel Window
 		parent = holder_rightPanel,
 		resizable = false,
 		draggable = false,
-		padding = {5, 4, 5, 2},
 		children = {}
 	}
 	rightPanel_window:Hide()
@@ -321,13 +320,12 @@ function GetInterfaceRoot(optionsParent, mainWindowParent, fontFunction)
 		y = 0,
 		right = 0,
 		bottom = 0,
-		classname = "main_window",
+		classname = "main_window_large",
 		name = "mainContent_window",
 		caption = "", -- Content Place
 		parent = mainWindow_mainContent,
 		resizable = false,
 		draggable = false,
-		padding = {5, 4, 5, 2},
 		children = {}
 	}
 	mainContent_window:Hide()
