@@ -367,6 +367,7 @@ local function HandleLobbySay(command, argumentsPos)
 		return
 	end
 	arguments = command:sub(argumentsPos + 1)
+	local Conf = WG.Chobby.Configuration
 	local success, cmdData = pcall(json.decode, arguments)
 	if not success then
 		Spring.Log(LOG_SECTION, LOG.ERROR, "Failed to parse JSON: " .. tostring(arguments))
@@ -393,6 +394,7 @@ local function OnCommandBuffered(_, cmdName, command, argumentsPos)
 	if not ShouldSendLobbyUpdatesIngame() then
 		return
 	end
+	local Conf = WG.Chobby.Configuration
 	if Conf.debugLobbyGameChat then
 		Spring.Echo("OnCommandBuffered")
 	end
