@@ -275,21 +275,37 @@ end
 -- Battle room chat
 
 local function ShouldSendLobbyUpdatesIngame()
-	if WG.Chobby.Configuration.enableDebugBuffer then
+	local Conf = WG.Chobby.Configuration
+	if Conf.enableDebugBuffer then
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("ShouldSendLobbyUpdatesIngame", "debug buffer")
+		end
 		return true
 	end
 	if Spring.GetGameName() == "" then
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("ShouldSendLobbyUpdatesIngame", "GameName")
+		end
 		return false
 	end
 	local lobby = WG.LibLobby.lobby
 	local myBattleID = lobby and lobby:GetMyBattleID()
 	if not myBattleID then
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("ShouldSendLobbyUpdatesIngame", "myBattleID")
+		end
 		return false
 	end
-	if WG.Chobby.Configuration:IsLobbyVisible() then
+	if Conf:IsLobbyVisible() then
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("ShouldSendLobbyUpdatesIngame", "lobbyVisible")
+		end
 		return false
 	end
 	local battleIngame = lobby:GetBattle(myBattleID) and lobby:GetBattle(myBattleID).isRunning
+	if Conf.debugLobbyGameChat then
+		Spring.Echo("ShouldSendLobbyUpdatesIngame", "battleIngame", battleIngame)
+	end
 	return not battleIngame
 end
 
@@ -354,9 +370,15 @@ local function HandleLobbySay(command, argumentsPos)
 	local success, cmdData = pcall(json.decode, arguments)
 	if not success then
 		Spring.Log(LOG_SECTION, LOG.ERROR, "Failed to parse JSON: " .. tostring(arguments))
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("HandleLobbySay", "json fail")
+		end
 		return false
 	end
 	if cmdData.Place ~= 1 then
+		if Conf.debugLobbyGameChat then
+			Spring.Echo("HandleLobbySay", "Place ~= 1")
+		end
 		return false -- Not battle text
 	end
 	--Spring.Echo(LOBBY_CHAT_UPDATE .. "<" .. (cmdData.User or "unknown") .. "> " .. (cmdData.Text or ""))
@@ -370,6 +392,9 @@ end
 local function OnCommandBuffered(_, cmdName, command, argumentsPos)
 	if not ShouldSendLobbyUpdatesIngame() then
 		return
+	end
+	if Conf.debugLobbyGameChat then
+		Spring.Echo("OnCommandBuffered")
 	end
 	if cmdName == "Say" then
 		HandleLobbySay(command, argumentsPos)

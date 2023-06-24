@@ -1097,6 +1097,7 @@ local function GetVoidTabControls()
 
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("debugMode"), "debugMode", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug server messages", "activeDebugConsole", false)
+	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug lobby to game chat", "debugLobbyGameChat", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug raw server messages", "debugRawMessages", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, "Debug auto win", "debugAutoWin", false)
 	children[#children + 1], offset = AddCheckboxSetting(offset, i18n("simple_ai_list"), "simpleAiList2", true)

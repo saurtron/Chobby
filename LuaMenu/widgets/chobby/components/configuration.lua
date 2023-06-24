@@ -226,6 +226,7 @@ function Configuration:init()
 	self.campaignSpawnDebug = false
 	self.editCampaign = false
 	self.activeDebugConsole = false
+	self.debugLobbyGameChat = false
 	self.onlyShowFeaturedMaps = true
 	self.showFullModList = false
 	self.simpleAiList2 = true
@@ -592,6 +593,7 @@ function Configuration:GetConfigData()
 		queue_wide = self.queue_wide,
 		loadLocalWidgets = self.loadLocalWidgets,
 		activeDebugConsole = self.activeDebugConsole,
+		debugLobbyGameChat = self.debugLobbyGameChat,
 		onlyShowFeaturedMaps = self.onlyShowFeaturedMaps,
 		showFullModList = self.showFullModList,
 		simpleAiList2 = self.simpleAiList2,
