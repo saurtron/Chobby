@@ -816,6 +816,9 @@ function Lobby:_OnLeftBattle(battleID, userName)
 	end
 
 	self.users[userName].battleID = nil
+	if battleID and battleID == self.myBattleID then
+		self:UpdateMyBattlePlayerCount()
+	end
 	self:_CallListeners("OnUpdateUserStatus", userName, {battleID = false})
 
 	self:_CallListeners("OnLeftBattle", battleID, userName)
@@ -863,6 +866,25 @@ function Lobby:_OnUpdateBattleInfo(battleID, battleInfo)
 	self:_CallListeners("OnUpdateBattleInfo", battleID, battleInfo)
 end
 
+function Lobby:UpdateMyBattlePlayerCount()
+	local battle = self.myBattleID and self.battles[self.myBattleID]
+	if battle then
+		local realPlayers, realSpectators = 0, 0
+		for i = 1, #battle.users do
+			if not (self.userBattleStatus[battle.users[i]] or {}).isSpectator then
+				realPlayers = realPlayers + 1
+			else
+				realSpectators = realSpectators + 1
+			end
+		end
+		
+		self:_OnUpdateBattleInfo(self.myBattleID, {
+			playerCount = realPlayers,
+			spectatorCount = realSpectators,
+		})
+	end
+end
+
 -- Updates the specified status keys
 -- Status keys can be: isAway, isInGame, isModerator, rank, isBot, aiLib
 -- Bots have isBot=true, AIs have aiLib~=nil and humans are the remaining
@@ -891,6 +913,11 @@ function Lobby:_OnUpdateUserBattleStatus(userName, status)
 	userData.joinTime   = status.joinTime or userData.JoinTime
 	userData.queueOrder = status.queueOrder or userData.queueOrder
 
+	if changedSpectator or changedAllyTeam then
+		self:UpdateMyBattlePlayerCount()
+		self:_CallListeners("OnUpdateUserTeamStatus", userName, status.allyNumber, status.isSpectator)
+	end
+
 	status.allyNumber   = userData.allyNumber
 	status.teamNumber   = userData.teamNumber
 	status.isSpectator  = userData.isSpectator
@@ -903,27 +930,6 @@ function Lobby:_OnUpdateUserBattleStatus(userName, status)
 	status.queueOrder   = userData.queueOrder
 	self:_CallListeners("OnUpdateUserBattleStatus", userName, status)
 
-	if changedSpectator or changedAllyTeam then
-		--Spring.Echo("OnUpdateUserTeamStatus", changedAllyTeam, changedSpectator, "spectator", status.isSpectator, userData.isSpectator, "ally Team", status.allyNumber, userData.allyNumber)
-		self:_CallListeners("OnUpdateUserTeamStatus", userName, status.allyNumber, status.isSpectator)
-		
-		local battle = self.myBattleID and self.battles[self.myBattleID]
-		if battle then
-			local realPlayers, realSpectators = 0, 0
-			for i = 1, #battle.users do
-				if not (self.userBattleStatus[battle.users[i]] or {}).isSpectator then
-					realPlayers = realPlayers + 1
-				else
-					realSpectators = realSpectators + 1
-				end
-			end
-			
-			self:_OnUpdateBattleInfo(self.myBattleID, {
-				playerCount = realPlayers,
-				spectatorCount = realSpectators,
-			})
-		end
-	end
 end
 
 -- Also calls the OnUpdateUserBattleStatus
