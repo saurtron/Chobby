@@ -240,18 +240,18 @@ local function GetTutorialControl()
 		height = 35,
 		lineSpacing = 1,
 		objectOverrideFont = Configuration:GetFont(2),
-		text = [[Start with the campaign for a smooth introduction to Zero-K.  Click 'Play the Tutorial' to begin.  Play co-op by inviting friends with the Steam friends list and launching a mission.]],
+		text = [[The campaign is a great place to begin as it starts with a tutorial that sets you up to conquer the entire galaxy.  Play co-op with friends by inviting them via the Steam friends list before launching a mission.]],
 		parent = holder,
 	}
 
 	TextBox:New {
 		x = 8,
 		right = 8,
-		y = 158,
+		y = 260,
 		height = 35,
 		lineSpacing = 1,
 		objectOverrideFont = Configuration:GetFont(2),
-		text = [[Under 'Multiplayer' you'll find a list of game lobbies and matchmaker populated by our friendly community.  Join the Discord to say 'hi' or for help if you run into trouble.]],
+		text = [[Under 'Multiplayer' you'll find a list of game lobbies and matchmaker populated by our friendly community.  Join the Discord to say 'hi', or for help if you run into trouble.]],
 		parent = holder,
 	}
 
@@ -263,13 +263,13 @@ local function GetTutorialControl()
 		end
 	end
 
-	local offset = 242
+	local offset = 158
 	Button:New {
 		x = "18%",
 		y = offset,
 		right = "18%",
 		height = 70,
-		caption = "Play the Tutorial",
+		caption = "Play the Campaign",
 		objectOverrideFont = Configuration:GetButtonFont(4),
 		classname = "action_button",
 		padding = {2,4,4,4},

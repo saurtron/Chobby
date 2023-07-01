@@ -2228,7 +2228,7 @@ function BattleRoomWindow.GetSingleplayerControl(setupData)
 					battleLobby:AddAi(singleplayerDefault.enemyAI .. " (1)", singleplayerDefault.enemyAI, 1)
 				end
 				
-				if singleplayerDefault.modoptions then
+				if singleplayerDefault and singleplayerDefault.modoptions then
 					battleLobby:SetModOptions(singleplayerDefault.modoptions)
 				end
 			end
