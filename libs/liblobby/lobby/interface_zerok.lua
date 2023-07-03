@@ -850,7 +850,7 @@ function Interface:_LoginResponse(data)
 	if data.ResultCode == 0 then
 		self:_OnAccepted(data.Name)
 	else
-		self:_OnDenied(loginResponseCodes[data.ResultCode] or "Reason error " .. tostring(data.ResultCode))
+		self:_OnDenied(loginResponseCodes[data.ResultCode] or "Reason error " .. tostring(data.ResultCode), data.BanReason)
 	end
 end
 Interface.jsonCommands["LoginResponse"] = Interface._LoginResponse

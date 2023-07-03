@@ -474,8 +474,8 @@ function Lobby:_OnAccepted(newName)
 	self:_CallListeners("OnAccepted")
 end
 
-function Lobby:_OnDenied(reason)
-	self:_CallListeners("OnDenied", reason)
+function Lobby:_OnDenied(reason, extendedReason)
+	self:_CallListeners("OnDenied", reason, extendedReason)
 end
 
 -- TODO: rework, should be only one callin

@@ -160,11 +160,17 @@ local function InitializeListeners()
 		end
 	end
 
-	local function OnLoginDenied(listener, err)
+	local function OnLoginDenied(listener, err, extendedReason)
 		WG.Analytics.SendErrorEvent(err or "unknown")
+
 		lobby:Disconnect()
 		if currentLoginWindow and not registerRecieved then
-			currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. (err or "Denied, unknown reason"))
+			if err == "Banned" and extendedReason then
+				currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. "Banned - End time is in UTC. " .. extendedReason)
+				currentLoginWindow:ResizeWindow()
+			else
+				currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. (err or "Denied, unknown reason"))
+			end
 		end
 
 		if Configuration.steamLinkComplete and Configuration.canAuthenticateWithSteam and Configuration.wantAuthenticateWithSteam then

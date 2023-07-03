@@ -425,6 +425,15 @@ function LoginWindow:tryLogin()
 	self.loginAttempts = self.loginAttempts + 1
 end
 
+function LoginWindow:ResizeWindow()
+	local linePos = self.txtError:GetPhysicalLinePosition(1, true)
+	
+	self.cbAutoLogin:SetPos(nil, self.windowHeight + linePos - 180)
+	self.btnLogin:SetPos(nil,    self.windowHeight + linePos - 143) -- Disappears for some reason to do with tab panel.
+	self.btnRegister:SetPos(nil, self.windowHeight + linePos - 143) -- Disappears for some reason to do with tab panel.
+	self.btnCancel:SetPos(nil,   self.windowHeight + linePos - 143)
+end
+
 function LoginWindow:tryRegister()
 	if self.ebPassword.text ~= self.ebConfirmPassword.text then
 		self.txtError:SetText(Configuration:GetErrorColor() .. "Passwords do not match.")

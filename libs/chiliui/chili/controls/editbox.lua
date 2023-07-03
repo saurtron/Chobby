@@ -222,7 +222,14 @@ function EditBox:_SetSelection(selStart, selStartY, selEnd, selEndY)
 	end
 end
 
-function EditBox:GetPhysicalLinePosition(distanceFromBottom)
+function EditBox:GetPhysicalLinePosition(distanceFromBottom, usePhysical)
+	if usePhysical then
+		local lineID = #self.physicalLines - distanceFromBottom + 1
+		if lineID and self.physicalLines[lineID] then
+			return self.physicalLines[lineID].y
+		end
+		return 0
+	end
 	local lineID = #self.lines - distanceFromBottom + 1
 	if lineID < 1 then
 		return 0
