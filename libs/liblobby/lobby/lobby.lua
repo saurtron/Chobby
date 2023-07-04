@@ -915,7 +915,7 @@ function Lobby:_OnUpdateUserBattleStatus(userName, status)
 
 	if changedSpectator or changedAllyTeam then
 		self:UpdateMyBattlePlayerCount()
-		self:_CallListeners("OnUpdateUserTeamStatus", userName, status.allyNumber, status.isSpectator)
+		self:_CallListeners("OnUpdateUserTeamStatus", userName, userData.allyNumber, userData.isSpectator)
 	end
 
 	status.allyNumber   = userData.allyNumber

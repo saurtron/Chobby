@@ -440,6 +440,7 @@ function InterfaceSkirmish:SetBattleState(myUserName, gameName, mapName, title)
 		mapName = mapName,
 		title = title,
 	})
+	self:_OnUpdateUserBattleStatus(myUserName, {allyNumber = 0})
 	self:_OnJoinBattle(myBattleID, myUserName)
 	self:_OnJoinedBattle(myBattleID, myUserName)
 	local modoptions = {}
@@ -479,6 +480,9 @@ end
 
 function InterfaceSkirmish:SetBattleStatus(status)
 	self:super("SetBattleStatus", status)
+	if status.isSpectator == false and not status.allyTeam then
+		status.allyNumber = 0
+	end
 	self:_OnUpdateUserBattleStatus(self:GetMyUserName(), status)
 	return self
 end
