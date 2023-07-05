@@ -291,7 +291,6 @@ function Configuration:init()
 	end
 
 	self.AtiIntelSettingsOverride = {
-		Water = 1,
 		AdvSky = 0,
 		UsePBO = 0,
 	}

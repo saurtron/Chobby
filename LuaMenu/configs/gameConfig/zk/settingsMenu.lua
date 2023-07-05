@@ -96,7 +96,7 @@ local settingsConfig = {
 			{
 				name = "Compat.",
 				settings = {
-					WaterType = "Basic",
+					WaterType_2 = "Basic",
 					WaterQuality = "Low",
 					DeferredRendering = "Off",
 					UnitReflections = "Off",
@@ -125,7 +125,7 @@ local settingsConfig = {
 			{
 				name = "Lowest",
 				settings = {
-					WaterType = "Bumpmapped",
+					WaterType_2 = "Bumpmapped",
 					WaterQuality = "Low",
 					DeferredRendering = "Off",
 					UnitReflections = "Low",
@@ -154,7 +154,7 @@ local settingsConfig = {
 			{
 				name = "Low",
 				settings = {
-					WaterType = "Bumpmapped",
+					WaterType_2 = "Bumpmapped",
 					WaterQuality = "Low",
 					DeferredRendering = "Off",
 					UnitReflections = "Low",
@@ -183,7 +183,7 @@ local settingsConfig = {
 			{
 				name = "Medium",
 				settings = {
-					WaterType = "Bumpmapped",
+					WaterType_2 = "Bumpmapped",
 					WaterQuality = "Medium",
 					DeferredRendering = "On",
 					UnitReflections = "Medium",
@@ -212,7 +212,7 @@ local settingsConfig = {
 			{
 				name = "High",
 				settings = {
-					WaterType = "Bumpmapped",
+					WaterType_2 = "Bumpmapped",
 					WaterQuality = "High",
 					DeferredRendering = "On",
 					UnitReflections = "Medium",
@@ -241,7 +241,7 @@ local settingsConfig = {
 			{
 				name = "Ultra",
 				settings = {
-					WaterType = "Bumpmapped",
+					WaterType_2 = "Bumpmapped",
 					WaterQuality = "Ultra",
 					DeferredRendering = "On",
 					UnitReflections = "Ultra",
@@ -891,7 +891,7 @@ local settingsConfig = {
 			},
 
 			{
-				name = "WaterType",
+				name = "WaterType_2",
 				humanName = "Water Type",
 				options = {
 					{
@@ -1354,7 +1354,7 @@ local settingsConfig = {
 }
 
 local settingsDefault = {
-	WaterType = "Bumpmapped",
+	WaterType_2 = "Bumpmapped",
 	WaterQuality = "Medium",
 	DeferredRendering = "On",
 	UnitReflections = "Medium",
