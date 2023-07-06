@@ -40,14 +40,14 @@
 		"solar": {
 			"type": ["circle", "engy_low"],
 			"ignore": ["mex", "engy_mid", "engy_high", "def_low", "pylon", "nano"],
-			"radius": 8.5
+			"radius": 7
 		},
 		"wind": {
 			"type": ["circle", "engy_low"],
 			// Integer radius of a blocker or description string.
 			// Available string values: explosion, expl_ally
 //			"radius": "explosion",  // default: "explosion"
-			"radius": 5,
+			"radius": 4,
 			"not_ignore": ["factory", "engy_low", "terra"]
 		},
 		"fusion": {
@@ -61,11 +61,11 @@
 		},
 		"pylon": {
 			"type": ["circle", "pylon"],
-			"not_ignore": ["factory", "pylon", "terra"]  // default: ["all"]
+			"not_ignore": ["factory", "engy_low", "pylon", "terra"]  // default: ["all"]
 		},
 		"store": {
 			"type": ["rectangle", "mex"],
-			"not_ignore": ["factory", "terra"]
+			"not_ignore": ["factory", "engy_low", "terra"]
 		},
 		"mex": {
 			"type": ["rectangle", "mex"],
@@ -74,7 +74,7 @@
 		"def_low": {
 			"type": ["circle", "def_low"],
 			"radius": 15,  // 128 / (SQUARE_SIZE * 2)
-			"ignore": ["engy_mid", "engy_high", "engy_low", "pylon", "nano"]
+			"ignore": ["engy_mid", "engy_high", "pylon", "nano"]
 		},
 		"caretaker": {
 			"type": ["rectangle", "nano"],

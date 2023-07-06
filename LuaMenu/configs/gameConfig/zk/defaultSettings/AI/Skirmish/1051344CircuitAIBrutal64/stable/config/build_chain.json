@@ -104,6 +104,9 @@
 		},
 		"factorygunship": {
 			"hub": [[{"unit": "staticcon", "category": "nano", "offset": {"front": 150}}]]
+		},
+		"striderhub": {
+			"pylon": true
 		}
 	},
 	"mex": {
@@ -217,15 +220,6 @@
 					{"unit": "staticstorage", "category": "defence", "offset": [-10, -10]},
 					{"unit": "turretemp", "category": "defence", "offset": {"right": 60}},
 					{"unit": "turretmissile", "category": "defence", "offset": [-80, -80]}
-				]]
-		},
-		"energypylon": {
-			"hub": [[
-					{"unit": "turretmissile", "category": "radar", "offset": {"back": 100}},
-					{"unit": "turretmissile", "category": "defence", "offset": [-80, 80]},
-					{"unit": "turretmissile", "category": "defence", "offset": {"left": 100}},
-					{"unit": "turretmissile", "category": "defence", "offset": {"back": -100}},
-					{"unit": "turretmissile", "category": "defence", "offset": [80, 80]}
 				]]
 		},
 		"turretaaheavy": {
