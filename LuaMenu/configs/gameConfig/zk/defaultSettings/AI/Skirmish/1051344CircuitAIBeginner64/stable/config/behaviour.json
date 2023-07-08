@@ -1090,9 +1090,6 @@
 	"chicken_digger": {
 		"role": ["riot"]
 	},
-	"chicken_digger_b": {
-		"role": ["riot"]
-	},
 	"chicken_dodo": {
 		"role": ["mine"]
 	},
@@ -1110,9 +1107,6 @@
 		"role": ["raider"]
 	},
 	"chicken_listener": {
-		"role": ["static"]
-	},
-	"chicken_listener_b": {
 		"role": ["static"]
 	},
 	"chicken_pigeon": {
