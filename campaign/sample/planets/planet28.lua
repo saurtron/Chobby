@@ -30,7 +30,7 @@ local function GetPlanet(planetUtilities, planetID)
 			.. "\n "
 			.. "\nWhatever it is, I will have to find a way past those two armies."
 			,
-			extendedText = "I managed to trick those two armies to fight each-other thanks to an IFF glitch, but they are bringing heavy units and striders into play. I will need the Halberd armoured assault hovercraft and Lance anti-heavy artillery to cross the battlefield and reach that Artefact."
+			extendedText = "I managed to trick those two armies to fight each-other thanks to an IFF glitch, but they are bringing heavy units and striders into play. I will need the Halberd armoured assault hovercraft and Lance anti-heavy artillery to cross the battlefield and reach that Emitter."
 		},
 		tips = {
 			{
@@ -2274,14 +2274,14 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			neutralUnits = {
 				{
-					name = "pw_artefact",
+					name = "pw_relay",
 					x = 144,
 					z = 8080,
 					facing = 0,
 					invincible = true,
 					ignoredByAI = true,
 					mapMarker = {
-						text = "Artefact",
+						text = "Emitter",
 						color = "green"
 					},
 				},
@@ -2311,7 +2311,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			objectiveConfig = {
 				[1] = {
-					description = "Bring your Commander to the Artefact",
+					description = "Bring your Commander to the Emitter",
 				},
 				[2] = {
 					description = "Protect your Commander",

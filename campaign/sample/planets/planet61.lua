@@ -4587,26 +4587,26 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			neutralUnits = {
 				{
-					name = "pw_artefact",
+					name = "pw_wormhole",
 					x = 7408,
 					z = 6072,
 					facing = 0,
 					invincible = true,
 					ignoredByAI = true,
 					mapMarker = {
-						text = "Artefact",
+						text = "Wormhole Generator",
 						color = "red"
 					},
 				},
 				{
-					name = "pw_artefact",
+					name = "pw_wormhole",
 					x = 7230,
 					z = 2450,
 					facing = 0,
 					invincible = true,
 					ignoredByAI = true,
 					mapMarker = {
-						text = "Artefact",
+						text = "Wormhole Generator",
 						color = "red"
 					},
 				},
@@ -4627,7 +4627,7 @@ local function GetPlanet(planetUtilities, planetID)
 			objectiveConfig = {
 				-- This is just related to displaying objectives on the UI.
 				[1] = {
-					description = "Destroy the Sunlances protecting both artefacts",
+					description = "Destroy the Sunlances protecting both wormhole generators",
 				},
 				[2] = {
 					description = "Protect your Commander",
