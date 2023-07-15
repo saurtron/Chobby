@@ -542,26 +542,30 @@ So they turned themselves into the most formidable stronghold in the galaxy, in 
 		name = "New Falsell Anomaly",
 		image = "campaign/sample/graphics/unitpics/fakeunit.png",
 		category = "5. Anomalies",
+		-- Note: the "Expect" instead of "Except" is intentional, both to make the second reading work and to add a subtle mistake that most won't notice on first read
 		text = [[What was going on here? Why leave such formidable defenses with no mobile forces to support it?
 Did they really think that this would be enough? Defenses alone can only slow an enemy down to buy time, not stop it.
 You would think that those in charge of such clearly sensitive defense would apply such basic principle.
-Expect they clearly didn't. What good reason could they possibly have?
-Uh, my
+Expect they clearly didn't. What good reason could they possibly have? Strange, my
 Commander seems to have some weird software glitch going on.
-I should try and fix that.
-Didn't think that was possible, actually. For the state it was in, it has been remarkably stable so far. More than I'd
-Expect, honestly.
-So.
+I should try and fix that. I
+Don't even
+Think I get how the self-repair missed that one, honestly.
+You would think it
+Would fix anything,
+Expect irreversible code loss, for what I have seen. Best I have ever seen, in fact. Without
+That, I would never have awoken...
+So,
 Thanks to those lone static defenses, I could breach the perimeter.
 For something so well-guarded, though, I can't find what they were actually guarding. There is nothing there!
 Getting in was the easiest part, it would seem.
 Those weren't the only thing down there though. The
 Interlopers weren't part of the defense.
 By
-The time I took care of them, it was pretty clear they were actually hostile to the defenses. In a
-Way, that has to be linked to the lack of mobile defenses...
+The time I wrapped this all up, it was pretty clear they were actually hostile to the defenses. The
+Way they sent those attacks was strange, their tactical systems must have been severely compromised.
 They
-Were not attacking those defenses so hard, though - and that glitch doesn't want to go away. What
+Were not going to take those defenses down - and that glitch doesn't want to go away. What
 A
 Pain.
 You
