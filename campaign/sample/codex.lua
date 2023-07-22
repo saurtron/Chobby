@@ -202,9 +202,10 @@ Chicken have existed for at least as long as the early days of the human galacti
  
 Inter-colony skirmishes have been observed, often limited to underground tunnel fighting and nowhere near with the level of violence seen against humans, or with a Queen directly intervening. Similarly, while colonies don't always cooperate against humans, with some preferring to go dormant rather than fight, no skirmish has ever been observed on a conflict where a colony was engaged against humans. Long-range coordination of chicken forces also hint at sophisticated inter-colony communications, though by which mechanisms is unknown. Controversial evidence of interstellar communication have been presented, but has always been judged invalid or inconclusive.
  
-No successful attempts at communication with a colony been demonstrated, however such attempts tend to end in catastrophe, considerably limiting the number of subsequent attempts. This includes attempts at tacit understanding between settlers and local colonies for division of lands or resources. Conversely, no communication attempts from a colony have ever been recorded.
+No successful attempts at communication with a colony been demonstrated as far as anyone knows, however such attempts tend to end in catastrophe, considerably limiting the number of subsequent attempts. This includes attempts at tacit understanding between settlers and local colonies for division of lands or resources. Conversely, no communication attempts from a colony have ever been recorded.
  
 Contrasting with their sophistication in many other domains, their strangely primitive warfare tactics has puzzled many scientists. Through history, mentions have been made of contact being lost with entire worlds, with nothing but ruins being discovered afterwards, and no explanation about what had happened - some have hypothesized that it could be the result of chicken colonies attacking with their full potential and intelligence.]]
+		-- ed note: the absence of successful communication or tacit understanding with local Chicken hives may be what actually (never) happened, or successful examples may have been lost to time, or there may have been some motivated coverup at some point to hide successful cases
 	},
 	
 	-- Entries
