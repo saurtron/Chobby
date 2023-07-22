@@ -1,24 +1,3 @@
-Tankium
-"so, not sure this is the correct channel for this, but i got a deep lore question
-i have completed all the campaign missions, so i use spoilers for anyone who has not:
-A lot of the codex entreis mention something called the Mandate, but i havent found any info on what the Mandate actually is
-this seems like a very significant thing that has not been properly explained. They were the first to find the eternity gate. They fought the Anarchai to the end along with the Dynasty.  All i could piece together is they are some sort of faction.
-Oh, and speaking of the Anarchai, where did they actually originate? According to Rockbar codex they started off there as a small colony. I thought they turned up form some other galaxy. This whole Starsong thing makes this even stranger because how can a colony on one planet conquer the galaxy in such a short amount of time? And why would the Starsong signals give them such strength? Its like sending a (admittedly wierd) signal to some random town in the middle of the desert so they immediately obtain crazy technology and billions of troops so they conquer the globe. And what is a scattershape (apart from some spaceship)? 
-As for teh event, how can merely observing a part of teh Starsong signal itself trigger a massive Event? What is the Event? a giant energy wall that vanishes you? 
-What is the Starsong and why did it shut up? Why did they want to destroy the galaxy anyway? from all the way over there
-Also the new falsell artifact is scary what"
-
-ThornEel
-"About the Mandate, the idea was that they were one of the galaxy's great power at the end of the previous era, basically the equivalent of a PlanetWars faction if you want, alongside a few others like the Dynasty. Technologically it was the high point of human (and co) history, right before galactic civilisation(s) was brought down by the Anarchai. They aren't too detailed because as far as the main character is concerned, they are ancient (and probably not that well known) history with passing relevance to the described events. The Dynasty or the Anarchai have more importance, which is why they have their own entries.
-The Anarchai are indeed unrelated to Anarchid or are they. The name was inspired by the Archailects from Orion's Arm and share the Archai word as origin - both are god-like machine (or post-machine) intelligences with seemingly inscrutable goals. Their origin is free AI that studied the Starsong, which influenced them and presumably made them self-evolve into the Anarchai. The scattershapes are the Anarchai's equivalent to starships/war machines. I imagine something close to Inhibitor aggregates, if you have read Alastair Reynolds' novels (which I recommend to hard-SF fans). The idea is that they work in a completely different way from traditional spaceships or machines in general. That's also why they are using siege cluster instead of, say, space battleships. Note that they also didn't have billions of troops, nor anything that would resemble troops at all probably
-The Starsong itself was a signal originating from a distant galaxy, and what it was isn't clear, because both time someone tried to study it, despite the best precautions, it ended badly for everyone. Alas Fortunately it had long since ended broadcasting when the MC looked at it and all archives had been lost, avoiding maybe a third time.
-The Event was caused when Haven studied the Starsong, despite all their precautions, even after upgrading them taking the Anarchai emergence into account. What it is exactly is unknown to the MC, but "giant energy wall that vanishes you" (and block FTL trying to bypass it) is as good as any hypothesis. It is probably invisible to the naked eye or most instruments though, and seems to move at FTL itself, though it did slow down after the initial expansion and didn't grow as a sphere as one might have expected.
-Now this is where I used a cheap trick subtle writing method, which is don't explain everything. There are several reasons to that: The main character cannot find everything, only piece what is left together, but there will always be missing pieces. And explaining everything tends to "close" the story, making it feel smaller, more constrained, while leaving it open hints that there is a wider, more complex world out there instead of just a set-piece. And sometimes, leaving things hinted at to the imagination of the reader is more effective than anything you could have put into words.
-As for New Farsell, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty...  I did take some inspiration from an unsettling passage in the novel John Dies At The End (which I also recommend to any fans of fantastic/weird genre), with a slightly different form."
-
-
-
-
 ------ Commander-centric combat ------
 
 Commanders are the most famous weapon system in use by galactic militaries. Generally, the name refers to either the insertion unit or its pilot, though strictly speaking it refers to both as well as the support system, typically a carrier starship or a surface installation.
@@ -395,4 +374,20 @@ You can try if you want though, maybe you will find something that other missed,
 
 ThornEel:
 
+The name of Anarchai has nothing to do with fellow contributor Anarchid, this is actually a coincidence. The etymology is basically similar to Archailect from Orion’s Arm, both being from “Archai”. The two have other similarities such as being inscrutable godlike machines.
+The Anarchai themselves are inspired by the Inhibitors from some of Alastair Reynolds’ books such as Revelation Space and its sequels. The description of the scattershapes is inspired by the Inhibitors, who themselves are mostly aggregates of small black cubes that are well beyond anything like recognizable technology, and use weapons we can barely imagine.
 
+The Event was probably invisible to the naked eye and to most instruments, it is just something that happens basically instantly wherever it passes and vanishing people and stopping any hyperspace anything are the only things it appears to do.
+It also almost instantly started propagating faster than light, so you wouldn’t see it arriving, but there was also nothing to see by automated systems when and after it passed either, I would say.
+
+Both in the campaign and in this document, I have avoided explaining anything and left things in doubt, as this cheap trick I mean subtle writing method leaves room for mystery and the feeling that there is more to this world than just what is in the texts. 
+Also, leaving things hinted at can let the reader’s imagination work from that, and make something that is better than what could have been written in the first place.
+In addition, the main character (MC) is not in position to learn or discover everything, and there are things where MC won’t comment on either for varied reasons, so what we see in the mission and codex texts will also be incomplete by necessity. Hopefully this would also help make the player feel that there is more to this world than what we see. And to avoid hitting the player with immersion-breaking and/or boring infodump, as an aside.
+
+You will note that MC, beyond what we learn of the Demiurge project, is left entirely nondescript. This is by design.
+First, this is from MC’s point of view, with a narrative first person, and there is no-one else to interact with, so what we see is entirely outwards by nature.
+Yes, there is no other character because it would have been difficult to make work in the structure of the campaign, which was complete before the writing was started. I’ll just say that limitations breed art and leave it at that…
+Secondly, and this is an old trick in videogames for good reasons, this lets the player project themselves on MC, which helps immersion. You are not telling a character what to do next, you are doing the things the character is doing, discovering what they discover, and so on.
+
+Regarding the New Falsell anomaly, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty… So I took inspiration from that first impression.
+For the codex entry, I took inspiration from an unsettling passage in the novel John Dies At The End (which I let you discover if you haven’t read it, it’s a really good book if you like the fantastic/weird genre), with a slightly different form.
