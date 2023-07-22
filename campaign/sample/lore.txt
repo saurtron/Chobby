@@ -19,14 +19,65 @@ As for New Farsell, well, the first time I played that mission at the time, I ha
 
 
 
------- A brief history of the galaxy  ------
+------ Commander-centric combat ------
+
+Commanders are the most famous weapon system in use by galactic militaries. Generally, the name refers to either the insertion unit or its pilot, though strictly speaking it refers to both as well as the support system, typically a carrier starship or a surface installation.
+The support system includes the insertion method. The most common one is surface teleportation, though exoatmospheric teleportation followed by fast atmospheric insertion is also used.
+Other methods are not unheard of, but are generally special cases or, rarely, someone trying to be sneaky. This often gets Commanders destroyed, but the payoff can be big. In theory at least.
+
+It is generally impossible to heavily defend the entire surface of a planet. So there will always be remote spots where a Commander can be sent, and quickly build up an army.
+If no suitable spot can be found, or those who can be found are deemed inadequate, one can be created with heavy use of long-range fires to destroy thin local defenses and/or insertion jammers. However, this is typically extremely costly as it requires overwhelming enemy aerospace defenses, and as such is avoided when possible.
+
+Commander insertion can only be done with either an already established foothold on the target world, or with heavy warship support from space, or with a foothold on a nearby celestial body if one exists that is within teleportation range.
+Attacking a world without having local supporters already establishing a foothold is difficult and requires considerable orbital forces, but concentration of forces can allow great powers to overwhelm individual planetary defenses relatively easily. In theory at least.
+
+Note that outside extreme concentration of space forces, the anti-space defenses of a typical planet can easily keep attackers at bay and prevent them from direct assault. And even with extreme concentration of force, such assault would be extremely costly.
+Hence why inserting Commanders to build bridgeheads is needed instead.
+
+It is easier to neutralize long-range fires than to launch them, thus attackers and defenders generally neutralize each-other’s fires and the Commanders on the surface don’t have fire support they don’t build themselves.
+Similarly, long-distance movement is vulnerable to enemy disruption and Commander operations are generally over before reinforcements of either side can arrive in large enough numbers to make a difference.
+Thus, the typical engagement sees Commanders left to themselves.
+
+The best way to counter a Commander insertion is to insert your own and have them fight for control of the spot. The winner will then be able to build a bridgehead and/or an extraction device to go back to the support system.
+The common wisdom is that to build an extractor you need to win, because the time and resources needed to build it means that you will loose the fight before being finished. So most Commanders will not even display the option in combat, and will prefer fighting on and attempting to turn a loosing bout than try and build one to retrieve the insertion unit. 
+Assuming the insertion unit is still operational at this point of a loosing fight anyway.
+
+In addition, while the insertion unit itself is costly, its destruction will generally not kill the pilot or even stop them from fighting. If the insertion unit is destroyed, a system (generally called ripcord for some reason) is activated to pull the pilot out and back to the support installation safely. This is generally emergency teleportation, though emergency upload also exists and is preferred by some Free Machines notably.
+From there, the pilot can continue directing combat through direct comlink to the units. Once initially established by the insertion unit, it can last for more than long enough for even the most drawn out engagements.
+
+That said, engagements without available ripcord are not unheard of. In this case, the destruction of the Commander will both kill the pilot and, if it is the last Commander standing, the army will generally self-destruct.
+Everyone hates those for obvious reasons though, so they are generally avoided as much as possible.
+
+Commander defense consists on a Commander waiting, ready to jump and fight. When a teleportation is detected, the defense teleporter will piggyback on it, landing the defender nearby, and the two (or two groups) will fight.
+This can be a rather stressful job.
+
+The result is that most Commander engagement are duels of individuals or small groups, which is hated by most militaries because militaries hate fair fights, but it remains the most effective method.
+
+Now, do note that this is the typical engagement, but many engagements are atypical. One or even both sides may have some defenses available on site.
+One side can arrive later than the other, which can be a considerable disadvantage but can be offset if they have local defenses to buy them time. This has been known to happen with some especially daring insertions.
+One or both sides may have long-range fire support available. It is not unheard of for Commanders having to build their own anti-aerospace defenses in a pinch, and be forced to operate under their umbrellas to avoid being wiped out by orbital or suborbital fire.
+
+You will sometimes hear about zombie nanoplagues, that revive destroyed automata and make them fight both sides indiscriminately until they are wrecked beyond resurrection.
+You will also hear about having to fight waves of alien Chicken instead of enemy Commanders, until their Queen gets angry enough to attack in person.
+Those are actually not myths, though they are very rare and chances are that you will never encounter them. That said, one never knows, so be prepared.
+
+Now this is an overview of what Commander combat looks like, but do keep in mind that wars do not revolve solely around them.
+To start with, they are maintenance hogs and cannot operate in the field for that long, nor can their armies. Their role is to take a bridgehead and let other, more permanent forces hold the terrain (or prevent the other side from doing so).
+From there, large-scale conflict will generally continue between those more permanent armies across the planet, but those are much less glamorous than dueling Commanders and thus see much less media attention.
+
+Similarly, this is only focusing about surface combat. While most of the things we care about tend to be on planets, the space battlefield is also fundamental and space combat is its own complex thing. So while it is not the subject here, do keep in mind that there is more to warships than moving armies around.
+
+
+
+
+------ A brief history of the galaxy ------
 
 
 Interstellar Era (Pre-Planetwars Era)
 
 - Humanity expands across the galaxy
 
-- Humanity starts diverging in all sorts of directions : genemodders and biomodders, cyborgs, artificial intelligences… Baseline and near-baseline humans are now coexisting with a bewildering variety of beings, from recognizable to alien. 
+- Humanity starts diverging in all sorts of directions: genemodders and biomodders, cyborgs, artificial intelligences… Baseline and near-baseline humans are now coexisting with a bewildering variety of beings, from recognizable to alien. 
 All are types of transhumans or posthumans, however. No intelligence of extraterrestrial origin was ever discovered. Probably. Not that one could tell anyway, between the extreme mods and enhancements, synthetic being of all varieties, species uplifted to intelligence…
 
 - The Dynasty of Man is founded. What little hasn’t been lost to time is shrouded in mystery, though most agree that it was born on Old Earth in the early days and probably as a reaction of radical transhumanism
@@ -336,3 +387,12 @@ Fight them off hard enough and they will go away at some point. Most of the time
 - Many attempts were made, but no instance of successful communication, coercion, or cohabitation with Chicken is known to have succeeded. And many attempts appear to have ended in catastrophe.
 However, it is unclear whether this is due to inherent impossibility, the Dynasty sabotaging such projects, the Dynasty covering up projects that did succeed, or a combination thereof.
 You can try if you want though, maybe you will find something that other missed, maybe the Chicken have changed their minds, and maybe you’ll manage to keep the Dynasty at bay, assuming they are still around :)
+
+
+
+
+------ Comments about the writing ------
+
+ThornEel:
+
+
