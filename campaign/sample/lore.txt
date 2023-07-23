@@ -1,3 +1,34 @@
+------ Notes on realism and consistency ------
+
+Zero-K is not a realistic game, nor does it aim to be. This may seem obvious, but it can have significant impacts on the lore and not just on the gameplay. 
+The most obvious element is the in-game scale: as is common in RTS since their inception, scale is extremely abstract, be it relative and absolute size, distances, ranges, explosion radii, unit counts… 
+Think about how the Command & Conquer series or Starcraft had similarly abstracted scales, for some of the most defining examples.
+Wesnoth has a similar notion of Hexes May Be Miles Across: sometimes each unit movement represents a specific individual moving between rooms in a cave, sometimes it is an entire column moving across a region. 
+Similarly, battles in Zero-K can represent small skirmishes across a city district, or gargantuan conflicts spanning a continent. Which one it is, if any, at any given battle is not really important as the whole thing is abstracted and the important part is whether the gameplay works.
+The one place where realism matters is in how it informs common intuition, such as things falling down due to gravity, or things being damaged by large explosions, to take basic examples.
+
+This means that the lore has freedom from what is seen in the gameplay. Larger maps will tend to represent larger conflicts, but apart from that, there is no need to take exact measurements or unit counts that the lore has to follow to the letter.
+Similarly, we can have those apparently small-scale battles (even the largest maps look to be a few km across at most, strictly speaking) deciding the fate of entire worlds. Again, this is fine as scales are abstracted, in addition to understanding that not all the important things happening on the planet happen during the battle, the battle itself is only the most decisive one.
+
+The important element, both in gameplay and in lore, is consistency.
+The gameplay must be and feel consistent. And the lore must be and feel consistent as well, and be consistent with what the gameplay is an abstract representation of.
+Seeing magic or impossible technologies is not an issue in fiction, after all, but seeing inconsistencies can be much more jarring.
+
+Now the lore can use some realism, more than the gameplay as it is freer, but one has to keep in mind that we are in full soft-SF territory. You will see antigravity and oddly humanoid combat robots, you won’t see vast radiators or the rocket equation, or massive use of energy that galactic-scale civilizations would have at their disposal for that matter. You will see technology plateauing for countless millennia, you won’t see Von Neumann machines mass-producing Dyson spheres.
+This is perfectly fine, and again, the important part is being consistent. 
+
+Realism at all costs can lead to odd places, be it bad gameplay, incoherence between lore and gameplay, or lore contrivances to try and explain how such clearly unrealistic elements are actually perfectly realistic. This is where you end up with Star Wars ship guns with more energy than city buster nuclear weapons, or the blasters themselves being made of physically incorrect plasmoids based on a misunderstanding of plasma physics. While simply saying “this is how this universe works, it is not realistic, it is just its own thing” can let you have colored blasters tracing across space in peace.
+Similarly, there is no need to force oneself to adhere to strict realism beyond what is needed for intuition to hold on how the world generally works, as long as things are interesting and consistent.
+
+Now this is not to say that there are no contrivances at all. Some contrivances can be good, as long as they don’t feel too forced. And sometimes, explaining some odd bit can actually lead to interesting places. Or, conversely, pointing it out as an unexplained oddity, as something that people realize is strange and hinting at a mystery.
+On the other hand, sometimes ignoring minor inconsistencies entirely can also work, as long as they generally would not be noticed. If the rest works well enough, the player can accept small details not quite lining up, or even assume that there are explanations that are just not stated, just like everything else appears consistent enough.
+
+This was the philosophy used to write this lore, hopefully it didn’t fail too badly at it… 
+
+
+
+
+
 ------ Commander-centric combat ------
 
 Commanders are the most famous weapon system in use by galactic militaries. Generally, the name refers to either the insertion unit or its pilot, though strictly speaking it refers to both as well as the support system, typically a carrier starship or a surface installation.
@@ -391,3 +422,14 @@ Secondly, and this is an old trick in videogames for good reasons, this lets the
 
 Regarding the New Falsell anomaly, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty… So I took inspiration from that first impression.
 For the codex entry, I took inspiration from an unsettling passage in the novel John Dies At The End (which I let you discover if you haven’t read it, it’s a really good book if you like the fantastic/weird genre), with a slightly different form.
+
+The big constraint for the campaign story was making it fit the existing structure. Yes, it is using the old trick of the amnesiac having to recover their memories, but it’s an old trick for a good reason. 
+Making a story that worked for the non-linear format, and constrained presentation of short briefing texts and codex entries, was something of a challenge, and drove several important story decisions. But again, limitations breed art so this may ultimately have been a good thing. Missions also have variety and often interesting structures and/or atmosphere that would foster inspiration, which helped.
+
+An inspiration for the tone of the campaign was, of all things, an Easter egg from the game Enemy Mind. Which probably won’t speak to many, but left an impression on me for some reason.
+The game is an interesting retro shoot-em-up where you fight ships from two different factions, humanity using classic SF spacecraft, and Arabus using living ones. Each ship has limited ammo, and you switch to new ships to commandeer when the one you are currently using runs out of ammo or is low on life.
+A particularity is that the name of the ship classes and the cutscenes are shown in the point of view of the faction whose ships you have spent the most time with. On one hand this gives you some agency to choose between the two, on the other end you are still presented things in this classic videogame faction where everyone else tells you how things are and have been and will have to be, while you are a silent protagonist that just take things in stride.
+But in a few missions, there is a flying saucer briefly jumping out from the side of the screen and leaving, never to be seen again. It can be hard to notice, harder to shoot it down, and hardest to take it over with the ship jumping mechanic. And then once you do, it has infinite ammo but it is also extremely fragile (all ships are in that game, as you are supposed to jump ships very often), so the probability of getting far with it is hilariously low.
+But if you do (and I had to look it up online because I’m not nearly good enough for that), what the silent protagonist hears is in an unknown language that it doesn’t understand. And the protagonist remarks on it, on the strangeness of it all, and start speaking with its own voice, as the conditioning that makes it follow the side it possesses ships doesn’t work anymore.
+Now I don’t know if anyone else had the same feeling, but suddenly having the silent protagonist speak, ask questions, and generally think by itself, that really struck me.
+I tried to capture some of that feeling with the start of the campaign, with MC waking up at the helm of a strange machine, with no idea what’s going on and answers hidden behind hostile worlds.
