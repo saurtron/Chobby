@@ -1,7 +1,7 @@
 ------ Notes on realism and consistency ------
 
 Zero-K is not a realistic game, nor does it aim to be. This may seem obvious, but it can have significant impacts on the lore and not just on the gameplay. 
-The most obvious element is the in-game scale: as is common in RTS since their inception, scale is extremely abstract, be it relative and absolute size, distances, ranges, explosion radii, unit counts… 
+The most obvious element is the in-game scale: as is common in RTS since their inception, scale is extremely abstract, be it relative and absolute size, distances, ranges, explosion radii, unit counts... 
 Think about how the Command & Conquer series or Starcraft had similarly abstracted scales, for some of the most defining examples.
 Wesnoth has a similar notion of Hexes May Be Miles Across: sometimes each unit movement represents a specific individual moving between rooms in a cave, sometimes it is an entire column moving across a region. 
 Similarly, battles in Zero-K can represent small skirmishes across a city district, or gargantuan conflicts spanning a continent. Which one it is, if any, at any given battle is not really important as the whole thing is abstracted and the important part is whether the gameplay works.
@@ -17,13 +17,13 @@ Seeing magic or impossible technologies is not an issue in fiction, after all, b
 Now the lore can use some realism, more than the gameplay as it is freer, but one has to keep in mind that we are in full soft-SF territory. You will see antigravity and oddly humanoid combat robots, you won't see vast radiators or the rocket equation, or massive use of energy that galactic-scale civilizations would have at their disposal for that matter. You will see technology plateauing for countless millennia, you won't see Von Neumann machines mass-producing Dyson spheres.
 This is perfectly fine, and again, the important part is being consistent. 
 
-Realism at all costs can lead to odd places, be it bad gameplay, incoherence between lore and gameplay, or lore contrivances to try and explain how such clearly unrealistic elements are actually perfectly realistic. This is where you end up with Star Wars ship guns with more energy than city buster nuclear weapons, or the blasters themselves being made of physically incorrect plasmoids based on a misunderstanding of plasma physics. While simply saying “this is how this universe works, it is not realistic, it is just its own thing” can let you have colored blasters tracing across space in peace.
+Realism at all costs can lead to odd places, be it bad gameplay, incoherence between lore and gameplay, or lore contrivances to try and explain how such clearly unrealistic elements are actually perfectly realistic. This is where you end up with Star Wars ship guns with more energy than city buster nuclear weapons, or the blasters themselves being made of physically incorrect plasmoids based on a misunderstanding of plasma physics. While simply saying "this is how this universe works, it is not realistic, it is just its own thing" can let you have colored blasters tracing across space in peace.
 Similarly, there is no need to force oneself to adhere to strict realism beyond what is needed for intuition to hold on how the world generally works, as long as things are interesting and consistent.
 
 Now this is not to say that there are no contrivances at all. Some contrivances can be good, as long as they don't feel too forced. And sometimes, explaining some odd bit can actually lead to interesting places. Or, conversely, pointing it out as an unexplained oddity, as something that people realize is strange and hinting at a mystery.
 On the other hand, sometimes ignoring minor inconsistencies entirely can also work, as long as they generally would not be noticed. If the rest works well enough, the player can accept small details not quite lining up, or even assume that there are explanations that are just not stated, just like everything else appears consistent enough.
 
-This was the philosophy used to write this lore, hopefully it didn't fail too badly at it… 
+This was the philosophy used to write this lore, hopefully it didn't fail too badly at it... 
 
 
 
@@ -87,8 +87,8 @@ Interstellar Era (Pre-Planetwars Era)
 
 - Humanity expands across the galaxy
 
-- Humanity starts diverging in all sorts of directions: genemodders and biomodders, cyborgs, artificial intelligences… Baseline and near-baseline humans are now coexisting with a bewildering variety of beings, from recognizable to alien. 
-All are types of transhumans or posthumans, however. No intelligence of extraterrestrial origin was ever discovered. Probably. Not that one could tell anyway, between the extreme mods and enhancements, synthetic being of all varieties, species uplifted to intelligence…
+- Humanity starts diverging in all sorts of directions: genemodders and biomodders, cyborgs, artificial intelligences... Baseline and near-baseline humans are now coexisting with a bewildering variety of beings, from recognizable to alien. 
+All are types of transhumans or posthumans, however. No intelligence of extraterrestrial origin was ever discovered. Probably. Not that one could tell anyway, between the extreme mods and enhancements, synthetic being of all varieties, species uplifted to intelligence...
 
 - The Dynasty of Man is founded. What little hasn't been lost to time is shrouded in mystery, though most agree that it was born on Old Earth in the early days and probably as a reaction of radical transhumanism
 
@@ -100,7 +100,7 @@ All are types of transhumans or posthumans, however. No intelligence of extrater
 
 - The first known recorded Chicken sighting is somewhere around here, though it seems that they were already a known if rare threat at the time.
 
-- The galaxy alternates between periods of peace, war, prosperity, crises… As the old saying goes, whose origins have long been lost to time: united they shall divide, divided they shall unite, thus it has always been, thus it will always be
+- The galaxy alternates between periods of peace, war, prosperity, crises... As the old saying goes, whose origins have long been lost to time: united they shall divide, divided they shall unite, thus it has always been, thus it will always be
 
 
 Galactic Era (Planetwars Era)
@@ -327,7 +327,7 @@ Silence Era
 - After the Event, some of the few survivors in deep hibernation started to wake up in an emptied galaxy. Most infrastructure and automated systems were still running, and while some areas still had active military bots and other automated hazards, most of the galaxy was mostly safe.
 Some of the survivors managed to get interstellar communication and starships working, contacting each-other and searching worlds for other survivors. They soon discovered the final evacuation plans of the Empire towards the Eternity Gate. They decided to follow them, as many evacuation ships were still present and functional, and they judged they were too few to really restart civilization in this galaxy.
 Knowing that other survivors may wake up after themselves, as there were little chances that they had found everyone, they prepared things for others trying to follow them afterwards.
-They left message beacons running, put supplies together in many places, deactivated some dangerous automated systems, set up warp gates for long-term autonomous function and self-repair, left control codes they could find for still active military automata…
+They left message beacons running, put supplies together in many places, deactivated some dangerous automated systems, set up warp gates for long-term autonomous function and self-repair, left control codes they could find for still active military automata...
 Then they left to the Gate, with a few of the evacuation ships.
 
 - Other survivors would indeed wake up and follow them through the Gate, progressively rarer over the centuries and millennia.
@@ -405,7 +405,7 @@ You can try if you want though, maybe you will find something that other missed,
 
 ThornEel:
 
-The name of Anarchai has nothing to do with fellow contributor Anarchid, this is actually a coincidence. The etymology is basically similar to Archailect from Orion's Arm, both being from “Archai”. The two have other similarities such as being inscrutable godlike machines.
+The name of Anarchai has nothing to do with fellow contributor Anarchid, this is actually a coincidence. The etymology is basically similar to Archailect from Orion's Arm, both being from "Archai". The two have other similarities such as being inscrutable godlike machines.
 The Anarchai themselves are inspired by the Inhibitors from some of Alastair Reynolds' books such as Revelation Space and its sequels. The description of the scattershapes is inspired by the Inhibitors, who themselves are mostly aggregates of small black cubes that are well beyond anything like recognizable technology, and use weapons we can barely imagine.
 
 The Event was probably invisible to the naked eye and to most instruments, it is just something that happens basically instantly wherever it passes and vanishing people and stopping any hyperspace anything are the only things it appears to do.
@@ -417,10 +417,10 @@ In addition, the main character (MC) is not in position to learn or discover eve
 
 You will note that MC, beyond what we learn of the Demiurge project, is left entirely nondescript. This is by design.
 First, this is from MC's point of view, with a narrative first person, and there is no-one else to interact with, so what we see is entirely outwards by nature.
-Yes, there is no other character because it would have been difficult to make work in the structure of the campaign, which was complete before the writing was started. I'll just say that limitations breed art and leave it at that…
+Yes, there is no other character because it would have been difficult to make work in the structure of the campaign, which was complete before the writing was started. I'll just say that limitations breed art and leave it at that...
 Secondly, and this is an old trick in videogames for good reasons, this lets the player project themselves on MC, which helps immersion. You are not telling a character what to do next, you are doing the things the character is doing, discovering what they discover, and so on.
 
-Regarding the New Falsell anomaly, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty… So I took inspiration from that first impression.
+Regarding the New Falsell anomaly, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty... So I took inspiration from that first impression.
 For the codex entry, I took inspiration from an unsettling passage in the novel John Dies At The End (which I let you discover if you haven't read it, it's a really good book if you like the fantastic/weird genre), with a slightly different form.
 
 The big constraint for the campaign story was making it fit the existing structure. Yes, it is using the old trick of the amnesiac having to recover their memories, but it's an old trick for a good reason. 
