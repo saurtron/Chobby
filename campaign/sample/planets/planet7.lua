@@ -1555,14 +1555,14 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			neutralUnits = {
 				{
-					name = "pw_artefact",
+					name = "pw_relay",
 					x = 6025,
 					z = 2625,
 					facing = 0,
 					invincible = true,
 					ignoredByAI = true,
 					mapMarker = {
-						text = "Artefact",
+						text = "Relay Node",
 						color = "green"
 					},
 				},
@@ -1782,7 +1782,7 @@ local function GetPlanet(planetUtilities, planetID)
 			objectiveConfig = {
 				-- This is just related to displaying objectives on the UI.
 				[1] = {
-					description = "Bring your Commander to the Artefact",
+					description = "Bring your Commander to the defense Relay Node",
 				},
 				[2] = {
 					description = "Protect your Commander",

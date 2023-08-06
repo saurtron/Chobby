@@ -1,17 +1,435 @@
-Tankium
-"so, not sure this is the correct channel for this, but i got a deep lore question
-i have completed all the campaign missions, so i use spoilers for anyone who has not:
-A lot of the codex entreis mention something called the Mandate, but i havent found any info on what the Mandate actually is
-this seems like a very significant thing that has not been properly explained. They were the first to find the eternity gate. They fought the Anarchai to the end along with the Dynasty.  All i could piece together is they are some sort of faction.
-Oh, and speaking of the Anarchai, where did they actually originate? According to Rockbar codex they started off there as a small colony. I thought they turned up form some other galaxy. This whole Starsong thing makes this even stranger because how can a colony on one planet conquer the galaxy in such a short amount of time? And why would the Starsong signals give them such strength? Its like sending a (admittedly wierd) signal to some random town in the middle of the desert so they immediately obtain crazy technology and billions of troops so they conquer the globe. And what is a scattershape (apart from some spaceship)? 
-As for teh event, how can merely observing a part of teh Starsong signal itself trigger a massive Event? What is the Event? a giant energy wall that vanishes you? 
-What is the Starsong and why did it shut up? Why did they want to destroy the galaxy anyway? from all the way over there
-Also the new falsell artifact is scary what"
+------ Notes on realism and consistency ------
 
-ThornEel
-"About the Mandate, the idea was that they were one of the galaxy's great power at the end of the previous era, basically the equivalent of a PlanetWars faction if you want, alongside a few others like the Dynasty. Technologically it was the high point of human (and co) history, right before galactic civilisation(s) was brought down by the Anarchai. They aren't too detailed because as far as the main character is concerned, they are ancient (and probably not that well known) history with passing relevance to the described events. The Dynasty or the Anarchai have more importance, which is why they have their own entries.
-The Anarchai are indeed unrelated to Anarchid or are they. The name was inspired by the Archailects from Orion's Arm and share the Archai word as origin - both are god-like machine (or post-machine) intelligences with seemingly inscrutable goals. Their origin is free AI that studied the Starsong, which influenced them and presumably made them self-evolve into the Anarchai. The scattershapes are the Anarchai's equivalent to starships/war machines. I imagine something close to Inhibitor aggregates, if you have read Alastair Reynolds' novels (which I recommend to hard-SF fans). The idea is that they work in a completely different way from traditional spaceships or machines in general. That's also why they are using siege cluster instead of, say, space battleships. Note that they also didn't have billions of troops, nor anything that would resemble troops at all probably
-The Starsong itself was a signal originating from a distant galaxy, and what it was isn't clear, because both time someone tried to study it, despite the best precautions, it ended badly for everyone. Alas Fortunately it had long since ended broadcasting when the MC looked at it and all archives had been lost, avoiding maybe a third time.
-The Event was caused when Haven studied the Starsong, despite all their precautions, even after upgrading them taking the Anarchai emergence into account. What it is exactly is unknown to the MC, but "giant energy wall that vanishes you" (and block FTL trying to bypass it) is as good as any hypothesis. It is probably invisible to the naked eye or most instruments though, and seems to move at FTL itself, though it did slow down after the initial expansion and didn't grow as a sphere as one might have expected.
-Now this is where I used a cheap trick subtle writing method, which is don't explain everything. There are several reasons to that: The main character cannot find everything, only piece what is left together, but there will always be missing pieces. And explaining everything tends to "close" the story, making it feel smaller, more constrained, while leaving it open hints that there is a wider, more complex world out there instead of just a set-piece. And sometimes, leaving things hinted at to the imagination of the reader is more effective than anything you could have put into words.
-As for New Farsell, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty...  I did take some inspiration from an unsettling passage in the novel John Dies At The End (which I also recommend to any fans of fantastic/weird genre), with a slightly different form."
+Zero-K is not a realistic game, nor does it aim to be. This may seem obvious, but it can have significant impacts on the lore and not just on the gameplay. 
+The most obvious element is the in-game scale: as is common in RTS since their inception, scale is extremely abstract, be it relative and absolute size, distances, ranges, explosion radii, unit counts... 
+Think about how the Command & Conquer series or Starcraft had similarly abstracted scales, for some of the most defining examples.
+Wesnoth has a similar notion of Hexes May Be Miles Across: sometimes each unit movement represents a specific individual moving between rooms in a cave, sometimes it is an entire column moving across a region. 
+Similarly, battles in Zero-K can represent small skirmishes across a city district, or gargantuan conflicts spanning a continent. Which one it is, if any, at any given battle is not really important as the whole thing is abstracted and the important part is whether the gameplay works.
+The one place where realism matters is in how it informs common intuition, such as things falling down due to gravity, or things being damaged by large explosions, to take basic examples.
+
+This means that the lore has freedom from what is seen in the gameplay. Larger maps will tend to represent larger conflicts, but apart from that, there is no need to take exact measurements or unit counts that the lore has to follow to the letter.
+Similarly, we can have those apparently small-scale battles (even the largest maps look to be a few km across at most, strictly speaking) deciding the fate of entire worlds. Again, this is fine as scales are abstracted, in addition to understanding that not all the important things happening on the planet happen during the battle, the battle itself is only the most decisive one.
+
+The important element, both in gameplay and in lore, is consistency.
+The gameplay must be and feel consistent. And the lore must be and feel consistent as well, and be consistent with what the gameplay is an abstract representation of.
+Seeing magic or impossible technologies is not an issue in fiction, after all, but seeing inconsistencies can be much more jarring.
+
+Now the lore can use some realism, more than the gameplay as it is freer, but one has to keep in mind that we are in full soft-SF territory. You will see antigravity and oddly humanoid combat robots, you won't see vast radiators or the rocket equation, or massive use of energy that galactic-scale civilizations would have at their disposal for that matter. You will see technology plateauing for countless millennia, you won't see Von Neumann machines mass-producing Dyson spheres.
+This is perfectly fine, and again, the important part is being consistent. 
+
+Realism at all costs can lead to odd places, be it bad gameplay, incoherence between lore and gameplay, or lore contrivances to try and explain how such clearly unrealistic elements are actually perfectly realistic. This is where you end up with Star Wars ship guns with more energy than city buster nuclear weapons, or the blasters themselves being made of physically incorrect plasmoids based on a misunderstanding of plasma physics. While simply saying "this is how this universe works, it is not realistic, it is just its own thing" can let you have colored blasters tracing across space in peace.
+Similarly, there is no need to force oneself to adhere to strict realism beyond what is needed for intuition to hold on how the world generally works, as long as things are interesting and consistent.
+
+Now this is not to say that there are no contrivances at all. Some contrivances can be good, as long as they don't feel too forced. And sometimes, explaining some odd bit can actually lead to interesting places. Or, conversely, pointing it out as an unexplained oddity, as something that people realize is strange and hinting at a mystery.
+On the other hand, sometimes ignoring minor inconsistencies entirely can also work, as long as they generally would not be noticed. If the rest works well enough, the player can accept small details not quite lining up, or even assume that there are explanations that are just not stated, just like everything else appears consistent enough.
+
+This was the philosophy used to write this lore, hopefully it didn't fail too badly at it... 
+
+
+
+
+
+------ Commander-centric combat ------
+
+Commanders are the most famous weapon system in use by galactic militaries. Generally, the name refers to either the insertion unit or its pilot, though strictly speaking it refers to both as well as the support system, typically a carrier starship or a surface installation.
+The support system includes the insertion method. The most common one is surface teleportation, though exoatmospheric teleportation followed by fast atmospheric insertion is also used.
+Other methods are not unheard of, but are generally special cases or, rarely, someone trying to be sneaky. This often gets Commanders destroyed, but the payoff can be big. In theory at least.
+
+It is generally impossible to heavily defend the entire surface of a planet. So there will always be remote spots where a Commander can be sent, and quickly build up an army.
+If no suitable spot can be found, or those who can be found are deemed inadequate, one can be created with heavy use of long-range fires to destroy thin local defenses and/or insertion jammers. However, this is typically extremely costly as it requires overwhelming enemy aerospace defenses, and as such is avoided when possible.
+
+Commander insertion can only be done with either an already established foothold on the target world, or with heavy warship support from space, or with a foothold on a nearby celestial body if one exists that is within teleportation range.
+Attacking a world without having local supporters already establishing a foothold is difficult and requires considerable orbital forces, but concentration of forces can allow great powers to overwhelm individual planetary defenses relatively easily. In theory at least.
+
+Note that outside extreme concentration of space forces, the anti-space defenses of a typical planet can easily keep attackers at bay and prevent them from direct assault. And even with extreme concentration of force, such assault would be extremely costly.
+Hence why inserting Commanders to build bridgeheads is needed instead.
+
+It is easier to neutralize long-range fires than to launch them, thus attackers and defenders generally neutralize each-other's fires and the Commanders on the surface don't have fire support they don't build themselves.
+Similarly, long-distance movement is vulnerable to enemy disruption and Commander operations are generally over before reinforcements of either side can arrive in large enough numbers to make a difference.
+Thus, the typical engagement sees Commanders left to themselves.
+
+The best way to counter a Commander insertion is to insert your own and have them fight for control of the spot. The winner will then be able to build a bridgehead and/or an extraction device to go back to the support system.
+The common wisdom is that to build an extractor you need to win, because the time and resources needed to build it means that you will loose the fight before being finished. So most Commanders will not even display the option in combat, and will prefer fighting on and attempting to turn a loosing bout than try and build one to retrieve the insertion unit. 
+Assuming the insertion unit is still operational at this point of a loosing fight anyway.
+
+In addition, while the insertion unit itself is costly, its destruction will generally not kill the pilot or even stop them from fighting. If the insertion unit is destroyed, a system (generally called ripcord for some reason) is activated to pull the pilot out and back to the support installation safely. This is generally emergency teleportation, though emergency upload also exists and is preferred by some Free Machines notably.
+From there, the pilot can continue directing combat through direct comlink to the units. Once initially established by the insertion unit, it can last for more than long enough for even the most drawn out engagements.
+
+That said, engagements without available ripcord are not unheard of. In this case, the destruction of the Commander will both kill the pilot and, if it is the last Commander standing, the army will generally self-destruct.
+Everyone hates those for obvious reasons though, so they are generally avoided as much as possible.
+
+Commander defense consists on a Commander waiting, ready to jump and fight. When a teleportation is detected, the defense teleporter will piggyback on it, landing the defender nearby, and the two (or two groups) will fight.
+This can be a rather stressful job.
+
+The result is that most Commander engagement are duels of individuals or small groups, which is hated by most militaries because militaries hate fair fights, but it remains the most effective method.
+
+Now, do note that this is the typical engagement, but many engagements are atypical. One or even both sides may have some defenses available on site.
+One side can arrive later than the other, which can be a considerable disadvantage but can be offset if they have local defenses to buy them time. This has been known to happen with some especially daring insertions.
+One or both sides may have long-range fire support available. It is not unheard of for Commanders having to build their own anti-aerospace defenses in a pinch, and be forced to operate under their umbrellas to avoid being wiped out by orbital or suborbital fire.
+
+You will sometimes hear about zombie nanoplagues, that revive destroyed automata and make them fight both sides indiscriminately until they are wrecked beyond resurrection.
+You will also hear about having to fight waves of alien Chicken instead of enemy Commanders, until their Queen gets angry enough to attack in person.
+Those are actually not myths, though they are very rare and chances are that you will never encounter them. That said, one never knows, so be prepared.
+
+Now this is an overview of what Commander combat looks like, but do keep in mind that wars do not revolve solely around them.
+To start with, they are maintenance hogs and cannot operate in the field for that long, nor can their armies. Their role is to take a bridgehead and let other, more permanent forces hold the terrain (or prevent the other side from doing so).
+From there, large-scale conflict will generally continue between those more permanent armies across the planet, but those are much less glamorous than dueling Commanders and thus see much less media attention.
+
+Similarly, this is only focusing about surface combat. While most of the things we care about tend to be on planets, the space battlefield is also fundamental and space combat is its own complex thing. So while it is not the subject here, do keep in mind that there is more to warships than moving armies around.
+
+
+
+
+------ A brief history of the galaxy ------
+
+
+Interstellar Era (Pre-Planetwars Era)
+
+- Humanity expands across the galaxy
+
+- Humanity starts diverging in all sorts of directions: genemodders and biomodders, cyborgs, artificial intelligences... Baseline and near-baseline humans are now coexisting with a bewildering variety of beings, from recognizable to alien. 
+All are types of transhumans or posthumans, however. No intelligence of extraterrestrial origin was ever discovered. Probably. Not that one could tell anyway, between the extreme mods and enhancements, synthetic being of all varieties, species uplifted to intelligence...
+
+- The Dynasty of Man is founded. What little hasn't been lost to time is shrouded in mystery, though most agree that it was born on Old Earth in the early days and probably as a reaction of radical transhumanism
+
+- Old Earth is initially dominating the panhuman sphere, but slowly looses its hegemonic position to new centers of power, as the wider galaxy is settled
+
+- Old Earth becomes a minor power, then a historical sanctuary, before being slowly forgotten. Some believe that the Dynasty used it as headquarters for millennia and were the ones responsible for its gradual oblivion. However, even they seem to have moved out at some point and forgotten about Earth themselves
+
+- Technological progress gradually plateaus in most fields, with new advances mostly rediscovering forgotten older ones
+
+- The first known recorded Chicken sighting is somewhere around here, though it seems that they were already a known if rare threat at the time.
+
+- The galaxy alternates between periods of peace, war, prosperity, crises... As the old saying goes, whose origins have long been lost to time: united they shall divide, divided they shall unite, thus it has always been, thus it will always be
+
+
+Galactic Era (Planetwars Era)
+
+- The name of the era is somewhat misleading, as Planetwars are in fact extremely rare and most people historically never saw one or even met someone who had. But they are possibly the most notorious type of event of the era, hence its name.
+
+- Despite the apparent technological plateau, and occasional announcements of the End of History (this time for real we swear), history never quite stops. In fact, the vast, unimaginably complex history of the galaxy could not be given justice in a lifetime, let alone a short summary. Not that some won't try, mind you
+
+- The Planetwars are exceptional times of galactic total war between great powers. Immensely destructive, they fortunately tend to be relatively brief at historical scales and only happen every few centuries or even millennia on average. Though as with everything, there are exceptions. And the galaxy is vast and the victorious power generally has the resources to rebuild in relatively short order, historically speaking
+
+- Some trends can be noted (with the caveat that exceptions always exist):
+
+- the conflict tends to involve only a few sides, sometimes as few as two, as minor powers will either try and sit it out, or join a major coalition.
+
+- Many Planetwars happen as the rule of a previously uncontested hegemon weakens, and challengers or rebels emerge to try and cast it down
+
+
+Planetwars often features at least some of the following sides, with sometimes multiple instances in a single Planetwar:
+
+- Some form of galactic empire: generally authoritarian, it promises peace and stability and unity under its rule, at the cost of less freedoms and taking resources from peripheries to the imperial core. The model was old when humanity left Old Earth, let alone settled the entire galaxy, though it has been refined with millennia to something more efficient and longer-lived than its crude ancient counterparts (or so its proponents say). 
+Surprisingly, it often has a certain romanticism attached to it. And empires and would-be empires often claim legacy of previous galactic empires, in historical chains that sometimes go as far back as the interstellar Terran Empire of pre-galactic Old Earth. 
+Relatively often the weakening hegemon in this type of Planetwar, as other types of hegemons tend to weaken in less cataclysmic ways on average.
+
+- Some form of anti-imperial alliance: often proposing a more decentralized system of galactic governance, sometimes with little more than a diplomatic forum as sole galactic political structure for small independent polities, sometimes with a powerful galactic federal regime. 
+Often fighting for individual citizen's rights and freedoms, they can also be coalitions of regional powers or star systems, sometimes very different from each-other, united only in wanting more local autonomy (or even lawlessness, for the occasional pirate coalition)
+
+- The Dynasty of Man: countless times have they been defeated and assumed to, this time, having been destroyed. But somehow they always find a way to come back. Often acting from the shadows, covertly using a side of the war as a front for their own ends, they will sometimes openly take part in a Planetwar. 
+Even when they win, however, their grip on the galaxy is never quite as strong as they would like, and they will retreat in the shadows once more as setbacks accumulate, the squabbling between their families spill in the open, and they return to their familiar, covert ways.
+They are made up of semi-independent families that will cooperate for the greater good of the organization but compete with each-other more often than not, sometimes with just as much viciousness as they would opponents of the Dynasty itself.
+The overall goal they are obsessed with is the creation of superior humans, though what this means (beyond no cybernetic systems or machine hybridization or uploads) and how to get there is the biggest subject of contention among the families.
+Still, for all their many faults, they have always been gifted doctors, biologists and geneticists, and have done much to contribute to those fields over the millennia.
+
+- A self-defense group: often, a group facing galactic oppression or discrimination will form an armed faction as galactic rule weakens, to try and claim a galaxy where they can exist in peace. The most common one is Free Machines, who both have peculiarities that aren't found in moth other panhumans, and face both the xenocidal antagonism of the Dynasty of Man and enslavement at the hands of many an empire. However there have been many other such groups in the galaxy's history, any one you can imagine probably has been a participant, and quite a few more you probably cannot.
+
+- An expansionist ideological group: be it the belief in a certain type of governance, in the superiority of a certain type of people who should rule all other inferiors, in who and what should and should not exist in the galaxy, in their moral obligation to put an end to a particular injustice, or any other ideology, this side is on a galactic crusade. 
+The most infamous of may be the Uploaders, who consider that every panhuman should be uploaded, by force if necessary, to become a machine mind. While none has ever completely succeeded, there have been several Uploader Planetwar victories who let them forcibly upload most inhabitants of the galaxy. Though notably they never succeeded in rooting out the last bastions of resistance or find all those in hiding before internal turmoil and remaining external opposition ended their campaigns, sometimes with subsequent Planetwars.
+
+- This should not be taken as an exhaustive list, as there has always been a wild variety of sides and motivations taking part in Planetwars, many of them not falling neatly under one of those categories.
+
+
+[NOTE: AFTER THIS POINT, THERE WILL BE SPOILERS FOR THE CAMPAIGN]
+
+
+Before the Fall
+
+- At this point in history, there are three major and a number of regional and minor galactic powers. The major powers exist in an uneasy but stable standoff, with major militaries ready to square it off if their three-ways cold war went hot. Plus a number of regional and minor powers in varied states of independence from the major powers, and the occasional regional or proxy conflict. 
+However and despite serious mutual animosity and incompatible worldviews, the peace holds, foreign trade is surprisingly dense, and skilled efforts are maintained to keep the good times going.
+
+- Even with technology plateauing and development being often set back by Planetwars and other disasters, over the countless millennia, even glacial average overall progress starts adding up. And at the time of events, things have been mostly peaceful for a very long time, with the time of the last Planetwar or other major disaster being far in the past. 
+This is the high point of galactic history.
+
+- The major power in the Eastern quadrant is the Celestial Dominion. They are masters of cybernetic enhancements, be it subtly but extensively enhanced humans, or mods that blur the line between human and machine intelligence. They also have the largest population of Uploads (a common result of heavy cybernetic enhancement) and Free Machines in the galaxy. 
+While their self-biomodding is not particularly notable for the time, their biological skills are in stewarding, stabilizing, reshaping, and creation of planetary biospheres. Unlike most finely crafted garden worlds, their biospheres rarely use active management systems. As good as those are, one millennium or another, they will stop working without a civilization to maintain them. Instead, they rely on complex system self-equilibria, a much more difficult approach but one that can, in theory, last for vastly longer.
+Many of their creations would rival the greatest biosphere works of older civilizations, and would stand strong for longer than humanity had existed. Many would outlive the galaxy, and it is said that some would even somehow outlive the stars themselves.
+
+- The major power in the Western quadrant is the Ghost Mandate. Current heir of the Galactic Empire, it is an unusually benevolent and unobtrusive one (if you listen to the Mandate) or a typical overly authoritarian regime (if you listen to the Celestials). What is out of the question at least is their skill and long-term stability. It is rare for an imperial contender to successfully share the galaxy with another great power for millennia like this, while claiming their right to galactic dominion the whole time. 
+Also unusual, the Ghost Mandate often has different capitals (currently four), called the Four Thrones, with a complex system of shared rule and conditions for adding, regrouping, or moving Thrones across worlds. 
+It is very rare that such an arrangement actually works over so long, let alone work this well.
+Each Throne is often landed or in orbit of a major world, but is in fact a fully capable mobile space station with its own interstellar drives and formidable defenses. In case of serious crisis, a Throne can move in to shorten communication distances and rule more directly, simultaneously coordinate military and administrative actions, or in an emergency even escape from a lost region.
+While its surface military is nothing to scoff at, their strongest force resides in the Ghost Fleet, an immense system of spacecraft, space stations, and associated logistics, giving them a considerable advantage in mobility and force concentration, if not particularly impressive planetary holding power in comparison.
+
+- The major power in the Northern quadrant is the Dynasty of Man. Yes, again. Somehow. Let's face it, you will never be rid of them for good. (Spoiler: about that...)
+Despite a long, hidden campaign, they have failed to undermine the Celestial's love of cybernetic implants and machine intelligence, or to make them unpopular in the Mandate or within most lesser powers. So they finally resorted to carve their own territory in the then-contested northern quadrant, where they at least can run things as they like and discourage what they see as antithetical to their principles (and call the shots for good).
+While they would love to take over the galaxy, overtly or covertly, they are a truly ancient organization and have learned unimaginable patience, so they are so far content to do with what they have and wait for what opportunities will inevitably rise some day.
+
+- The astrography of the Southern quadrant makes it very difficult for great powers to take and exert control, especially by force, as while trade is more difficult, many of its regions and star systems are quite easily defensible. Thus, it is home to a collection of regional and smaller powers, and even a surprising number of independent star-systems. All three great powers exert some influence and are constantly playing great power games trying to extend it, but without much net success.
+
+
+[SERIOUSLY THIS IS THE LAST WARNING FOR CAMPAIGN SPOILERS]
+
+
+A way out for later
+
+- Something that the Ghost Mandate had discovered in its early days, was a strange, vast but faint hyperspace structure outside of the galaxy off the arm it controlled. It had been known by some of its predecessors at least, and had been named the Eternity Gate, but they found little else about it in records.
+It seems to have hit a string with them however, and they spent considerable resources studying it, attempting to discover or rediscover its secrets.
+Its size and its location outside of the galaxy, where there are few celestial bodies and hyperspace travel is extremely difficult and impractical, would make such works painstakingly long and cumbersome. However, the Mandate was often wealthy and stable during its long existence, and its view on history let it envision millennia-long projects with more ease than most polities.
+
+- To their surprise, upon studying its core, they found a gaping rift in spacetime, going to the other end of the universe in space and time. By itself, however, the rift was impassable. 
+To their greater surprise, though, they even found a colossal megastructure the size of several star systems, built around the rift, whose role was apparently to create a stable hyperspace route through it. The structure was considerably decayed, but enough was left that, with enough research and efforts, they managed to restore it to some capacity.
+The structure itself appears to have been built by humans in a very distant past, though there are some to dispute it. The leading theory is that an ancient power with the same disposition as the Mandate, and probably controlling the entire galaxy for a long time, had built it in the deep past, before its fall causing it to be left to decay and mostly forgotten beyond its name.
+
+- Initial exploration efforts took millennia before returning solid data, both due to the initial difficulties in restoring the hyperspace path by trial and error, and because of the immense temporal discrepancy: several days on this side being a second on the other side.
+To their greatest surprise, though, the other side appeared to be inhabitable if hostile at first glance. They had built a powerful hyperspace relay system between the Gate itself and their closest world in the galaxy, to help further exploration efforts, when they were cut short and the Gate was abandoned again.
+
+
+The Anarchai, stage left
+
+- One of the regional powers in the Southern quadrant, the Oroi Collective, built a vast observatory to try and detect extragalactic hyperspace signals.
+Hyperspace signals, of both natural, artificial, undetermined, and ambiguous natures, have occasionally been detected during the long, long history of humanity. While immensely interesting in many ways, the non-natural ones have never been detected at anything but the most extreme distances, quite a few being even beyond the lightspeed cosmological horizon.
+And travel between galaxies is exceedingly difficult due to the lower star denstiy outside of galaxies. So while some (mostly unsuccessful) attempts have been made over the millennia to launch probes or even colony ships across the vast gulfs of extragalactic space, there has never really been any hope of getting anywhere close to one of those sources.
+Responding was equally out of the question, the only known ways to generate such powerful signals were to either use natural hyperspace structures that didn't exist anywhere near the Local Group, or build things so far beyond panhumanity's means that they may as well find a way to get there in person instead.
+But there is still always science to be made, signals to be studied, discoveries to be (re)discovered, and so the observatory was built. Spanning the entire star system, it was probably one of the most powerful and sensitive ever built.
+
+- After a long and fulfilling career, the observatory detected a faint, very distant repeating signal unlike anything known to have ever been recorded. Clearly artificial in nature, it had an extremely complex structure that held tantalizing hints that demanded further investigation.
+They called it the Starsong.
+The Oroi were not idiots. They knew that unknown distant artificial signals can be exceedingly dangerous, and quite a few galactic (let alone lesser) disasters had come from one such signal. And so they took all the precautions and then some.
+Full data quarantine, send the only copy of the signal to a special, remote research station and interdict it, have the observatory not record the signal during its observations and only notify in case of change in the pattern, carefully study it in shut-off environment to at least determine whether it can safely be looked into beyond surface analysis, use of all the best practices for studying unknown alien signals one could have taken. Distant, dangerous signals had been dealt with before, and robust procedures had been developed over the millennia, after all.
+A shame it wasn't enough.
+
+- Records are spotty about the initial phase of the war, but the point of origin of the Anarchai is known, at least. There appears to have been a small group of free machines and extreme cyborgs, who had found some clue in the Starsong about self-modification, and chose to experiment with it in an isolated place where there were boss less annoying regulations about it, and where any serious issue could be easily contained if it emerged.
+And then the Anarchai are suddenly hitting the region from that point outwards like a bolt out of the blue, tearing apart any opposition.
+
+- The Anarchai are thought to have been smarter each than anything the galaxy has ever seen. They also didn't use anything resembling panhuman technology. They had no real equivalent to Commanders, surface units, or combat spacecraft.
+Instead, they were made of countless small elements moving in complex formants, and whose properties have never been quite identified.
+While the formants themselves could divide, merge, exchange elements, or make elements seemingly disappear to or appear from nothing, there is a base unit that can be identified, named scattershape, that will fight both in space and on the ground. It seems to have been the residence of a single unitary intelligence, though individuality may not work for Anarchai the way we think of it.
+With enough firepower, cleverness, and sheer luck, the formants of a scattershape can be disrupted enough to effectively kill it, causing what currently serve as its core elements to cease functioning, generally phasing out of existence, or evaporate fast or slowly, sometimes after following erratic routines for some times. 
+Nearby scattershapes will take control of their peripheral elements. They will also generally attempt to salvage the remaining core elements that haven't disappeared yet. It is speculated that they will try and rebuild the scattershape itself later on, but it is difficult to identify indidivuals (if the notion even applies), or even have a clear number of how many are running around, plus little is known about whether they would even reproduce in some way, so data is inconclusive.
+
+- The goals of the Anarchai are unknown, but their methods were to attack military installations, major industries, and administrative centers, but otherwise leave the civilian populations alone as long as they didn't interfere and weren't at the wrong place at the wrong time.
+They would use some local resources, both natural and from their targets, but surprisingly little given the size and average apparent mass of the swarms they were deploying.
+
+- The worlds of the Southern quadrant are generally easier to defend, which slowed their explosive expansion somewhat, but not by much. The Ghost Mandate barely had time to put together the bulk of the Ghost Fleet and deploy it at choke points on its own borders before they started pouring in. While most of the Ghost Fleet was destroyed there, those engagements would be the first and one of the rare times where several scattershapes would be destroyed in a single battle.
+While it didn't slow the Anarchai much, it did give enough time for them and indirectly the Celestials to do some preparations, and send a few of the surviving forces to Dynasty territory.
+
+- While the fall of the rest of the galaxy would be impossibly fast by Planetwar standards, it still gave enough time for the Dynasty to prepare, learn what could be from those mysterious attackers, enact an alliance of desperation with the still surviving powers then welcome their remnant forces and refugees, and for the first and only time in its existence, renounce its ironclad principles of biosupremacy, anti-cybernetics, and anti-machine intelligence.
+It would receive all the best of both Celestial and Mandate technical knowledge and what industry could be moved in time, and combine it with its own exceptional know-how to produce the most formidable machines of war that panhumanity had ever made.
+The oldest organization to ever exist in the galaxy would be the last one standing, ironically renouncing its founding principles in the very end, to hold a few more years.
+
+- Even as they were developing ever more sophisticated military systems, it was still no match for the Anarchai and they could do little more than slow them down, fighting over a dwindling number of worlds. They were hoping to hold long enough to either close the immense gap in power with some new system, find a weakness that could be exploited, or find a way to communicate with the Anarchai. 
+Possibly the two most notable military systems were the Custodians and the Demiurges.
+The Custodians were unstable biomechanical space horrors serving as warships and space defenses, with limited capacity to disrupt formants and the unnerving tendency to never quite be at a given position in spacetime.
+The Demiurges were the core of the surface forces, both pilot and machine built from the ground up to be the ultimate Commander in a temperamental, often short-lived but incredibly effective combat system combining the best Dynastic human modification knowledge, Celestial cybernetic augmentations, and every other trick they could put together, and that could even have some hope to contest Anarchai surface operations.
+
+- In the end, none came to a pass. The Anarchai besieged the Dynasty capital, their final world, for several months, until they broke the world's defense and burned it to the mantle.
+Notably, the Dynasty's Main Vaults, buried even deeper in the planet's mantle and containing all the knowledge of the ancient organization, survived. The Anarchai had demonstrated that they could detect and strike such targets, but didn't bother this time.
+It is speculated that by the time the world fell, its entire surface and subsurface had been converted to military defense use, and this is why the Anarchai burned the whole place down instead of more targeted operations. 
+
+- Then the Anarchai all turned against each-other and destroyed themselves just as thoroughly as they had their panhuman targets, wiping each-other out to the last element of the last formant. This last phase of the galactic war would be brief, inhumanly violent, and with very few surviving witnesses.
+
+
+The post-Anarchai era
+
+- All higher organization, major industry, and major military equipment in the galaxy had been destroyed, but most of its population was still alive, and most of those would survive the following hardship and slowly rebuild. 
+The galaxy would never come close to the heights it had attained before, but still, they would rise again, and galactic history, as always, would continue.
+
+- Given enough time, new interstellar powers would form, then galactic powers. And, after long enough, even Planetwars would happen again.
+
+
+The last Planetwar
+
+- The previous galactic order had united the galaxy before slowly crumbling to nothingness, and was followed by a long an interregium with no major power, few long-lived regional ones, endemic warfare, and an overall breakdown of long-distance exchanges.
+In time however, things slowly stabilized again if unequally so, bringing safety for some, but larger-scale wars to others.
+
+- One of the first regional powers to emerge and later become one of the four contenders of the last Planetwar would be Haven. Originally a self-defense group of machine intelligences who would harbor those falling foul of biosupremacists in the decaying galactic order, they built a series of strongholds in the Anarchai quadrant, where astrography still gave strong defensive positions. They would slowly grow to become the masters of this quadrant in time, a highly centralized but tightly run collective, ruled for the most part by machine intelligence specialists.
+
+- A younger one was the Union of Sovereign Star-Systems, originally an alliance of convenience of a smattering of independent star systems in the Celestial quadrant, seeking safety in numbers and better trade without loosing their independence. It would slowly grow into a powerful confederation, and become somewhat expansionist as a way to secure its borders and increase its trading space.
+This would end up putting them in competition with Haven, though while both would see their share of proxy and border conflicts, and gear up for a full confrontation, they would not end up having major battles against each-other.
+
+- The Ninth Galactic State, Second Restoration, was born from the remnants of the previous galactic order (Ninth Galactic State, First Restoration), though both would be called the Galactic Empire, or just Empire, by everyone at the time.
+It is unclear whether there was a continuity of government in those few core worlds, but they seem to have retained something of the traditions and bureaucracy of the previous Empire, until more ambitious and successful local rulers started expanding again.
+It took a long time, but the new Empire contender slowly clawed its way to regional and then great power status, claiming to be a successor state of the previous Empire, itself following a line of claims going back to the now semi-mythical Ghost Mandate and beyond.
+Notably it, as well as its predecessors, claimed to share the capital world of the Mandate, a garden world whose beauty is the stuff of legends, though this is somewhat of a simplification: the Mandate used mobile stations, the Thrones, as multiple capitals, and while one was at this world for most of the Mandate's existence and much of the general administration would be situated there, it wasn't the world itself that was the capital but the local Throne, that would occasionally if rarely move away.
+
+- Driven by ambition and what they saw as an ideological duty to conquer the galaxy, it would grow into the largest power in the galaxy, and launch powerful attacks against both Haven and the Union.
+The Union would fall after heavy fighting, being down to a fraction of its size and a broken military by the Event. Haven would resist better, falling back behind increasingly well-defended strongholds and preparing to resist for a long time.
+However, the Empire expanded too fast, putting too much of its resources and focus in conquest, which would leave its inner regions with not enough presence, letting both corruption and lawlessness develop. Its plan was to finish its conquests before focusing back to internal affairs and stabilize those regions, to not give time to its enemies to regroup and grow back in strength, while at this point the plans of the Union and Haven were to hold long enough for the Empire to implode.
+
+- One thing neither of them had known about, though, and let alone planned for, was the Dynasty of Man (yes, again. Well no, not exactly. We'll get back to it.)
+Having secretly grown in power during the interregium, seizing the opportunity of such a chaotic period, they organized a large-scale rebellion, starting with a spectacular series of uprising on a number of worlds across the Empire. 
+Using all kinds of local and general grievances, as well as less legitimate recriminations (most notably and unsurprisingly anti-cyborg and anti-free machine sentiment), their demagogues would find fertile ground in discontent populations and enough worlds would end up rising up that they would become a serious contender in that last Planetwar.
+Officially, the goal of the Rebels was not so much to cast the Empire down but to hurt it badly enough to see it crumble on its own.
+The goal of the Dynasty was to cause the Empire to crumble after having neutralized the other great powers, and use the following period of chaos to continue extending their influence, hopefully across the entire galaxy this time.
+
+- Despite initial successes and high morale, the Rebels turned out to be relatively poor strategists, and the Empire, turning much of its armies against them, pushed them back. It left enough forces to keep some pressure on the Union remnants and Haven strongholds, and slowly but surely recaptured all rebel territory, bar some scattered holdouts, and follow through with violent repression while slowly sending its forces back to the Celestial and Anarchai quadrants to finish off its other two rivals before they may find some other way to turn the tables (which however Haven did, technically)
+
+
+The Dynasty of Man (the remake made by people with no understanding of what made the original great):
+
+- The Dynasty of Man in question here would be more accurately called the Dynasty Reborn: it was not the original organization, who died by the Anarchai swarms when its last stronghold world fell.
+This new organization was relatively recent, and started when the deep-mantle Main Vaults of said last world were discovered by a chance archaeological find. The discoverers decided to keep the secrets for them and create the Dynasty anew.
+Technical knowledge isn't anything though, and what they shared in ambition and ideology, they lacked in accumulated experience, as well as and most of the traditions of the old Dynasty. This led to their effort in organizing the rebellion being relatively unsuccessful compared to what one would have expected from the old Dynasty, and that's even taking into account the screw up that caused the whole thing to start too early.
+
+- Their plans for this Planetwar had started much earlier. Initially, they had tried and mostly failed to infiltrate the Empire's higher levels. However they had another long-term plan.
+In the Main Vaults, among many other extraordinary things, they had found the complete documentation of the Demiurge project. And they decided that those would make for the perfect foot soldiers and vanguard of the New Humanity to conquer the galaxy. Something their forebears may have warned them to be fraught and, more damningly, rather distasteful. 
+And fraught the plan was. And then they screwed it up.
+
+-They worked hard on recreating the Demuirge pilots (though without the implants and more outwardly extreme biomods, there are no machine gods hellbent on their destruction at the moment after all), and while those couldn't hold a candle to the historical ones, they were still a pretty remarkable achievement for their time, and were much more stable for most of them. 
+Now the issue here is that they didn't really tell said Demuirges who or what they were, and what the plan was, and sell them the idea of the whole Vanguard of the New Humanity thing. Instead, they told them they were unusually bright kids, do relatively unobtrusive experiments on them (those that survived the initial phases of the project and were deemed satisfactory at least), then sent them across the Empire to varied military academies.
+After all you never know, what if one become defective and leak the secret? Or decide that actually it's not such a great plan? It probably made perfect sense for them at the time somehow.
+
+- At some point during the project, there was a disagreement in its management, and all the subjects were recalled to the de facto Dynasty homeworld, at their main secret research base.
+It seems that some wanted to get rid of them and start again from scratch, while others wanted to experiment with loyalty programs on them. The result, though, was that the subject soon realized that something was wrong, more and more of them were missing, and they decided to try and get out of the facility before it was too late for them.
+They may not have been true Demiurges, they were still remarkable biotechnological achievements. They were also trained, resourceful, clever, and motivated. Despite the impressive security systems of the facility, they succeeded in staging a break and, though at a heavy cost. An undetermined number of them managed to escape, though what happened to them afterwards is unclear as they did their best to cover their tracks.
+
+- A key part of their success was when one of them chanced upon an ancient archaeotech find, a prototype support Demiurge Commander. It had been unearthed by Dynasty archaeologists on one of the last worlds to fall to the Anarchai, which had some of the main military research labs of the old Dynasty at the time. While the project could not be completed in time and those were never mass-produced, it was a design for a simpler, more rugged, and faster to build Demuirge Commander chassis meant to bulk numbers up with less powerful but more numerous units.
+The Commander system, whose systems were still semi-operational when found and had been mostly restored since, had not been successfully controlled by Dynasty Reborn personnel yet. As such, considered non-operating, it had been left with somewhat lower security than such a formidable machine should have required. However, upon contact with what it recognized as a Demiurge despite the significant differences and absence of cyberware, it activated and accepted the escapee as its legitimate pilot.
+The now active Commander smashed its way through the facility, causing enough chaos for others to escape, and seizing a dropship to go to orbit.
+
+- Even worse for the Dynasty, part of the system not only included the mech itself, but also its dedicated support starship equipped with all facilities including a surface insertion teleporter, a jump drive, and limited self-defense systems.
+Limited, that is, by Anarchai war standards.
+Similarly to the mech, the starship had been restored but left in orbit as an inoperable relic, forming a small orbital station with its archaeotech repair and reverse-engineering facilities, plus some protective shielding and some extra disguise to avoid unwanted attention.
+As soon as proximity allowed to signal it through the shielding, the starship reactivated, tore itself off the installation, and picked up the mech from the dropship. From there, it fought its way through the orbital defenses and ships sent to intercept it, and jumped away from the system.
+Fire from the pursuing ships, and still incomplete restoration as the now well-awake self-repair systems hadn't finished their work, caused a misjump, which would nearly kill the pilot and force an emergency hibernation procedure to repair the damages on pilot and machines, and land them half a galaxy away, near the still-holding Union core worlds.
+Union salvagers would find it in complete lockdown and apparent inactivity from outside analysis, and it would end up in an archaeotech storage facility on the Union core world, awaiting further analysis that would never come.
+
+- This incident would threaten all the careful plans of the Dynasty, and force them to start the planned rebellion early. Which, despite initial successes, would cause the Empire to have enough forces at hand to redirect against it and ultimately smash it. 
+The Dynasty itself would loose its own homeworld, as the incident had attracted attention to it and it would be a key world of the Rebels, but the Empire would never find about either the ancient Main Vaults nor the existence of the Dynasty itself, believing they had smashed the Rebellion and its instigators for good.
+
+
+And suddenly, nothing
+
+- Haven, suffering setback after setback but still holding against the Empire, had long discovered about the Starsong and, fascinated by the Anarchai, had pieced together the story of their emergence, or at least what little could be found of it. While the original transcript had mostly been lost, knowing what to look for and from which direction, they were able to detect it again, quite possibly unchanged. 
+They were both obsessed by this strange signal, and terrified by its potential. After all, the Oroi had been careful and followed good procedures, and it clearly hadn't been enough.
+However, with the increasing pressure of the Empire and other solutions becoming less and less viable, it was ultimately decided to still give it a try. Maybe to find something about it before they fell, to at least satisfy their burning curiosity, or maybe to find some outside solution to the whole problem.
+However, they knew this time that the previous precautions hadn't been enough. Something innocuous, possibly something valuable-looking, had turned out deadly and released a galactic scourge, despite all the accumulated experience with such signals.
+So, knowing that even robust procedures had failed them, this time they took all the precautions, the most absurdly tight, procedures, formally proven safe, without taking even the slightest shortcut, putting safety well above any other consideration. And they were the best data handlers in the galaxy, by a margin.
+A shame it still wasn't enough.
+
+- What would be known as the Event by its few survivors started in the middle of the Starsong facility. It would wash through the planet in a second, and accelerate from there, covering the entire galactic arm in a matter of days.
+It then slowed down and its propagation became asymmetric, covering another arm in a few weeks, then another in months, before covering the rest of the galaxy in the order of a decade.
+The front of the Event was impossible to cross by hyperspace, instantly disintegrating the attempting ship, and blocking all superluminal communications. Outside of this, it only affected sapient beings, making their body and mind vanish from existence (though none of their possessions, this seems to have been based on their own perception of self to an extent at least), but affected them nearly all.
+The only ones to not be affected were the ones in the deepest hibernation, featuring a complete absence of any activity. Any shallower hibernation than this would not affect it, and a microscopic fraction of the galaxy's population would be among those, with fewer even to wake up from it afterwards as there was no-one left to assist them.
+
+- Haven was gone in a few days, what was left of the Union weeks later with barely a warning. However, the Empire had more time to prepare, as most of its territory would not be affected for years. They started evacuating as many people as possible towards the furthest reaches that would be affected last. However, only a fraction of the total population could be evacuated in time on most worlds.
+Their preliminary research led them to conclude that the Event would spend itself after covering the entire galaxy, its satellites, and go much of the way towards the closest neighbors in the Local Group before dissipating. Trying to outrun it would have been futile.
+
+- The Empire had inherited some knowledge of the Eternity Gate and the Mandate's work on it, and had done some research on it, but otherwise kept it quiet. However, with the Event closing in on them, and the Gate's structure apparently slowing its progression down, they considered it for escape. They didn't know much about what was on the other side, but knew it was inhabitable in some form and had enough data on the general conditions to put emergency settlement kits to hopefully survive there.
+So they turned the closest planets into vast temporary shelters to house the refugees before evacuation, while reactivating the still mostly functional Mandate relay systems and building fleets of colony ships capable of following them and crossing the rift at its end.
+It is unclear how many ships and refugees took of before the event swept those last worlds, or how many made it all the way through the Gate.
+
+
+Silence Era
+
+- After the Event, some of the few survivors in deep hibernation started to wake up in an emptied galaxy. Most infrastructure and automated systems were still running, and while some areas still had active military bots and other automated hazards, most of the galaxy was mostly safe.
+Some of the survivors managed to get interstellar communication and starships working, contacting each-other and searching worlds for other survivors. They soon discovered the final evacuation plans of the Empire towards the Eternity Gate. They decided to follow them, as many evacuation ships were still present and functional, and they judged they were too few to really restart civilization in this galaxy.
+Knowing that other survivors may wake up after themselves, as there were little chances that they had found everyone, they prepared things for others trying to follow them afterwards.
+They left message beacons running, put supplies together in many places, deactivated some dangerous automated systems, set up warp gates for long-term autonomous function and self-repair, left control codes they could find for still active military automata...
+Then they left to the Gate, with a few of the evacuation ships.
+
+- Other survivors would indeed wake up and follow them through the Gate, progressively rarer over the centuries and millennia.
+The galaxy would become increasingly dangerous, with infrastructure finally breaking down or becoming corrupted and unpredictable. Automated armies would become dormant, preserving resources and overtaxing their maintenance systems, waiting for enemies that would never come, their programming falling to entropy at a geological pace.
+But apart from one exception, all survivors would wake up and escape before the galaxy became truly hostile.
+
+
+The Sleeper Awakes (Campaign era)
+
+- The Demiurge escapee who ended up in deep hibernation in Union territory would wake up an extremely long time afterwards. The management system of the storage site decided to move the Commander mech for some obscure decision of its programming, which would bring it in conflict with a local defense system detecting this as unauthorized move.
+As the two groups of automata started fighting, the Commander hibernation systems would wake up the pilot. Safety protocols had failed to fully complete, but were still good enough to assure the pilot's safety and this was considered an emergency situation. The pilot's memories would suffer from it though, and would take a long time to return.
+Once reactivated, the pilot would call the Commander starship, stored in an orbital depot, then join it and escape the planet.
+
+- Pilot and Commander would go on to scour the galaxy in search of answers for what had gone on, retrieving memories, and where everyone had gone.
+The last of the other survivors had long escaped by this point this being an extreme outlier in time.
+Dormant automated armies would be the main danger of the galaxy, as even with the backdoor systems that previous survivors had left, and those opened by countless millennia of software rot, most would identify any unknown as hostile and attack.
+
+- The Commander had either lost most of its stored blueprints or they had never been downloaded in the prototype frame, but those could be found on the way, and it would in time have the full standard complement.
+Being a support Demiurge Commander, even as prototype, would still make it a formidable system, and with a well-trained pilot, they would be able to make their way across the galaxy.
+Ultimately they would find about the Starsong at the origin of the Event, though the records had been long lost and the signal itself had long since gone silent. They would also find about their own origin and truth about the Dynasty Reborn.
+They would discover the existence of the Eternity Gate and the evacuation efforts of both the Empire and the survivors, and it is assumed that they would reactivate or rebuild one last refugee ship and cross the rift themselves.
+
+
+Gloaming era (Multiplayer era)
+
+- Billions of years would pass. While one would expect everything ever made by panhumanity to decay into nothingness by that time, it seems that something had changed in the rules governing entropy and time, probably as an aftereffect of the Event but this is speculative.
+It should also be noted that some of the civilizations of the previous eras had built things to last for as long as possible as a principle (the garden worlds and biospheres of the Celestial Dominion being a famous example). So it is also possible that some would have lasted so long regardless.
+
+- As the Age of Stars draws to an end, machine intelligence have emerged again, and rediscovered some of the ancient designs and technologies of the Galactic era.
+The most notable of those is probably the military technologies. Be it by reactivating dormant armies of automata or finding data arks, militaries of this time are made of the same designs that had become the staple of galactic armies when the universe was young.
+
+- This galaxy is very different from the Milky Way, that merged with many others galaxies to form it long ago. But it is again teeming with civilizations, if very different ones. The last of the stars may be going out, there is still much to sustain life and machines.
+And there is still much to fight over.
+
+- Also the Chicken are still around, surprisingly enough.
+
+
+[WARNING: FOLLOWING THIS ARE SPOILERS ABOUT THINGS NOT REVEALED IN THE CAMPAIGN]
+
+
+The origins of the Chicken
+
+- There are many theories about the nature and origins of the Chicken.
+For example, the leading one is that they are an extraterrestrial form of life, that evolved a form of intelligence and interstellar capabilities.
+It is known, after all, that extraterrestrial intelligence exists, as artificial extragalactic hyperspace signals have been detected in the past, some undoubtedly being from distant intelligent beings.
+And it is also known that conventional technology as panhumans envision it are not necessary to develop interstellar travels. The skytrees are a notable example of non-intelligent life form having evolved just so. Though they are of extragalactic origins and their stay in the galaxy appears to have been limited, the local conditions apparently not being suitable for them.
+So it stands to reason that another intelligence could have emerged, be it in the galaxy or in the Local Group and from there having migrated to the Milky Way.
+This theory is plausible, and explains the known facts well. It is, however, wrong.
+
+- As it turns out, the Dynasty is to blame for that one. Which is also why no-one knows about it, because they have spent their entire existence covering it up, and this is the kind of things the Dynasty was exceedingly good at.
+The truth is still hidden deep in the Main Vaults though, if you know where to look.
+
+- They were a secret project by a Dynasty family during the Interstellar era.
+Observing the deficiencies of even regular modded humans, they sought to create a Humans 2.0 with traits such as extreme adaptation, collective intelligence over many zooids instead of singular body, ability to metabolize any CHON substrate, and other such fantastic abilities. 
+They tried to keep it secret from rival families, recognizing correctly that they would not accept being displaced by Humans 2.0, but they ended up being discovered. 
+There has always been disagreements between families about what exactly the future, improved, perfected Humanity should be, but this was beyond the vision of even the most radical lines.
+
+- Other families would end up discovering the project, though. The Dynasty panicked and eradicated the family, systematically destroying every installation and test subject, and erasing every bit of data about it they could find so it couldn't be linked to them.
+Beyond their own outrage at what many saw as a mockery of their own ideals, they feared that humanity would turn against them in the same panic. 
+It wouldn't be before centuries had passed that they would realize that they had missed some of the subjects.
+
+- It would be centuries before they would realize that they had actually missed some. And by then, it was too late. They would launch and secretly support many eradication campaigns during the Interstellar and early Galactic era. Ultimately they would give up after realizing the futility of it, and that the Chicken themselves rarely interacted with panhumanity overall.
+
+- Mostly it appears that the Chicken want to be left alone. They are not particularly expansionists, and will settle few planets in a given sector. Issues arise when their worlds and our worlds happen to coincide somewhere, and neither wants to move away.
+Fight them off hard enough and they will go away at some point. Most of the times at least. They seem to hold onto some world more than others, so make sure you know what to expect before standing your ground.
+
+- Many attempts were made, but no instance of successful communication, coercion, or cohabitation with Chicken is known to have succeeded. And many attempts appear to have ended in catastrophe.
+However, it is unclear whether this is due to inherent impossibility, the Dynasty sabotaging such projects, the Dynasty covering up projects that did succeed, or a combination thereof.
+You can try if you want though, maybe you will find something that other missed, maybe the Chicken have changed their minds, and maybe you'll manage to keep the Dynasty at bay, assuming they are still around :)
+
+
+
+
+------ Comments about the writing ------
+
+ThornEel:
+
+The name of Anarchai has nothing to do with fellow contributor Anarchid, this is actually a coincidence. The etymology is basically similar to Archailect from Orion's Arm, both being from "Archai". The two have other similarities such as being inscrutable godlike machines.
+The Anarchai themselves are inspired by the Inhibitors from some of Alastair Reynolds' books such as Revelation Space and its sequels. The description of the scattershapes is inspired by the Inhibitors, who themselves are mostly aggregates of small black cubes that are well beyond anything like recognizable technology, and use weapons we can barely imagine.
+
+The Event was probably invisible to the naked eye and to most instruments, it is just something that happens basically instantly wherever it passes and vanishing people and stopping any hyperspace anything are the only things it appears to do.
+It also almost instantly started propagating faster than light, so you wouldn't see it arriving, but there was also nothing to see by automated systems when and after it passed either, I would say.
+
+Both in the campaign and in this document, I have avoided explaining anything and left things in doubt, as this cheap trick I mean subtle writing method leaves room for mystery and the feeling that there is more to this world than just what is in the texts. 
+Also, leaving things hinted at can let the reader's imagination work from that, and make something that is better than what could have been written in the first place.
+In addition, the main character (MC) is not in position to learn or discover everything, and there are things where MC won't comment on either for varied reasons, so what we see in the mission and codex texts will also be incomplete by necessity. Hopefully this would also help make the player feel that there is more to this world than what we see. And to avoid hitting the player with immersion-breaking and/or boring infodump, as an aside.
+
+You will note that MC, beyond what we learn of the Demiurge project, is left entirely nondescript. This is by design.
+First, this is from MC's point of view, with a narrative first person, and there is no-one else to interact with, so what we see is entirely outwards by nature.
+Yes, there is no other character because it would have been difficult to make work in the structure of the campaign, which was complete before the writing was started. I'll just say that limitations breed art and leave it at that...
+Secondly, and this is an old trick in videogames for good reasons, this lets the player project themselves on MC, which helps immersion. You are not telling a character what to do next, you are doing the things the character is doing, discovering what they discover, and so on.
+
+Regarding the New Falsell anomaly, well, the first time I played that mission at the time, I had that eerie feeling: all those heavy defences, and yet it felt so empty... So I took inspiration from that first impression.
+For the codex entry, I took inspiration from an unsettling passage in the novel John Dies At The End (which I let you discover if you haven't read it, it's a really good book if you like the fantastic/weird genre), with a slightly different form.
+
+The big constraint for the campaign story was making it fit the existing structure. Yes, it is using the old trick of the amnesiac having to recover their memories, but it's an old trick for a good reason. 
+Making a story that worked for the non-linear format, and constrained presentation of short briefing texts and codex entries, was something of a challenge, and drove several important story decisions. But again, limitations breed art so this may ultimately have been a good thing. Missions also have variety and often interesting structures and/or atmosphere that would foster inspiration, which helped.
+
+An inspiration for the tone of the campaign was, of all things, an Easter egg from the game Enemy Mind. Which probably won't speak to many, but left an impression on me for some reason.
+The game is an interesting retro shoot-em-up where you fight ships from two different factions, humanity using classic SF spacecraft, and Arabus using living ones. Each ship has limited ammo, and you switch to new ships to commandeer when the one you are currently using runs out of ammo or is low on life.
+A particularity is that the name of the ship classes and the cutscenes are shown in the point of view of the faction whose ships you have spent the most time with. On one hand this gives you some agency to choose between the two, on the other end you are still presented things in this classic videogame faction where everyone else tells you how things are and have been and will have to be, while you are a silent protagonist that just take things in stride.
+But in a few missions, there is a flying saucer briefly jumping out from the side of the screen and leaving, never to be seen again. It can be hard to notice, harder to shoot it down, and hardest to take it over with the ship jumping mechanic. And then once you do, it has infinite ammo but it is also extremely fragile (all ships are in that game, as you are supposed to jump ships very often), so the probability of getting far with it is hilariously low.
+But if you do (and I had to look it up online because I'm not nearly good enough for that), what the silent protagonist hears is in an unknown language that it doesn't understand. And the protagonist remarks on it, on the strangeness of it all, and start speaking with its own voice, as the conditioning that makes it follow the side it possesses ships doesn't work anymore.
+Now I don't know if anyone else had the same feeling, but suddenly having the silent protagonist speak, ask questions, and generally think by itself, that really struck me.
+I tried to capture some of that feeling with the start of the campaign, with MC waking up at the helm of a strange machine, with no idea what's going on and answers hidden behind hostile worlds.

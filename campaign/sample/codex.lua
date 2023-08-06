@@ -172,7 +172,6 @@ The so-called chicken are a xenoform species of unknown origin, based on a hive-
 They are invariably hostile when active, with no rumors of successful cohabitation with humans ever confirmed. They can however stay dormant for long periods in deep, near-undetectable underground chambers to which they are suspected to retreat upon the death of their Queen. This has made their complete eradication from a planet extremely challenging, especially if infrastracture or terraforming efforts are to be preserved.
  
 Hypotheses about their origins run from ancient dormant aliens awakened by human activity to secret weapon gone rogue to results of experiments on accelerated evolution that went wrong - or horribly right.]]
-		-- ed note: The chickens are actually a secret project by a family of the early Dynasty. Observing the deficiencies of even regular modded humans, they sought to create a Humans 2.0 with traits such as extreme adaptation, collective intelligence over many zooids instead of singular body, ability to metabolize any CHON substrate, and other such fantastic abilities. They tried to keep it secret from rival families, recognizing correctly that they would not accept being displaced by Humans 2.0, but they ended up being discovered. The Dynasty panicked and eradicated the family, erasing every bit of data about it they could find so it couldn't be linked to them - fearing that humanity would turn against them in the same panic. It wouldn't be before centuries had passed that they would realize that they had missed some of the subjects.
 	},
 	threat_chickens_lifecycle = { -- planet38
 		name = "Chicken Life-Cycle",
@@ -202,9 +201,10 @@ Chicken have existed for at least as long as the early days of the human galacti
  
 Inter-colony skirmishes have been observed, often limited to underground tunnel fighting and nowhere near with the level of violence seen against humans, or with a Queen directly intervening. Similarly, while colonies don't always cooperate against humans, with some preferring to go dormant rather than fight, no skirmish has ever been observed on a conflict where a colony was engaged against humans. Long-range coordination of chicken forces also hint at sophisticated inter-colony communications, though by which mechanisms is unknown. Controversial evidence of interstellar communication have been presented, but has always been judged invalid or inconclusive.
  
-No successful attempts at communication with a colony been demonstrated, however such attempts tend to end in catastrophe, considerably limiting the number of subsequent attempts. This includes attempts at tacit understanding between settlers and local colonies for division of lands or resources. Conversely, no communication attempts from a colony have ever been recorded.
+No successful attempts at communication with a colony been demonstrated as far as anyone knows, however such attempts tend to end in catastrophe, considerably limiting the number of subsequent attempts. This includes attempts at tacit understanding between settlers and local colonies for division of lands or resources. Conversely, no communication attempts from a colony have ever been recorded.
  
 Contrasting with their sophistication in many other domains, their strangely primitive warfare tactics has puzzled many scientists. Through history, mentions have been made of contact being lost with entire worlds, with nothing but ruins being discovered afterwards, and no explanation about what had happened - some have hypothesized that it could be the result of chicken colonies attacking with their full potential and intelligence.]]
+		-- ed note: the absence of successful communication or tacit understanding with local Chicken hives may be what actually (never) happened, or successful examples may have been lost to time, or there may have been some motivated coverup at some point to hide successful cases
 	},
 	
 	-- Entries
@@ -542,26 +542,30 @@ So they turned themselves into the most formidable stronghold in the galaxy, in 
 		name = "New Falsell Anomaly",
 		image = "campaign/sample/graphics/unitpics/fakeunit.png",
 		category = "5. Anomalies",
+		-- Note: the "Expect" instead of "Except" is intentional, both to make the second reading work and to add a subtle mistake that most won't notice on first read
 		text = [[What was going on here? Why leave such formidable defenses with no mobile forces to support it?
 Did they really think that this would be enough? Defenses alone can only slow an enemy down to buy time, not stop it.
 You would think that those in charge of such clearly sensitive defense would apply such basic principle.
-Expect they clearly didn't. What good reason could they possibly have?
-Uh, my
+Expect they clearly didn't. What good reason could they possibly have? Strange, my
 Commander seems to have some weird software glitch going on.
-I should try and fix that.
-Didn't think that was possible, actually. For the state it was in, it has been remarkably stable so far. More than I'd
-Expect, honestly.
-So.
+I should try and fix that. I
+Don't even
+Think I get how the self-repair missed that one, honestly.
+You would think it
+Would fix anything,
+Expect irreversible code loss, for what I have seen. Best I have ever seen, in fact. Without
+That, I would never have awoken...
+So,
 Thanks to those lone static defenses, I could breach the perimeter.
 For something so well-guarded, though, I can't find what they were actually guarding. There is nothing there!
 Getting in was the easiest part, it would seem.
 Those weren't the only thing down there though. The
 Interlopers weren't part of the defense.
 By
-The time I took care of them, it was pretty clear they were actually hostile to the defenses. In a
-Way, that has to be linked to the lack of mobile defenses...
+The time I wrapped this all up, it was pretty clear they were actually hostile to the defenses. The
+Way they sent those attacks was strange, their tactical systems must have been severely compromised.
 They
-Were not attacking those defenses so hard, though - and that glitch doesn't want to go away. What
+Were not going to take those defenses down - and that glitch doesn't want to go away. What
 A
 Pain.
 You
