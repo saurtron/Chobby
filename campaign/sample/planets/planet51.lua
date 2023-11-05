@@ -56,7 +56,7 @@ local function GetPlanet(planetUtilities, planetID)
 				facplop = false,
 				commanderParameters = {
 					facplop = false,
-					defeatIfDestroyedObjectiveID = 2,
+					defeatIfDestroyedObjectiveID = 3,
 				},
 				newtonFirezones = {
 					{
@@ -2180,7 +2180,7 @@ local function GetPlanet(planetUtilities, planetID)
 						"staticmex",
 					},
 					loseAfterSeconds = 30*60,
-					allyTeamLossObjectiveID = 1,
+					allyTeamLossObjectiveID = 2,
 				},
 			},
 			objectiveConfig = {
