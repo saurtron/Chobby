@@ -2186,9 +2186,12 @@ local function GetPlanet(planetUtilities, planetID)
 			objectiveConfig = {
 				-- This is just related to displaying objectives on the UI.
 				[1] = {
-					description = "Protect the Tech Lab for 30 minutes OR Destroy all enemy Metal Extractors",
+					description = "Protect the Tech Lab",
 				},
 				[2] = {
+					description = "Survive for 30 minutes OR Destroy all enemy Metal Extractors",
+				},
+				[3] = {
 					description = "Protect your Commander",
 				},
 			},
