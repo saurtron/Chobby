@@ -56,7 +56,7 @@ local function GetPlanet(planetUtilities, planetID)
 				facplop = false,
 				commanderParameters = {
 					facplop = false,
-					defeatIfDestroyedObjectiveID = 2,
+					defeatIfDestroyedObjectiveID = 3,
 				},
 				newtonFirezones = {
 					{
@@ -2180,15 +2180,18 @@ local function GetPlanet(planetUtilities, planetID)
 						"staticmex",
 					},
 					loseAfterSeconds = 30*60,
-					allyTeamLossObjectiveID = 1,
+					allyTeamLossObjectiveID = 2,
 				},
 			},
 			objectiveConfig = {
 				-- This is just related to displaying objectives on the UI.
 				[1] = {
-					description = "Protect the Tech Lab for 30 minutes OR Destroy all enemy Metal Extractors",
+					description = "Protect the Tech Lab",
 				},
 				[2] = {
+					description = "Survive for 30 minutes OR Destroy all enemy Metal Extractors",
+				},
+				[3] = {
 					description = "Protect your Commander",
 				},
 			},
