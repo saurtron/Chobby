@@ -392,6 +392,12 @@ planetData = {
 					"cloakraid",
 				},
 				
+				-- Adds the units that the player has unlocked to this AIs set of unlocks
+				addPlayerUnlocks = {
+					"vehcon", "vehscout", "vehraid", "vehsupport", "vehriot",
+					"vehassault", "vehcapture", "veharty", "vehheavyarty", "vehaa",
+				},
+				
 				-- Additional that the AI can build at particular difficulty levels. Indexed by difficulty, don't need to set empty entries.
 				-- Don't double up entries with the standard unlocks table or I'll be annoyed.
 				difficultyDependantUnlocks = {

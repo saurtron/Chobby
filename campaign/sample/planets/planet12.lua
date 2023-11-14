@@ -150,6 +150,10 @@ local function GetPlanet(planetUtilities, planetID)
 						"turretmissile",
 						"vehassault",
 					},
+					addPlayerUnlocks = (not WG.Chobby.Configuration:IsCurrentVersionNewerThan(105, 2000)) and {
+						"vehcon", "vehscout", "vehraid", "vehsupport", "vehriot",
+						"vehassault", "vehcapture", "veharty", "vehheavyarty", "vehaa",
+					},
 					difficultyDependantUnlocks = {
 						[2] = {"staticcon"},
 						[3] = {"staticcon"},

@@ -223,8 +223,20 @@ local function StartBattleForReal(planetID, planetData)
 		local availibleUnits = aiData.unlocks
 		local extraUnits = aiData.difficultyDependantUnlocks and aiData.difficultyDependantUnlocks[missionDifficulty]
 		if availibleUnits and extraUnits then
-			for i = 1, #extraUnits do
-				availibleUnits[#availibleUnits + 1] = extraUnits[i]
+			for j = 1, #extraUnits do
+				availibleUnits[#availibleUnits + 1] = extraUnits[j]
+			end
+		end
+
+		if aiData.addPlayerUnlocks then
+			local playerUnlockMap = {}
+			for j = 1, #fullPlayerUnlocks do
+				playerUnlockMap[fullPlayerUnlocks[j]] = true
+			end
+			for j = 1, #aiData.addPlayerUnlocks do
+				if playerUnlockMap[aiData.addPlayerUnlocks[j]] then
+					availibleUnits[#availibleUnits + 1] = aiData.addPlayerUnlocks[j]
+				end
 			end
 		end
 
