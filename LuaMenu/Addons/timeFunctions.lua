@@ -108,15 +108,36 @@ end
 -------------------------------------------------------------------------------------
 -- Utilities
 
-function Spring.Utilities.FormatTime(seconds, includeSeconds)
+function Spring.Utilities.FormatTime(seconds, includeSeconds, precise)
 	if seconds < 0 then
+		if precise then
+			return "0.00"
+		end
 		return (includeSeconds and "0s") or "0m"
 	end
 
 	local hours = math.floor(seconds/3600)
 	local minutes = math.floor(seconds/60)%60
-	local seconds = math.floor(seconds)%60
+	local seconds = seconds%60
 
+	if precise then
+		local timeText = ""
+		if hours > 0 then
+			timeText = hours .. ":"
+		end
+		if minutes > 0 then
+			if minutes < 10 and hours > 0 then
+				timeText = timeText .. "0"
+			end
+			timeText = timeText .. minutes .. ":"
+		end
+		if seconds < 10 and minutes > 0 then
+			timeText = timeText .. "0"
+		end
+		timeText = timeText .. string.format("%.2f", seconds)
+		return timeText
+	end
+	
 	--Spring.Echo("pastTime", pastTime[1], pastTime[2], pastTime[3], pastTime[4], "pastSeconds", pastSeconds)
 	--Spring.Echo("currentTime", currentTime[1], currentTime[2], currentTime[3], currentTime[4], "currentSeconds", currentSeconds)
 	--Spring.Echo("seconds", seconds)

@@ -177,6 +177,271 @@ end
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
+-- Score Window
+
+local function MakePlanetControls(bestPlanet)
+	local holder = Panel:New {
+		x = 0,
+		y = 0,
+		width = "100%",
+		resizable = false,
+		draggable = false,
+		padding = {0, 0, 0, 0},
+	}
+	
+	local nameLabel = TextBox:New {
+		x = "6%",
+		y = 5,
+		right = "80%",
+		height = 40,
+		valign = 'center',
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = bestPlanet.name,
+		parent = holder,
+	}
+	local difficultyLabel = TextBox:New {
+		x = "26%",
+		y = 5,
+		right = "60%",
+		height = 40,
+		valign = 'center',
+		align = 'center',
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = DIFFICULTY_NAME_MAP[bestPlanet.difficulty + 1],
+		parent = holder,
+	}
+	local bonusLabel = TextBox:New {
+		x = "46%",
+		y = 5,
+		right = "40%",
+		height = 40,
+		valign = 'center',
+		align = 'center',
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = string.format("%d%%", bestPlanet.bonusProp*100),
+		parent = holder,
+	}
+	local framesLabel = TextBox:New {
+		x = "66%",
+		y = 5,
+		right = "20%",
+		height = 40,
+		valign = 'center',
+		align = 'center',
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = Spring.Utilities.FormatTime(bestPlanet.frames/30, true, true),
+		parent = holder,
+	}
+	local lossesLabel = TextBox:New {
+		x = "86%",
+		y = 5,
+		right = "0%",
+		height = 40,
+		valign = 'center',
+		align = 'center',
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = bestPlanet.losses,
+		parent = holder,
+	}
+	
+	local externalFuncs = {}
+	function externalFuncs.UpdateBestPlanet(newPestPlanet)
+		bestPlanet = newPestPlanet
+		difficultyLabel:SetText(DIFFICULTY_NAME_MAP[bestPlanet.difficulty + 1])
+		bonusLabel:SetText(string.format("%d%%", bestPlanet.bonusProp*100))
+		framesLabel:SetText(Spring.Utilities.FormatTime(bestPlanet.frames/30, true, true))
+		lossesLabel:SetText(bestPlanet.losses)
+	end
+	
+	function externalFuncs.GetHolder()
+		return holder
+	end
+	
+	return externalFuncs
+end
+
+local function InitializeScoresWindow(parent)
+	local init = true
+	
+	local canPrioritiseBy = {
+		"Difficulty",
+		"Bonuses",
+		"Time",
+		"Losses",
+	}
+	local internalPrioName = {
+		"difficulty",
+		"bonusCount",
+		"frames",
+		"losses",
+	}
+	
+	local sortMult = {
+		difficulty = 1,
+		bonusCount = 1,
+		frames = -1,
+		losses = -1,
+	}
+	local comboPositions = {110, 370, 561}
+	
+	local listHolder = Control:New {
+		x = 6,
+		right = 6,
+		y = 60,
+		bottom = 15,
+		parent = parent,
+		resizable = false,
+		draggable = false,
+		padding = {0, 0, 0, 0},
+	}
+	
+	local headings = {
+		{name = "Planet",     x = "0%", right = "80%"},
+		{name = "Difficulty", x = "20%", right = "60%"},
+		{name = "Bonuses",    x = "40%", right = "40%"},
+		{name = "Time",       x = "60%", right = "20%"},
+		{name = "Losses",     x = "80%", right = "0%"},
+	}
+	
+	local planetList = WG.Chobby.SortableList(listHolder, headings, 75, 2)
+	local sortByOptions = {}
+	local planetControls = {}
+	local currentSort = Spring.Utilities.CopyTable(internalPrioName)
+	
+	local function GetBestPlanet(planetID)
+		local bestPool = WG.CampaignData.GetPlanetVictoryLog(planetID)
+		if not bestPool then
+			return
+		end
+		for i = 1, #currentSort do
+			local bestFound = false
+			local bestSet = false
+			local sortBy = currentSort[i]
+			for j = 1, #bestPool do
+				local score = bestPool[j][sortBy] * sortMult[sortBy]
+				if (not bestFound) or score > bestFound then
+					bestSet = {}
+					bestSet[#bestSet + 1] = bestPool[j]
+					bestFound = score
+				elseif score == bestFound then
+					bestSet[#bestSet + 1] = bestPool[j]
+				end
+			end
+			bestPool = bestSet
+		end
+		
+		local bestPlanet = Spring.Utilities.CopyTable(bestPool[1])
+		local planetDef = WG.CampaignData.GetPlanetDef(planetID)
+		if planetDef.gameConfig.bonusObjectiveConfig and #planetDef.gameConfig.bonusObjectiveConfig > 0 then
+			bestPlanet.bonusProp = bestPlanet.bonusCount / #planetDef.gameConfig.bonusObjectiveConfig
+		else
+			bestPlanet.bonusProp = 1
+		end
+		bestPlanet.bonusCount = nil
+		bestPlanet.name = planetDef.name
+		return bestPlanet
+	end
+	
+	local function UpdateState()
+		local victoryPlanets = WG.CampaignData.GetCapturedPlanetList()
+		local items = {}
+		for i = 1, #victoryPlanets do
+			local planetID = victoryPlanets[i]
+			local bestPlanet = GetBestPlanet(planetID)
+			if bestPlanet then
+				if not planetControls[planetID] then
+					planetControls[planetID] = MakePlanetControls(bestPlanet)
+				else
+					planetControls[planetID].UpdateBestPlanet(bestPlanet)
+				end
+				items[#items + 1] = {planetID, planetControls[planetID].GetHolder(), {bestPlanet.name, bestPlanet.difficulty, bestPlanet.bonusProp, bestPlanet.frames, bestPlanet.losses}}
+			end
+		end
+		planetList:Clear()
+		planetList:AddItems(items)
+	end
+	
+	for i = 1, 3 do
+		sortByOptions[i] = ComboBox:New {
+			x = comboPositions[i],
+			y = 12,
+			width = 120,
+			height = 30,
+			parent = parent,
+			items = canPrioritiseBy,
+			objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+			selected = canPrioritiseBy[i],
+			OnSelect = {
+				function (obj, index)
+					if init then
+						return
+					end
+					local newSort = {}
+					local sortAdded = {}
+					for j = 1, #sortByOptions do
+						local sortName = internalPrioName[sortByOptions[j].selected]
+						if not sortAdded[sortName] then
+							newSort[#newSort + 1] = sortName
+							sortAdded[sortName] = true
+						end
+					end
+					for j = 1, #internalPrioName do
+						local sortName = internalPrioName[j]
+						if not sortAdded[sortName] then
+							newSort[#newSort + 1] = sortName
+							sortAdded[sortName] = true
+						end
+					end
+					currentSort = newSort
+					
+					UpdateState()
+				end
+			},
+		}
+	end
+
+	TextBox:New {
+		x = 20,
+		y = 20,
+		width = 200,
+		height = 30,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = "Show best",
+		parent = parent,
+	}
+	TextBox:New {
+		x = 236,
+		y = 20,
+		width = 200,
+		height = 30,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = "breaking ties by",
+		parent = parent,
+	}
+	TextBox:New {
+		x = 495,
+		y = 20,
+		width = 200,
+		height = 30,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = "then by",
+		parent = parent,
+	}
+	
+	local function ResetState()
+		planetControls = {}
+		UpdateState()
+	end
+	
+	WG.CampaignData.AddListener("VictoryLogUpdated", UpdateState)
+	WG.CampaignData.AddListener("CampaignLoaded", ResetState)
+	
+	ResetState()
+	init = false
+end
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Initialization
 
 local function MakeTab(name, children)
@@ -259,6 +524,7 @@ local function InitializeControls(window)
 		MakeTab("Save/Load", {WG.CampaignSaveWindow.GetControl()}),
 		--MakeStandardTab("Difficulty", InitializeDifficultyWindow),
 		MakeStandardTab("Stats", InitializeStatsWindow),
+		MakeStandardTab("Scores", InitializeScoresWindow),
 	}
 
 	local tabPanel = Chili.DetachableTabPanel:New {

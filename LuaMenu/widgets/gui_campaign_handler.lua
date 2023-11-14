@@ -693,7 +693,11 @@ local function MakeWinPopup(planetData, bonusObjectiveSuccess, difficulty, extra
 	return externalFunctions
 end
 
-local function MakeRandomBonusVictoryList(winChance, length)
+local function MakeRandomBonusVictoryList(winChance, planetData)
+	local length = (planetData.gameConfig.bonusObjectiveConfig and #planetData.gameConfig.bonusObjectiveConfig) or 0
+	if length == 0 then
+		return {}
+	end
 	local list = {}
 	for i = 1, length do
 		list[i] = (math.random() < winChance)
@@ -713,7 +717,7 @@ local function MakeBonusObjectivesList(bonusObjectivesString)
 	return list
 end
 
-local function ProcessPlanetVictory(planetID, battleFrames, bonusObjectives, bonusObjectiveString, difficulty)
+local function ProcessPlanetVictory(planetID, battleFrames, bonusObjectives, bonusObjectiveString, difficulty, losses)
 	if not planetID then
 		Spring.Echo("ProcessPlanetVictory error")
 		return
@@ -727,6 +731,7 @@ local function ProcessPlanetVictory(planetID, battleFrames, bonusObjectives, bon
 	-- already unlocked rewards.
 	currentWinPopup = MakeWinPopup(planetConfig[planetID], bonusObjectives, difficulty, WG.CampaignData.GetExtraCodexUnlocks(planetID))
 	WG.CampaignData.AddPlayTime(battleFrames)
+	WG.CampaignData.SavePlanetVictory(planetID, battleFrames, bonusObjectives, difficulty, losses)
 	WG.CampaignData.CapturePlanet(planetID, bonusObjectives, difficulty)
 
 	WG.Analytics.SendIndexedRepeatEvent("campaign:planet_" .. planetID .. ":difficulty_" .. difficulty .. ":win", math.floor(battleFrames/30), ":bonus_" .. (bonusObjectiveString or ""))
@@ -1080,7 +1085,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				OnClick = {
 					function(self)
 						local function SkipFunc()
-							ProcessPlanetVictory(planetID, 0, {}, nil, WG.CampaignData.GetDifficultySetting())
+							ProcessPlanetVictory(planetID, 0, {}, nil, WG.CampaignData.GetDifficultySetting(), 0)
 						end
 						WG.Chobby.ConfirmationPopup(SkipFunc, "Are you sure you want to skip the quick tutorial? Remember to come back later if you need help.", nil, 315, 220)
 					end
@@ -1100,7 +1105,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
-						ProcessPlanetVictory(planetID, 0, MakeRandomBonusVictoryList(2, 8), nil, WG.CampaignData.GetDifficultySetting())
+						ProcessPlanetVictory(planetID, 0, MakeRandomBonusVictoryList(2, planetData), nil, WG.CampaignData.GetDifficultySetting(), 0)
 					end
 				}
 			}
@@ -1115,7 +1120,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
-						ProcessPlanetVictory(planetID, 352, MakeRandomBonusVictoryList(0.75, 8), nil, WG.CampaignData.GetDifficultySetting())
+						ProcessPlanetVictory(planetID, math.floor(math.random()*10000), MakeRandomBonusVictoryList(0.75, planetData), nil, WG.CampaignData.GetDifficultySetting(), math.floor(math.random()*10000))
 					end
 				}
 			}
@@ -1999,8 +2004,9 @@ function widget:RecvLuaMsg(msg)
 		local battleFrames = tonumber(data[3])
 		local bonusObjectives = data[4]
 		local difficulty = tonumber(data[5]) or 0
+		local losses = tonumber(data[3])
 		if planetID and planetConfig and planetConfig[planetID] then
-			ProcessPlanetVictory(planetID, battleFrames, MakeBonusObjectivesList(bonusObjectives), bonusObjectives, difficulty)
+			ProcessPlanetVictory(planetID, battleFrames, MakeBonusObjectivesList(bonusObjectives), bonusObjectives, difficulty, losses)
 		end
 	elseif string.find(msg, BATTLE_LOST_STRING) then
 		Spring.Echo("msg", msg)

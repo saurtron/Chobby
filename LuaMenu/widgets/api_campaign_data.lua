@@ -149,6 +149,7 @@ local function ResetGamedata()
 		retinue = {}, -- Unused
 		totalPlayFrames = 0,
 		totalVictoryPlayFrames = 0,
+		victories = {},
 		initializationComplete = false,
 	}
 end
@@ -210,7 +211,7 @@ local function SaveGame()
 	local fileName = WG.Chobby.Configuration.campaignSaveFile
 	if (not fileName) or WillOverrideSave(fileName) then
 		local number = WG.Chobby.Configuration.nextCampaignSaveNumber or 1
-		for i = 1, 1000 do
+		for i = 1, 10000 do
 			if VFS.FileExists(SAVE_DIR .. SAVE_NAME .. number .. ".lua") then
 				number = number + 1
 			else
@@ -717,6 +718,8 @@ function externalFunctions.CapturePlanet(planetID, bonusObjectives, difficulty)
 		CallListeners("PlanetUpdate", planetID)
 		SaveGame()
 	end
+	
+	CallListeners("VictoryLogUpdated", planetID, planetVictories)
 end
 
 function externalFunctions.GetExtraCodexUnlocks(planetID)
@@ -754,6 +757,33 @@ function externalFunctions.AddPlayTime(battleFrames, missionLost)
 	CallListeners("PlayTimeAdded", battleFrames, missionLost)
 end
 
+function externalFunctions.SavePlanetVictory(planetID, battleFrames, bonusObjectives, difficulty, losses)
+	gamedata.victoryLog = gamedata.victoryLog or {}
+	local planetVictories = gamedata.victoryLog[planetID] or {}
+	
+	local bonusCount = 0
+	local bonusObjectiveString = ""
+	for i = 1, #bonusObjectives do
+		if bonusObjectives[i] then
+			bonusObjectiveString = bonusObjectiveString .. "1"
+			bonusCount = bonusCount + 1
+		else
+			bonusObjectiveString = bonusObjectiveString .. "0"
+		end
+	end
+	
+	planetVictories[#planetVictories + 1] = {
+		frames = battleFrames,
+		bonusString = bonusObjectiveString,
+		bonusCount = bonusCount,
+		difficulty = difficulty,
+		losses = losses,
+	}
+	
+	gamedata.victoryLog[planetID] = planetVictories
+	SaveGame()
+end
+
 function externalFunctions.PutModuleInSlot(moduleName, level, slot)
 	SelectCommanderModule(level, slot, moduleName)
 end
@@ -788,12 +818,24 @@ function externalFunctions.IsPlanetCaptured(planetID)
 	return gamedata.planetsCaptured.map[planetID], gamedata.completionDifficulty[planetID]
 end
 
+function externalFunctions.GetPlanetDef(planetID)
+	return WG.Chobby.Configuration.campaignConfig.planetDefs.planets[planetID]
+end
+
 function externalFunctions.GetCapturedPlanetCount()
 	return #gamedata.planetsCaptured.list
 end
 
+function externalFunctions.GetCapturedPlanetList()
+	return gamedata.planetsCaptured.list
+end
+
 function externalFunctions.GetPlayTime()
 	return gamedata.totalPlayFrames, gamedata.totalVictoryPlayFrames
+end
+
+function externalFunctions.GetPlanetVictoryLog(planetID)
+	return (gamedata.victoryLog or {})[planetID] or false
 end
 
 function externalFunctions.GetRetinue()
