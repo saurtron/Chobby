@@ -118,7 +118,7 @@ function Spring.Utilities.FormatTime(seconds, includeSeconds, precise)
 
 	local hours = math.floor(seconds/3600)
 	local minutes = math.floor(seconds/60)%60
-	local seconds = seconds%60
+	local seconds = (precise and seconds%60) or math.floor(seconds%60)
 
 	if precise then
 		local timeText = ""

@@ -589,6 +589,9 @@ end
 -- Planet capturing
 
 local function MakeWinPopup(planetData, bonusObjectiveSuccess, difficulty, extraCodexUnlocks)
+	if WG.Chobby.lobbyInterfaceHolder:GetChildByName("victoryWindow") then
+		return
+	end
 	local victoryWindow = Window:New {
 		caption = "",
 		name = "victoryWindow",
@@ -731,9 +734,9 @@ local function ProcessPlanetVictory(planetID, battleFrames, bonusObjectives, bon
 	-- already unlocked rewards.
 	currentWinPopup = MakeWinPopup(planetConfig[planetID], bonusObjectives, difficulty, WG.CampaignData.GetExtraCodexUnlocks(planetID))
 	WG.CampaignData.AddPlayTime(battleFrames)
-	WG.CampaignData.SavePlanetVictory(planetID, battleFrames, bonusObjectives, difficulty, losses)
 	WG.CampaignData.CapturePlanet(planetID, bonusObjectives, difficulty)
-
+	WG.CampaignData.SavePlanetVictory(planetID, battleFrames, bonusObjectives, difficulty, losses)
+	
 	WG.Analytics.SendIndexedRepeatEvent("campaign:planet_" .. planetID .. ":difficulty_" .. difficulty .. ":win", math.floor(battleFrames/30), ":bonus_" .. (bonusObjectiveString or ""))
 	WG.Analytics.SendOnetimeEvent("campaign:planets_owned_" .. WG.CampaignData.GetCapturedPlanetCount(), math.floor(WG.CampaignData.GetPlayTime()/30))
 end
@@ -1096,7 +1099,7 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 		if (not LIVE_TESTING) and (Configuration.debugAutoWin or Configuration.debugMode) then
 			local fullAutoButton = Button:New{
 				right = 0,
-				bottom = 180,
+				bottom = 250,
 				width = 150,
 				height = 65,
 				classname = "action_button",
@@ -1105,7 +1108,31 @@ local function SelectPlanet(popupOverlay, planetHandler, planetID, planetData, s
 				objectOverrideFont = Configuration:GetButtonFont(4),
 				OnClick = {
 					function(self)
-						ProcessPlanetVictory(planetID, 0, MakeRandomBonusVictoryList(2, planetData), nil, WG.CampaignData.GetDifficultySetting(), 0)
+						local wantedWins = 2000
+						local function WinRandomPlanet()
+							local randomPlanet = math.floor(math.random()*71) + 1
+							ProcessPlanetVictory(randomPlanet, math.floor(math.random()*10000), MakeRandomBonusVictoryList(0.5, WG.CampaignData.GetPlanetDef(randomPlanet)), nil, WG.CampaignData.GetDifficultySetting(), math.floor(math.random()*10000))
+							wantedWins = wantedWins - 1
+							if wantedWins > 0 then
+								WG.Delay(WinRandomPlanet, 0.05)
+							end
+						end
+						WinRandomPlanet()
+					end
+				}
+			}
+			local bonusAutoButton = Button:New{
+				right = 0,
+				bottom = 180,
+				width = 150,
+				height = 65,
+				classname = "action_button",
+				parent = buttonHolder,
+				caption = "Bonuses",
+				objectOverrideFont = Configuration:GetButtonFont(4),
+				OnClick = {
+					function(self)
+						ProcessPlanetVictory(planetID, math.floor(math.random()*10000), MakeRandomBonusVictoryList(2, planetData), nil, WG.CampaignData.GetDifficultySetting(), math.floor(math.random()*10000))
 					end
 				}
 			}
@@ -2004,7 +2031,7 @@ function widget:RecvLuaMsg(msg)
 		local battleFrames = tonumber(data[3])
 		local bonusObjectives = data[4]
 		local difficulty = tonumber(data[5]) or 0
-		local losses = tonumber(data[3])
+		local losses = tonumber(data[6]) or 10000000
 		if planetID and planetConfig and planetConfig[planetID] then
 			ProcessPlanetVictory(planetID, battleFrames, MakeBonusObjectivesList(bonusObjectives), bonusObjectives, difficulty, losses)
 		end

@@ -718,8 +718,6 @@ function externalFunctions.CapturePlanet(planetID, bonusObjectives, difficulty)
 		CallListeners("PlanetUpdate", planetID)
 		SaveGame()
 	end
-	
-	CallListeners("VictoryLogUpdated", planetID, planetVictories)
 end
 
 function externalFunctions.GetExtraCodexUnlocks(planetID)
@@ -772,7 +770,7 @@ function externalFunctions.SavePlanetVictory(planetID, battleFrames, bonusObject
 		end
 	end
 	
-	planetVictories[#planetVictories + 1] = {
+	local new = {
 		frames = battleFrames,
 		bonusString = bonusObjectiveString,
 		bonusCount = bonusCount,
@@ -780,8 +778,30 @@ function externalFunctions.SavePlanetVictory(planetID, battleFrames, bonusObject
 		losses = losses,
 	}
 	
+	local i = 1
+	while i <= #planetVictories do
+		local other = planetVictories[i]
+		if other.frames <= new.frames and other.losses <= new.losses and other.bonusCount >= new.bonusCount and other.difficulty >= new.difficulty then
+			new = false -- New is dominated by old, so is redundant
+			break
+		end
+		if other.frames >= new.frames and other.losses >= new.losses and other.bonusCount <= new.bonusCount and other.difficulty <= new.difficulty then
+			-- Remove other as it is redundant
+			planetVictories[i] = planetVictories[#planetVictories]
+			planetVictories[#planetVictories] = nil
+		else
+			i = i + 1
+		end
+	end
+	
+	if not new then
+		return
+	end
+	planetVictories[#planetVictories + 1] = new
 	gamedata.victoryLog[planetID] = planetVictories
+	
 	SaveGame()
+	CallListeners("VictoryLogUpdated", planetID, planetVictories)
 end
 
 function externalFunctions.PutModuleInSlot(moduleName, level, slot)
