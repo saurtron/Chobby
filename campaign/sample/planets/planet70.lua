@@ -2365,6 +2365,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 2816,
 							z = 6048,
 							facing = 3,
+							difficultyAtLeast = 3,
 						},
 						{
 							name = "energywind",
@@ -2407,6 +2408,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 6384,
 							z = 672,
 							facing = 2,
+							difficultyAtLeast = 4,
 						},
 						{
 							name = "energywind",
@@ -2546,6 +2548,7 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 3184,
 							z = 4848,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "turretaaclose",
@@ -4425,12 +4428,14 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 5984,
 							z = 2336,
 							facing = 0,
+							difficultyAtLeast = 2,
 						},
 						{
 							name = "turretantiheavy",
 							x = 4576,
 							z = 3904,
 							facing = 0,
+							difficultyAtLeast = 3,
 						},
 						--{
 						--	name = "turretriot",
