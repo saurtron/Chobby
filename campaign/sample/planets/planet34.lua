@@ -42,7 +42,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/bomberstrike.png",
-				text = [[Magpies fire a pair of missiles at ground or air target, then have to reload. They are suited to surgical strikes on weak targets, such as enemy artillery, as their damage output is rather low.]]
+				text = [[Magpies fire a pair of missiles at a ground or air target, then have to reload. They are suited to surgical strikes on weak targets, such as enemy artillery, as their damage output is rather low.]]
 			},
 			{
 				image = "unitpics/planefighter.png",
