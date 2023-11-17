@@ -335,7 +335,7 @@ local function InitializeScoresWindow(parent)
 		"difficulty",
 	}
 	
-	local comboPositions = {95, 260, 425}
+	local comboPositions = {15, 180, 345}
 	
 	local listHolder = Control:New {
 		x = 6,
@@ -418,7 +418,7 @@ local function InitializeScoresWindow(parent)
 	for i = 1, 3 do
 		sortByOptions[i] = ComboBox:New {
 			x = comboPositions[i],
-			y = 12,
+			y = 24,
 			width = 120,
 			height = 30,
 			parent = parent,
@@ -455,17 +455,17 @@ local function InitializeScoresWindow(parent)
 	end
 
 	TextBox:New {
-		x = 20,
-		y = 20,
-		width = 200,
+		x = 15,
+		y = 7,
+		width = 700,
 		height = 30,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
-		text = "Prioritise",
+		text = "Here is your best attempt at each mission, evaluating each one first by",
 		parent = parent,
 	}
 	TextBox:New {
 		x = comboPositions[1] + 126,
-		y = 20,
+		y = 32,
 		width = 200,
 		height = 30,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
@@ -474,11 +474,20 @@ local function InitializeScoresWindow(parent)
 	}
 	TextBox:New {
 		x = comboPositions[2] + 126,
-		y = 20,
+		y = 32,
 		width = 200,
 		height = 30,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
 		text = "then",
+		parent = parent,
+	}
+	TextBox:New {
+		x = comboPositions[3] + 126,
+		y = 32,
+		width = 200,
+		height = 30,
+		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
+		text = "to break ties.",
 		parent = parent,
 	}
 	
