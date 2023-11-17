@@ -38,15 +38,15 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/bomberdisarm.png",
-				text = [[The Thunderbird can disarm a large army along its bombing path. Use the manual fire (default hotkey D) to fire immediately.]]
+				text = [[The Thunderbird can disarm a large army along its bombing path. Line up the run to disable whole lines of turrets. Use the manual fire (default hotkey D) to fire immediately.]]
+			},
+			{
+				image = "unitpics/bomberstrike.png",
+				text = [[Magpies fire a pair of missiles at ground or air target, then have to reload. They are suited to surgical strikes on weak targets, such as enemy artillery, as their damage output is rather low.]]
 			},
 			{
 				image = "unitpics/planefighter.png",
 				text = [[Swifts are good for intercepting enemy bombers or protecting your own. Use the manual fire (default hotkey D) to activate a speed boost.]]
-			},
-			{
-				image = "LuaUI/Images/ibeam.png",
-				text = [[Metal income from extractors is split evenly between teammates, with whoever builds an extractor temporarily recieving a slightly larger share as payment. Reclaim is private though, as is any metal in storage. Mouse over the metal icon at the top of the screen for a detailed breakdown.]]
 			},
 		},
 		gameConfig = {
@@ -65,6 +65,7 @@ local function GetPlanet(planetUtilities, planetID)
 					"planecon",
 					"planefighter",
 					"bomberriot",
+					"bomberstrike",
 					"bomberdisarm",
 					"staticrearm",
 				},
@@ -92,6 +93,33 @@ local function GetPlanet(planetUtilities, planetID)
 						x = 4205,
 						z = 5900,
 						facing = 1,
+					},
+					{
+						name = "bomberstrike",
+						x = 750,
+						z = 5104,
+						facing = 1,
+						commands = {
+							{cmdID = planetUtilities.COMMAND.RAW_MOVE, pos = {2552, 5104}},
+						},
+					},
+					{
+						name = "bomberstrike",
+						x = 750,
+						z = 5280,
+						facing = 1,
+						commands = {
+							{cmdID = planetUtilities.COMMAND.RAW_MOVE, pos = {2552, 5280}},
+						},
+					},
+					{
+						name = "bomberstrike",
+						x = 750,
+						z = 5456,
+						facing = 1,
+						commands = {
+							{cmdID = planetUtilities.COMMAND.RAW_MOVE, pos = {2552, 5456}},
+						},
 					},
 					{
 						name = "bomberdisarm",
@@ -2084,6 +2112,7 @@ local function GetPlanet(planetUtilities, planetID)
 				"factoryplane",
 				"planecon",
 				"planefighter",
+				"bomberstrike",
 				"bomberdisarm",
 			},
 			modules = {

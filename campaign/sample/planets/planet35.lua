@@ -36,15 +36,15 @@ local function GetPlanet(planetUtilities, planetID)
 		tips = {
 			{
 				image = "unitpics/bomberheavy.png",
-				text = [[The Likho carries a bomb which inflicts heavy damage in a small area of effect. It is best used against tight clusters of enemies. Likhos require considerably more time to rearm than other bombers so plan ahead.]]
+				text = [[The Likho carries a bomb which inflicts heavy damage in a small area of effect. It is best used against tight clusters of enemies, and deals enough damage to penetrate light shields. Likhos require considerably more time to rearm than other bombers so plan ahead.]]
+			},
+			{
+				image = "unitpics/bomberassault.png",
+				text = [[The Odin's disintegrator bomb vaporises anything in a single shot, but it can barely hit mobile units. Try using its bulky armour to break through enemy lines and hit vital targets. Between risky sorties it can use its special weapon to drop shields for ground forces.]]
 			},
 			{
 				image = "unitpics/staticantinuke.png",
-				text = [[Make sure your allies' Antinukes remain intact or you might end up in a spot of bother.]]
-			},
-			{
-				image = "unitpics/shieldassault.png",
-				text = [[The Likho's bomb is strong enough to penetrate most shields, so it is especially effective against Shieldbots.]]
+				text = [[Make sure your allies' Antinukes remain intact or you might end up in a spot of bother. Consider supporting your allies ground forces with the Odin's Cluster Shields to keep the enemy at bay.]]
 			},
 		},
 		gameConfig = {
@@ -63,6 +63,7 @@ local function GetPlanet(planetUtilities, planetID)
 					"planecon",
 					"planefighter",
 					"bomberheavy",
+					"bomberassault",
 					"staticrearm",
 				},
 				startUnits = {
@@ -70,6 +71,12 @@ local function GetPlanet(planetUtilities, planetID)
 						name = "planecon",
 						x = 8700,
 						z = 3200,
+						facing = 0,
+					},
+					{
+						name = "bomberassault",
+						x = 8864,
+						z = 3359,
 						facing = 0,
 					},
 					{
@@ -3760,6 +3767,7 @@ local function GetPlanet(planetUtilities, planetID)
 		completionReward = {
 			experience = planetUtilities.MAIN_EXP,
 			units = {
+				"bomberassault",
 				"bomberheavy",
 			},
 			modules = {

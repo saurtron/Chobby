@@ -45,7 +45,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "LuaUI/Images/ibeam.png",
-				text = [[Metal income from extractors is split evenly between teammates, with whoever builds an extractor temporarily recieving a slightly larger share as payment. Reclaim is private though, as is any metal in storage. Mouse over the metal icon at the top of the screen for a detailed breakdown.]]
+				text = [[Metal extractor income is split evenly between teammates, with a temporary rebate for the builder. Reclaim is private though, as is any metal in storage. The metal icon on the resource bar gives a detailed breakdown.]]
 			},
 		},
 		gameConfig = {
