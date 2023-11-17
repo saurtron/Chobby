@@ -460,7 +460,7 @@ local function InitializeScoresWindow(parent)
 		width = 700,
 		height = 30,
 		objectOverrideFont = WG.Chobby.Configuration:GetFont(2),
-		text = "Here is your best attempt at each mission, evaluating each one first by",
+		text = "Here are your best attempts at each mission, evaluating each first by",
 		parent = parent,
 	}
 	TextBox:New {

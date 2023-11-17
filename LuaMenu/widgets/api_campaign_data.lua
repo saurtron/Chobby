@@ -26,6 +26,7 @@ local externalFunctions = {}
 local SAVE_DIR = "Saves/campaign/"
 local SAVE_NAME = "saveFile"
 local ICONS_DIR = LUA_DIRNAME .. "configs/gameConfig/zk/unitpics/"
+local CULL_REDUNDANT_RECORDS = false
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -776,26 +777,29 @@ function externalFunctions.SavePlanetVictory(planetID, battleFrames, bonusObject
 		bonusCount = bonusCount,
 		difficulty = difficulty,
 		losses = losses,
+		date = os.date("!%Y-%m-%dT%X", os.time() or 0),
 	}
 	
-	local i = 1
-	while i <= #planetVictories do
-		local other = planetVictories[i]
-		if other.frames <= new.frames and other.losses <= new.losses and other.bonusCount >= new.bonusCount and other.difficulty >= new.difficulty then
-			new = false -- New is dominated by old, so is redundant
-			break
+	if CULL_REDUNDANT_RECORDS then
+		local i = 1
+		while i <= #planetVictories do
+			local other = planetVictories[i]
+			if other.frames <= new.frames and other.losses <= new.losses and other.bonusCount >= new.bonusCount and other.difficulty >= new.difficulty then
+				new = false -- New is dominated by old, so is redundant
+				break
+			end
+			if other.frames >= new.frames and other.losses >= new.losses and other.bonusCount <= new.bonusCount and other.difficulty <= new.difficulty then
+				-- Remove other as it is redundant
+				planetVictories[i] = planetVictories[#planetVictories]
+				planetVictories[#planetVictories] = nil
+			else
+				i = i + 1
+			end
 		end
-		if other.frames >= new.frames and other.losses >= new.losses and other.bonusCount <= new.bonusCount and other.difficulty <= new.difficulty then
-			-- Remove other as it is redundant
-			planetVictories[i] = planetVictories[#planetVictories]
-			planetVictories[#planetVictories] = nil
-		else
-			i = i + 1
+		
+		if not new then
+			return
 		end
-	end
-	
-	if not new then
-		return
 	end
 	planetVictories[#planetVictories + 1] = new
 	gamedata.victoryLog[planetID] = planetVictories
