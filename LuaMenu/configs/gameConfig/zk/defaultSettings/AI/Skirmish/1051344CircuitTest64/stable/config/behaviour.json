@@ -656,9 +656,17 @@
 		"pwr_mod": 0.10,
 		"thr_mod": 0.01
 	},
+	"bomberstrike": {
+		"role": ["bomber", "air"],  // FIXME: should act as anti_heavy?
+		"fire_state": "return",
+		"limit": 8,
+		"retreat": 0.8,
+		"pwr_mod": 0.2,
+		"thr_mod": 0.015
+	},
 	"bomberriot": {
 		"role": ["bomber", "air"],
-		"limit": 0,
+		"limit": 1,
 		"retreat": 0.6,
 		"pwr_mod": 0.01,
 		"thr_mod": 0.01
@@ -680,6 +688,15 @@
 		"retreat": 0.95,
 		"pwr_mod": 0.75,
 		"thr_mod": 0.1
+	},
+	"bomberassault": {
+		"role": ["anti_heavy", "air"],
+		"attribute": ["siege", "bomber"],
+		"limit": 1,
+		"since": 1800,
+		"retreat": 0.95,
+		"pwr_mod": 0.02,
+		"thr_mod": 0.01
 	},
 	"planescout": {
 		"role": ["scout", "air"],
