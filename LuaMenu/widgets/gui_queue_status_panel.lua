@@ -32,11 +32,15 @@ local queueNameOverride = {
 	["1v1 Narrow"] = "1v1",
 	["1v1"] = "1v1 Handicap",
 	["1v1 Wide"] = "1v1 Wide",
+	["Sortie"] = "2v2-3v3",
+	["Battle"] = "4v4-6v6",
 }
 
 local subQueueListName = {
 	["1v1"] = "Handicap",
 	["1v1 Wide"] = "Wide",
+	["Sortie Wide"] = "Wide",
+	["Battle Wide"] = "Wide",
 }
 
 local alwaysParen = {
@@ -46,7 +50,14 @@ local alwaysParen = {
 local subQueues = {
 	["1v1"] = "1v1 Narrow",
 	["1v1 Wide"] = "1v1 Narrow",
+	["Sortie Wide"] = "Sortie",
+	["Battle Wide"] = "Battle",
 }
+
+local extraCount = {}
+for child, parent in pairs(subQueues) do
+	extraCount[parent] = (extraCount[parent] or 0) + 1
+end
 
 local function GetQueueStartPriority()
 	local Configuration = WG.Chobby.Configuration
@@ -58,10 +69,14 @@ local function GetQueueStartPriority()
 			["1v1 Narrow"] = 2.5,
 			["1v1"] = 2,
 			["1v1 Wide"] = 1.5,
+			["Battle Wide"] = 1.2,
+			["Sortie Wide"] = 1.1,
 			["Coop"] = 1,
 		}
 	end
 	return {
+		["Battle Wide"] = 7,
+		["Sortie Wide"] = 6,
 		["Battle"] = 5,
 		["Sortie"] = 4,
 		["Teams"] = 3,
@@ -235,7 +250,7 @@ local function InitializeQueueStatusHandler(name, ControlType, parent, pos)
 				queueString = queueString .. (queueNameOverride[queueName] or queueName)
 				if extraInfoList[queueName] then
 					local extra = extraInfoList[queueName]
-					if #extra == 2 then
+					if #extra == extraCount[queueName] then
 						queueString = queueString .. " (All"
 					else
 						queueString = queueString .. " (Normal"

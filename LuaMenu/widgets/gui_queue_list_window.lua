@@ -67,13 +67,22 @@ end
 
 local queueSortOverride = {
 	["1v1"] = "AA",
-	["1v1 Narrow"] = "AAA",
-	["1v1 Wide"] = "AAAA",
-	["Teams"] = "AAAAA",
-	["Sortie"] = "AAAAAA",
-	["Battle"] = "AAAAAAA",
-	["Coop"] = "AAAAAAAA",
+	["Sortie"] = "AAA",
+	["Battle"] = "AAAA",
+	["Small Teams"] = "AAA",
+	["Medium Teams"] = "AAAA",
+	["Coop"] = "AAAAA",
 }
+
+local hiddenQueues = {
+	["1v1"] = true,
+	["1v1 Wide"] = true,
+	["Sortie Wide"] = true,
+	["Battle Wide"] = true,
+}
+for i = 1, 10 do
+	hiddenQueues[i .. "v" .. i .. "+"] = true
+end
 
 local complicatedQueues = {
 	["1v1 Narrow"] = {
@@ -83,32 +92,48 @@ local complicatedQueues = {
 			handicap = "1v1",
 			wide = "1v1 Wide",
 		}
-	}
+	},
+	["Sortie"] = {
+		humanName = "Small Teams",
+		description = "Play 2v2 or 3v3.",
+		subordinates = {
+			wide_teams = "Sortie Wide",
+		}
+	},
+	["Battle"] = {
+		humanName ="Medium Teams",
+		description = "Play 4v4, 5v5 or 6v6.",
+		subordinates = {
+			wide_teams = "Battle Wide",
+		}
+	},
 }
 
 local queueOptions = {
 	handicap = {
 		confKey = "queue_handicap",
-		humanName = "For handicap games",
-		tooltip = "Find unranked matches beyond your usual match range. The lower rated player recieves a resource bonus. Both players must enable this, and normal games are unaffected.",
+		humanName = "Allow wide unranked 1v1 with handicaps",
+		tooltip = "Find unranked matches beyond your usual match range. The lower rated player recieves a resource bonus. Both players must enable this. Games within the usual search range are unaffected.",
 		default = true,
 	},
 	wide = {
 		confKey = "queue_wide",
-		humanName = "For ranked games",
-		tooltip = "Find ranked matches beyond your usual match range. Both players must enable this. The search range is the same as for the option above.",
+		humanName = "Wider search range for 1v1",
+		tooltip = "Find ranked matches beyond your usual match range. Both players must enable this. If both players have wide and handicap matches enabled, the ranked wide match takes precedence.",
+		default = true,
+	},
+	wide_teams = {
+		confKey = "queue_wide_teams",
+		humanName = "Wider search range for teams",
+		tooltip = "Allow the matchmaker to make team games with everyone in the match pool. Everyone in the resulting match must have had this enabled.",
 		default = true,
 	},
 }
 
-local subserviantQueues = {
-	["1v1"] = true,
-	["1v1 Wide"] = true,
-}
-
 local queueOptionsList = {
-	"handicap",
+	"wide_teams",
 	"wide",
+	"handicap",
 }
 
 local function QueueSortFunc(a, b)
@@ -249,7 +274,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	local lblTitle = TextBox:New {
 		x = 98,
 		y = 4,
-		width = 120,
+		width = 180,
 		height = 33,
 		objectOverrideFont = Configuration:GetFont(3),
 		text = (complicatedQueues[queueName] and complicatedQueues[queueName].humanName) or queueName,
@@ -259,7 +284,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	local lblDescription = TextBox:New {
 		x = 100,
 		y = 27,
-		width = 120,
+		width = 180,
 		bottom = 0,
 		right = 5,
 		align = "bottom",
@@ -269,7 +294,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	}
 
 	local lblPlayers = TextBox:New {
-		x = 248,
+		x = 258,
 		y = 6,
 		width = 120,
 		height = 22,
@@ -281,7 +306,7 @@ local function MakeQueueControl(parentControl, pos, queueName, queueDescription,
 	}
 
 	local lblWaiting = TextBox:New {
-		x = 372,
+		x = 382,
 		y = 6,
 		width = 120,
 		height = 22,
@@ -646,7 +671,7 @@ local function InitializeControls(window)
 		y = offset,
 		height = 200,
 		objectOverrideFont = Configuration:GetFont(3),
-		text = "Wider 1v1 match range:",
+		text = "Matching options:",
 		parent = window
 	}
 	offset = offset + 24
@@ -721,7 +746,7 @@ local function InitializeControls(window)
 			return
 		end
 		
-		if subserviantQueues[queueName] then
+		if hiddenQueues[queueName] then
 			return
 		end
 
