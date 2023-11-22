@@ -19,6 +19,7 @@ end
 
 local BATTLE_LIST_NAME = "battle_list"
 local oldVisible = true
+local firstUpdate = true
 local battleListWindow
 
 --------------------------------------------------------------------------------
@@ -31,6 +32,12 @@ function BattleListWindowHolder.GetControl()
 	local function JoinBattleFunc(battle)
 		battleListWindow:JoinBattle(battle)
 	end
+	
+	local function FixFilters()
+		battleListWindow:UpdateFilters()
+		battleListWindow:UpdateInfoPanel()
+	end
+	WG.LibLobby.lobby:AddListener("OnFriendList", FixFilters)
 	return battleListWindow.window, JoinBattleFunc
 end
 
