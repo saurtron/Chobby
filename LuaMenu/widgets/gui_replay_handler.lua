@@ -36,8 +36,10 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 	fileName = string.gsub(string.gsub(string.gsub(string.gsub(fileName, " BAR105", ""), " BAR", ""), " maintenance", ""), " develop", "")
 	fileName = string.gsub(fileName, "%.sdfz", "")
 
-	local replayTime = string.sub(fileName, 0, 15)
-	replayTime = string.sub(fileName, 0, 4) .. "-" .. string.sub(fileName, 5, 6) .. "-" .. string.sub(fileName, 7, 8) .. " at " .. string.sub(fileName, 10, 11) .. ":" .. string.sub(fileName, 12, 13) .. ":" .. string.sub(fileName, 14, 15)
+	local replayTime = string.format(
+		"%s-%s-%s %s:%s",
+		string.match(fileName, "(%d%d%d%d)-?(%d%d)-?(%d%d)_(%d%d)-?(%d%d)")
+	)
 
 	local replayPanel = Panel:New {
 		x = 0,
