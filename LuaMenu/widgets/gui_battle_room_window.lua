@@ -1037,6 +1037,17 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 				UpdatePlayerPositions()
 			end
 			
+			function teamData.ValidateTeamList(shouldBePresent, found)
+				for i = #teamStack.children, 1, -1 do
+					local name = teamStack.children[i].name
+					if not shouldBePresent[name] then
+						teamData.RemovePlayer(name)
+					else
+						found[name] = true
+					end
+				end
+			end
+			
 			team[teamIndex] = teamData
 		end
 		return team[teamIndex]
@@ -1112,6 +1123,34 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 	function externalFunctions.LeftBattle(leftBattleID, userName)
 		if leftBattleID == battleID then
 			RemovePlayerFromTeam(userName)
+		end
+	end
+
+	function externalFunctions.ValidatePlayerList(leftBattleID)
+		if leftBattleID ~= battleID then
+			return
+		end
+		local users = battle.users
+		if not users then
+			return
+		end
+		local shouldBePresent = {}
+		local found = {}
+		for i = 1, #users do
+			local name = users[i]
+			shouldBePresent[name] = true
+		end
+		for teamIndex, teamData in pairs(team) do
+			teamData.ValidateTeamList(shouldBePresent, found)
+		end
+		for i = 1, #users do
+			local name = users[i]
+			if not found[name] then
+				local user = battleLobby:GetUserBattleStatus(name)
+				if user then
+					externalFunctions.UpdateUserTeamStatus(name, user.allyNumber, user.isSpectator)
+				end
+			end
 		end
 	end
 
@@ -1982,7 +2021,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 			end
 		end
 
-		infoHandler.UpdateBattleInfo(updatedBattleID, newInfo)
+		playerHandler.ValidatePlayerList(updatedBattleID)
 		if newInfo.maxPlayers or newInfo.maxEvenPlayers then
 			playerHandler.UpdateMaxPlayers()
 		end
