@@ -1041,7 +1041,10 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 				for i = #teamStack.children, 1, -1 do
 					local name = teamStack.children[i].name
 					if not shouldBePresent[name] then
-						teamData.RemovePlayer(name)
+						local user = battleLobby:GetUserBattleStatus(name)
+						if not (user and user.owner) then -- Is not AI
+							teamData.RemovePlayer(name)
+						end
 					else
 						found[name] = true
 					end
