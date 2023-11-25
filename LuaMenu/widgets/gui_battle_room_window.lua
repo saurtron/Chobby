@@ -2021,6 +2021,7 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 			end
 		end
 
+		infoHandler.UpdateBattleInfo(updatedBattleID, newInfo)
 		playerHandler.ValidatePlayerList(updatedBattleID)
 		if newInfo.maxPlayers or newInfo.maxEvenPlayers then
 			playerHandler.UpdateMaxPlayers()
