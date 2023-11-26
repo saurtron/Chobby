@@ -1043,6 +1043,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 					if not shouldBePresent[name] then
 						local user = battleLobby:GetUserBattleStatus(name)
 						if not (user and user.owner) then -- Is not AI
+							Spring.Echo("ValidatePlayerList: Remove", name)
 							teamData.RemovePlayer(name)
 						end
 					else
@@ -1151,6 +1152,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 			if not found[name] then
 				local user = battleLobby:GetUserBattleStatus(name)
 				if user then
+					Spring.Echo("ValidatePlayerList: Add", name)
 					externalFunctions.UpdateUserTeamStatus(name, user.allyNumber, user.isSpectator)
 				end
 			end
