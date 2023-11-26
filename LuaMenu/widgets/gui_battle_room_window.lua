@@ -1130,10 +1130,7 @@ local function SetupPlayerPanel(playerParent, spectatorParent, battle, battleID)
 		end
 	end
 
-	function externalFunctions.ValidatePlayerList(leftBattleID)
-		if leftBattleID ~= battleID then
-			return
-		end
+	function externalFunctions.ValidatePlayerList()
 		local users = battle.users
 		if not users then
 			return
@@ -2007,10 +2004,15 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 		btnInviteFriends:SetVisibility(newVisibile)
 	end
 
+	function externalFunctions.ValidatePlayerList()
+		playerHandler.ValidatePlayerList()
+	end
+
 	-- Lobby interface
 	local function OnUpdateUserTeamStatus(listener, userName, allyNumber, isSpectator)
 		infoHandler.UpdateUserTeamStatus(userName, allyNumber, isSpectator)
 		playerHandler.UpdateUserTeamStatus(userName, allyNumber, isSpectator)
+		playerHandler.ValidatePlayerList()
 	end
 
 	local function OnBattleIngameUpdate(listener, updatedBattleID, isRunning)
@@ -2027,7 +2029,9 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 		end
 
 		infoHandler.UpdateBattleInfo(updatedBattleID, newInfo)
-		playerHandler.ValidatePlayerList(updatedBattleID)
+		if updatedBattleID == battleID then
+			playerHandler.ValidatePlayerList()
+		end
 		if newInfo.maxPlayers or newInfo.maxEvenPlayers then
 			playerHandler.UpdateMaxPlayers()
 		end
@@ -2353,6 +2357,13 @@ local function DelayedInitialize()
 		end
 	end
 	WG.Chobby.Configuration:AddListener("OnConfigurationChange", onConfigurationChange)
+end
+
+function widget:ActivateMenu()
+	if mainWindowFunctions then
+		WG.Delay(mainWindowFunctions.ValidatePlayerList, 0.2)
+		WG.Delay(mainWindowFunctions.ValidatePlayerList, 3)
+	end
 end
 
 function widget:Initialize()
