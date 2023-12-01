@@ -22,6 +22,12 @@ local onlyIfOutdated = {
 	LuaGarbageCollectionMemLoadMult = 2.5,
 	LuaGarbageCollectionRunTimeMult = 1.5,
 }
+
+local onlyIfValueBelow = {
+	MaxTextureAtlasSizeX = 4096,
+	MaxTextureAtlasSizeY = 4096,
+}
+
 local settingsVersion = 1
 
-return settings, onlyIfMissingSettings, onlyIfOutdated, settingsVersion
+return settings, onlyIfMissingSettings, onlyIfOutdated, onlyIfValueBelow, settingsVersion
