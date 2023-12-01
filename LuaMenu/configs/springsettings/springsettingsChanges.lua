@@ -9,13 +9,13 @@ local settings = {
 	UseLuaMemPools = 0,
 	VFSCacheArchiveFiles = 0,
 	UnitLodDist = 999999,
+	MaxTextureAtlasSizeX = 4096,
+	MaxTextureAtlasSizeY = 4096,
 }
 
 local onlyIfMissingSettings = {
 	FeatureDrawDistance = 600000,
 	FeatureFadeDistance = 600000,
-	MaxTextureAtlasSizeX = 4096,
-	MaxTextureAtlasSizeY = 4096,
 }
 
 local onlyIfOutdated = {
