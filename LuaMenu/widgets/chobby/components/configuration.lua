@@ -509,12 +509,21 @@ function Configuration:SetConfigData(data)
 		self.serverAddress = "zero-k.info"
 	end
 
-	local newSpringsettings, onlyIfMissingSettings, onlyIfOutdated, settingsVersion = VFS.Include(LUA_DIRNAME .. "configs/springsettings/springsettingsChanges.lua")
+	local newSpringsettings, onlyIfMissingSettings, onlyIfOutdated, onlyIfValueBelow, settingsVersion = VFS.Include(LUA_DIRNAME .. "configs/springsettings/springsettingsChanges.lua")
 	for key, value in pairs(newSpringsettings) do
 		self.game_settings[key] = value
 	end
 	for key, value in pairs(onlyIfMissingSettings) do
 		if self.game_settings[key] == nil then
+			self.game_settings[key] = value
+		end
+	end
+
+	for key, value in pairs(onlyIfValueBelow) do
+		if self.game_settings[key] == nil then
+			self.game_settings[key] = value
+		end
+		if self.game_settings[key] < value then
 			self.game_settings[key] = value
 		end
 	end
