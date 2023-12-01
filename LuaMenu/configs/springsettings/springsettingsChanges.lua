@@ -9,8 +9,6 @@ local settings = {
 	UseLuaMemPools = 0,
 	VFSCacheArchiveFiles = 0,
 	UnitLodDist = 999999,
-	MaxTextureAtlasSizeX = 4096,
-	MaxTextureAtlasSizeY = 4096,
 }
 
 local onlyIfMissingSettings = {
