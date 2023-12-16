@@ -32,6 +32,7 @@ function Lobby:_Clean()
 	self.ignoreListRecieved = false
 	self.loginInfoEndSent = false
 	self.userCountLimited = false
+	self.blockedBattles = false
 
 	self.channels = {}
 	self.channelCount = 0

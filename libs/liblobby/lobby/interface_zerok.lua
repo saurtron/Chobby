@@ -199,6 +199,231 @@ function Interface:ReportUser(userName, text)
 end
 
 ------------------------
+-- Split handling
+------------------------
+
+local SPLIT_AT_WAITING = 8
+local LOWER_RATING_PROP = 0.6
+local SPLIT_SEP = "ƒ"
+local SPLIT_TEST_MODE = false
+
+local function IsSplitRoom(battle)
+	local title = battle.title
+	local roomFormat = "[A] Teams All Welcome"
+	if title == roomFormat then
+		return true
+	end
+	if string.sub(title, 0, 21) ~= roomFormat then
+		return false
+	end
+	for i = 1, 10 do
+		if title == roomFormat .. " #" .. i then
+			return true
+		end
+	end
+	return false
+end
+
+function Interface:IsBlockedFromJoining(battleID, getMessage)
+	if not self.blockedBattles then
+		return false
+	end
+	if not self.blockedBattles[battleID] then
+		return false
+	end
+	local blocked, message = self.blockedBattles[battleID](getMessage)
+	if blocked then
+		return true, message
+	end
+	self.blockedBattles[battleID] = nil
+	return false
+end
+
+function Interface:ProcessSplit(data, battle, duplicateMessageTime)
+	if not (data.Text and string.sub(data.Text, 0, 10) == "!raw_split") then
+		return
+	end
+	local data = data.Text:split(SPLIT_SEP)
+	if not data and data[5] then
+		return true
+	end
+	local ratingThreshold = tonumber(data[2])
+	local newBattleID = tonumber(data[3])
+	local oldBattleID = tonumber(data[4])
+	local playerCount = tonumber(data[5])
+	if not (ratingThreshold and newBattleID and oldBattleID and playerCount) then
+		return true
+	end
+	self.blockedBattles = self.blockedBattles or {}
+	
+	if (self.users[self:GetMyUserName()].casualSkill or 0) >= ratingThreshold then
+		-- Go to new battle
+		self.blockedBattles[oldBattleID] = function (getMessage)
+			if not self.battles[newBattleID] then
+				return false
+			end
+			if self.battles[newBattleID].playerCount >= math.floor(playerCount*(1 - LOWER_RATING_PROP)*0.75) or SPLIT_TEST_MODE then
+				return true, getMessage and ("Your side of the split is " .. self.battles[newBattleID].title .. ". Start a game there.")
+			end
+			return false
+		end
+		self:JoinBattle(newBattleID)
+	else
+		-- Stay in old battle
+		self.blockedBattles[newBattleID] = function (getMessage)
+			if not self.battles[oldBattleID] then
+				return false
+			end
+			if self.battles[oldBattleID].playerCount >= math.floor(playerCount*LOWER_RATING_PROP*0.75) or SPLIT_TEST_MODE then
+				return true, getMessage and ("Your side of the split is " .. self.battles[oldBattleID].title .. ". Start a game there.")
+			end
+			return false
+		end
+	end
+	return true
+end
+
+function Interface:SendSplit(message)
+	if (not self.safeRawSplit) and message and string.sub(message, 0, 10) == "!raw_split" then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Do not try to send raw split manually.",
+			})
+		end
+		return true
+	end
+	if not (message and string.sub(message, 0, 6) == "!split") then
+		return false
+	end
+	
+	local myBattle = self:GetBattle(self:GetMyBattleID())
+	if not myBattle then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Can only !split in battle.",
+			})
+		end
+		return true
+	end
+	
+	local playerRequirement = myBattle.maxPlayers + SPLIT_AT_WAITING
+	if self:GetMyIsAdmin() then
+		playerRequirement = myBattle.maxPlayers -- Experiment?
+	end
+	if myBattle.playerCount < playerRequirement and not SPLIT_TEST_MODE then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Splitting this battle requires at least " .. playerRequirement .. " players.",
+			})
+		end
+		return true
+	end
+	if myBattle.isRunning and not SPLIT_TEST_MODE then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Split cannot be done on running games.",
+			})
+		end
+		return true
+	end
+	if not IsSplitRoom(myBattle) then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Split is currently limited to 32 player teams autohosts.",
+			})
+		end
+		return true
+	end
+	
+	local targetBattleID = false
+	local bestPlayerCount = false
+	for battleID, battleData in pairs(self.battles) do
+		if not battleData.isRunning and
+				battleData.maxPlayers == 32 and
+				battleData.playerCount < SPLIT_AT_WAITING and
+				((not bestPlayerCount) or battleData.playerCount < bestPlayerCount) and
+				IsSplitRoom(battleData) then
+			targetBattleID = battleID
+			bestPlayerCount = battleData.playerCount
+		end
+	end
+	
+	if not targetBattleID then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Cannot find a room to split to.",
+			})
+		end
+		return true
+	end
+	
+	local skillList = {}
+	for i = 1, #myBattle.users do
+		local name = myBattle.users[i]
+		if name and self.users[name] and self.users[name].casualSkill then
+			if self.userBattleStatus[name] and not self.userBattleStatus[name].isSpectator then
+				skillList[#skillList + 1] = {name, self.users[name].casualSkill}
+			end
+		end
+	end
+	if #skillList < 10 and not SPLIT_TEST_MODE then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Something went wrong with reading player ratings.",
+			})
+		end
+		return true
+	end
+	
+	table.sort(skillList, function (a, b) return a[2] < b[2] end)
+	local splitBeyond = math.ceil(#skillList * LOWER_RATING_PROP)
+	local splitSkill = math.floor(self.users[skillList[splitBeyond][1]].casualSkill)
+	local oldBattle = false
+	local newBattle = false
+	for i = 1, #skillList do
+		local entry = skillList[i]
+		if entry[2] < splitSkill then
+			if oldBattle then
+				oldBattle = oldBattle .. ", " .. entry[1]
+			else
+				oldBattle = entry[1]
+			end
+		else
+			if newBattle then
+				newBattle = newBattle .. ", " .. entry[1]
+			else
+				newBattle = entry[1]
+			end
+		end
+	end
+	
+	local splitMessage = "Splitting ratings >=" .. splitSkill .. " from " .. myBattle.title .. " into " .. self.battles[targetBattleID].title .. "."
+	WG.Chotify:Post({
+		title = "Split",
+		body = splitMessage,
+	})
+	
+	Spring.Echo("Old game: " .. (oldBattle or "empty"))
+	Spring.Echo("New game: " .. (newBattle or "empty"))
+	
+	self:SayBattle("Splitting waiting players into a new room")
+	if not SPLIT_TEST_MODE then
+		self:ReportUser(self:GetMyUserName(), splitMessage .. " Old game: " .. (oldBattle or "empty") .. ". New game: " .. (newBattle or "empty"))
+	end
+	self.safeRawSplit = true
+	self:SayBattle("!raw_split" .. SPLIT_SEP .. splitSkill .. SPLIT_SEP .. targetBattleID .. SPLIT_SEP .. self:GetMyBattleID() .. SPLIT_SEP .. math.min(45, #skillList))
+	self.safeRawSplit = false
+	return true
+end
+
+------------------------
 -- Battle commands
 ------------------------
 
@@ -254,6 +479,16 @@ function Interface:RejoinBattle(battleID)
 end
 
 function Interface:JoinBattle(battleID, password, scriptPassword)
+	local blocked, blockedMsg = self:IsBlockedFromJoining(battleID, true)
+	if blocked then
+		if WG.Chotify then
+			WG.Chotify:Post({
+				title = "Cannot Join Battle",
+				body = blockedMsg,
+			})
+		end
+		return self
+	end
 	local sendData = {
 		BattleID = battleID,
 		Password = password,
@@ -326,6 +561,9 @@ function Interface:KickUser(userName)
 end
 
 function Interface:SayBattle(message)
+	if self:SendSplit(message) then
+		return self
+	end
 	local sendData = {
 		Place = 1, -- Battle?
 		User = self:GetMyUserName(),
@@ -339,6 +577,9 @@ function Interface:SayBattle(message)
 end
 
 function Interface:SayBattleEx(message)
+	if self:SendSplit(message) then
+		return self
+	end
 	local sendData = {
 		Place = 1, -- Battle?
 		User = self:GetMyUserName(),
@@ -1462,6 +1703,9 @@ function Interface:_Say(data)
 			if self:ProcessVote(data, battle, duplicateMessageTime) then
 				return
 			end
+		end
+		if self:ProcessSplit(data, battle, duplicateMessageTime) then
+			return
 		end
 
 		if emote then

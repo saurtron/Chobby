@@ -1056,7 +1056,6 @@ function BattleListWindow:JoinBattle(battle)
 	-- We can be force joined to an invalid engine version. This widget is not
 	-- the place to deal with this case.
 	if not battle.passworded then
-		WG.BattleRoomWindow.LeaveBattle()
 		lobby:JoinBattle(battle.battleID)
 	else
 		local tryJoin, passwordWindow
@@ -1124,7 +1123,6 @@ function BattleListWindow:JoinBattle(battle)
 
 		function tryJoin()
 			lblError:SetCaption("")
-			WG.BattleRoomWindow.LeaveBattle()
 			lobby:JoinBattle(battle.battleID, ebPassword.text)
 		end
 
