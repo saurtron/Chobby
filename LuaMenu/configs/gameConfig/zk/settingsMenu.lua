@@ -237,36 +237,7 @@ local settingsConfig = {
 					FancySky = "Off",
 					UseNewChili = "Off",
 				}
-			},
-			{
-				name = "Ultra",
-				settings = {
-					WaterType_2 = "Bumpmapped",
-					WaterQuality = "Ultra",
-					DeferredRendering = "On",
-					UnitReflections = "Ultra",
-					Shadows = "Units and Terrain",
-					ShadowMapSize = "16384",
-					ShadowDetail = "Ultra",
-					ParticleLimit = "50000",
-					TerrainDetail = "Ultra",
-					SoftParticles = "Enabled",
-					VegetationDetail = "Ultra",
-					FeatureFade = "Off",
-					CompatibilityMode = "Off",
-					AtiIntelCompatibility_2 = "Automatic",
-					AntiAliasing = "High",
-					VSync = "Off",
-					ShaderDetail = "Ultra",
-					LupsAirJet = "On",
-					LupsRibbon = "On",
-					LupsNanoParticles = "Cloud",
-					LupsShieldShader = "Default",
-					LupsWaterSettings = "Refract and Reflect",
-					FancySky = "On",
-					UseNewChili = "Off",
-				}
-			},
+			}
 		},
 
 		-- FIXME: this list is in dire need of resorting
