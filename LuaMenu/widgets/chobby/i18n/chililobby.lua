@@ -166,8 +166,10 @@ return {
 		},
 		downloads_completed = "All downloads completed.",
 		type_to_filter = "Type to filter",
-		click_to_pick_map = "Click to choose this map",
-		click_to_download_map = "Click to download this map",
+
+		-- gui_maplist_panel.lua
+		click_to_pick_map = "Click to choose this map.",
+		click_to_download_map = "Click to download this map.",
 
 		-- Settings
 		planetwars_notifications = "Planetwars notifications",
