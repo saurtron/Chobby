@@ -108,7 +108,6 @@ function Image:DrawControl()
 				if self.keepCheckingForImage then
 					if file then
 						local data = gl.TextureInfo(file)
-						Spring.Utilities.TableEcho(data)
 						if (not data) or data.ysize == -1 then
 							self.checkFileExists = true
 							self._loadTimer = Spring.GetTimer()

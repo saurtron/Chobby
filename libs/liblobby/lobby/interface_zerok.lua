@@ -330,7 +330,7 @@ function Interface:SendSplit(message)
 		end
 		return true
 	end
-	if not IsSplitRoom(myBattle) then
+	if not IsSplitRoom(myBattle) and not SPLIT_TEST_MODE then
 		if WG.Chotify then
 			WG.Chotify:Post({
 				title = "Split",
@@ -338,6 +338,22 @@ function Interface:SendSplit(message)
 			})
 		end
 		return true
+	end
+	if self.recentVoteMessage == "Vote passed: Start the game?" then
+		WG.Chotify:Post({
+			title = "Split",
+			body = "Cannot split, game about to start.",
+		})
+		return true
+	end
+	if self.voteMessage == "Start the game?" and self.voteCandidates and self.votesNeeded then
+		if self.voteCandidates[1].votes >= self.votesNeeded*0.5 then
+			WG.Chotify:Post({
+				title = "Split",
+				body = "Cannot split, game too close to starting.",
+			})
+			return true
+		end
 	end
 	
 	local targetBattleID = false

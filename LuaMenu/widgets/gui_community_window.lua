@@ -537,15 +537,15 @@ local function GetNewsEntry(parentHolder, index, headingSize, timeAsTooltip, sho
 					width = headFormat.imageSize,
 					height = headFormat.imageSize,
 					keepAspect = true,
-					checkFileExists = true,
-					imageLoadTime = 10,
+					checkFileExists = not WG.Chobby.Configuration:ImageFileExists(imagePath),
+					imageLoadTime = 5,
 					keepCheckingForImage = true,
 					fallbackFile = IMG_MISSING,
 					file = imagePath,
 					parent = holder
 				}
 			else
-				controls.image.checkFileExists = true
+				controls.image.checkFileExists = not WG.Chobby.Configuration:ImageFileExists(imagePath)
 				controls.image.file = imagePath
 				controls.image:ResetImageLoadTimer()
 				controls.image:Invalidate()
@@ -715,7 +715,7 @@ local function GetNewsHandler(parentControl, headingSize, timeAsTooltip, topHead
 				local imagePos = string.find(items[i].Image, "news")
 				if imagePos then
 					local imagePath = string.sub(items[i].Image, imagePos)
-					if not VFS.FileExists(imagePath) then
+					if not WG.Chobby.Configuration:ImageFileExists(imagePath) then
 						Spring.CreateDir("news")
 						WG.WrapperLoopback.DownloadImage({ImageUrl = items[i].Image, TargetPath = imagePath})
 					end

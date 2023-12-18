@@ -961,10 +961,24 @@ function Lobby:_OnSaidBattleEx(userName, message, sayTime)
 end
 
 function Lobby:_OnVoteUpdate(voteMessage, pollType, notify, mapPoll, candidates, votesNeeded, pollUrl, mapName)
+	self.voteMessage    = voteMessage
+	self.voteCandidates = candidates
+	self.votesNeeded    = votesNeeded
 	self:_CallListeners("OnVoteUpdate", voteMessage, pollType, notify, mapPoll, candidates, votesNeeded, pollUrl, mapName)
 end
 
 function Lobby:_OnVoteEnd(message, success)
+	if success then
+		self.recentVoteMessage = message
+		WG.Delay(function () self.recentVoteMessage = nil end, 2)
+	end
+	Spring.Echo("self.recentVoteMessage", self.recentVoteMessage)
+	Spring.Echo("self.voteMessage", self.voteMessage)
+	Spring.Utilities.TableEcho(self.voteCandidates)
+	Spring.Echo("self.votesNeeded", self.votesNeeded)
+	self.voteMessage    = nil
+	self.voteCandidates = nil
+	self.votesNeeded    = nil
 	self:_CallListeners("OnVoteEnd", message, success)
 end
 

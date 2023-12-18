@@ -202,6 +202,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		file = mapImageFile,
 		fallbackFile = config:GetLoadingImage(3),
 		checkFileExists = needDownload,
+		keepCheckingForImage = true,
 		parent = btnMinimap,
 	}
 
