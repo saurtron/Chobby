@@ -21,11 +21,23 @@ local oldOnlyFeaturedMaps = nil
 local IMG_READY    = LUA_DIRNAME .. "images/ready.png"
 local IMG_UNREADY  = LUA_DIRNAME .. "images/unready.png"
 
+local MINIMAP_TOOLTIP_PREFIX = "minimap_tooltip_"
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Utilities
 
 local function CreateMapEntry(mapName, mapData, CloseFunc, Configuration, listFont)--{"ResourceID":7098,"Name":"2_Mountains_Battlefield","SupportLevel":2,"Width":16,"Height":16,"IsAssymetrical":false,"Hills":2,"WaterLevel":1,"Is1v1":false,"IsTeams":true,"IsFFA":false,"IsChickens":false,"FFAMaxTeams":null,"RatingCount":3,"RatingSum":10,"IsSpecial":false},
+	local haveMap = VFS.HasArchive(mapName)
+
+    local mapButtonCaption = nil
+
+	if not haveMap then
+		mapButtonCaption = i18n("click_to_download_map")
+	else
+		mapButtonCaption = i18n("click_to_pick_map")
+	end
+
 	local mapButton = Button:New {
 		classname = "button_rounded",
 		x = 0,
@@ -35,6 +47,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc, Configuration, listFo
 		resizable = false,
 		draggable = false,
 		padding = {0, 0, 0, 0},
+		tooltip = MINIMAP_TOOLTIP_PREFIX .. mapName .. "|" .. mapButtonCaption,
 		OnClick = {
 			function()
 				if lobby then
@@ -46,6 +59,7 @@ local function CreateMapEntry(mapName, mapData, CloseFunc, Configuration, listFo
 	}
 
 	local mapImageFile, needDownload = Configuration:GetMinimapSmallImage(mapName)
+
 	Image:New {
 		name = "minimapImage",
 		x = 3,
@@ -71,7 +85,6 @@ local function CreateMapEntry(mapName, mapData, CloseFunc, Configuration, listFo
 		parent = mapButton,
 	}
 
-	local haveMap = VFS.HasArchive(mapName)
 	local imHaveGame = Image:New {
 		x = 612,
 		y = 12,
@@ -130,6 +143,8 @@ local function CreateMapEntry(mapName, mapData, CloseFunc, Configuration, listFo
 	function externalFunctions.UpdateHaveMap()
 		haveMap = VFS.HasArchive(mapName)
 		imHaveGame.file = (haveMap and IMG_READY) or IMG_UNREADY
+		mapButton.tooltip = not haveMap or MINIMAP_TOOLTIP_PREFIX .. mapName .. "|" .. i18n("click_to_pick_map")
+		mapButton:Invalidate()
 		imHaveGame:Invalidate()
 		sortData[5] = (haveMap and 1) or 0 -- This line is pretty evil.
 	end
