@@ -538,12 +538,16 @@ local function GetNewsEntry(parentHolder, index, headingSize, timeAsTooltip, sho
 					height = headFormat.imageSize,
 					keepAspect = true,
 					checkFileExists = true,
+					imageLoadTime = 10,
+					keepCheckingForImage = true,
 					fallbackFile = IMG_MISSING,
 					file = imagePath,
 					parent = holder
 				}
 			else
+				controls.image.checkFileExists = true
 				controls.image.file = imagePath
+				controls.image:ResetImageLoadTimer()
 				controls.image:Invalidate()
 				controls.image:SetVisibility(true)
 			end

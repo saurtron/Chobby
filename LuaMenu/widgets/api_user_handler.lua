@@ -100,7 +100,7 @@ end
 local function GetClanImage(clanName)
 	if clanName then
 		local clanFile = IMAGE_CLAN_PATH .. clanName .. ".png"
-		if (not VFS.FileExists(clanFile)) then
+		if (not elf:ImageFileExists(filePath)(clanFile)) then
 			if WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage then
 				if not clanDownloadBegun[clanName] then
 					Spring.CreateDir("LuaUI/Configs/Clans")

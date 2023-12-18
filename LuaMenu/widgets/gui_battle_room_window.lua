@@ -568,6 +568,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		if battleInfo.mapName then
 			SetMapName(battleInfo.mapName, mapLinkWidth)
 			imMinimap.file, imMinimap.checkFileExists  = config:GetMinimapImage(battleInfo.mapName)
+			imMinimap:ResetImageLoadTimer()
 			imMinimap:Invalidate()
 
 			-- TODO: Bit lazy here, seeing as we only need to update the map
@@ -1430,6 +1431,7 @@ local function SetupVotePanel(votePanel, battle, battleID)
 				activePanel:UpdateClientArea()
 				if mapName then
 					imMinimap.file, imMinimap.checkFileExists = config:GetMinimapSmallImage(mapName)
+					imMinimap:ResetImageLoadTimer()
 					imMinimap:Invalidate()
 					currentMapUrl = pollUrl
 				end

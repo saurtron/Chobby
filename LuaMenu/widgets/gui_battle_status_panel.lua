@@ -181,6 +181,7 @@ local function GetBattleInfoHolder(parent, battleID)
 		end
 
 		minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+		minimapImage:ResetImageLoadTimer()
 		minimapImage:Invalidate()
 
 		runningImage.file = (battle.isRunning and IMG_BATTLE_RUNNING) or IMG_BATTLE_NOT_RUNNING
@@ -193,6 +194,7 @@ local function GetBattleInfoHolder(parent, battleID)
 		end
 
 		minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+		minimapImage:ResetImageLoadTimer()
 		minimapImage:Invalidate()
 
 		externalFunctions.Resize(currentSmallMode)

@@ -829,16 +829,24 @@ function Configuration:AllowNotification(playerName, playerList)
 	return true
 end
 
+function Configuration:ImageFileExists(filePath)
+	if not VFS.FileExists(filePath) then
+		return false
+	end
+	local data = gl.TextureInfo(filePath)
+	return data and data.ysize ~= -1
+end
+
 function Configuration:GetMinimapSmallImage(mapName)
 	mapName = string.gsub(mapName, " ", "_")
 
 	local filePath = self.gameConfig.minimapThumbnailPath .. mapName .. ".png"
-	if VFS.FileExists(filePath) then
+	if self:ImageFileExists(filePath) then
 		return filePath, false
 	end
 
 	filePath = MINIMAP_THUMB_DOWNLOAD_DIR .. mapName .. ".jpg"
-	if VFS.FileExists(filePath) then
+	if self:ImageFileExists(filePath) then
 		return filePath, false
 	end
 
@@ -857,10 +865,10 @@ function Configuration:GetMinimapImage(mapName)
 	end
 	mapName = string.gsub(mapName, " ", "_")
 	local filePath = self.gameConfig.minimapOverridePath .. mapName .. ".jpg"
-	if not VFS.FileExists(filePath) then
+	if not self:ImageFileExists(filePath) then
 		filePath = "LuaMenu/Images/Minimaps/" .. mapName .. ".jpg"
 	end
-	if WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage and (not VFS.FileExists(filePath)) then
+	if WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage and (not self:ImageFileExists(filePath)) then
 		if not self.minimapDownloads[mapName] then
 			Spring.CreateDir("LuaMenu/Images/Minimaps")
 			WG.WrapperLoopback.DownloadImage({ImageUrl = "http://zero-k.info/Resources/" .. mapName .. ".minimap.jpg", TargetPath = filePath})

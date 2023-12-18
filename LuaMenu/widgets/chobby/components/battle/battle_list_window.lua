@@ -836,6 +836,7 @@ function BattleListWindow:OnUpdateBattleInfo(battleID)
 		lblTitle.OnResize[1](lblTitle)
 
 		minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+		minimapImage:ResetImageLoadTimer()
 		minimapImage:Invalidate()
 
 		mapCaption:SetCaption(battle.mapName:gsub("_", " "))
@@ -864,6 +865,7 @@ function BattleListWindow:OnUpdateBattleInfo(battleID)
 
 		local minimapImage = items.battleButton:GetChildByName("minimap"):GetChildByName("minimapImage")
 		minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+		minimapImage:ResetImageLoadTimer()
 		minimapImage:Invalidate()
 
 		local playersOnMapCaption = items.battleButton:GetChildByName("playersOnMapCaption")

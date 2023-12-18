@@ -152,6 +152,7 @@ local function GetTooltipLine(parent, hasImage, fontSize, xOffset, imageWidth)
 			end
 			imageDisplay.file = newImage
 			imageDisplay.checkFileExists = needDownload
+			imageDisplay:ResetImageLoadTimer()
 			imageDisplay:SetPos(nil, newPosition - 4)
 			imageDisplay:Invalidate()
 		end
@@ -347,6 +348,7 @@ local function GetBattleInfoHolder(parent, offset, battleID)
 		end
 
 		minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+		minimapImage:ResetImageLoadTimer()
 		minimapImage:Invalidate()
 
 		runningImage.file = (battle.isRunning and BATTLE_RUNNING) or BATTLE_NOT_RUNNING
@@ -567,7 +569,9 @@ local function GetMinimapTooltip(mapName, title)
 		local mapImageFile, needDownload = Configuration:GetMinimapImage(mapName)
 		if minimapTooltip.mainControl:GetChildByName("minimapImageLarge") then
 			local minimapImage = minimapTooltip.mainControl:GetChildByName("minimapImageLarge")
+			minimapImage.checkFileExists = needDownload
 			minimapImage.file = mapImageFile
+			minimapImage:ResetImageLoadTimer()
 			minimapImage:Invalidate()
 		else
 			local minimapImage = Image:New {
@@ -580,6 +584,8 @@ local function GetMinimapTooltip(mapName, title)
 				file = mapImageFile,
 				fallbackFile = Configuration:GetLoadingImage(3),
 				checkFileExists = needDownload,
+				imageLoadTime = 5,
+				keepCheckingForImage = true,
 				padding = {0, 0, 0, 0},
 				parent = minimapTooltip.mainControl,
 			}

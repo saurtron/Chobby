@@ -726,6 +726,7 @@ local function MakePlanetControl(planetData, DeselectOtherFunc, attacking, defen
 			planetImage = GetPlanetImage(holder, 2, 2, 86, newPlanetData.PlanetImage, newPlanetData.StructureImages)
 
 			imMinimap.file, imMinimap.checkFileExists = config:GetMinimapSmallImage(mapName)
+			imMinimap:ResetImageLoadTimer()
 			imMinimap:Invalidate()
 
 			SetPlanetName(newPlanetData.PlanetName)

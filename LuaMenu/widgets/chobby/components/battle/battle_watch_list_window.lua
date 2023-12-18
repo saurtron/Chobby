@@ -299,6 +299,7 @@ function BattleWatchListWindow:OnUpdateBattleInfo(battleID)
 
 	local minimapImage = items.battleButton:GetChildByName("minimap"):GetChildByName("minimapImage")
 	minimapImage.file, minimapImage.checkFileExists = Configuration:GetMinimapSmallImage(battle.mapName)
+	minimapImage:ResetImageLoadTimer()
 	minimapImage:Invalidate()
 
 	local playersOnMapCaption = items.battleButton:GetChildByName("playersOnMapCaption")
