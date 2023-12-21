@@ -103,6 +103,9 @@ function Interface:ProcessBuffer()
 end
 
 function Interface:SendCommandToBuffer(cmdName)
+	if self.bufferCommand and self.bufferCommand[cmdName] then
+		return true
+	end
 	if not self.bufferBypass then
 		return true
 	end

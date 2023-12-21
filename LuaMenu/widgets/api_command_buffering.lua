@@ -17,39 +17,8 @@ end
 --------------------------------------------------------------------------------
 -- Variables
 
-local bufferBypass = {
-	BattleDebriefing = true,
-	CustomGameModeResponse = true,
-	SetModOptions = true,
-	SetRectangle = true,
-	UserProfile = true,
-	RemoveBot = true,
-	UpdateBotStatus = true,
-	Welcome = true,
-	Ping = true,
-	AreYouReady = true,
-	AreYouReadyUpdate = true,
-	AreYouReadyResult = true,
-	MatchMakerSetup = true,
-	MatchMakerStatus = true,
-	MatchMakerQueueRequestFailed = true,
-	SiteToLobbyCommand = true,
-	ConnectSpring = true,
-	BattleUpdate = true,
-	BattleAdded = true,
-	BattleRemoved = true,
-	BattlePoll = true,
-	BattlePollOutcome = true,
-	UpdateUserBattleStatus = true,
-	User = true,
-	JoinedBattle = true,
-	JoinBattleSuccess = true,
-	RejoinOption = true,
-	LeftBattle = true,
-	LoginResponse = true,
-	RegisterResponse = true,
-	DefaultGameChanged = true,
-	DefaultEngineChanged = true,
+local bufferCommand = {
+	Say = true,
 }
 
 local CMD_PER_UPDATE = 14
@@ -57,7 +26,7 @@ local CMD_PER_UPDATE = 14
 function widget:ActivateGame()
 	local lobby = WG.LibLobby.lobby
 	if not lobby.bufferCommandsEnabled then
-		lobby.bufferBypass = bufferBypass
+		lobby.bufferCommand = bufferCommand
 		lobby.bufferCommandsEnabled = true
 	end
 	--WG.Chobby.interfaceRoot.GetChatWindow():ClearHistory()
@@ -70,7 +39,7 @@ function widget:Update()
 	local isLobbyVisible = Configuration:IsLobbyVisible() and not Configuration.enableDebugBuffer
 	if not isLobbyVisible then
 		if not lobby.bufferCommandsEnabled then
-			lobby.bufferBypass = bufferBypass
+			lobby.bufferCommand = bufferCommand
 			lobby.bufferCommandsEnabled = true
 		end
 		return
