@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Doyaz",
 			primaryType = "F3VII",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24457",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24457",
 			text = "This planet is covered by a sprawling metropolis, built by nano-machines, with nobody left to turn them off. I would have preferred avoiding such a place, but there is something down there, something older than the nanites."
 			.. "\n "
 			.. "\nIf I am fast enough, I should be able to recover whatever it is and get out of there before the nanites become too much of a problem."

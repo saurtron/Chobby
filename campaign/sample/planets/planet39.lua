@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Rirnef",
 			primaryType = "G6V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24510",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24510",
 			text = "This world was both wealthy and peripheral, making it an ideal place to start a rebellion. Long after everyone is gone, the rebel army is still facing the expeditionary force the Empire sent to crush them to a standstill."
 			.. "\n "
 			.. "\nWith no one left to do geomaintenance, it is slowly freezing, returning to its original ice world state."

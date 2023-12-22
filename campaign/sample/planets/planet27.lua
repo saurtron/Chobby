@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Misir",
 			primaryType = "G9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24469",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24469",
 			text = "This planet was renowned for its tourism resorts and galaxy-famous culinary traditions - or so the advertisement broadcasts tell me. I don't remember ever hearing about it, but it is true this world has been relatively spared from collateral damage, compared to others in the sector."
 			.. "\n "
 			.. "\nUltimately, as the strategic picture became grimmer, even such a place suffered military occupation."

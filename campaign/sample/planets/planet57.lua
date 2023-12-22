@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Eox Tallis",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24594",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24594",
 			text = "A major naval exercise was just starting down there, when it all stopped. No preparations, no warning, complete surprise... This has to be one of the first places where everyone disappeared."
 			.. "\n "
 			.. "\nWell, both sides are evenly matched - when I go down, the side I join should win pretty easily, right?"

@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Sop",
 			primaryType = "G2VI",
 			milRating = 2,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24457",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24457",
 			text = "With the IFF codes I could scavenge on that last world, one of the armies down there is now recognizing me as an ally. This should be useful for fighting my way through here."
 			.. "\n "
 			.. "\nThis is a nasty world, with corrosive oceans. I wonder how local life adapted so well."

@@ -101,7 +101,7 @@ local function SteamCheckPopup()
 		padding = {2,4,4,4},
 		OnClick = {
 			function()
-				WG.BrowserHandler.OpenUrl("http://zero-k.info/mediawiki/index.php?title=Configuration_Files")
+				WG.BrowserHandler.OpenUrl("https://zero-k.info/mediawiki/index.php?title=Configuration_Files")
 			end
 		},
 		parent = steamWindow,

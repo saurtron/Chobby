@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Kaoloria",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24530",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24530",
 			text = "There are armies down there, that have been constantly fighting since everyone disappeared. Everywhere else with a stalemate, they would have gone dormant, awaiting external change to resume combat. But not here. This was set up deliberately, to continue long after there was anyone left."
 			.. "\n "
 			.. "\nWas it a statement? A final act of defiance, before going into the night?"

@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Jayadu A/B",
 			primaryType = "F9V/F9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24457",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24457",
 			text = "This world appears to have been prosperous, once. But a series of violent uprisings and punitive expeditions have reduced it to a barely inhabitable, glassy ashball."
 			.. "\n "
 			.. "\nIt is so covered with wrecks that most of its industry, or what was left of it, appears to have been recycling them."

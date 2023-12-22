@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Rawol",
 			primaryType = "G6V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24594",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24594",
 			text = "The fortress world that guarded the early Empire's southern flank. Never seriously challenged since those days, its garrison may have grown complacent - but the defenses that are left are still formidable."
 			.. "\n "
 			.. "\nThere is what looks like backdoors in some of the garrison's codes, strangely enough. They would have been useless in actual conflict, though, effective only against unsupervised automata..."

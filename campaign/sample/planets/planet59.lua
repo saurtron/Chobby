@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Jaas Non",
 			primaryType = "G9VI",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24614",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24614",
 			text = "Rebel scientists were studying an artefact found in an archeological site, when they were overrun by the Empire. Desperate for any advantage they could, they activated it, releasing a zombie nanoplague."
 			.. "\n "
 			.. "\nAll it cost them was the lives of every single inhabitant on the planet."

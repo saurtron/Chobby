@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Ilvasia",
 			primaryType = "G7V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24566",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24566",
 			text = "This is the closest point the Rebel military ever came to threaten the Empire's heartland. But overconfidence was their downfall: instead of keeping with ambush and clever strategic play, they met the Empire on its own terms in a single, decisive engagement."
 			.. "\n "
 			.. "\nThis defeat broke the momentum of the Rebel forces, from which they would never recover."

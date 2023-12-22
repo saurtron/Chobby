@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Taolis",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24642",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24642",
 			text = "The Rebel homeworld, the planet where it all started. Here, the Empire chose to make an example - they turned its two civilian spacecraft vector towers into Zenith meteor controllers. Then, they let the Rebels capture one, and waited for the duelling Zenith to slowly turn the planet to rubble."
 			.. "\n "
 			.. "\nWhat really happened? Why did they actually rebel? And why would I have been their ally? Time to find out."

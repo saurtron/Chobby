@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Vallaf",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24642",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24642",
 			text = "Planet Intrepid, crown jewel of the Empire, garden of the East - this dead, barren world?"
 			.. "\n "
 			.. "\nI can see it now. Left unsupervised, maintenance failed, gardens dried and the entire ecosystem fell into a death spiral."

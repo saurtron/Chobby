@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Yasta",
 			primaryType = "M0VI",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24469",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24469",
 			text = "This world's terraforming has been interrupted half-stage. While it is not a desert world anymore, and water is becoming abundant, few lifeforms have managed to adapt its still-toxic atmosphere."
 			.. "\n "
 			.. "\nI feel like this is a common theme in this sector, and judging by geological records, there seem to be cycles of terraforming collateral destruction from conflicts."

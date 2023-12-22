@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Endofili",
 			primaryType = "G1V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24642",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24642",
 			text = "This is it, humanity's last planet. A frozen, windswept desert world, where to wait for the end."
 			.. "\n "
 			.. "\nAnd yet... did they really flee all the way there only to delay the inevitable?"

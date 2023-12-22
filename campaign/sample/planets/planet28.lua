@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Glava",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24469",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24469",
 			text = "There is something valuable enough for someone to have put, not one, but two armies to guard it. Were they wary of a Commander betraying and stealing it?"
 			.. "\n "
 			.. "\nWhatever it is, I will have to find a way past those two armies."

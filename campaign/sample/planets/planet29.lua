@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Ghas",
 			primaryType = "G6V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "I expected to find imperial or rebel forces here, those appear to be neither. Was this a pirate haven? Opportunistic warlords? There seem to be several factions down there. If I land on just the right spot, I may trick them into fighting each-other."
 			,
 			extendedText = "The enemy of my enemy... is at least useful. If I build up my economy with Fusion Generators while those two fight, then I can eradicate them both. Advanced Radars will keep me informed on the overall battle state."

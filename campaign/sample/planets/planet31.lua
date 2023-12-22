@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Yastras",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24530",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24530",
 			text = "Invalid IFF? Well, it was worth trying. Local defenses have considearbly decayed, but what's left is still dangerous."
 			.. "\n "
 			.. "\nThis world had never been disputed to Haven yet, but they knew it would be the next line of defense at the fall of Harsar Lief. With most of the planet covered by water, they could have held it from strategic archipelagoes against a considerable foe."

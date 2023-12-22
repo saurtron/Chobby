@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Wipapra",
 			primaryType = "G7V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24510",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24510",
 			text = "This world was on an interstellar crossroad. While it made it wealthy, it was to be its undoing. When neighbouring planets rebelled, it became a battlefield, a capital strategic prize to be fought over."
 			.. "\n "
 			.. "\nIts terraformation was destabilized by the constant battles, and now it is slowly reverting to the ice world it had once been."

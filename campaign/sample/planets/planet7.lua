@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Omis",
 			primaryType = "G7V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24429",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24429",
 			text = "There is something very strange on this world. Some kind of artefact, I have never seen anything like it. Could it hold answers about what happened to everyone? I need to get closer."
 			.. "\n "
 			.. "\nIt is heavily defended, direct assault would be a bad idea. Maybe I can find some weakness in those defenses..."

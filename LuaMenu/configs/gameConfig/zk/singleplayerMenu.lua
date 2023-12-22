@@ -1,33 +1,33 @@
-local FEEDBACK_LINK = "http://zero-k.info/Forum/Thread/24614"
+local FEEDBACK_LINK = "https://zero-k.info/Forum/Thread/24614"
 
 local planetWhitelist = {
-	-- Tutorial Cloaky http://zero-k.info/Forum/Thread/24417
+	-- Tutorial Cloaky https://zero-k.info/Forum/Thread/24417
 	[69] = true,
 	[1] = true,
 	[2] = true,
 	[3] = true,
 	[5] = true,
-	-- Adv. Cloaky http://zero-k.info/Forum/Thread/24429
+	-- Adv. Cloaky https://zero-k.info/Forum/Thread/24429
 	[4] = true,
 	[6] = true,
 	[7] = true,
 	[8] = true,
 	[20] = true,
-	-- Shield http://zero-k.info/Forum/Thread/24441
+	-- Shield https://zero-k.info/Forum/Thread/24441
 	[13] = true,
 	[14] = true,
 	[15] = true,
 	[16] = true,
 	[17] = true,
 	[19] = true,
-	-- Rover http://zero-k.info/Forum/Thread/24457
+	-- Rover https://zero-k.info/Forum/Thread/24457
 	[9] = true,
 	[10] = true,
 	[11] = true,
 	[12] = true,
 	[43] = true,
 	[52] = true,
-	-- Amph and Hover http://zero-k.info/Forum/Thread/24469
+	-- Amph and Hover https://zero-k.info/Forum/Thread/24469
 	[22] = true,
 	[23] = true,
 	[24] = true,
@@ -35,7 +35,7 @@ local planetWhitelist = {
 	[26] = true,
 	[27] = true,
 	[28] = true,
-	-- Tank, Terraform, Dante http://zero-k.info/Forum/Thread/24489
+	-- Tank, Terraform, Dante https://zero-k.info/Forum/Thread/24489
 	[18] = true,
 	[21] = true,
 	[29] = true,
@@ -43,7 +43,7 @@ local planetWhitelist = {
 	[41] = true,
 	[42] = true,
 	[71] = true,
-	-- Gunship, Firewalker, Skuttle, Athena http://zero-k.info/Forum/Thread/24510
+	-- Gunship, Firewalker, Skuttle, Athena https://zero-k.info/Forum/Thread/24510
 	[36] = true,
 	[37] = true,
 	[38] = true,
@@ -51,7 +51,7 @@ local planetWhitelist = {
 	[53] = true,
 	[54] = true,
 	[56] = true,
-	-- Spider and Ships http://zero-k.info/Forum/Thread/24530
+	-- Spider and Ships https://zero-k.info/Forum/Thread/24530
 	[30] = true,
 	[31] = true,
 	[32] = true,
@@ -59,7 +59,7 @@ local planetWhitelist = {
 	[45] = true,
 	[46] = true,
 	[47] = true,
-	-- Planes, Behemoth, Bertha, Missile Silo, Scorpion http://zero-k.info/Forum/Thread/24566
+	-- Planes, Behemoth, Bertha, Missile Silo, Scorpion https://zero-k.info/Forum/Thread/24566
 	[33] = true,
 	[34] = true,
 	[35] = true,
@@ -67,18 +67,18 @@ local planetWhitelist = {
 	[49] = true,
 	[62] = true,
 	[70] = true,
-	-- Jumps, Nuke, Sea Striders http://zero-k.info/Forum/Thread/24594
+	-- Jumps, Nuke, Sea Striders https://zero-k.info/Forum/Thread/24594
 	[50] = true,
 	[51] = true,
 	[55] = true,
 	[57] = true,
 	[60] = true,
-	-- Land Striders and Heavy Defences http://zero-k.info/Forum/Thread/24614
+	-- Land Striders and Heavy Defences https://zero-k.info/Forum/Thread/24614
 	[58] = true,
 	[59] = true,
 	[61] = true,
 	[63] = true,
-	-- Paladin, Detriment and Superweapons http://zero-k.info/Forum/Thread/24642
+	-- Paladin, Detriment and Superweapons https://zero-k.info/Forum/Thread/24642
 	[64] = true,
 	[65] = true,
 	[66] = true,

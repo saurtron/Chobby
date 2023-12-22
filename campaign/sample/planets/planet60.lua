@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Narlapa",
 			primaryType = "G7V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24594",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24594",
 			text = "This was the capital of Haven. It must have been such a beautiful world in its prime. But war was closing, even there. Evacuation had started, and they were halfway done turning it into a fortress. Every industry retooled to build military hardware. Every air traffic system repurposed for war."
 			.. "\n "
 			.. "\nThen, just like that, everyone was gone."

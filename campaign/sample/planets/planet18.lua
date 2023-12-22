@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Iersag",
 			primaryType = "K1V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "This world was in the middle of being terraformed - or re-teraformed anyway, as it seems a long-forgotten catastrophe had reverted the first efforts. With no-one in command, the efforts are continuing with rather unfocused enthusiasm."
 			.. "\n "
 			.. "\nThis should be the right place to get terrain manipulation technology."

@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Woondai",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24566",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24566",
 			text = "This unterraformable dustball of a planet would never have attracted any attention, was it not lying right on the largest warp nexus in the galaxy."
 			.. "\n "
 			.. "\nAnd of course, some pirates were trying to take it over, biting much more than they could chew - the Empire made sure to guard it well. Good thing the pirates' security was so poor, I managed to hack their IFF."

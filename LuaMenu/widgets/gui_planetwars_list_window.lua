@@ -585,7 +585,7 @@ local function MakePlanetControl(planetData, DeselectOtherFunc, attacking, defen
 		parent = holder,
 		OnClick = {
 			function ()
-				WG.BrowserHandler.OpenUrl("http://zero-k.info/Planetwars/Planet/" .. planetID)
+				WG.BrowserHandler.OpenUrl("https://zero-k.info/Planetwars/Planet/" .. planetID)
 			end
 		}
 	}
@@ -915,7 +915,7 @@ local function MakeFactionSelector(parent, x, y, SelectionFunc, CancelFunc, righ
 		padding = {2,4,4,4},
 		OnClick = {
 			function()
-				WG.BrowserHandler.OpenUrl("http://zero-k.info/Factions")
+				WG.BrowserHandler.OpenUrl("https://zero-k.info/Factions")
 			end
 		},
 		parent = holder,
@@ -1058,7 +1058,7 @@ local function InitializeControls(window)
 		padding = {2,4,4,4},
 		OnClick = {
 			function()
-				WG.BrowserHandler.OpenUrl("http://zero-k.info/Planetwars")
+				WG.BrowserHandler.OpenUrl("https://zero-k.info/Planetwars")
 			end
 		},
 		children = {

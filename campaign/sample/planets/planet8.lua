@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Thibella",
 			primaryType = "G3V",
 			milRating = 2,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24429",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24429",
 			text = "There is a battle raging for the control of this world, but without direction, it seems to have reached stalemate a long time ago."
 			.. "\n "
 			.. "\nOne side has recognized my IFF signal as friendly, strangely enough. If I can tip the fight in their favor, this should let me find out what is going on here."

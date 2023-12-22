@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Toque",
 			primaryType = "F9IV",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24614",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24614",
 			text = "With the Empire growing increasingly unstable, they fell back to their home sectors, letting the periphery slowly decay into lawlessness. Hidden behind their fortress worlds, they hoped to regrow their strength and strike again, reconquering the galaxy once and for all."
 			.. "\n "
 			.. "\nWas it the last delusion of a decadent regime? Or would they have truly risen stronger in due time?"

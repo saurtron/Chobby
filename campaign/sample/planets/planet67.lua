@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Pallis",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24642",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24642",
 			text = "Haven's last redoubt. Should the capital on Pendust fall, it is here they would have fought the Empire to the bitter end."
 			.. "\n "
 			.. "\nHow ironic that it would be the first place where everyone would disappear... Or maybe this is where it all started."

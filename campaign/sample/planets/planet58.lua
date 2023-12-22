@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Halio Raba",
 			primaryType = "K1VI",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24614",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24614",
 			text = "This wealthy ice planet was one of the main Rebel worlds, and the Empire sent a large occupation force to make sure it would never challenge it again. But somehow, the Rebels managed to turn one half of the force against the other."
 			.. "\n "
 			.. "\nThe civilian population, de facto hostage, would have all become collateral damage - had it not disappeared just as combat started."

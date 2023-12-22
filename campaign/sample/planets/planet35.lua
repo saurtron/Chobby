@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Topps",
 			primaryType = "G2V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24566",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24566",
 			text = "A long time ago, this world was a jewel, sculpted to perfection - or so its original terraformers said. Even after so much decay, I can still see their work from orbit, and I am not impressed. Their mountain work is inferior, their seas pretentious and unsubtle, and they couldn't even stabilize the polar ice caps."
 			.. "\n "
 			.. "\nThey were so insecure, they even left a force to assault anyone disagreeing, which is now set to \"everyone\"."

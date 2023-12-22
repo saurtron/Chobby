@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Snoloz",
 			primaryType = "G1V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24441",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24441",
 			text = "This world is covered with mineral wealth, often in surface rocks that would have been easy to exploit, if only during one battle or another. I wonder why it is still there. There must be some natural process that renew them, maybe it also explains this broken geography..."
 			,
 			extendedText = "I am outnumbered and stuck in a small battlefield, but my Felon shieldbots should allow me to fight efficiently and minimise losses. I will need to expand aggressively and reclaim the nearby rocks (for metal) and trees (for energy) to build up my army and economy. Then I can push forward and destroy both forces."

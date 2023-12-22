@@ -852,7 +852,7 @@ function Configuration:GetMinimapSmallImage(mapName)
 
 	if not self.minimapDownloadStarted[mapName] and WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage then
 		Spring.CreateDir(MINIMAP_THUMB_DOWNLOAD_DIR)
-		WG.WrapperLoopback.DownloadImage({ImageUrl = "http://zero-k.info/Resources/" .. mapName .. ".thumbnail.jpg", TargetPath = filePath})
+		WG.WrapperLoopback.DownloadImage({ImageUrl = "https://zero-k.info/Resources/" .. mapName .. ".thumbnail.jpg", TargetPath = filePath})
 		self.minimapDownloadStarted[mapName] = true
 	end
 
@@ -871,7 +871,7 @@ function Configuration:GetMinimapImage(mapName)
 	if WG.WrapperLoopback and WG.WrapperLoopback.DownloadImage and (not self:ImageFileExists(filePath)) then
 		if not self.minimapDownloads[mapName] then
 			Spring.CreateDir("LuaMenu/Images/Minimaps")
-			WG.WrapperLoopback.DownloadImage({ImageUrl = "http://zero-k.info/Resources/" .. mapName .. ".minimap.jpg", TargetPath = filePath})
+			WG.WrapperLoopback.DownloadImage({ImageUrl = "https://zero-k.info/Resources/" .. mapName .. ".minimap.jpg", TargetPath = filePath})
 			self.minimapDownloads[mapName] = true
 		end
 		return filePath, true

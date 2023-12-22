@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Near Varra",
 			primaryType = "K3VI",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24566",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24566",
 			text = "There is something very wrong with this world. Almost no life despite advanced terraforming, a warm ocean producing no moisture, and an island that makes no geological sense right in the middle of it."
 			.. "\n "
 			.. "\nWhatever is on this island is extremely well guarded, and the Empire broke their teeth on it. But the garrison's protocols have also decayed faster than they should, and I may be able to turn it over..."

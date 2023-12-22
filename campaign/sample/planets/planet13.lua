@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "None",
 			primaryType = "N/A",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24441",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24441",
 			text = "On this asteroid is the most powerful communication network of the sector, and its defenses have significantly decayed over time."
 			.. "\n "
 			.. "\nInterstellar pursuit forces from many worlds have kept dogging me. I can easily outrun them, but no-one is safe from a mistake. With this network, I should be able to shake them off my trail for good."

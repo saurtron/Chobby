@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Banbawe",
 			primaryType = "G3V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24530",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24530",
 			text = "Learning from the Rebels, the Empire has placed its main Interception Network in a giant mountain range on a desert planet. This network was covering the entire sector and was the central piece of their war against the Rebels. If I can access it, I can download everything they had on the Rebels."
 			,
 			extendedText = "This battlefield is exceptionally mountainous. The defenders will field Spiders and I'd better do the same. If I want to force my way to the Interception Network, the Venom EMP and Hermit assault spiders are going to help."

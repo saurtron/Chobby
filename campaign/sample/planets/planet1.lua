@@ -27,7 +27,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Privni",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24417",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24417",
 			text = "How long have I been sleeping? Centuries? No, stars have drifted way too much. And this Commander- I have never seen anything like it. What was I doing in that thing?"
 			.. "\n "
 			.. "\nI cannot stay there. Those automata are everywhere, and when they are not fighting each other, they attack me as soon as I stop moving."

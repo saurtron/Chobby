@@ -29,7 +29,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Origin",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24417",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24417",
 			text = "[ Emergency boot sequence complete, terminating pilot hibernation ]"
 			.. "\n[ Recovering data... Recovery incomplete, see log file for error list ]"
 			.. "\n[ Alert: Commander unit systems unresponsive: movement, armament, construction, IFF. External reboot required. ]"

@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Laria",
 			primaryType = "G9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "There was a major military R&D complex here. Most of it is unusable by now, but there is a functional Strider Hub down there. If I can access it, it could be very useful."
 			.. "\n "
 			.. "\nSomething seems to have escaped its containment. I detect sporadic engagements between the local defense and whatever is hiding in the ground..."

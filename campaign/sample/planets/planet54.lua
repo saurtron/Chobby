@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Aioa",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24510",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24510",
 			text = "I am surprised a world so geologically active could be terraformed at all, let alone for it to hold for so long on its own."
 			.. "\n "
 			.. "\nThis is a problem, though, as it is still powering the core of a large defense system. There is no moving through here with those geothermal plants still running."

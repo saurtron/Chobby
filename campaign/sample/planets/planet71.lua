@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Edo",
 			primaryType = "K1",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "This remote moon used to broadcast rally races to the entire galaxy. Did I watch those? It feels oddly familiar."
 			.. "\n "
 			.. "\nI can still pick a signal up, some of the broadcast systems are still working to this day. The show must go on, I guess. Not letting petty distractions like the apocalypse get in the way."

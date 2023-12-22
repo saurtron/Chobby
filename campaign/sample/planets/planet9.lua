@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Xar",
 			primaryType = "B2Ia",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24457",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24457",
 			text = "This ugly desert world would have been a large industrial hub at one time. Mineral resources, mostly flat terrain, calm weather, lying at an interstellar crossroads and no environment to ruin with pollution."
 			.. "\n "
 			.. "\nNo wonder they fought so hard to keep it. War vehicles are still crisscrossing its empty sand plains, eternally waiting for the next invasion."

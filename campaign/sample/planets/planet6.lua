@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Voblaka",
 			primaryType = "F9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24429",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24429",
 			text = "This world is covered with islands, with a surprising variety of defenses. Was it used for combat testing?"
 			.. "\n "
 			.. "\nMany of those islands seem isolated from each-other. I will only need to clear one, hopefully it won't contain any nasty surprises."

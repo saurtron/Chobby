@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Chukon",
 			primaryType = "G1V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24429",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24429",
 			text = "There is a Tech Lab on this world, and it seems accessible enough. I should be able to drop in, siphon its databases and jump out."
 			.. "\n "
 			.. "\nThis mountain range is unlike anything I have ever seen - oh. That may explain the presence of that lab. It is as if immense trees had died there, leaving colossal stumps, buried deep under the surface."

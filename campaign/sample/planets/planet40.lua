@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Seraz",
 			primaryType = "G9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "This was one of the first rebel worlds, and one of the last to fall. To make sure it would never rebel again, the occupation force was allowed to use nuclear missiles against the next uprising."
 			.. "\n "
 			.. "\nThe nuclear silos are still there, but some long-forgotten rebel malware infiltrated part of the occupation forces. And it just signaled me that it is, and I quote, Liberation Time."

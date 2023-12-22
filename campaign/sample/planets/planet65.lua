@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Wabloz Met",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24642",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24642",
 			text = "This was one of the last worlds to see its inhabitants disappear. Refugees from all the quadrant fled here, waiting for transit to the last bastion of humanity. Many seem to have accepted their fate, though, and built immense temporary cities, to be reclaimed by nature after their passing."
 			.. "\n "
 			.. "\nThe Empire would not, however. Even knowing how futile it was, they fortified this world with all they had."

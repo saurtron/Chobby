@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Taoune",
 			primaryType = "F2III",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24429",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24429",
 			text = "This is where the raids on Myror were launched from. Either time or a counterattack crippled them, but the expeditionary force that had captured this world is still there."
 			.. "\n "
 			.. "\nWhile I should not underestimate them, what is left does not seem well-adapted for defending ground."

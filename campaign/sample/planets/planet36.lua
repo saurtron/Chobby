@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Jazada",
 			primaryType = "G4V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24510",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24510",
 			text = "Occupation forces on this world have dwindled to a few dormant bots. Hopefully I can land and take them out before they awaken..."
 			.. "\n "
 			.. "\nAnother rebel planet that fell to a merciless imperial punitive expedition. I wonder what drove so many worlds to rise against the Empire."

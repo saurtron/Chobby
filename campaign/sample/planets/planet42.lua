@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Zamuot",
 			primaryType = "G0V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24489",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24489",
 			text = "This desert planet had one of the greatest mountain ranges in the galaxy, before most of it was flattened by the Empire, as they tracked down fleeing Rebels hidden there. Imperial search parties are still there, looking for Rebels in what little is left of the range."
 			.. "\n "
 			.. "\nIf I can get rid of them, some Rebel holdout may answer to some of my scavenged codes. Who knows, they may still have useful data..."

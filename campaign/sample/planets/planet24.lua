@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Royal",
 			primaryType = "F9IV",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24469",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24469",
 			text = "There is an Ancient Fabricator on this world, capable of generating metal from nothing. It is hidden behind thick layers of defense, but their jamming systems have long stopped working. If I can jump right on top of it, I should be able to fight my way out."
 			,
 			extendedText = "The first part of the plan went pretty well, but now I am boxed in there. Time to use Djinn teleporters and Lobsters to launch an attack from behind the inner ring and break the siege."

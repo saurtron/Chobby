@@ -1596,7 +1596,7 @@ end
 function Interface:_BattlePoll(data)
 	-- BattlePoll {"Topic":"Choose the next map","Options":[{"Name":"IncultaV2","Id":1,"Votes":0,"URL":"http://test.zero-k.info/Maps/Detail/7514"},{"Name":"Otago 1.1","Id":2,"Votes":0,"URL":"http://test.zero-k.info/Maps/Detail/56587"},{"Name":"Wanderlust v03","Id":3,"Votes":0,"URL":"http://test.zero-k.info/Maps/Detail/55669"},{"Name":"DunePatrol_wip_v03","Id":4,"Votes":0,"URL":"http://test.zero-k.info/Maps/Detail/23549"}],"VotesToWin":3,"YesNoVote":false,"MapSelection":true}
 
-	--[11:15] <--BattlePoll {"Topic":"Change map to Adansonia v4.1 (16x14)?","Url":"http://zero-k.info/Maps/Detail/55567","Options":[{"Name":"Yes","DisplayName":"Yes","Id":1,"Votes":1,"Url":"http://zero-k.info/Maps/Detail/55567"},{"Name":"No","DisplayName":"No","Id":2,"Votes":0,"Url":""}],"VotesToWin":2,"YesNoVote":true,"MapSelection":true,"NotifyPoll":false,"MapName":"Adansonia v4.1"}
+	--[11:15] <--BattlePoll {"Topic":"Change map to Adansonia v4.1 (16x14)?","Url":"https://zero-k.info/Maps/Detail/55567","Options":[{"Name":"Yes","DisplayName":"Yes","Id":1,"Votes":1,"Url":"https://zero-k.info/Maps/Detail/55567"},{"Name":"No","DisplayName":"No","Id":2,"Votes":0,"Url":""}],"VotesToWin":2,"YesNoVote":true,"MapSelection":true,"NotifyPoll":false,"MapName":"Adansonia v4.1"}
 
 	if self.REVERSE_COMPAT_2 and data.YesNoVote then
 		return
@@ -2006,7 +2006,7 @@ Interface.jsonCommands["CustomGameModeResponse"] = Interface._CustomGameMode
 
 function Interface:_BattleDebriefing(data)
 	--{
-	--	"Url":"http://zero-k.info/Battles/Detail/445337",
+	--	"Url":"https://zero-k.info/Battles/Detail/445337",
 	--	"ChatChannel":"debriefing_445337","ServerBattleID":445337,
 	--	"DebriefingUsers":{
 	--		"Test4321":{

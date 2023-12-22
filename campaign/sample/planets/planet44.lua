@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Nadstan",
 			primaryType = "G9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24530",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24530",
 			text = "The Rebel forces of this planet took a last stand in the mountains, awaiting an end that never came. Now that everyone is gone, the armies are still waiting."
 			.. "\n "
 			.. "\nTime to put an end to this."

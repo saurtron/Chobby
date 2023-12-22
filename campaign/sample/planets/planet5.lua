@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Adimasi",
 			primaryType = "G7V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24417",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24417",
 			text = "This world was a strategic chokepoint. There are extensive traces of combat damage, some ancient enough to be covered by once-thriving cities."
 			.. "\n "
 			.. "\nWhoever it was defending - or defending from - there is still an active defense network entrenched down there. I will have to punch through it, if I want access to that sector."

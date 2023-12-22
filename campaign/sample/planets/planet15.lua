@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Ushasis",
 			primaryType = "F9V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24441",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24441",
 			text = "This is the station world of an imperial Rapid Reaction Force - or what is left of it, anyway. If I don't take them out now, they may fall on my back in the middle of another battle some day..."
 			,
 			extendedText = "The RRF will field Hovercraft and Gunships to cross the oasis which separates our bases. Rogues should take care of the hovercraft and Vandals will shoot the gunships down."

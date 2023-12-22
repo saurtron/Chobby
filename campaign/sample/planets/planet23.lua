@@ -25,7 +25,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Neacahamo",
 			primaryType = "G8V",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24469",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24469",
 			text = "Immense armies cover those continents, waiting for an invasion that never came. They are so vast that they forewent Commanders for fixed C&C buildings."
 			.. "\n "
 			.. "\nThe oceans are poorly defended, though. Naval forces decayed faster, under the harsher maritime conditions. I can use this, take out those command structures, and find out what they were preparing for..."

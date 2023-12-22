@@ -24,7 +24,7 @@ local function GetPlanet(planetUtilities, planetID)
 			primary = "Malnoa",
 			primaryType = "B5II",
 			milRating = 1,
-			feedbackLink = "http://zero-k.info/Forum/Thread/24614",
+			feedbackLink = "https://zero-k.info/Forum/Thread/24614",
 			text = "Not wanting to risk damaging the unique environment of this strange crystalline planet, the Empire refrained from exterminating the Chicken swarm laying there, periodically culling them instead."
 			.. "\n "
 			.. "\nScience teams were sent to study both planet and Chicken - and maybe find a way to control them. As far as is known, no one has ever succeeded at such task, but there have always been others to keep trying."
