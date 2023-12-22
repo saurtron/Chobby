@@ -17,7 +17,7 @@ end
 --------------------------------------------------------------------------------
 -- Variables
 
-local bufferCommand = {
+local onlyBufferCommands = {
 	Say = true,
 }
 
@@ -26,7 +26,7 @@ local CMD_PER_UPDATE = 14
 function widget:ActivateGame()
 	local lobby = WG.LibLobby.lobby
 	if not lobby.bufferCommandsEnabled then
-		lobby.bufferCommand = bufferCommand
+		lobby.onlyBufferCommands = onlyBufferCommands
 		lobby.bufferCommandsEnabled = true
 	end
 	--WG.Chobby.interfaceRoot.GetChatWindow():ClearHistory()
@@ -39,7 +39,7 @@ function widget:Update()
 	local isLobbyVisible = Configuration:IsLobbyVisible() and not Configuration.enableDebugBuffer
 	if not isLobbyVisible then
 		if not lobby.bufferCommandsEnabled then
-			lobby.bufferCommand = bufferCommand
+			lobby.onlyBufferCommands = onlyBufferCommands
 			lobby.bufferCommandsEnabled = true
 		end
 		return
