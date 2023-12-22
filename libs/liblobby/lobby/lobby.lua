@@ -972,10 +972,10 @@ function Lobby:_OnVoteEnd(message, success)
 		self.recentVoteMessage = message
 		WG.Delay(function () self.recentVoteMessage = nil end, 2)
 	end
-	Spring.Echo("self.recentVoteMessage", self.recentVoteMessage)
-	Spring.Echo("self.voteMessage", self.voteMessage)
-	Spring.Utilities.TableEcho(self.voteCandidates)
-	Spring.Echo("self.votesNeeded", self.votesNeeded)
+	--Spring.Echo("self.recentVoteMessage", self.recentVoteMessage)
+	--Spring.Echo("self.voteMessage", self.voteMessage)
+	--Spring.Utilities.TableEcho(self.voteCandidates)
+	--Spring.Echo("self.votesNeeded", self.votesNeeded)
 	self.voteMessage    = nil
 	self.voteCandidates = nil
 	self.votesNeeded    = nil
