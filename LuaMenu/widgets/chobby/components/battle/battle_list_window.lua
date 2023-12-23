@@ -698,6 +698,9 @@ end
 
 function BattleListWindow:UpdateSync(battleID)
 	local battle = lobby:GetBattle(battleID)
+	if not battle then
+		return
+	end
 	if not (Configuration.displayBadEngines3 or Configuration:IsValidEngineVersion(battle.engineVersion)) then
 		return
 	end
