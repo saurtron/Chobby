@@ -293,9 +293,10 @@ function Interface:SendSplit(message)
 		end
 		return true
 	end
-	if not (message and string.sub(message, 0, 6) == "!split") then
+	if not (message == "!split" or message == "!modsplit") then
 		return false
 	end
+	local moderatorMode = (self:GetMyIsAdmin() and message == "!modsplit")
 	
 	local myBattle = self:GetBattle(self:GetMyBattleID())
 	if not myBattle then
@@ -309,8 +310,8 @@ function Interface:SendSplit(message)
 	end
 	
 	local playerRequirement = myBattle.maxPlayers + SPLIT_AT_WAITING
-	if self:GetMyIsAdmin() then
-		playerRequirement = myBattle.maxPlayers -- Experiment?
+	if moderatorMode then
+		playerRequirement = myBattle.maxPlayers - 2 -- Experiment?
 	end
 	if myBattle.playerCount < playerRequirement and not SPLIT_TEST_MODE then
 		if WG.Chotify then
@@ -330,7 +331,7 @@ function Interface:SendSplit(message)
 		end
 		return true
 	end
-	if not IsSplitRoom(myBattle) and not SPLIT_TEST_MODE then
+	if (not moderatorMode) and (not IsSplitRoom(myBattle)) and not SPLIT_TEST_MODE then
 		if WG.Chotify then
 			WG.Chotify:Post({
 				title = "Split",
