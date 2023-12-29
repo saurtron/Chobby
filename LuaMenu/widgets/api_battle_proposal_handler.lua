@@ -75,7 +75,8 @@ local function GetProposalFromString(message)
 		maxelo = paramValues[2] or false,
 		minsize = math.max(1, math.floor(paramValues[3] or 4)),
 	}
-	proposalValues.maxsize = math.max(proposalValues.minsize, paramValues[4] or 32)
+	local hasEloLimit = (proposalValues.minelo or proposalValues.maxelo) and true
+	proposalValues.maxsize = math.max(proposalValues.minsize, paramValues[4] or (hasEloLimit and 8) or 32)
 	
 	return true, proposalValues
 end
