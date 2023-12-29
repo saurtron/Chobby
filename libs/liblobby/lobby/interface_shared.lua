@@ -102,12 +102,18 @@ function Interface:ProcessBuffer()
 	return true
 end
 
-function Interface:SendCommandToBuffer(cmdName)
+function Interface:SendCommandToBuffer(cmdName, command)
 	if not self.bufferCommand then
 		return false
 	end
 	if self.onlyBufferCommands then
-		return self.onlyBufferCommands[cmdName]
+		if self.onlyBufferCommands[cmdName] then
+			if not (self.onlyBufferSubstring and self.onlyBufferSubstring[cmdName]) then
+				return true
+			end
+			return (string.find(command, onlyBufferSubstring[cmdName]) or -1) > -1
+		end
+		return false
 	end
 	if not self.bufferBypass then
 		return true
@@ -139,7 +145,7 @@ function Interface:CommandReceived(command)
 		end
 	end
 
-	if self.bufferCommandsEnabled and self:SendCommandToBuffer(cmdName) then
+	if self.bufferCommandsEnabled and self:SendCommandToBuffer(cmdName, command) then
 		if not self.commandBuffer then
 			self.commandBuffer = {}
 			self.commandsInBuffer = 0

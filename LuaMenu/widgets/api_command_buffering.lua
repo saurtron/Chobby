@@ -21,12 +21,17 @@ local onlyBufferCommands = {
 	Say = true,
 }
 
+local onlyBufferSubstring = {
+	Say = [["Place":0]]
+}
+
 local CMD_PER_UPDATE = 14
 
 function widget:ActivateGame()
 	local lobby = WG.LibLobby.lobby
 	if not lobby.bufferCommandsEnabled then
 		lobby.onlyBufferCommands = onlyBufferCommands
+		lobby.onlyBufferSubstring = onlyBufferSubstring
 		lobby.bufferCommandsEnabled = true
 	end
 	--WG.Chobby.interfaceRoot.GetChatWindow():ClearHistory()
@@ -40,6 +45,7 @@ function widget:Update()
 	if not isLobbyVisible then
 		if not lobby.bufferCommandsEnabled then
 			lobby.onlyBufferCommands = onlyBufferCommands
+			lobby.onlyBufferSubstring = onlyBufferSubstring
 			lobby.bufferCommandsEnabled = true
 		end
 		return
