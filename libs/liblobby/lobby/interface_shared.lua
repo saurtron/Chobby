@@ -276,12 +276,22 @@ function Interface:_SocketUpdate()
 					end
 				end
 				self.raggedJsonStore = newRagged
+				if (self.allFailRepeats or 0) > 20 then
+					if config and config.debugRawMessages then
+						Spring.Utilities.TableEcho(self.raggedJsonStore, "DISCARDING RAGGED JSON STORE")
+					end
+					self.allFailRepeats = 0
+					self.raggedJsonStore = {}
+				end
 				if allFail then
 					local internalSuccess
 					local success = pcall(function () internalSuccess = self:CommandReceived(commands[1]) end)
 					if not (success and internalSuccess) then
 						Spring.Echo("Processing failed for", commands[1])
+						self.allFailRepeats = (self.allFailRepeats or 0) + 1
 					end
+				else
+					self.allFailRepeats = 0
 				end
 				for i = 2, #commands-1 do
 					local command = commands[i]
