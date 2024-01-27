@@ -4685,7 +4685,6 @@ local function GetPlanet(planetUtilities, planetID)
 						"factoryamph",
 						"factoryspider",
 					},
-					loseAfterSeconds = 30*60,
 					allyTeamLossObjectiveID = 1,
 				},
 			},
