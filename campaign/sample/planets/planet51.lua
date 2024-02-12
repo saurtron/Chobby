@@ -27,7 +27,7 @@ local function GetPlanet(planetUtilities, planetID)
 			feedbackLink = "https://zero-k.info/Forum/Thread/24594",
 			text = "Barely inhabitable, far from anything valuable but right between fortress worlds, this was the ideal place for the Empire's sensitive research projects. If they knew something about what happened, it could be there."
 			.. "\n "
-			.. "\nI could access to some research systems and their defenses, but not remotely access their data. Hopefully I can land, grab the data and depart before the main planetary garrison wakes up..."
+			.. "\nI could gain access to some research systems and their defenses, but not remotely access their data. Hopefully I can land, grab the data and depart before the main planetary garrison wakes up..."
 			,
 			extendedText = "This is bad! I landed too far, the entire planet's garrison is waking up and the Tech Lab is about to be overrun! I am too far away to reinforce it in time. Unless..."
 			.. "\n "

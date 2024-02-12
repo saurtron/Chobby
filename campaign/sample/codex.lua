@@ -234,7 +234,7 @@ I never trained for it, or even heard of such a thing. And yet, it feels oddly f
 		name = "IFF Codes",
 		image = "campaign/sample/graphics/icons/codes.png",
 		category = "1. Entries",
-		text = [[Identification friend or foe, IFF for short, is a system devised by the ancients to protect Commanders from their armies, as well as their armies from each other. An army with the requisite IFF codes stands united against those without - as I know all-too well - and may even respond to orders issed by commander it sees as friendly.
+		text = [[Identification friend or foe, IFF for short, is a system devised by the ancients to protect Commanders from their armies, as well as their armies from each other. An army with the requisite IFF codes stands united against those without - as I know all-too well - and may even respond to orders issued by a commander it sees as friendly.
  
 The various codes used by the automata I encounter have all, so far, shown signs of degradation, implying that their owners are either long gone or have a very lax approach to security. Regardless of the reason, this weakness has allowed me to construct a friendlier identity, and to update it as I explore, by scavenging the data of old installations and defeated automatons.
  
@@ -302,7 +302,7 @@ Haven wanted to know more about the signal, but they feared its content. They kn
  
 And yet, it was not enough. One moment they are running an indirect test in a black box system on a fragment of the signal, and the next - everyone in the facility is gone. One second later, there is no-one left on the entire planet. Then, it hits nearby systems...
  
-The data itself has long decayed beyond recovery, and the Starsong itself went silent, at some point since the event. There is nothing left to be found, on how it all started. But perhaps this is for the better. If Haven could not deal with it, who knows what damage I could have done.]]
+The data itself has long decayed beyond recovery, and the Starsong itself went silent at some point since the event. There is nothing left to be found on how it all started. But perhaps this is for the better. If Haven could not deal with it, who knows what damage I could have done.]]
 	},
 	entry_eternity_gate = { -- planet68
 		name = "The Eternity Gate",
@@ -351,7 +351,7 @@ And again, no one has challenged me beyond automated defenses. No hails, no comm
 		image = "campaign/sample/graphics/unitpics/jumpscout.png",
 		text = [[This was a pleasant and prosperous world until, seemingly overnight, its factories were scrapped and hastily converted to weapons of war. Right under the noses of the dominant military force too.
  
-The insurgents took the lessons of guerilla warfare seriously. Eschewing more standard battlefield manufacturing techniques, they opted instead to convert their infrastructure directly into cheap, single-use, combat units. Such was the simplicity of these units that they could be equiped to build copies of themselves out of scrap, acting as both an army and a fully decentralised production base, allowing them to fight an endlessly renewing war.
+The insurgents took the lessons of guerilla warfare seriously. Eschewing more standard battlefield manufacturing techniques, they opted instead to convert their infrastructure directly into cheap, single-use, combat units. Such was the simplicity of these units that they could be equipped to build copies of themselves out of scrap, acting as both an army and a fully decentralised production base, allowing them to fight an endlessly renewing war.
  
 This strategy appeared to work, in a sense, as there was little the occupying force could do beyond quell uprising after uprising. The habitability of the planet was apparently a price the combatants were willing to pay.
  
@@ -423,7 +423,7 @@ This was the Anarchai homeworld. The founders of what would become Haven discove
  
 Most of the archives I could find are extremely well-encrypted, but the little I could decipher indicates that even after all that time, they still had more questions than answers. The Anarchai themselves apparently destroyed a lot of evidence of their origins when they remade themselves.
  
-The progenitors of the Anarchai were originally were a small technologist settlement, exploring cybernetic and free machine self-modifications on a remote world, both to avoid what they saw as stifling regulations, and in case something went wrong to the point of quarantine. Their last intelligible log evoked a data sample from Zhurou. What follows, I suspect, is so heavily encrypted at least in part because Haven thought the data itself was so dangerous...]]
+The progenitors of the Anarchai were originally a small technologist settlement, exploring cybernetic and free machine self-modifications on a remote world, both to avoid what they saw as stifling regulations, and in case something went wrong to the point of quarantine. Their last intelligible log evoked a data sample from Zhurou. What follows, I suspect, is so heavily encrypted at least in part because Haven thought the data itself was so dangerous...]]
 	},
 	location_pendust = { -- planet60
 		name = "Pendust Archaeology",
@@ -681,7 +681,7 @@ Who knows, maybe they are still out there, thriving in some remote corner of the
 		category = "5. Anomalies",
 		text = [[Once common on wealthy worlds, knowledge of how to manufacture those ancient fabricators has been lost for millennia. Now, only a handful still operate across the galaxy - or at least, did when this one was last studied.
  
-Previous empires have tried to replicate these marvels, even carefully dismantling several over time, and they spared on expense on Asjulohi. They found out how to maintain them, even repairing some of the less decrepit non-functioning ones. But while the theoretical principles behind their operation became better and better understood, they were still far from even thinking about building a new one from scratch.]]
+Previous empires have tried to replicate these marvels, even carefully dismantling several over time, and they spared no expense on Asjulohi. They found out how to maintain them, even repairing some of the less decrepit non-functioning ones. But while the theoretical principles behind their operation became better and better understood, they were still far from even thinking about building a new one from scratch.]]
 	},
 	anomaly_deuliah = { -- planet56
 		name = "Deuliah's Detriment",

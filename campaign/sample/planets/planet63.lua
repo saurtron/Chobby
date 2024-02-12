@@ -27,7 +27,7 @@ local function GetPlanet(planetUtilities, planetID)
 			feedbackLink = "https://zero-k.info/Forum/Thread/24614",
 			text = "Not wanting to risk damaging the unique environment of this strange crystalline planet, the Empire refrained from exterminating the Chicken swarm laying there, periodically culling them instead."
 			.. "\n "
-			.. "\nScience teams were sent to study both planet and Chicken - and maybe find a way to control them. As far as is known, no one has ever succeeded at such task, but there have always been others to keep trying."
+			.. "\nScience teams were sent to study both the planet and Chicken - and maybe find a way to control them. As far as is known, no one has ever succeeded at this task, but there have always been others to keep trying."
 			,
 			extendedText = "This is a nightmare. Somehow a Queen subjugated the army stationed here to cull them! What have these fools done, while attempting to control it?"
 			.. "\n "

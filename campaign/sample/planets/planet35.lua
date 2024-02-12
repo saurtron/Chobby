@@ -40,7 +40,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 			{
 				image = "unitpics/bomberassault.png",
-				text = [[The Odin's disintegrator bomb vaporises anything in a single shot, but it can barely hit mobile units. Try using its bulky armour to break through enemy lines and hit vital targets. Between risky sorties it can use its special weapon to drop shields for ground forces.]]
+				text = [[The Odin's thermite bomb eventually burns through anything in a single shot given time, but mobile units can just move out of the way. Try using its bulky armour to break through enemy lines and hit vital targets. Between risky sorties it can use its special weapon to drop shields for ground forces.]]
 			},
 			{
 				image = "unitpics/staticantinuke.png",
