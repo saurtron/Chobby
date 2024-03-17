@@ -376,10 +376,10 @@ return {
 		name = "links",
 		control = communityControl,
 	},
-	{
-		name = "tutorials",
-		control = WG.MissionHandler.GetControl(),
-	},
+	--{
+	--	name = "tutorials",
+	--	control = WG.MissionHandler.GetControl(),
+	--},
 	{
 		name = "benchmark",
 		control = WG.BenchmarkHandler.GetControl(),
