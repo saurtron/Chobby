@@ -267,6 +267,7 @@ function Interface:ProcessSplit(data, battle, duplicateMessageTime)
 			end
 			return false
 		end
+		self.nextJoinSpectatorState = (self:GetMyIsSpectator() and "spectator") or "player"
 		self:JoinBattle(newBattleID)
 	else
 		-- Stay in old battle
@@ -401,7 +402,7 @@ function Interface:SendSplit(message)
 	
 	table.sort(skillList, function (a, b) return a[2] < b[2] end)
 	local splitBeyond = math.ceil(#skillList * LOWER_RATING_PROP)
-	local splitSkill = math.floor(self.users[skillList[splitBeyond][1]].casualSkill)
+	local splitSkill = (#skillList == 0 and 0) or math.floor(self.users[skillList[splitBeyond][1]].casualSkill)
 	local oldBattle = false
 	local newBattle = false
 	for i = 1, #skillList do

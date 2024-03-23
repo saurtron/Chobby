@@ -33,6 +33,7 @@ function Lobby:_Clean()
 	self.loginInfoEndSent = false
 	self.userCountLimited = false
 	self.blockedBattles = false
+	self.nextJoinSpectatorState = false
 
 	self.channels = {}
 	self.channelCount = 0
@@ -748,6 +749,15 @@ function Lobby:_OnJoinBattle(battleID, hashCode)
 	self.modoptions = {}
 
 	self:_CallListeners("OnJoinBattle", battleID, hashCode)
+	if self.nextJoinSpectatorState then
+		if self.nextJoinSpectatorState == "player" then
+			self:SetBattleStatus({isSpectator = false})
+		elseif self.nextJoinSpectatorState == "spectator" then
+			self:SetBattleStatus({isSpectator = true})
+		end
+		self.nextJoinSpectatorState = false
+	end
+	
 	if self.openBattleModOptions then
 		if self.battles[battleID].founder == self:GetMyUserName() then
 			self:SetModOptions(self.openBattleModOptions)
