@@ -263,7 +263,7 @@ function Interface:ProcessSplit(data, battle, duplicateMessageTime)
 				return false
 			end
 			if self.battles[newBattleID].playerCount >= math.floor(playerCount*(1 - LOWER_RATING_PROP)*0.75) or SPLIT_TEST_MODE then
-				return true, getMessage and ("Your side of the split is " .. self.battles[newBattleID].title .. ". Start a game there.")
+				return true, getMessage and ("Unable to join. You've been matched to " .. self.battles[oldBattleID].title .. " as a result of a lobby split.")
 			end
 			return false
 		end
@@ -275,7 +275,7 @@ function Interface:ProcessSplit(data, battle, duplicateMessageTime)
 				return false
 			end
 			if self.battles[oldBattleID].playerCount >= math.floor(playerCount*LOWER_RATING_PROP*0.75) or SPLIT_TEST_MODE then
-				return true, getMessage and ("Your side of the split is " .. self.battles[oldBattleID].title .. ". Start a game there.")
+				return true, getMessage and ("Unable to join. You've been matched to " .. self.battles[oldBattleID].title .. " as a result of a lobby split.")
 			end
 			return false
 		end
