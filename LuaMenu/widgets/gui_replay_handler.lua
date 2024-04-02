@@ -116,6 +116,20 @@ local function CreateReplayEntry(replayPath, engineName, gameName, mapName)
 	return replayPanel, {replayTime, string.lower(mapName), gameName}
 end
 
+local function RawReplaySort(a, b)
+	local goodFormatA = (string.sub(a, 0, 8) == "demos\2")
+	local goodFormatB = (string.sub(b, 0, 8) == "demos\2")
+	if goodFormatA ~= goodFormatB then
+		return goodFormatA
+	end
+	local newFormatA = (string.sub(a, 11, 11) == "-")
+	local newFormatB = (string.sub(b, 11, 11) == "-")
+	if newFormatA ~= newFormatB then
+		return newFormatA
+	end
+	return a > b
+end
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- Controls
@@ -181,7 +195,8 @@ local function InitializeControls(parentControl)
 
 	local function AddReplays()
 		local replays = VFS.DirList("demos")
-		--Spring.Utilities.TableEcho(replays, "replaysList")
+		table.sort(replays, RawReplaySort)
+		Spring.Utilities.TableEcho(replays, "replaysList")
 
 		replayList:Clear()
 
@@ -189,13 +204,13 @@ local function InitializeControls(parentControl)
 			moreButton:SetVisibility(true)
 		end
 
-		local index = #replays
+		local index = 1
 		PartialAddReplays = function()
 			loadingPanel:SetVisibility(true)
 			loadingPanel:BringToFront()
 			local items = {}
 			for i = 1, PARTIAL_ADD_NUMBER do
-				if index < 1 then
+				if index >= #replays then
 					if moreButton then
 						moreButton:SetVisibility(false)
 					end
@@ -204,7 +219,7 @@ local function InitializeControls(parentControl)
 				end
 				local replayPath = replays[index]
 				WG.WrapperLoopback.ReadReplayInfo(replayPath)
-				index = index - 1
+				index = index + 1
 			end
 
 			loadingPanel:SetVisibility(false)
