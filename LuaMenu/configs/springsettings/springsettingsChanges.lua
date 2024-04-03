@@ -9,6 +9,12 @@ local settings = {
 	UseLuaMemPools = 0,
 	VFSCacheArchiveFiles = 0,
 	UnitLodDist = 999999,
+	
+	-- Remove when desync bug is sorted.
+	-- If there is no memory of such a thing, it is time.
+	AnimationMT = 0,
+	UpdateBoundingVolumeMT = 0,
+	UpdateWeaponVectorsMT = 0,
 }
 
 local onlyIfMissingSettings = {
