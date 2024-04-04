@@ -932,13 +932,13 @@ local humanNames = {
 	planelightscout = {
 		category = "plane",
 		order = 12,
-		description = "Light Scout Plane",
+		description = "Light Scout/Area Jammer Plane",
 		humanName = "Sparrow",
 	},
 	planescout = {
 		category = "plane",
 		order = 10,
-		description = "Area Jammer, Radar/Sonar Plane",
+		description = "Radar/Sonar Scout Plane",
 		humanName = "Owl",
 	},
 
