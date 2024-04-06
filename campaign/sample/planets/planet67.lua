@@ -1427,7 +1427,7 @@ local function GetPlanet(planetUtilities, planetID)
 			aiConfig = {
 				{
 					startX = 330,
-					startZ = 7200,
+					startZ = 7050,
 					aiLib = "Circuit_difficulty_autofill",
 					humanName = "Tasnext",
 					bitDependant = true,
@@ -3176,6 +3176,36 @@ local function GetPlanet(planetUtilities, planetID)
 							x = 436,
 							z = 6586,
 							facing = 1,
+						},
+						{
+							name = "staticshield",
+							x = 96,
+							z = 7984,
+							facing = 0,
+						},
+						{
+							name = "staticshield",
+							x = 368,
+							z = 8080,
+							facing = 0,
+						},
+						{
+							name = "staticshield",
+							x = 128,
+							z = 7856,
+							facing = 0,
+						},
+						{
+							name = "staticshield",
+							x = 192,
+							z = 8096,
+							facing = 0,
+						},
+						{
+							name = "staticshield",
+							x = 352,
+							z = 7872,
+							facing = 0,
 						},
 					}
 				},
