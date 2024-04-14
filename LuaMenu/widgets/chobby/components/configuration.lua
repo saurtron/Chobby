@@ -838,7 +838,7 @@ function Configuration:ImageFileExists(filePath)
 end
 
 function Configuration:GetMinimapSmallImage(mapName)
-	mapName = string.gsub(mapName, " ", "_")
+	mapName = string.gsub(mapName, "[^a-zA-Z0-9%-%(%)%.]", "_")
 
 	local filePath = self.gameConfig.minimapThumbnailPath .. mapName .. ".png"
 	if self:ImageFileExists(filePath) then
@@ -863,7 +863,7 @@ function Configuration:GetMinimapImage(mapName)
 	if not self.gameConfig.minimapOverridePath then
 		return LUA_DIRNAME .. "images/minimapNotFound1.png"
 	end
-	mapName = string.gsub(mapName, " ", "_")
+	mapName = string.gsub(mapName, "[^a-zA-Z0-9%-%(%)%.]", "_")
 	local filePath = self.gameConfig.minimapOverridePath .. mapName .. ".jpg"
 	if not self:ImageFileExists(filePath) then
 		filePath = "LuaMenu/Images/Minimaps/" .. mapName .. ".jpg"
