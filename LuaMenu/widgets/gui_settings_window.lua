@@ -206,7 +206,6 @@ local function SetLobbyFullscreenMode(mode, borderOverride)
 	end
 
 	local Configuration = WG.Chobby.Configuration
-	local needAgressiveSetting = (mode ~= 2) and (currentMode ~= 2)
 
 	if (currentMode == 2 or not currentMode) and lobbyFullscreen == 2 then
 		SaveWindowPos()
@@ -309,13 +308,6 @@ local function SetLobbyFullscreenMode(mode, borderOverride)
 	if delayedModeSet == mode and delayedBorderOverride then
 		delayedModeSet = nil
 		delayedBorderOverride = nil
-	elseif needAgressiveSetting then
-		delayedModeSet = mode
-		delayedBorderOverride = borderOverride
-		currentMode = 2
-		Spring.SetConfigInt("WindowBorderless", 0, false)
-		Spring.SetConfigInt("Fullscreen", 0)
-		WG.Delay(SetLobbyFullscreenMode, 0.8)
 	end
 end
 
