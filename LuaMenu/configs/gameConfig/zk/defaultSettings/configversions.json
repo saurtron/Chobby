@@ -3246,14 +3246,6 @@
          "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/discord/64bit/libdiscord-rpc.so",
          "TargetPath":"libdiscord-rpc.so"
       },
-
-      {
-         "Platform":null,
-         "VersionNumber":1,
-         "SourcePath":"LuaMenu/configs/gameConfig/zk/defaultSettings/sqlite3.dll",
-         "TargetPath":"sqlite3.dll"
-      },
-      
       {
          "Platform":null,
          "VersionNumber":1,
