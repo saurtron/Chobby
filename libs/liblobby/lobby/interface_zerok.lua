@@ -202,7 +202,8 @@ end
 -- Split handling
 ------------------------
 
-local SPLIT_AT_WAITING = 8
+local SPLIT_MULTIPLIER = 1.4
+local SPLIT_TO_PLAYER_MULT = 0.25
 local LOWER_RATING_PROP = 0.6
 local SPLIT_SEP = "ƒ"
 local SPLIT_TEST_MODE = false
@@ -310,7 +311,7 @@ function Interface:SendSplit(message)
 		return true
 	end
 	
-	local playerRequirement = myBattle.maxPlayers + SPLIT_AT_WAITING
+	local playerRequirement = math.max(myBattle.maxPlayers + 4, math.floor((myBattle.maxPlayers * SPLIT_MULTIPLIER) / 4 + 0.00001) * 4)
 	if moderatorMode then
 		playerRequirement = myBattle.maxPlayers - 2 -- Experiment?
 	end
@@ -362,8 +363,7 @@ function Interface:SendSplit(message)
 	local bestPlayerCount = false
 	for battleID, battleData in pairs(self.battles) do
 		if not battleData.isRunning and
-				battleData.maxPlayers == 32 and
-				battleData.playerCount < SPLIT_AT_WAITING and
+				battleData.playerCount < battleData.maxPlayers * SPLIT_TO_PLAYER_MULT and
 				((not bestPlayerCount) or battleData.playerCount < bestPlayerCount) and
 				IsSplitRoom(battleData) then
 			targetBattleID = battleID
