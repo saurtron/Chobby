@@ -36,7 +36,7 @@ function Configuration:init()
 	self.statusMaxNameLength = 185
 	self.friendMaxNameLength = 290
 	self.notificationMaxNameLength = 230
-	self.steamOverlayEnablable = (Platform.osFamily ~= "Linux" and Platform.osFamily ~= "FreeBSD")
+	self.steamOverlayEnablable = true
 	self.useChatTabBadges = false
 
 	self.userName = false
