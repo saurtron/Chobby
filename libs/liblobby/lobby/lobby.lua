@@ -294,26 +294,22 @@ function Lobby:ConnectToBattle(useSpringRestart, battleIp, battlePort, clientPor
 
 	self:_CallListeners("OnBattleAboutToStart", battleType, isSpectator)
 
-	local function DelayedStart()
-		Spring.Echo("Game starts!")
-		if useSpringRestart then
-			local springURL = "spring://" .. self:GetMyUserName() .. ":" .. scriptPassword .. "@" .. battleIp .. ":" .. battlePort
-			Spring.Echo(springURL)
-			Spring.Restart(springURL, "")
-		else
-			local scriptTxt = GenerateScriptTxt(battleIp, battlePort, clientPort, scriptPassword, myName)
+	Spring.Echo("Game starts!")
+	if useSpringRestart then
+		local springURL = "spring://" .. self:GetMyUserName() .. ":" .. scriptPassword .. "@" .. battleIp .. ":" .. battlePort
+		Spring.Echo(springURL)
+		Spring.Restart(springURL, "")
+	else
+		local scriptTxt = GenerateScriptTxt(battleIp, battlePort, clientPort, scriptPassword, myName)
 
-			Spring.Echo(scriptTxt)
-			--local scriptFileName = "scriptFile.txt"
-			--local scriptFile = io.open(scriptFileName, "w")
-			--scriptFile:write(scriptTxt)
-			--scriptFile:close()
+		Spring.Echo(scriptTxt)
+		--local scriptFileName = "scriptFile.txt"
+		--local scriptFile = io.open(scriptFileName, "w")
+		--scriptFile:write(scriptTxt)
+		--scriptFile:close()
 
-			Spring.Reload(scriptTxt)
-		end
+		Spring.Reload(scriptTxt)
 	end
-	
-	WG.Delay(DelayedStart, 0.5)
 end
 
 function Lobby:VoteYes()
