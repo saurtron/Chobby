@@ -176,7 +176,7 @@ function SteamHandler.OpenFriendList()
 		WG.WrapperLoopback.SteamOpenOverlaySection("LobbyInvite")
 		local function EnableFallback()
 			if not overlayActive then
-				WG.Chobby.InformationPopup("Your Steam overaly seems to be disabled. Invite friends using the friends list in the Steam app, or enable the overlay for Zero-K.", {width = 380, height = 220})
+				WG.Chobby.InformationPopup("Your Steam overlay seems to be disabled. Invite friends using the friends list in the Steam app, or enable the overlay for Zero-K.", {width = 380, height = 220})
 			end
 		end
 		WG.Delay(EnableFallback, 0.5)
