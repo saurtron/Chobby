@@ -515,6 +515,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 		if newHaveGame then
 			imHaveGame.file = IMG_READY
 			lblHaveGame:SetCaption(i18n("have_game"))
+			WG.ModoptionsPanel.LoadModoptions(battle.gameName, battleLobby)
 		else
 			imHaveGame.file = IMG_UNREADY
 			lblHaveGame:SetCaption(i18n("dont_have_game"))
@@ -583,6 +584,7 @@ local function SetupInfoButtonsPanel(leftInfo, rightInfo, battle, battleID, myUs
 			lblGame:SetCaption(battleInfo.gameName)
 			UpdateArchiveStatus(true)
 			MaybeDownloadGame(battle)
+			WG.ModoptionsPanel.LoadModoptions(battleInfo.gameName, battleLobby)
 		end
 
 		if (battleInfo.mapName and not VFS.HasArchive(battleInfo.mapName)) or (battleInfo.gameName and not HasGame(battleInfo.gameName)) then

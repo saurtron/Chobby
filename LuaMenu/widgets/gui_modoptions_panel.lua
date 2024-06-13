@@ -20,6 +20,7 @@ local modoptionStructure = {}
 local battleLobby
 local localModoptions = {}
 local modoptionControlNames = {}
+local modoptionsCache = {}
 
 local hostedModeName
 local wantedGameResponse = false
@@ -703,7 +704,10 @@ local ModoptionsPanel = {}
 function ModoptionsPanel.LoadModoptions(gameName, newBattleLobby)
 	battleLobby = newBattleLobby
 
-	modoptions = WG.Chobby.Configuration.gameConfig.defaultModoptions
+	if not modoptionsCache[gameName] then
+		modoptionsCache[gameName] = WG.Chobby.Configuration:GetModoptions(gameName)
+	end
+	modoptions = modoptionsCache[gameName] or WG.Chobby.Configuration.gameConfig.defaultModoptions
 	modoptionDefaults = {}
 	modoptionStructure = {
 		sectionTitles = {},

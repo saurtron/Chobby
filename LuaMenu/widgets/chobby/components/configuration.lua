@@ -879,6 +879,29 @@ function Configuration:GetMinimapImage(mapName)
 	return filePath
 end
 
+function Configuration:GetModoptions(gameName)
+	if not (gameName and VFS.HasArchive(gameName)) then
+		Spring.Log(LOG_SECTION, LOG.ERROR, "Missing game archive, cannot fetch modoptions")
+		return false
+	end
+
+	local function ReadModoptions()
+		return VFS.Include("modoptions.lua", nil, VFS.ZIP)
+	end
+
+	local alreadyLoaded = false
+	for _, archive in pairs(VFS.GetLoadedArchives()) do
+		if archive == gameName then
+			alreadyLoaded = true
+			break
+		end
+	end
+	if alreadyLoaded then
+		return VFS.Include("modoptions.lua", nil, VFS.ZIP)
+	end
+	return VFS.UseArchive(gameName, ReadModoptions)
+end
+
 function Configuration:GetLoadingImage(size)
 	if size == 1 then
 		return LUA_DIRNAME .. "images/load_img_32.png"
