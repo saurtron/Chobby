@@ -42,6 +42,8 @@ local function UpdateControlValue(key, value)
 		elseif control.SetToggle then -- checkbox
 			control:SetToggle(value == true or value == 1 or value == "1")
 		end
+	else
+		localModoptions[key] = value
 	end
 end
 
