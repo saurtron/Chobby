@@ -21,6 +21,7 @@ local battleLobby
 local localModoptions = {}
 local modoptionControlNames = {}
 local modoptionsCache = {}
+local currentGameName = false
 
 local hostedModeName
 local wantedGameResponse = false
@@ -704,10 +705,26 @@ local ModoptionsPanel = {}
 function ModoptionsPanel.LoadModoptions(gameName, newBattleLobby)
 	battleLobby = newBattleLobby
 
-	if not modoptionsCache[gameName] then
-		modoptionsCache[gameName] = WG.Chobby.Configuration:GetModoptions(gameName)
+	local subName = string.sub(gameName, 1, 8)
+	if subName == "Zero-K v" or subName == "Zero-K $" then
+		gameName = "ZK Default"
 	end
-	modoptions = modoptionsCache[gameName] or WG.Chobby.Configuration.gameConfig.defaultModoptions
+	if gameName == currentGameName then
+		return
+	end
+	currentGameName = gameName
+
+	if not modoptionsCache[gameName] then
+		if gameName == "ZK Default" then
+			-- Don't make the functioning of the base game depend on the VFS within
+			-- GetModoptions working correctly.
+			modoptionsCache[gameName] = WG.Chobby.Configuration.gameConfig.defaultModoptions
+		else
+			modoptionsCache[gameName] = WG.Chobby.Configuration:GetModoptions(gameName)
+		end
+	end
+
+	modoptions = modoptionsCache[gameName] or {}
 	modoptionDefaults = {}
 	modoptionStructure = {
 		sectionTitles = {},
