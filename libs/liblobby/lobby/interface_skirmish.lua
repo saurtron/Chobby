@@ -285,7 +285,12 @@ function InterfaceSkirmish:_StartScript(gameName, mapName, playerName, friendLis
 		self.startAllowed = true
 	end
 	WG.Delay(ResetAllowStart, 3)
-	Spring.Reload(scriptTxt)
+	
+	local function DelayedStart()
+		Spring.Reload(scriptTxt)
+	end
+	WG.Delay(DelayedStart, 0.4)
+
 	self.startAllowed = false
 end
 
@@ -326,7 +331,12 @@ function InterfaceSkirmish:StartReplay(replayFilename, myName, hostPort)
 		self.startAllowed = true
 	end
 	WG.Delay(ResetAllowStart, 3)
-	Spring.Reload(scriptTxt)
+	
+	local function DelayedStart()
+		Spring.Reload(scriptTxt)
+	end
+	WG.Delay(DelayedStart, 0.4)
+	
 	self.startAllowed = false
 	return false
 end
@@ -372,7 +382,11 @@ function InterfaceSkirmish:StartGameFromLuaScript(gameType, scriptTable, friendL
 		self.startAllowed = true
 	end
 	WG.Delay(ResetAllowStart, 3)
-	Spring.Reload(scriptTxt)
+	
+	local function DelayedStart()
+		Spring.Reload(scriptTxt)
+	end
+	WG.Delay(DelayedStart, 0.4)
 	self.startAllowed = false
 end
 
@@ -386,7 +400,11 @@ function InterfaceSkirmish:StartGameFromString(scriptString, gameType)
 		self.startAllowed = true
 	end
 	WG.Delay(ResetAllowStart, 3)
-	Spring.Reload(scriptString)
+	
+	local function DelayedStart()
+		Spring.Reload(scriptString)
+	end
+	WG.Delay(DelayedStart, 0.4)
 	self.startAllowed = false
 	return false
 end
