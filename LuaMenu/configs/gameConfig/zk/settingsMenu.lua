@@ -260,41 +260,6 @@ local settingsConfig = {
 				size = 2,
 			},
 			{
-				name = "AtiIntelCompatibility_2",
-				humanName = "ATI/Intel Compatibility",
-				options = {
-					{
-						name = "On",
-						applyFunction = function(_, conf)
-							conf:UpdateFixedSettings(conf.AtiIntelSettingsOverride)
-							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Enabled")
-							return
-						end
-					},
-					{
-						name = "Automatic",
-						applyFunction = function(_, conf)
-							if conf:GetIsNotRunningNvidia() then
-								conf:UpdateFixedSettings(conf.AtiIntelSettingsOverride)
-								Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Enabled (Automatic)")
-								return
-							end
-							conf:UpdateFixedSettings()
-							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Disabled (Automatic)")
-							return
-						end
-					},
-					{
-						name = "Off",
-						applyFunction = function(_, conf)
-							conf:UpdateFixedSettings()
-							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Disabled")
-							return
-						end
-					},
-				},
-			},
-			{
 				name = "AntiAliasing",
 				humanName = "Anti Aliasing",
 				options = {
@@ -1317,6 +1282,41 @@ local settingsConfig = {
 						apply = {
 							LuaGarbageCollectionRunTimeMult = 5,
 						}
+					},
+				},
+			},
+			{
+				name = "AtiIntelCompatibility_2",
+				humanName = "ATI/Intel Compatibility",
+				options = {
+					{
+						name = "On",
+						applyFunction = function(_, conf)
+							conf:UpdateFixedSettings(conf.AtiIntelSettingsOverride)
+							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Enabled")
+							return
+						end
+					},
+					{
+						name = "Automatic",
+						applyFunction = function(_, conf)
+							if conf:GetIsNotRunningNvidia() then
+								conf:UpdateFixedSettings(conf.AtiIntelSettingsOverride)
+								Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Enabled (Automatic)")
+								return
+							end
+							conf:UpdateFixedSettings()
+							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Disabled (Automatic)")
+							return
+						end
+					},
+					{
+						name = "Off",
+						applyFunction = function(_, conf)
+							conf:UpdateFixedSettings()
+							Spring.Echo("Set ATI/intel/other non-nvidia compatibility state: Disabled")
+							return
+						end
 					},
 				},
 			},
