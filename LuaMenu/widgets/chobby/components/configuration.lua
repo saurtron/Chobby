@@ -294,7 +294,7 @@ function Configuration:init()
 	self.AtiIntelSettingsOverride = {
 		AdvSky = 0,
 		UsePBO = 0,
-		VSync = -1,
+		VSync = 1,
 	}
 
 	self.countryShortnames = VFS.Include(LUA_DIRNAME .. "configs/countryShortname.lua")
