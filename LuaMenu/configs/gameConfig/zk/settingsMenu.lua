@@ -429,6 +429,30 @@ local settingsConfig = {
 				},
 			},
 			{
+				name = "VSync",
+				humanName = "Frame Rate Limit (vsync)",
+				options = {
+					{
+						name = "Standard",
+						apply = {
+							VSync = 1,
+						}
+					},
+					{
+						name = "Adaptive",
+						apply = {
+							VSync = -1,
+						}
+					},
+					{
+						name = "Off",
+						apply = {
+							VSync = 0,
+						}
+					},
+				},
+			},
+			{
 				name = "ParticleLimit",
 				humanName = "Particle Limit",
 				options = {
@@ -797,30 +821,6 @@ local settingsConfig = {
 						apply = {
 							TreeRadius = 2500,
 							GrassDetail = 0,
-						}
-					},
-				},
-			},
-			{
-				name = "VSync",
-				humanName = "Vertical Sync",
-				options = {
-					{
-						name = "Standard",
-						apply = {
-							VSync = 1,
-						}
-					},
-					{
-						name = "Adaptive",
-						apply = {
-							VSync = -1,
-						}
-					},
-					{
-						name = "Off",
-						apply = {
-							VSync = 0,
 						}
 					},
 				},
