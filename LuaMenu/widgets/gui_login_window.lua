@@ -166,7 +166,11 @@ local function InitializeListeners()
 		lobby:Disconnect()
 		if currentLoginWindow and not registerRecieved then
 			if err == "Banned" and extendedReason then
-				currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. "Banned - End time is in UTC. " .. extendedReason)
+				if extendedReason == "Connection using proxy or VPN is not allowed! (You can ask for exception)" then
+					currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. extendedReason)
+				else
+					currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. "Banned - End time is in UTC. " .. extendedReason)
+				end
 				currentLoginWindow:ResizeWindow()
 			else
 				currentLoginWindow.txtError:SetText(Configuration:GetErrorColor() .. (err or "Denied, unknown reason"))
