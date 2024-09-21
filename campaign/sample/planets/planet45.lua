@@ -46,7 +46,7 @@ local function GetPlanet(planetUtilities, planetID)
 			},
 		},
 		gameConfig = {
-			mapName = "Hide_and_Seek_v03",
+			mapName = "Hide and Seek 2.2.3",
 			playerConfig = {
 				startX = 4250,
 				startZ = 5450,
