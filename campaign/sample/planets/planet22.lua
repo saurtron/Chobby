@@ -33,11 +33,11 @@ local function GetPlanet(planetUtilities, planetID)
 		tips = {
 			{
 				image = "unitpics/amphfloater.png",
-				text = [[Amphibious units walk on the land beneath the water, and regenerate HP while underwater. Buoys surface to fire their disruption cannon.]]
+				text = [[Amphibious units walk on the land beneath the water, and regenerate HP while in the water. Buoys surface to fire their disruption cannon.]]
 			},
 			{
 				image = "unitpics/amphimpulse.png",
-				text = [[Archers fire sonic blasts which push enemy units away. If a non-amphibious unit is pushed into water it will become helpless - keep this in mind!]]
+				text = [[Archers fire sonic blasts that deal damage in an area and push units away. If a non-amphibious unit is pushed into water it will become helpless - keep this in mind!]]
 			},
 			{
 				image = "unitpics/amphbomb.png",
