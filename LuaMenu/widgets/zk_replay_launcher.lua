@@ -86,10 +86,13 @@ end
 
 -- initiates a connection to host:port, returns true on success
 local function SocketConnect(host, port)
+	if client then
+		client:close()
+	end
 	client=socket.tcp()
 	client:settimeout(0)
 	res, err = client:connect(host, port)
-	if not res and not res=="timeout" then
+	if not res and err ~= "timeout" then
 		--Echo("Error in connect: "..err)
 		return false
 	end
